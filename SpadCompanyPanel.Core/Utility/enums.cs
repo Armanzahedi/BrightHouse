@@ -35,6 +35,8 @@ namespace SpadCompanyPanel.Core.Utility
 
     public enum StaticContentDetails
     {
+        AboutUs = 1012,
+        AboutUsEnglish = 3028,
         AboutUsItem1 = 3020,
         AboutUsItem2 = 3021,
         AboutUsItem3 = 3022,

@@ -25,19 +25,16 @@ namespace SpadCompanyPanel.Infrastructure.Services
 
         public AboutUsDto GetAboutUsContext()
         {
-
-            var aboutUs = _context.StaticContentDetails
-                .Where(w => w.StaticContentTypeId == (_currentLang == (int)Language.Farsi ? (int)StaticContentTypes.AboutUs : (int)StaticContentTypes.AboutUsEnglish) && !w.IsDeleted).FirstOrDefault() ?? new Core.Models.StaticContentDetail();
-
-            var phone = _context.StaticContentDetails.Where(w => w.StaticContentTypeId == (int)StaticContentTypes.Phone && !w.IsDeleted).Select(s => s.Title).FirstOrDefault();
+            var phone = _context.StaticContentDetails.Where(w => w.Id == (int)StaticContents.Phone && !w.IsDeleted).Select(s => s.ShortDescription).FirstOrDefault();
 
             var items = _context.StaticContentDetails
                 .Where(w => w.StaticContentTypeId == (_currentLang == (int)Language.Farsi ? (int)StaticContentTypes.AboutUs : (int)StaticContentTypes.AboutUsEnglish) && !w.IsDeleted).ToList();
 
-            var item1 = items.FirstOrDefault(p => p.Id == (int)StaticContentDetails.AboutUsItem1) ?? new StaticContentDetail();
-            var item2 = items.FirstOrDefault(p => p.Id == (int)StaticContentDetails.AboutUsItem2) ?? new StaticContentDetail();
-            var item3 = items.FirstOrDefault(p => p.Id == (int)StaticContentDetails.AboutUsItem3) ?? new StaticContentDetail();
-            var item4 = items.FirstOrDefault(p => p.Id == (int)StaticContentDetails.AboutUsItem4) ?? new StaticContentDetail();
+            var aboutUs = items.FirstOrDefault(p => p.Id == (_currentLang == (int)Language.Farsi ? (int)StaticContentDetails.AboutUs : (int)StaticContentDetails.AboutUsEnglish)) ?? new StaticContentDetail();
+            var item1 = items.FirstOrDefault(p => p.Id == (_currentLang == (int)Language.Farsi ? (int)StaticContentDetails.AboutUsItem1 : (int)StaticContentDetails.AboutUsItemEnglish1)) ?? new StaticContentDetail();
+            var item2 = items.FirstOrDefault(p => p.Id == (_currentLang == (int)Language.Farsi ? (int)StaticContentDetails.AboutUsItem2 : (int)StaticContentDetails.AboutUsItemEnglish2)) ?? new StaticContentDetail();
+            var item3 = items.FirstOrDefault(p => p.Id == (_currentLang == (int)Language.Farsi ? (int)StaticContentDetails.AboutUsItem3 : (int)StaticContentDetails.AboutUsItemEnglish3)) ?? new StaticContentDetail();
+            var item4 = items.FirstOrDefault(p => p.Id == (_currentLang == (int)Language.Farsi ? (int)StaticContentDetails.AboutUsItem4 : (int)StaticContentDetails.AboutUsItemEnglish4)) ?? new StaticContentDetail();
 
             return new AboutUsDto
             {
