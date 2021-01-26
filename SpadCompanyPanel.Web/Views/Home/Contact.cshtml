@@ -25,32 +25,23 @@
                         <ul class="contact-info">
                             <li>
                                 <span class="icon fa fa-map-marker-alt"></span>
-                                <p>تهران </p>
+                                <p>@Model.Address.ShortDescription </p>
                             </li>
 
                             <li>
                                 <span class="icon fa fa-phone-volume"></span>
-                                <p><a href="tel:+02100000000">02100000000</a></p>
+                                <p><a href="tel:@Model.Phone.ShortDescription">@Model.Phone.ShortDescription</a></p>
                             </li>
 
                             <li>
                                 <span class="icon fa fa-envelope"></span>
-                                <p><a href="mailto:info@revel.com">info@gmail.com</a></p>
-                            </li>
-
-                            <li>
-                                <span class="icon fab fa-skype"></span>
-                                <p>test</p>
+                                <p><a href="#">@Model.Email.ShortDescription</a></p>
                             </li>
                         </ul>
-
                         <ul class="social-icon-four">
                             <li class="title">ما را دنبال کنید :</li>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                            <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a href="http://@Model.Facebook.Link"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="http://@Model.Instagram.Link"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -93,7 +84,6 @@
     </div>
 </section>
 <!--End Contact Page Section -->
-
 <!--Clients Section-->
 <section class="clients-section">
     <div class="auto-container">

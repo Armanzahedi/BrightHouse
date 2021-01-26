@@ -16,7 +16,6 @@ namespace SpadCompanyPanel.Core.Utility
         TurkeyResidence = 1006,
         UaeResidence = 1007,
         EuropeResidence = 1008,
-        Phone = 1002,
     }
     public enum StaticContents
     {

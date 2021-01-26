@@ -1,0 +1,118 @@
+﻿@model SpadCompanyPanel.Core.Models.News
+
+@{
+    ViewBag.Title = "مطالب";
+}
+<input type="hidden" id="nav_active" value="News_control">
+<input type="hidden" id="nav_item_active" value="News">
+@{
+    if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">
+            <strong>خطا!</strong> @ViewBag.Message
+        </div>
+    }
+}
+<div class="col-lg-12y">
+    <div class="card card-custom gutter-b">
+        <div class="card-header">
+            <h3 class="card-title">
+                ویرایش خبر
+            </h3>
+        </div>
+        @using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="card-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.AddedDate)
+            @Html.HiddenFor(model => model.UserId)
+            @Html.HiddenFor(model => model.ViewCount)
+            @Html.HiddenFor(model => model.Image)
+            @Html.HiddenFor(model => model.InsertDate)
+            @Html.HiddenFor(model => model.InsertUser)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, new { })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "form-text text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EnglishTitle, new { })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.EnglishTitle, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.EnglishTitle, "", new { @class = "form-text text-danger" })
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-label">تصویر</label>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="image-input image-input-outline" id="News-image">
+                        <div class="image-input-wrapper" style="background-image: url(/Files/NewsImages/Thumb/@Model.Image)"></div>
+
+                        <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="آپلود تصویر">
+                            <i class="fa fa-pen icon-sm text-muted"></i>
+                            <input type="file" name="NewsImage" accept=".png, .jpg, .jpeg" />
+                            <input type="hidden" name="News_image_remove" />
+                        </label>
+
+                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="حذف تصویر">
+                            <i class="ki ki-bold-close icon-xs text-muted"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ShortDescription, new { })
+                @Html.EditorFor(model => model.ShortDescription, new { htmlAttributes = new { @class = "form-control " } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "form-text text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EnglishShortDescription, new { })
+                @Html.EditorFor(model => model.EnglishShortDescription, new { htmlAttributes = new { @class = "form-control " } })
+                @Html.ValidationMessageFor(model => model.EnglishShortDescription, "", new { @class = "form-text text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, new { })
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control " } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "form-text text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.EnglishDescription, new { })
+                @Html.EditorFor(model => model.EnglishDescription, new { htmlAttributes = new { @class = "form-control " } })
+                @Html.ValidationMessageFor(model => model.EnglishDescription, "", new { @class = "form-text text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="NewsTags">برچسب ها</label>
+                <input type="text" name="Tags" id="Tags" value="@ViewBag.Tags" placeholder="لطفا برچسب ها را با - از هم جدا کنید" class="form-control" />
+            </div>
+        </div>
+            <div class="card-footer">
+                <a href="@Url.Action("Index")" class="btn btn-secondary">انصراف</a>
+                <input type="submit" value="ثبت" class="btn btn-primary mr-2" />
+            </div>
+        }
+    </div>
+</div>
+<style>
+    .image-input .image-input-wrapper {
+        width: 200px;
+    }
+</style>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script src="/ckeditor/adapters/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#Description').ckeditor();
+            $('#EnglishDescription').ckeditor();
+
+        });
+        var avatar1 = new KTImageInput('News-image');
+    </script>
+}
