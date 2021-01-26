@@ -1,0 +1,16 @@
+﻿@model List<SpadCompanyPanel.Web.ViewModels.ArticleCategoriesViewModel>
+<div class="main-box padding-20 برترین-blog-cat mb-xl-20">
+    <h4 class="text-light-black">دسته بندی</h4>
+    <ul>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+        <li class="@(i < Model.Count-1 ? "pb-xl-20 mb-xl-20 u-line": "")">
+            <a href="/Blog/@Model[i].Id/@Model[i].Title.Replace(" ","-")"
+               class="text-light-black fw-600">
+                @Model[i].Title<span class="text-light-white fw-400">(@Model[i].ArticleCount)</span>
+            </a>
+        </li>
+        }
+    </ul>
+</div>
+

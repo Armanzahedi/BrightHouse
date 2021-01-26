@@ -1,0 +1,26 @@
+﻿@model List<SpadCompanyPanel.Core.Models.OurTeam>
+<section class="feedback-area-two section-padding">
+    <div class="container">
+        <div class="section-header-style-2">
+            <h3 class="text-custom-white header-title">معرفی مدیران مجموعه جوجه طلایی</h3>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-sm-6">
+                    <a href="/OurTeam">
+
+                    <div class="single-team">
+                        <div class="img-wrapper"><img src="/Files/OurTeamImages/@item.Image" alt="@item.Title"></div>
+                        <div class="txt">
+                            <h5>@item.Title</h5>
+                            <span>@item.Role</span>
+                        </div>
+                    </div>
+                    </a>
+
+                </div>
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,620 @@
+﻿@using Microsoft.AspNet.Identity
+@using SpadCompanyPanel.Infrastructure.Helpers
+@{
+    SpadCompanyPanel.Infrastructure.Helpers.CheckPermission.CheckUserPermission();
+}
+<!DOCTYPE html>
+<html lang="en" direction="rtl" dir="rtl" style="direction: rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/Content/logo.png">
+    <title>@ViewBag.Title - BrightHouse</title>
+    @*@Styles.Render("~/Content/css")*@
+    @*@Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")*@
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    <!--begin::Page Vendors Styles(used by this page)-->
+    <link href="~/Content/admin/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css"
+          rel="stylesheet"
+          type="text/css" />
+    <!--end::Page Vendors Styles-->
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="~/Content/admin/plugins/global/plugins.bundle.rtl.css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="~/Content/admin/plugins/custom/prismjs/prismjs.bundle.rtl.css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="~/Content/admin/css/style.bundle.rtl.css"
+          rel="stylesheet"
+          type="text/css" />
+    <!--end::Global Theme Styles-->
+    <!--begin::Layout Themes(used by all pages)-->
+
+    <link href="~/Content/admin/css/themes/layout/header/base/light.rtl.css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="~/Content/admin/css/themes/layout/header/menu/light.rtl.css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="~/Content/admin/css/themes/layout/brand/dark.rtl.css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="~/Content/admin/css/themes/layout/aside/dark.rtl.css"
+          rel="stylesheet"
+          type="text/css" />
+    <!--end::Layout Themes-->
+    <script src="~/Content/admin/plugins/global/plugins.bundle.js"></script>
+    <script src="~/Content/admin/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="~/Content/admin/js/scripts.bundle.js"></script>
+    <script src="~/Content/admin/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <script src="~/Content/admin/js/pages/widgets.js"></script>
+
+    <!--This bundle was moved by the Telerik VS Extensions for compatibility reasons-->
+    <link href="@Url.Content("~/Content/kendo/2020.1.114/kendo.common-nova.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2020.1.114/kendo.material.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2020.1.114/kendo.rtl.min.css")" rel="stylesheet" type="text/css" />
+    <link href="~/Content/admin/myStyle.css" rel="stylesheet" />
+
+    <script src="@Url.Content("~/Scripts/kendo/2020.1.114/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2020.1.114/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2020.1.114/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    <!-- My css -->
+</head>
+<body id="kt_body"
+      class="header-fixed header-mobile-fixed aside-enabled aside-fixed aside-minimize-hoverable">
+    <!--begin::Main-->
+    <!--begin::Header Mobile-->
+    <div id="kt_header_mobile"
+         class="header-mobile align-items-center header-mobile-fixed">
+        <!--begin::Logo-->
+        <a href="/Admin/Dashboard">
+            <img alt="Logo" src="~/Content/logo.png" width="65" />
+        </a>
+        <!--end::Logo-->
+        <!--begin::Toolbar-->
+        <div class="d-flex align-items-center">
+            <!--begin::Aside Mobile Toggle-->
+            <button class="btn p-0 burger-icon burger-icon-left"
+                    id="kt_aside_mobile_toggle">
+                <span></span>
+            </button>
+            <!--end::Aside Mobile Toggle-->
+            <!--begin::Topbar Mobile Toggle-->
+            <button class="btn btn-hover-text-primary p-0 ml-2"
+                    id="kt_header_mobile_topbar_toggle">
+                <span class="svg-icon svg-icon-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                         width="24px"
+                         height="24px"
+                         viewBox="0 0 24 24"
+                         version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <polygon points="0 0 24 0 24 24 0 24" />
+                            <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                                  fill="#000000"
+                                  fill-rule="nonzero"
+                                  opacity="0.3" />
+                            <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                                  fill="#000000"
+                                  fill-rule="nonzero" />
+                        </g>
+                    </svg><!--end::Svg Icon-->
+                </span>
+            </button>
+            <!--end::Topbar Mobile Toggle-->
+        </div>
+        <!--end::Toolbar-->
+    </div>
+    <!--end::Header Mobile-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="d-flex flex-row flex-column-fluid page">
+            <!--begin::Aside-->
+            <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto"
+                 id="kt_aside">
+                <!--begin::Brand-->
+                <div class="brand flex-column-auto" id="kt_brand">
+                    <!--begin::Logo-->
+                    <a href="/Admin/Dashboard" class="brand-logo">
+                        <img alt="Logo" src="~/Content/logo.png" width="80" />
+                    </a>
+                    <!--end::Logo-->
+                    <!--begin::Toggle-->
+                    <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
+                        <span class="svg-icon svg-icon svg-icon-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="24px"
+                                 height="24px"
+                                 viewBox="0 0 24 24"
+                                 version="1.1">
+                                <g stroke="none"
+                                   stroke-width="1"
+                                   fill="none"
+                                   fill-rule="evenodd">
+                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                    <path d="M5.29288961,6.70710318 C4.90236532,6.31657888 4.90236532,5.68341391 5.29288961,5.29288961 C5.68341391,4.90236532 6.31657888,4.90236532 6.70710318,5.29288961 L12.7071032,11.2928896 C13.0856821,11.6714686 13.0989277,12.281055 12.7371505,12.675721 L7.23715054,18.675721 C6.86395813,19.08284 6.23139076,19.1103429 5.82427177,18.7371505 C5.41715278,18.3639581 5.38964985,17.7313908 5.76284226,17.3242718 L10.6158586,12.0300721 L5.29288961,6.70710318 Z"
+                                          fill="#000000"
+                                          fill-rule="nonzero"
+                                          transform="translate(8.999997, 11.999999) scale(-1, 1) translate(-8.999997, -11.999999) " />
+                                    <path d="M10.7071009,15.7071068 C10.3165766,16.0976311 9.68341162,16.0976311 9.29288733,15.7071068 C8.90236304,15.3165825 8.90236304,14.6834175 9.29288733,14.2928932 L15.2928873,8.29289322 C15.6714663,7.91431428 16.2810527,7.90106866 16.6757187,8.26284586 L22.6757187,13.7628459 C23.0828377,14.1360383 23.1103407,14.7686056 22.7371482,15.1757246 C22.3639558,15.5828436 21.7313885,15.6103465 21.3242695,15.2371541 L16.0300699,10.3841378 L10.7071009,15.7071068 Z"
+                                          fill="#000000"
+                                          fill-rule="nonzero"
+                                          opacity="0.3"
+                                          transform="translate(15.999997, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-15.999997, -11.999999) " />
+                                </g>
+                            </svg><!--end::Svg Icon-->
+                        </span>
+                    </button>
+                    <!--end::Toolbar-->
+                </div>
+                <!--end::Brand-->
+                <!--begin::Aside Menu-->
+                <div class="aside-menu-wrapper flex-column-fluid"
+                     id="kt_aside_menu_wrapper">
+                    <!--begin::Menu Container-->
+                    <div id="kt_aside_menu"
+                         class="aside-menu my-4"
+                         data-menu-vertical="1"
+                         data-menu-scroll="1"
+                         data-menu-dropdown-timeout="500">
+                        <!--begin::Menu Nav-->
+                        <ul class="menu-nav">
+                            <li class="menu-item" id="nav_dashboard" aria-haspopup="true">
+                                <a href="/Admin/Dashboard" class="menu-link">
+                                    <span class="svg-icon menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             width="24px"
+                                             height="24px"
+                                             viewBox="0 0 24 24"
+                                             version="1.1">
+                                            <g stroke="none"
+                                               stroke-width="1"
+                                               fill="none"
+                                               fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24" />
+                                                <path d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z"
+                                                      fill="#000000"
+                                                      fill-rule="nonzero" />
+                                                <path d="M11.0563554,18.6706981 L5.33593024,14.122919 C4.94553994,13.8125559 4.37746707,13.8774308 4.06710397,14.2678211 C4.06471678,14.2708238 4.06234874,14.2738418 4.06,14.2768747 L4.06,14.2768747 C3.75257288,14.6738539 3.82516916,15.244888 4.22214834,15.5523151 C4.22358765,15.5534297 4.2250303,15.55454 4.22647627,15.555646 L11.0872776,20.8031356 C11.6250734,21.2144692 12.371757,21.2145375 12.909628,20.8033023 L19.7677785,15.559828 C20.1693192,15.2528257 20.2459576,14.6784381 19.9389553,14.2768974 C19.9376429,14.2751809 19.9363245,14.2734691 19.935,14.2717619 L19.935,14.2717619 C19.6266937,13.8743807 19.0546209,13.8021712 18.6572397,14.1104775 C18.654352,14.112718 18.6514778,14.1149757 18.6486172,14.1172508 L12.9235044,18.6705218 C12.377022,19.1051477 11.6029199,19.1052208 11.0563554,18.6706981 Z"
+                                                      fill="#000000"
+                                                      opacity="0.3" />
+                                            </g>
+                                        </svg><!--end::Svg Icon-->
+                                    </span><span class="menu-text">داشبورد</span>
+                                </a>
+                            </li>
+                            <li class="menu-section">
+                                <h4 class="menu-text">دسته بندی</h4>
+                                <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+                            </li>
+                            <li class="menu-item menu-item-submenu"
+                                id="nav_article_control"
+                                aria-haspopup="true"
+                                data-menu-toggle="hover">
+                                <a href="javascript:;" class="menu-link menu-toggle">
+                                    <span class="svg-icon menu-icon">
+                                        <svg>
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) " />
+                                                <rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1" />
+                                            </g>
+                                        </svg><!--end::Svg Icon-->
+                                    </span><span class="menu-text">مدیریت مطالب</span><i class="menu-arrow"></i>
+                                </a>
+                                <div class="menu-submenu" id="subnav_article_control">
+                                    <i class="menu-arrow"></i>
+                                    <ul class="menu-subnav">
+                                        <li class="menu-item" id="nav_item_article_categories" aria-haspopup="true">
+                                            <a href="/Admin/ArticleCategories"
+                                               class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">دسته بندی</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item" id="nav_item_articles" aria-haspopup="true">
+                                            <a href="/Admin/Articles" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">مطالب</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item menu-item-submenu"
+                                id="nav_realstate_control"
+                                aria-haspopup="true"
+                                data-menu-toggle="hover">
+                                <a href="javascript:;" class="menu-link menu-toggle">
+                                    <span class="svg-icon menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z" fill="#000000" />
+                                            </g>
+                                        </svg>
+                                    </span><span class="menu-text">مدیریت املاک</span><i class="menu-arrow"></i>
+                                </a>
+                                <div class="menu-submenu" id="subnav_realstate_control">
+                                    <i class="menu-arrow"></i>
+                                    <ul class="menu-subnav">
+                                        <li class="menu-item" id="nav_item_geo" aria-haspopup="true">
+                                            <a href="/Admin/GeoDivisions"
+                                               class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">مناطق جغرافیایی</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item" id="nav_item_options" aria-haspopup="true">
+                                            <a href="/Admin/Options"
+                                               class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">امکانات</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item" id="nav_item_realstate" aria-haspopup="true">
+                                            <a href="/Admin/RealStates" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">املاک</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            @*<li class="menu-item menu-item-submenu"
+            id="nav_food_control"
+            aria-haspopup="true"
+            data-menu-toggle="hover">
+            <a href="/Admin/FoodGalleries" class="menu-link menu-toggle">
+                <span class="svg-icon menu-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect x="0" y="0" width="24" height="24" />
+                            <path d="M12.5,19 C8.91014913,19 6,16.0898509 6,12.5 C6,8.91014913 8.91014913,6 12.5,6 C16.0898509,6 19,8.91014913 19,12.5 C19,16.0898509 16.0898509,19 12.5,19 Z M12.5,16.4 C14.6539105,16.4 16.4,14.6539105 16.4,12.5 C16.4,10.3460895 14.6539105,8.6 12.5,8.6 C10.3460895,8.6 8.6,10.3460895 8.6,12.5 C8.6,14.6539105 10.3460895,16.4 12.5,16.4 Z M12.5,15.1 C11.0640597,15.1 9.9,13.9359403 9.9,12.5 C9.9,11.0640597 11.0640597,9.9 12.5,9.9 C13.9359403,9.9 15.1,11.0640597 15.1,12.5 C15.1,13.9359403 13.9359403,15.1 12.5,15.1 Z" fill="#000000" opacity="0.3" />
+                            <path d="M22,13.5 L22,13.5 C22.2864451,13.5 22.5288541,13.7115967 22.5675566,13.9954151 L23.0979976,17.8853161 C23.1712756,18.4226878 22.7950533,18.9177172 22.2576815,18.9909952 C22.2137086,18.9969915 22.1693798,19 22.125,19 L22.125,19 C21.5576012,19 21.0976335,18.5400324 21.0976335,17.9726335 C21.0976335,17.9415812 21.0990414,17.9105449 21.1018527,17.8796201 L21.4547321,13.9979466 C21.4803698,13.7159323 21.7168228,13.5 22,13.5 Z" fill="#000000" opacity="0.3" />
+                            <path d="M24,5 L24,12 L21,12 L21,8 C21,6.34314575 22.3431458,5 24,5 Z" fill="#000000" transform="translate(22.500000, 8.500000) scale(-1, 1) translate(-22.500000, -8.500000) " />
+                            <path d="M0.714285714,5 L1.03696911,8.32873399 C1.05651593,8.5303749 1.22598532,8.68421053 1.42857143,8.68421053 C1.63115754,8.68421053 1.80062692,8.5303749 1.82017375,8.32873399 L2.14285714,5 L2.85714286,5 L3.17982625,8.32873399 C3.19937308,8.5303749 3.36884246,8.68421053 3.57142857,8.68421053 C3.77401468,8.68421053 3.94348407,8.5303749 3.96303089,8.32873399 L4.28571429,5 L5,5 L5,8.39473684 C5,9.77544872 3.88071187,10.8947368 2.5,10.8947368 C1.11928813,10.8947368 -7.19089982e-16,9.77544872 -8.8817842e-16,8.39473684 L0,5 L0.714285714,5 Z" fill="#000000" />
+                            <path d="M2.5,12.3684211 L2.5,12.3684211 C2.90055463,12.3684211 3.23115721,12.6816982 3.25269782,13.0816732 L3.51381042,17.9301218 C3.54396441,18.4900338 3.11451066,18.9683769 2.55459863,18.9985309 C2.53641556,18.9995101 2.51820943,19 2.5,19 L2.5,19 C1.93927659,19 1.48472045,18.5454439 1.48472045,17.9847204 C1.48472045,17.966511 1.48521034,17.9483049 1.48618958,17.9301218 L1.74730218,13.0816732 C1.76884279,12.6816982 2.09944537,12.3684211 2.5,12.3684211 Z" fill="#000000" opacity="0.3" />
+                        </g>
+                    </svg>
+                </span><span class="menu-text">مدیریت غذا ها</span>
+            </a>
+        </li>*@
+                            <!--<li class="menu-item menu-item-submenu"
+        id="nav_content_control"
+        aria-haspopup="true"
+        data-menu-toggle="hover">
+        <a href="javascript:;" class="menu-link menu-toggle">
+            <span class="svg-icon menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <rect x="0" y="0" width="24" height="24" />
+                        <path d="M4.5,3 L19.5,3 C20.3284271,3 21,3.67157288 21,4.5 L21,19.5 C21,20.3284271 20.3284271,21 19.5,21 L4.5,21 C3.67157288,21 3,20.3284271 3,19.5 L3,4.5 C3,3.67157288 3.67157288,3 4.5,3 Z M8,5 C7.44771525,5 7,5.44771525 7,6 C7,6.55228475 7.44771525,7 8,7 L16,7 C16.5522847,7 17,6.55228475 17,6 C17,5.44771525 16.5522847,5 16,5 L8,5 Z" fill="#000000" />
+                    </g>
+                </svg>-->
+                            <!--end::Svg Icon-->
+                            <!--</span><span class="menu-text">مدیریت محتوا</span><i class="menu-arrow"></i>
+        </a>
+        <div class="menu-submenu" id="subnav_content_control">
+            <i class="menu-arrow"></i>
+            <ul class="menu-subnav">
+                <li class="menu-item" id="nav_item_testimonial" aria-haspopup="true">
+                    <a href="/Admin/Testimonials" class="menu-link">
+                        <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">رضایت مشتریان</span>
+                    </a>
+                </li>
+                <li class="menu-item" id="nav_item_gallery" aria-haspopup="true">
+                    <a href="/Admin/Gallery" class="menu-link">
+                        <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">گالری تصاویر</span>
+                    </a>
+                </li>
+                <li class="menu-item" id="nav_item_galleryvideo" aria-haspopup="true">
+                    <a href="/Admin/GalleryVideos" class="menu-link">
+                        <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">گالری ویدیو</span>
+                    </a>
+                </li>
+                <li class="menu-item" id="nav_item_certificates" aria-haspopup="true">
+                    <a href="/Admin/Certificates" class="menu-link">
+                        <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">افتخارات و گواهینامه ها</span>
+                    </a>
+                </li>
+                <li class="menu-item" id="nav_item_ourteam" aria-haspopup="true">
+                    <a href="/Admin/OurTeam" class="menu-link">
+                        <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">تیم ما</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>-->
+                            <li class="menu-item menu-item-submenu"
+                                id="nav_static_content"
+                                aria-haspopup="true"
+                                data-menu-toggle="hover">
+                                <a href="javascript:;" class="menu-link menu-toggle">
+                                    <span class="svg-icon menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                <path d="M10,4 L21,4 C21.5522847,4 22,4.44771525 22,5 L22,7 C22,7.55228475 21.5522847,8 21,8 L10,8 C9.44771525,8 9,7.55228475 9,7 L9,5 C9,4.44771525 9.44771525,4 10,4 Z M10,10 L21,10 C21.5522847,10 22,10.4477153 22,11 L22,13 C22,13.5522847 21.5522847,14 21,14 L10,14 C9.44771525,14 9,13.5522847 9,13 L9,11 C9,10.4477153 9.44771525,10 10,10 Z M10,16 L21,16 C21.5522847,16 22,16.4477153 22,17 L22,19 C22,19.5522847 21.5522847,20 21,20 L10,20 C9.44771525,20 9,19.5522847 9,19 L9,17 C9,16.4477153 9.44771525,16 10,16 Z" fill="#000000"></path>
+                                                <rect fill="#000000" opacity="0.3" x="2" y="4" width="5" height="16" rx="1"></rect>
+                                            </g>
+                                        </svg>
+                                    </span><span class="menu-text">محتوای ایستا</span><i class="menu-arrow"></i>
+                                </a>
+                                <div class="menu-submenu" id="subnav_static_content">
+                                    <i class="menu-arrow"></i>
+                                    <ul class="menu-subnav">
+                                        <li class="menu-item" id="nav_item_content_types" aria-haspopup="true">
+                                            <a href="/Admin/StaticContentTypes"
+                                               class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">انواع محتوا</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item" id="nav_item_content" aria-haspopup="true">
+                                            <a href="/Admin/StaticContentDetails" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">جزئیات محتوا</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item menu-item-submenu"
+                                id="nav_currency"
+                                aria-haspopup="true"
+                                data-menu-toggle="hover">
+                                <a href="/Admin/Currencies" class="menu-link menu-toggle">
+                                    <span class="svg-icon menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"/>
+                                                <path d="M2,6 L21,6 C21.5522847,6 22,6.44771525 22,7 L22,17 C22,17.5522847 21.5522847,18 21,18 L2,18 C1.44771525,18 1,17.5522847 1,17 L1,7 C1,6.44771525 1.44771525,6 2,6 Z M11.5,16 C13.709139,16 15.5,14.209139 15.5,12 C15.5,9.790861 13.709139,8 11.5,8 C9.290861,8 7.5,9.790861 7.5,12 C7.5,14.209139 9.290861,16 11.5,16 Z" fill="#000000" opacity="0.3" transform="translate(11.500000, 12.000000) rotate(-345.000000) translate(-11.500000, -12.000000) "/>
+                                                <path d="M2,6 L21,6 C21.5522847,6 22,6.44771525 22,7 L22,17 C22,17.5522847 21.5522847,18 21,18 L2,18 C1.44771525,18 1,17.5522847 1,17 L1,7 C1,6.44771525 1.44771525,6 2,6 Z M11.5,16 C13.709139,16 15.5,14.209139 15.5,12 C15.5,9.790861 13.709139,8 11.5,8 C9.290861,8 7.5,9.790861 7.5,12 C7.5,14.209139 9.290861,16 11.5,16 Z M11.5,14 C12.6045695,14 13.5,13.1045695 13.5,12 C13.5,10.8954305 12.6045695,10 11.5,10 C10.3954305,10 9.5,10.8954305 9.5,12 C9.5,13.1045695 10.3954305,14 11.5,14 Z" fill="#000000"/>
+                                            </g>
+                                        </svg>
+                                    </span><span class="menu-text">واحد پول</span>
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-submenu"
+                                id="nav_contact_form"
+                                aria-haspopup="true"
+                                data-menu-toggle="hover">
+                                <a href="/Admin/ContactForm" class="menu-link menu-toggle">
+                                    <span class="svg-icon menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path d="M5,9 L19,9 C20.1045695,9 21,9.8954305 21,11 L21,20 C21,21.1045695 20.1045695,22 19,22 L5,22 C3.8954305,22 3,21.1045695 3,20 L3,11 C3,9.8954305 3.8954305,9 5,9 Z M18.1444251,10.8396467 L12,14.1481833 L5.85557487,10.8396467 C5.4908718,10.6432681 5.03602525,10.7797221 4.83964668,11.1444251 C4.6432681,11.5091282 4.77972206,11.9639747 5.14442513,12.1603533 L11.6444251,15.6603533 C11.8664074,15.7798822 12.1335926,15.7798822 12.3555749,15.6603533 L18.8555749,12.1603533 C19.2202779,11.9639747 19.3567319,11.5091282 19.1603533,11.1444251 C18.9639747,10.7797221 18.5091282,10.6432681 18.1444251,10.8396467 Z" fill="#000000" />
+                                                <path d="M11.1288761,0.733697713 L11.1288761,2.69017121 L9.12120481,2.69017121 C8.84506244,2.69017121 8.62120481,2.91402884 8.62120481,3.19017121 L8.62120481,4.21346991 C8.62120481,4.48961229 8.84506244,4.71346991 9.12120481,4.71346991 L11.1288761,4.71346991 L11.1288761,6.66994341 C11.1288761,6.94608579 11.3527337,7.16994341 11.6288761,7.16994341 C11.7471877,7.16994341 11.8616664,7.12798964 11.951961,7.05154023 L15.4576222,4.08341738 C15.6683723,3.90498251 15.6945689,3.58948575 15.5161341,3.37873564 C15.4982803,3.35764848 15.4787093,3.33807751 15.4576222,3.32022374 L11.951961,0.352100892 C11.7412109,0.173666017 11.4257142,0.199862688 11.2472793,0.410612793 C11.1708299,0.500907473 11.1288761,0.615386087 11.1288761,0.733697713 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" transform="translate(11.959697, 3.661508) rotate(-270.000000) translate(-11.959697, -3.661508) " />
+                                            </g>
+                                        </svg><!--end::Svg Icon-->
+                                    </span><span class="menu-text">فرم تماس با ما</span>
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-submenu"
+                                id="nav_auth_control"
+                                aria-haspopup="true"
+                                data-menu-toggle="hover">
+                                <a href="javascript:;" class="menu-link menu-toggle">
+                                    <span class="svg-icon menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <mask fill="white">
+                                                    <use xlink:href="#path-1" />
+                                                </mask>
+                                                <g />
+                                                <path d="M7,10 L7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 L17,10 L18,10 C19.1045695,10 20,10.8954305 20,12 L20,18 C20,19.1045695 19.1045695,20 18,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,12 C4,10.8954305 4.8954305,10 6,10 L7,10 Z M12,5 C10.3431458,5 9,6.34314575 9,8 L9,10 L15,10 L15,8 C15,6.34314575 13.6568542,5 12,5 Z" fill="#000000" />
+                                            </g>
+                                        </svg>
+                                    </span><span class="menu-text">مجوز دسترسی</span><i class="menu-arrow"></i>
+                                </a>
+                                <div class="menu-submenu" id="subnav_auth_control">
+                                    <i class="menu-arrow"></i>
+                                    <ul class="menu-subnav">
+                                        <li class="menu-item" id="nav_item_roles" aria-haspopup="true">
+                                            <a href="/Admin/Roles" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">نقش ها</span>
+                                            </a>
+                                        </li>
+                                        @*<li class="menu-item" id="nav_item_permissions" aria-haspopup="true">
+                        <a href="/Admin/Permissions" class="menu-link">
+                            <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">مجوز ها</span>
+                        </a>
+                    </li>*@
+                                        <li class="menu-item" id="nav_item_users" aria-haspopup="true">
+                                            <a href="/Admin/Users" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">کاربران</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--end::Menu Nav-->
+                    </div>
+                    <!--end::Menu Container-->
+                </div>
+                <!--end::Aside Menu-->
+            </div>
+            <!--end::Aside-->
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                <!--begin::Header-->
+                <div id="kt_header" class="header header-fixed">
+                    <!--begin::Container-->
+                    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+                        <!--begin::Topbar-->
+                        <div class="topbar">
+                            <!--begin::User-->
+                            <div class="topbar-item">
+                                <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
+                                     id="kt_quick_user_toggle">
+                                    <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1"> سلام,</span>
+                                    <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">@User.Identity.GetUserName()</span>
+                                    <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
+                                        <span class="symbol-label font-size-h5 font-weight-bold">@User.Identity.GetUserName()[0]</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <!--end::User-->
+                        </div>
+                        <!--end::Topbar-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Header-->
+                <!--begin::Content-->
+                <div class="content d-flex flex-column flex-column-fluid"
+                     id="kt_content">
+                    <!--begin::Entry-->
+                    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                        <div class="px-5">
+                            @RenderBody()
+                        </div>
+                    </div>
+                    <!--end::Entry-->
+                </div>
+                <!--end::Content-->
+                <!--begin::Footer-->
+                <div class="footer bg-white py-4 d-flex flex-lg-column"
+                     id="kt_footer">
+                    <!--begin::Container-->
+                    <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <!--begin::Copyright-->
+                        <div class="text-dark order-2 order-md-1">
+                            <span class="text-muted font-weight-bold mr-2">2020&copy;</span>
+                            <a href="https://www.spad.co/"
+                               target="_blank"
+                               class="text-dark-75 text-hover-primary">Created by Spad</a>
+                        </div>
+                        <!--end::Copyright-->
+                        <!--begin::Nav-->
+                        <div class="nav nav-dark">
+                            <a href="https://www.spad.co/"
+                               target="_blank"
+                               class="nav-link pl-0 pr-0">Contact</a>
+                        </div>
+                        <!--end::Nav-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Footer-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Main-->
+    <!-- begin::User Panel-->
+    @Html.Action("UserPartial", "Dashboard")
+    <!-- end::User Panel-->
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop">
+        <span class="svg-icon">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 width="24px"
+                 height="24px"
+                 viewBox="0 0 24 24"
+                 version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24" />
+                    <rect fill="#000000"
+                          opacity="0.3"
+                          x="11"
+                          y="10"
+                          width="2"
+                          height="10"
+                          rx="1" />
+                    <path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+                          fill="#000000"
+                          fill-rule="nonzero" />
+                </g>
+            </svg>
+        </span>
+    </div>
+    <!--end::Scrolltop-->
+    <!--begin::Global Config(global config for global JS scripts)-->
+    <script>
+        var KTAppSettings = {
+            breakpoints: {
+                sm: 576,
+                md: 768,
+                lg: 992,
+                xl: 1200,
+                xxl: 1400,
+            },
+            colors: {
+                theme: {
+                    base: {
+                        white: "#ffffff",
+                        primary: "#3699FF",
+                        secondary: "#E5EAEE",
+                        success: "#1BC5BD",
+                        info: "#8950FC",
+                        warning: "#FFA800",
+                        danger: "#F64E60",
+                        light: "#E4E6EF",
+                        dark: "#181C32",
+                    },
+                    light: {
+                        white: "#ffffff",
+                        primary: "#E1F0FF",
+                        secondary: "#EBEDF3",
+                        success: "#C9F7F5",
+                        info: "#EEE5FF",
+                        warning: "#FFF4DE",
+                        danger: "#FFE2E5",
+                        light: "#F3F6F9",
+                        dark: "#D6D6E0",
+                    },
+                    inverse: {
+                        white: "#ffffff",
+                        primary: "#ffffff",
+                        secondary: "#3F4254",
+                        success: "#ffffff",
+                        info: "#ffffff",
+                        warning: "#ffffff",
+                        danger: "#ffffff",
+                        light: "#464E5F",
+                        dark: "#ffffff",
+                    },
+                },
+                gray: {
+                    "gray-100": "#F3F6F9",
+                    "gray-200": "#EBEDF3",
+                    "gray-300": "#E4E6EF",
+                    "gray-400": "#D1D3E0",
+                    "gray-500": "#B5B5C3",
+                    "gray-600": "#7E8299",
+                    "gray-700": "#5E6278",
+                    "gray-800": "#3F4254",
+                    "gray-900": "#181C32",
+                },
+            },
+            "font-family": "Poppins",
+        };
+    </script>
+    <!--end::Global Config-->
+    <script>
+        var navActive = $('#nav_active').val();
+        var navItemActive = $('#nav_item_active').val();
+        if (navActive != null && navActive != "") {
+            $('#nav_' + navActive + '').addClass("menu-item-open");
+            if ($('#subnav_' + navActive + '').length) {
+                $('#subnav_' + navActive + '').css("display", "");
+                $('#subnav_' + navActive + '').css("overflow", "");
+            }
+        }
+        if (navItemActive != null && navItemActive != "") {
+            $('#nav_item_' + navItemActive + '').addClass("menu-item-active");
+        }
+    </script>
+    <script>
+        function accessDenied() {
+            Swal.fire("Error!", "شما دسترسی لازم برای ورود به این بخش را ندارید", "error");
+        }
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

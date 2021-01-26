@@ -1,0 +1,65 @@
+﻿@model SpadCompanyPanel.Core.Models.ArticleComment
+@{
+    ViewBag.Title = "کامنت ها";
+}
+<input type="hidden" id="nav_active" value="article_control">
+<input type="hidden" id="nav_item_active" value="articles">
+@{
+    if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">
+            <strong>خطا!</strong> @ViewBag.Message
+        </div>
+    }
+}
+<div class="col-lg-6">
+    <div class="card card-custom gutter-b example example-compact">
+        <div class="card-header">
+            <h3 class="card-title">
+                ویرایش کامنت
+            </h3>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="card-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.ArticleId)
+            @Html.HiddenFor(model => model.AddedDate)
+            @Html.HiddenFor(model => model.ParentId)
+            @Html.HiddenFor(model => model.InsertDate)
+            @Html.HiddenFor(model => model.InsertUser)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, new { })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "form-text text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, new { })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "form-text text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Message, new { })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "form-text text-danger" })
+                </div>
+            </div>
+        </div>
+            <div class="card-footer">
+                <a href="@Url.Action("Index" , new { articleId = Model.ArticleId})" class="btn btn-secondary">انصراف</a>
+                <input type="submit" value="ثبت" class="btn btn-primary mr-2" />
+            </div>
+        }
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

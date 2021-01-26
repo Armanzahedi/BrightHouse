@@ -1,0 +1,257 @@
+﻿@model SpadCompanyPanel.Core.Models.RealState
+
+@{
+    ViewBag.Title = "مطالب";
+}
+<input type="hidden" id="nav_active" value="realstate_control">
+<input type="hidden" id="nav_item_active" value="realstate">
+@{
+    if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">
+            <strong>خطا!</strong> @ViewBag.Message
+        </div>
+    }
+}
+<div class="col-lg-12">
+    <div class="card card-custom gutter-b">
+        <div class="card-header">
+            <h3 class="card-title">
+                افزودن مطلب
+            </h3>
+        </div>
+        @using (Html.BeginForm("Create", "RealStates", FormMethod.Post, new { id = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="card-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Type">نوع ملک</label>
+                            <div class="col-md-10">
+                                <select class="form-control" id="Type" name="Type">
+                                    <option value="1">آپارتمان</option>
+                                    <option value="2">ویلا</option>
+                                    <option value="3">اداری</option>
+                                    <option value="4">تجاری</option>
+                                    <option value="5">زمین</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Title, new { })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EnglishTitle, new { })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.EnglishTitle, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.EnglishTitle, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ShortDescription, new { })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ShortDescription, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.ShortDescription, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EnglishShortDescription, new { })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.EnglishShortDescription, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.EnglishShortDescription, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Rate, new { })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Region, new { })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Region, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.Region, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EnglishRegion, new { })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.EnglishRegion, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.EnglishRegion, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <input type="hidden" name="GeoDivisionId" id="GeoDivisionId" value="" />
+                        <div class="form-group">
+                            <label for="CountryId">کشور</label>
+                            <div class="col-md-10">
+                                <select class="form-control" id="CountryId" onchange="GetStates()">
+                                    <option value="">انتخاب کشور</option>
+                                    @foreach (var item in ViewBag.Countries)
+                                    {
+                                        <option value="@item.Id">@item.Title</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div id="state"></div>
+                        <div id="city"></div>
+                        <span id="cityValidation" style="display: none;color:red">لطفا یک شهر را انتخاب کنید</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-label">تصویر</label>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="image-input image-input-outline" id="realState-image">
+                            <div class="image-input-wrapper" style="background-image: url(assets/media/users/100_1.jpg)"></div>
+
+                            <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="آپلود تصویر">
+                                <i class="fa fa-pen icon-sm text-muted"></i>
+                                <input type="file" name="RealStateImage" id="RealStateImage" accept=".png, .jpg, .jpeg" />
+                                <input type="hidden" name="realState_image_remove" />
+                            </label>
+
+                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="حذف تصویر">
+                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, new { })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control " } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "form-text text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EnglishDescription, new { })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EnglishDescription, new { htmlAttributes = new { @class = "form-control " } })
+                        @Html.ValidationMessageFor(model => model.EnglishDescription, "", new { @class = "form-text text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="@Url.Action("Index")" class="btn btn-secondary">انصراف</a>
+                <input type="submit" value="ثبت" class="btn btn-primary mr-2" />
+            </div>
+        }
+    </div>
+</div>
+<style>
+    .image-input .image-input-wrapper {
+        width: 200px;
+    }
+</style>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script src="/ckeditor/adapters/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#Description').ckeditor();
+            $('#EnglishDescription').ckeditor();
+        });
+        var uploadField = document.getElementById("RealStateImage");
+
+        uploadField.onchange = function () {
+            if (this.files[0].size > 3100000) {
+                alert("File is too big!");
+                this.value = "";
+            };
+        };
+        function GetStates() {
+            $("#GeoDivisionId").val('');
+            var geoDivisionId = $("#CountryId").find(":selected").val();
+            $("#state").html('');
+            $("#city").html('');
+            $.ajax({
+                type: 'GET',
+                url: '/Admin/RealStates/GetGeoDivisionChildren?geoDivisionId=' + geoDivisionId,
+                success: function (response) {
+                    var data = JSON.parse(response);
+                    var html = '<div class="form-group">' +
+                        '<label for="StateId">استان</label>' +
+                        '<div class="col-md-10">' +
+                        '<select class="form-control" id="StateId" onchange="GetCities()">' +
+                        '<option value="">انتخاب استان</option>';
+                    data.map(function (item) {
+                        html += '<option value="' + item.id + '">' + item.title + '</option>';
+                    });
+                    html += '</select>' +
+                        '</div>' +
+                        '</div>';
+                    $("#state").html(html);
+                },
+                error: function (data) {
+                    console.log("error");
+                    console.log(data);
+                },
+                complete: function () {
+                }
+            });
+        }
+
+        function GetCities() {
+            $("#GeoDivisionId").val('');
+            var geoDivisionId = $("#StateId").find(":selected").val();
+            $("#city").html('');
+            $.ajax({
+                type: 'GET',
+                url: '/Admin/RealStates/GetGeoDivisionChildren?geoDivisionId=' + geoDivisionId,
+                success: function (response) {
+                    var data = JSON.parse(response);
+                    var html = '<div class="form-group">' +
+                        '<label for="CityId">شهر</label>' +
+                        '<div class="col-md-10">' +
+                        '<select class="form-control" id="CityId" onchange="SetGeoDivisionId()">' +
+                        '<option value="">انتخاب شهر</option>';
+                    data.map(function (item) {
+                        html += '<option value="' + item.id + '">' + item.title + '</option>';
+                    });
+                    html += '</select>' +
+                        '</div>' +
+                        '</div>';
+                    $("#city").html(html);
+                },
+                error: function (data) {
+                    console.log("error");
+                    console.log(data);
+                },
+                complete: function () {
+                }
+            });
+        }
+
+        function SetGeoDivisionId() {
+            var geoDivisionId = $("#CityId").find(":selected").val();
+            $("#GeoDivisionId").val(geoDivisionId);
+        }
+
+        $("#form").submit(function (e) {
+            e.preventDefault();
+            console.log($("#GeoDivisionId").val());
+            if ($("#form").valid()) {
+                if ($("#GeoDivisionId").val() === null || $("#GeoDivisionId").val() === '') {
+                    $("#cityValidation").show();
+                } else {
+                    $("#cityValidation").hide();
+                    e.currentTarget.submit();
+                }
+            }
+        });
+
+        new KTImageInput('realState-image');
+    </script>
+}

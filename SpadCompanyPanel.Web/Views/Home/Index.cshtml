@@ -1,0 +1,611 @@
+﻿@model SpadCompanyPanel.Web.ViewModels.HomeIndexViewModel
+
+@{
+    ViewBag.Title = "خانه";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Property Search Section Two -->
+<section class="property-search-section-three" style="background-image: url(Content/Assets/images/main-slider/3.jpg);">
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="title-box">
+                <h2 class="mb-5">Bright House <span>انتخابی درخشان </span></h2>
+                <h2>جستجوی املاک</h2>
+            </div>
+
+            <div class="property-search-form style-three">
+                <form method="post" action="/">
+                    <div class="row no-gutters">
+                        <!-- Form Group -->
+                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
+                            <select class="custom-select-box">
+                                <option>کشور</option>
+                                <option>ایران</option>
+                                <option>ترکیه</option>
+                                <option>افغانستان</option>
+                                <option>ارمنستان</option>
+                                <option>روسیه</option>
+                            </select>
+                        </div>
+
+                        <!-- Form Group -->
+                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
+                            <select class="custom-select-box">
+                                <option>شهر</option>
+                                <option>مشهد</option>
+                                <option>تهران</option>
+                                <option>اصفهان</option>
+                                <option>شیراز</option>
+                            </select>
+                        </div>
+
+                        <!-- Form Group -->
+                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
+                            <select class="custom-select-box">
+                                <option>ملک برای</option>
+                                <option> اجاره</option>
+                                <option>فروش</option>
+                            </select>
+                        </div>
+                        <!-- Form Group -->
+                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
+                            <select class="custom-select-box">
+                                <option>نوع ملک</option>
+                                <option>ویلایی</option>
+                                <option>دوبلکس</option>
+                                <option>آپارتمان</option>
+                            </select>
+                        </div>
+
+                        <!-- Form Group -->
+                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
+                            <select class="custom-select-box">
+                                <option>اتاق خواب</option>
+                                <option>01 اتاق خواب</option>
+                                <option>02 اتاق خواب</option>
+                                <option>03 اتاق خواب</option>
+                                <option>04 اتاق خواب</option>
+                                <option>05 اتاق خواب</option>
+                            </select>
+                        </div>
+
+
+                        <!-- Form Group -->
+                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
+                            <button type="submit" class="theme-btn btn-style-two">
+                                <span class="btn-title">جستجو</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Property Search Section Two -->
+<!-- What We Do -->
+<section class="what-we-do">
+    <div class="auto-container">
+        <div class="sec-title">
+            <div class="devider"><span></span></div>
+            <h2>شما چه میخواهید</h2>
+            <div class="text">ما بهترین ها را به شما می دهیم</div>
+        </div>
+
+        <div class="row">
+            <!-- Feature Column -->
+            <div class="features-column col-lg-8 col-md-12 col-sm-12">
+                <div class="row">
+                    <!-- Feature BLock Three -->
+                    <div class="feature-block-three col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
+                        <div class="inner-box">
+                            <span class="icon flaticon-house"></span>
+                            <h3>املاک ویژه سرمایه گذاری</h3>
+                        </div>
+                    </div>
+
+                    <!-- Feature BLock Three -->
+                    <div class="feature-block-three col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
+                        <div class="inner-box">
+                            <span class="icon flaticon-money-bag"></span>
+                            <h3>املاک اکازوین با قیمت مناسب</h3>
+                        </div>
+                    </div>
+
+                    <!-- Feature BLock Three -->
+                    <div class="feature-block-three col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
+                        <div class="inner-box">
+                            <span class="icon flaticon-money-bag"></span>
+                            <h3>پکیج های ویژه املاک جهت دریافت حق شهروندی و پاسپورت کشور ترکیه</h3>
+                        </div>
+                    </div>
+
+                    <!-- Feature BLock Three -->
+                    <div class="feature-block-three col-lg-6 col-md-6 col-sm-12 wow fadeInUp"
+                         data-wow-delay="400ms">
+                        <div class="inner-box">
+                            <span class="icon flaticon-money-bag"></span>
+                            <h3>معرفی املاک با امکان خرید با رمز ارزها</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-4 col-md-12 coll-sm-12">
+                <div class="image-box">
+                    <figure class="image image-1 wow zoomIn">
+                        <img src="Content/Assets/images/icons/empty.png"
+                             data-src="Content/Assets/images/resource/what-we-do-1.jpg"
+                             alt="">
+                    </figure>
+                    <figure class="image image-2 wow zoomIn" data-wow-delay="400ms">
+                        <img src="Content/Assets/images/icons/empty.png" data-src="Content/Assets/images/resource/what-we-do-2.jpg" alt="">
+                    </figure>
+                    <figure class="image image-3 wow zoomIn" data-wow-delay="800ms">
+                        <img src="Content/Assets/images/icons/empty.png" data-src="Content/Assets/images/resource/what-we-do-3.jpg" alt="">
+                        <figcaption>
+                            <span class="icon far fa-lightbulb"></span> <h4>پیشنهاد کارشناسان</h4>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End What We Do -->
+<!-- Modern Properties -->
+<section class="modern-properties">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <div class="devider"><span></span></div>
+            <h2>خانه های مدرن</h2>
+            <div class="text">اکنون خانه خود را در شهر خود پیدا کنید..</div>
+        </div>
+
+        <div class="single-item-carousel owl-carousel owl-theme">
+            <!-- Modern Property -->
+            <div class="modern-property">
+                <div class="row">
+                    <!-- Image Column -->
+                    <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="image-box">
+                                <figure class="image">
+                                    <a href="Content/Assets/images/resource/modern-property-1.jpg"
+                                       class="lightbox-image">
+                                        <img src="Content/Assets/images/icons/empty.png"
+                                             data-src="Content/Assets/images/resource/modern-property-1.jpg"
+                                             alt="">
+                                    </a>
+                                </figure>
+                                <ul class="property-options">
+                                    <li data-tooltip="توضیح"><a href="#"><span class="fa fa-book"></span></a></li>
+                                    <li data-tooltip="مقایسه">
+                                        <a href="#"><span class="fa fa-equals"></span></a>
+                                    </li>
+                                    <li data-tooltip="تصویر"><a href="#"><span class="fa fa-image"></span></a></li>
+                                    <li data-tooltip="فیلم"><a href="#"><span class="fa fa-film"></span></a></li>
+                                    <li data-tooltip="پسندیدن">
+                                        <a href="#"><span class="fa fa-heart"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Column -->
+                    <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="status">برای فروش</div>
+                            <h3>ویلای لوکس شمال کشور برای فروش</h3>
+                            <div class="location">
+                                <span class="icon fa fa-map-marker-alt"></span>ایران , مازندران
+                            </div>
+                            <div class="text">
+                                برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ؛، برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است+
+                            </div>
+                            <ul class="property-info">
+                                <li><span class="icon flaticon-bedroom-1"></span> اتاق خواب <br> 3</li>
+                                <li><span class="icon flaticon-bathtub"></span> حمام <br> 2</li>
+                                <li><span class="icon flaticon-garage-1"></span> پارکینگ <br> 2</li>
+                                <li><span class="icon flaticon-grid"></span> مساحت <br> 12,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modern Property -->
+            <div class="modern-property">
+                <div class="row">
+                    <!-- Image Column -->
+                    <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="image-box">
+                                <figure class="image">
+                                    <a href="Content/Assets/images/resource/modern-property-1.jpg"
+                                       class="lightbox-image">
+                                        <img src="Content/Assets/images/icons/empty.png"
+                                             data-src="Content/Assets/images/resource/modern-property-1.jpg"
+                                             alt="">
+                                    </a>
+                                </figure>
+                                <ul class="property-options">
+                                    <li data-tooltip=" توضیح"><a href="#"><span class="fa fa-book"></span></a></li>
+                                    <li data-tooltip="مقایسه">
+                                        <a href="#"><span class="fa fa-equals"></span></a>
+                                    </li>
+                                    <li data-tooltip="تصویر"><a href="#"><span class="fa fa-image"></span></a></li>
+                                    <li data-tooltip="فیلم"><a href="#"><span class="fa fa-film"></span></a></li>
+                                    <li data-tooltip="پسندیدن">
+                                        <a href="#"><span class="fa fa-heart"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Column -->
+                    <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="status">برای فروش</div>
+                            <h3>ویلای لوکس شمال کشور برای فروش</h3>
+                            <div class="location">
+                                <span class="icon fa fa-map-marker-alt"></span>ایران , مازندران
+                            </div>
+                            <div class="text">
+                                برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ؛، برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است+
+                            </div>
+                            <ul class="property-info">
+                                <li><span class="icon flaticon-bedroom-1"></span> اتاق خواب <br> 3</li>
+                                <li><span class="icon flaticon-bathtub"></span> حمام <br> 2</li>
+                                <li><span class="icon flaticon-garage-1"></span> پارکینگ <br> 2</li>
+                                <li><span class="icon flaticon-grid"></span> مساحت <br> 12,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modern Property -->
+            <div class="modern-property">
+                <div class="row">
+                    <!-- Image Column -->
+                    <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="image-box">
+                                <figure class="image">
+                                    <a href="Content/Assets/images/resource/modern-property-1.jpg"
+                                       class="lightbox-image">
+                                        <img src="Content/Assets/images/icons/empty.png"
+                                             data-src="Content/Assets/images/resource/modern-property-1.jpg"
+                                             alt="">
+                                    </a>
+                                </figure>
+                                <ul class="property-options">
+                                    <li data-tooltip="توضیح"><a href="#"><span class="fa fa-book"></span></a></li>
+                                    <li data-tooltip="مقایسه">
+                                        <a href="#"><span class="fa fa-equals"></span></a>
+                                    </li>
+                                    <li data-tooltip="تصویر"><a href="#"><span class="fa fa-image"></span></a></li>
+                                    <li data-tooltip="فیلم"><a href="#"><span class="fa fa-film"></span></a></li>
+                                    <li data-tooltip="پسندیدن">
+                                        <a href="#"><span class="fa fa-heart"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Column -->
+                    <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="status">برای فروش</div>
+                            <h3>ویلای لوکس شمال کشور برای فروش</h3>
+                            <div class="location">
+                                <span class="icon fa fa-map-marker-alt"></span>ایران , مازندران
+                            </div>
+                            <div class="text">
+                                برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ؛، برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس
+                                یکی از بهترین راهنمایان و فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و
+                                فروشندگان خانه است برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است+
+                            </div>
+                            <ul class="property-info">
+                                <li><span class="icon flaticon-bedroom-1"></span> اتاق خواب <br> 3</li>
+                                <li><span class="icon flaticon-bathtub"></span> حمام <br> 2</li>
+                                <li><span class="icon flaticon-garage-1"></span> پارکینگ <br> 2</li>
+                                <li><span class="icon flaticon-grid"></span> مساحت <br> 12,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Modern Properties -->
+<!-- Property Section Three  -->
+<section class="property-section-three">
+    <div class="auto-container">
+
+        <!--MixitUp Galery-->
+        <div class="mixitup-gallery">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="sec-title">
+                        <div class="devider"><span></span></div>
+                        <h2>ملک های جدید</h2>
+                        <div class="text">خانه رویایی خود را در شهر خود پیدا کنید</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <!--Filter-->
+                    <div class="filters clearfix">
+                        <ul class="filter-tabs filter-btns clearfix">
+                            <li class="active filter" data-role="button" data-filter="all">همه</li>
+                            <li class="filter" data-role="button" data-filter=".appartment">آپارتمان</li>
+                            <li class="filter" data-role="button" data-filter=".house">ویلا</li>
+                            <li class="filter" data-role="button" data-filter=".villa">اداری</li>
+                            <li class="filter" data-role="button" data-filter=".form">تجاری</li>
+                            <li class="filter" data-role="button" data-filter=".restaurent">زمین</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-list row">
+                <!-- Property Block -->
+                @foreach (var item in Model.RecentRealStates)
+                {
+                    <div class="property-block-two all mix villa appartment col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image">
+                                    <a href="/RealState/Details/@item.Id">
+                                        <img src="/Files/RealStateImages/@item.Image"
+                                             data-src="/Files/RealStateImages/@item.Image"
+                                             alt="">
+                                    </a>
+                                </figure>
+                                @*<span class="for">برای فروش</span>*@
+                            </div>
+                            <div class="lower-content"  style="max-height: 200px; min-height: 200px;">
+                                <ul class="property-info clearfix">
+                                    <li><span class="icon fa fa-expand"></span> مساحت @item.Area</li>
+                                    <li><span class="icon fa fa-bed"></span> اتاق خواب @item.Bedroom</li>
+                                    <li><span class="icon fa fa-bath"></span> سرویس @item.Bathroom</li>
+                                </ul>
+                                <h3><a href="/RealState/Details/@item.Id">@item.Title</a></h3>
+                                <div class="text">@item.ShortDescription</div>
+                            </div>
+                            <div class="property-price clearfix">
+                                <div class="location">
+                                    <span class="icon fa fa-map-marker-alt"></span> @item.Location
+                                </div>
+                                <div class="price"> @item.Price</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Property Section Three -->
+<!-- Agents Section Two -->
+<section class="agents-section-two">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <div class="devider"><span></span></div>
+            <h2>همکاران ما</h2>
+            <div class="text">همکاران ما در تمام ساعات شبانه روز پاسخگوی شما هستند</div>
+        </div>
+    </div>
+</section>
+<!--End Agents Section Two -->
+<!-- News Section -->
+<section class="news-section-two">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <div class="devider"><span></span></div>
+            <h2>اخبار و مقاله ما</h2>
+            <div class="text">همه درباره آخرین به روزرسانی های شگفت انگیز</div>
+        </div>
+        <div class="row">
+            <!-- News BLock Two -->
+            <div class="news-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <a href="blog-detail.html">
+                                <img src="Content/Assets/images/icons/empty.png"
+                                     data-src="Content/Assets/images/resource/news-3.jpg"
+                                     alt="">
+                            </a>
+                        </figure>
+                        <div class="overlay-box">
+                            <a href="blog-detail.html"><span class="fa fa-plus"></span></a>
+                        </div>
+                    </div>
+                    <div class="lower-content">
+                        <h3><a href="blog-detail.html">آیا می دانید ارزش خانه برای این اقدام چقدر است.</a></h3>
+                        <ul class="post-info">
+                            <li>12 مهر 1398</li>
+                            <li>0 نظرات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Block -->
+            <div class="news-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <a href="blog-detail.html">
+                                <img src="Content/Assets/images/icons/empty.png"
+                                     data-src="Content/Assets/images/resource/news-4.jpg"
+                                     alt="">
+                            </a>
+                        </figure>
+                        <div class="overlay-box">
+                            <a href="blog-detail.html"><span class="fa fa-plus"></span></a>
+                        </div>
+                    </div>
+                    <div class="lower-content">
+                        <h3><a href="blog-detail.html">نامه به موسسان فناوری املاک و مستغلات</a></h3>
+                        <ul class="post-info">
+                            <li>12 مهر 1398</li>
+                            <li>0 نظرات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News BLock -->
+            <div class="news-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms">
+                <div class="inner-box">
+                    <div class="image-box">
+                        <figure class="image">
+                            <a href="blog-detail.html">
+                                <img src="Content/Assets/images/icons/empty.png"
+                                     data-src="Content/Assets/images/resource/news-5.jpg"
+                                     alt="">
+                            </a>
+                        </figure>
+                        <div class="overlay-box">
+                            <a href="blog-detail.html"><span class="fa fa-plus"></span></a>
+                        </div>
+                    </div>
+                    <div class="lower-content">
+                        <h3><a href="blog-detail.html">راهنمای مسکونی برای گرم کردن تهویه و هوا</a></h3>
+                        <ul class="post-info">
+                            <li>12 مهر 1398</li>
+                            <li>0 نظرات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End News Section -->
+<!--Clients Section-->
+<section class="clients-section">
+    <div class="auto-container">
+        <div class="sponsors-outer">
+            <!--Sponsors Carousel-->
+            <ul class="sponsors-carousel owl-carousel owl-theme">
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="Content/Assets/images/icons/empty.png"
+                                 data-src="Content/Assets/images/clients/1.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="Content/Assets/images/icons/empty.png"
+                                 data-src="Content/Assets/images/clients/2.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="Content/Assets/images/icons/empty.png"
+                                 data-src="Content/Assets/images/clients/3.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="Content/Assets/images/icons/empty.png"
+                                 data-src="Content/Assets/images/clients/4.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="Content/Assets/images/icons/empty.png"
+                                 data-src="Content/Assets/images/clients/5.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="Content/Assets/images/icons/empty.png"
+                                 data-src="Content/Assets/images/clients/1.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="Content/Assets/images/icons/empty.png"
+                                 data-src="Content/Assets/images/clients/2.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="Content/Assets/images/icons/empty.png"
+                                 data-src="Content/Assets/images/clients/3.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="Content/Assets/images/icons/empty.png"
+                                 data-src="Content/Assets/images/clients/4.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="Content/Assets/images/icons/empty.png"
+                                 data-src="Content/Assets/images/clients/5.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Clients Section-->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

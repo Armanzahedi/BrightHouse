@@ -1,0 +1,24 @@
+﻿@model SpadCompanyPanel.Web.ViewModels.RealStatesViewModel
+@{
+    ViewBag.Title = "املاک";
+    Layout = null;
+}
+
+@foreach (var item in Model.RecentRealStates)
+{
+    <article class="post">
+        <div class="post-thumb">
+            <a href="/RealState/Details/@item.Id">
+                <img src="/Files/RealStateImages/@item.Image" data-src="/Files/RealStateImages/@item.Image" alt="" style="width:120px; height:90px;">
+                @*<span class="status">اجاره</span>*@
+            </a>
+        </div>
+        <span class="location">@item.Title</span>
+        <h3>
+            <a href="/RealState/Details/@item.Id">
+                @item.ShortDescription
+            </a>
+        </h3>
+        @*<div class="price"> 760,000</div>*@
+    </article>
+}

@@ -1,0 +1,37 @@
+﻿@model SpadCompanyPanel.Core.Models.ContactForm
+<h4 class="card-label">
+    آیا مطمئن هستید که می خواهید این فرم را حذف کنید؟
+</h4>
+<dl class="row" style="padding-top:10px">
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+    @*<dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.Phone)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.Phone)
+    </dd>*@
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.Email)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.Message)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.Message)
+    </dd>
+</dl>
+<div style="float:left">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="حذف" class="btn btn-danger mr-2" />
+    }
+</div>

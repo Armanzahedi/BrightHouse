@@ -1,0 +1,55 @@
+﻿@using SpadCompanyPanel.Infrastructure.Dtos.RealState
+@model List<RealStateInfoDto>
+@{
+    Layout = null;
+    var currentUnit = SpadCompanyPanel.Infrastructure.Helpers.CurrencyHelper.GetCurrencyUnit();
+}
+@foreach (var item in Model)
+{
+    <div class="property-block-two all mix villa house restaurent col-lg-6 col-md-6 col-sm-12" style="display:inline-block">
+        <div class="inner-box">
+            <div class="image-box">
+                <figure class="image">
+                    <a href="/RealState/Details/@item.Id">
+                        <img src="/Files/RealStateImages/@item.Image"
+                             alt="@item.Title">
+                    </a>
+                </figure>
+                @*<span class="for">برای فروش</span>*@
+            </div>
+            <div class="lower-content" style="max-height: 200px; min-height: 200px;">
+                <ul class="property-info clearfix">
+                    <li><span class="icon fa fa-expand"></span> مساحت @item.Area</li>
+                    <li><span class="icon fa fa-bed"></span> اتاق خواب @item.Rooms</li>
+                    <li><span class="icon fa fa-bath"></span> سرویس @item.Bathrooms</li>
+                </ul>
+                <h3><a href="/RealState/Details/@item.Id">@item.Title</a></h3>
+                <div class="text">@item.ShortDescription</div>
+            </div>
+            <div class="property-price clearfix">
+                <div class="location">
+                    <span class="icon fa fa-map-marker-alt"></span> @item.Location
+                </div>
+                <div class="price"> @item.MinPrice.ToString("##,###") @currentUnit</div>
+            </div>
+        </div>
+    </div>
+}
+<div class="styled-pagination text-center">
+    <ul class="clearfix">
+        @{
+            if (ViewBag.CurrentPage > 1)
+            {
+                <li class="prev-post"><a href="#" onclick="GetGrid(@(ViewBag.CurrentPage - 1))"><span class="fa fa-angle-right"></span> قبلی</a></li>
+            }
+            for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                <li class="@(i == ViewBag.CurrentPage? "active":null)"><a href="#" onclick="GetGrid(@i)">@i</a></li>
+            }
+            if (ViewBag.CurrentPage < ViewBag.PageCount)
+            {
+                <li class="next-post"><a href="#" onclick="GetGrid(@(ViewBag.CurrentPage+1))"> بعد <span class="fa fa-angle-left"></span> </a></li>
+            }
+        }
+    </ul>
+</div>

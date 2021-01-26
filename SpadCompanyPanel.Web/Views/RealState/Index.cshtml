@@ -1,0 +1,415 @@
+﻿@model SpadCompanyPanel.Web.ViewModels.RealStatesViewModel
+@{
+    ViewBag.Title = "املاک";
+    var currentUnit = SpadCompanyPanel.Infrastructure.Helpers.CurrencyHelper.GetCurrencyUnit();
+}
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url(/Assets/images/background/4.jpg)">
+    <div class="auto-container">
+        <h1>ملک</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="/">خانه</a></li>
+            <li>ملک</li>
+        </ul>
+    </div>
+</section>
+<!--End Page Title-->
+
+<!-- Property Section Three  -->
+<section class="property-section-three alternate">
+    <div class="auto-container">
+
+        <!--MixitUp Galery-->
+        <div class="mixitup-gallery">
+            <!--Filter-->
+
+            <div class="filter-list row">
+                <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                    <aside class="sidebar default-sidebar">
+
+                        <!--search box-->
+                        <div class="sidebar-widget sort-by">
+                            <select class="custom-select-box" id="sort" onchange="GetGrid()">
+                                <option value="">مرتب سازی</option>
+                                <option value="1">آپارتمان</option>
+                                <option value="2">ویلا</option>
+                                <option value="3">اداری</option>
+                                <option value="4">تجاری</option>
+                                <option value="5">زمین</option>
+                            </select>
+                        </div>
+                        <div class="sidebar-widget search-properties">
+                            <div class="sidebar-title grid-sidebar"><h2 class="grid-title">ویژگی های جستجو</h2></div>
+                            <!-- Property Search Form -->
+                            <div class="property-search-form style-four">
+                                <form>
+                                    <div class="row no-gutters">
+                                        <!-- Form Group -->
+                                        <div class="form-group">
+                                            <select class="custom-select-box" id="countryId" onChange="GetStates()">
+                                                <option value="">انتخاب کشور</option>
+                                                @foreach (var item in ViewBag.Countries)
+                                                {
+                                                    <option value="@item.Id">@item.Title</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div id="state" class="form-group" style="display: none;"></div>
+                                        <div id="city" class="form-group" style="display: none;"></div>
+                                        <!-- Form Group -->
+                                        <div class="form-group">
+                                            <select class="custom-select-box" id="realStateType" name="realStateType" onchange="GetGrid()">
+                                                <option value="">نوع ملک</option>
+                                                <option value="1">آپاتمان</option>
+                                                <option value="2">ویلا</option>
+                                                <option value="3">اداری</option>
+                                                <option value="4">تجاری</option>
+                                                <option value="5">زمین</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Form Group -->
+                                        <div class="form-group">
+                                            <select class="custom-select-box" id="planType" name="planType" onchange="GetGrid()">
+                                                <option value="">وضعیت ملک</option>
+                                                <option value="1">برای فروش</option>
+                                                <option value="2">پیش فروش</option>
+                                                <option value="3">برای اجاره</option>
+                                            </select>
+                                        </div>
+
+
+                                        <!-- Form Group -->
+                                        <div class="form-group">
+                                            <select class="custom-select-box" id="roomNo" name="roomNo" onchange="GetGrid()">
+                                                <option value="">اتاق خواب</option>
+                                                <option value="1">1 اتاق خواب</option>
+                                                <option value="2">2 اتاق خواب</option>
+                                                <option value="3">3 اتاق خواب</option>
+                                                <option value="4">4 اتاق خواب</option>
+                                                <option value="5">5 اتاق خواب</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Form Group -->
+                                        <div class="form-group">
+                                            <select class="custom-select-box" id="bathRoomNo" name="bathRoomNo" onchange="GetGrid()">
+                                                <option value="">حمام</option>
+                                                <option value="1">1 حمام</option>
+                                                <option value="2">2 حمام</option>
+                                                <option value="3">3 حمام</option>
+                                                <option value="4">4 حمام</option>
+                                                <option value="5">5 حمام</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Form Group -->
+                                        <div class="form-group">
+                                            <div class="range-slider-one clearfix">
+                                                <label>فیلتر قیمت</label>
+                                                <div class="price-range-slider" id="price-slider"></div>
+                                                <div><input type="text" style="border:none" class="price-amount" name="field-name"></div>
+                                                @*<div class="title">قیمت را انتخاب کنید</div>*@
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="minPrice" id="minPrice" value="@ViewBag.MinPrice" />
+                                        <input type="hidden" name="maxPrice" id="maxPrice" value="@ViewBag.MaxPrice" />
+                                        <!-- Form Group -->
+                                        <!--<div class="form-group">
+                                            <button type="submit" class="theme-btn btn-style-two"><span class="btn-title">جستجو</span></button>
+                                        </div>-->
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- End Form -->
+                        </div>
+                        <!-- Categories -->
+                            <!-- Recent Properties -->
+                        <div class="sidebar-widget recent-properties">
+                            <div class="sidebar-title grid-sidebar"><h2 class="grid-title">ملک های اخیر</h2></div>
+                            <div class="widget-content">
+                                @Html.Action("RecentStates", "RealState", Model)
+                            </div>
+                        </div>
+
+
+                    </aside>
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    <div class="row" id="grid">
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Post Share Options-->
+
+        </div>
+    </div>
+</section>
+<!-- End Property Section Three -->
+<!--Clients Section-->
+<section class="clients-section">
+    <div class="auto-container">
+        <div class="sponsors-outer">
+            <!--Sponsors Carousel-->
+            <ul class="sponsors-carousel owl-carousel owl-theme">
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="/Assets/images/icons/empty.png"
+                                 data-src="/Assets/images/clients/1.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="/Assets/images/icons/empty.png"
+                                 data-src="/Assets/images/clients/2.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="/Assets/images/icons/empty.png"
+                                 data-src="/Assets/images/clients/3.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="/Assets/images/icons/empty.png"
+                                 data-src="/Assets/images/clients/4.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="/Assets/images/icons/empty.png"
+                                 data-src="/Assets/images/clients/5.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="/Assets/images/icons/empty.png"
+                                 data-src="/Assets/images/clients/1.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="/Assets/images/icons/empty.png"
+                                 data-src="/Assets/images/clients/2.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="/Assets/images/icons/empty.png"
+                                 data-src="/Assets/images/clients/3.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="/Assets/images/icons/empty.png"
+                                 data-src="/Assets/images/clients/4.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box">
+                        <a href="#">
+                            <img src="/Assets/images/icons/empty.png"
+                                 data-src="/Assets/images/clients/5.png" alt="">
+                        </a>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Clients Section-->
+@section scripts
+{
+    <script>
+        function toprice(num, sep) {
+            var number = typeof num === "number" ? num.toString() : num,
+                separator = typeof sep === "undefined" ? ',' : sep;
+            return number.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1" + separator);
+        }
+        var minPrice = Number($("#minPrice").val());
+        var maxPrice = Number($("#maxPrice").val());
+        var unit = '@currentUnit';
+        $("#price-slider").slider({
+            min: minPrice,
+            max: maxPrice,
+            values: [minPrice, maxPrice],
+            slide: function (event, ui) {
+                $(".price-amount").val(`${unit} ${toprice(ui.values[0])} - ${unit} ${toprice(ui.values[1])}`);
+            },
+            change: function (event, ui) {
+                $("#minPrice").val(ui.values[0])
+                $("#maxPrice").val(ui.values[1])
+                GetGrid();
+            }
+        });
+        $(".price-amount").val(`${unit} ${toprice(minPrice)} - ${unit} ${toprice(maxPrice)}`);
+        $('#countryId').on('selectmenuchange', function() {
+            GetStates();
+        });
+        $('#realStateType').on('selectmenuchange', function () {
+            GetGrid();
+        });
+        $('#planType').on('selectmenuchange', function () {
+            GetGrid();
+        });
+        $('#roomNo').on('selectmenuchange', function () {
+            GetGrid();
+        });
+        $('#bathRoomNo').on('selectmenuchange', function () {
+            GetGrid();
+        });
+        $('#sort').on('selectmenuchange', function () {
+            GetGrid();
+        });
+        function GetStates() {
+            var geoDivisionId = $("#countryId").find(":selected").val();
+            $("#state").html('');
+            $("#state").hide();
+            $("#city").html('');
+            $("#city").hide();
+            $.ajax({
+                type: 'GET',
+                url: '/RealState/GetGeoDivisionChildren?geoDivisionId=' + geoDivisionId,
+                success: function (response) {
+                    try {
+                        var data = JSON.parse(response);
+                        var html = '<select class="custom-select-box" id="stateId" onchange="GetCities()">' +
+                            '<option value="">انتخاب استان</option>';
+                        data.map(function (item) {
+                            html += '<option value="' + item.id + '">' + item.title + '</option>';
+                        });
+                        html += '</select>';
+                        $("#state").html(html);
+                        $("#state").show();
+                        $("#stateId").selectmenu();
+                        $('#stateId').on('selectmenuchange', function () {
+                            GetCities();
+                        });
+                    } catch (e) {
+                    }
+                    GetGrid();
+                },
+                error: function (data) {
+                    console.log("error");
+                    console.log(data);
+                },
+                comcurrentUnitlete: function () {
+                }
+            });
+        }
+
+        function GetCities() {
+            var geoDivisionId = $("#stateId").find(":selected").val();
+            $("#city").html('');
+            $("#city").hide();
+            $.ajax({
+                type: 'GET',
+                url: '/RealState/GetGeoDivisionChildren?geoDivisionId=' + geoDivisionId,
+                success: function (response) {
+                    try {
+                        var data = JSON.parse(response);
+                        var html = '<select class="custom-select-box" id="cityId" onchange="GetGrid()">' +
+                            '<option value="">انتخاب شهر</option>';
+                        data.map(function (item) {
+                            html += '<option value="' + item.id + '">' + item.title + '</option>';
+                        });
+                        html += '</select>';
+                        $("#city").html(html);
+                        $("#city").show();
+                        $("#cityId").selectmenu();
+                        $('#cityId').on('selectmenuchange', function () {
+                            GetGrid();
+                        });
+                    } catch (e) {
+                    }
+                    GetGrid();
+                },
+                error: function (data) {
+                    console.log("error");
+                    console.log(data);
+                },
+                complete: function () {
+                }
+            });
+        }
+
+        function GetGrid(page, firstLoad) {
+            if (firstLoad !== true) {
+                $("#loading").show();
+            }
+            var pageNumber = 1;
+            if (page != null) {
+                pageNumber = page;
+            }
+            var sort = $("#sort").find(":selected").val();
+            //var take = $("#take").find(":selected").val();
+            var take = 9;
+            var countryId = $('#countryId').val();
+            var sort = $('#sort').val();
+            var stateId = $('#stateId').val();
+            var cityId = $('#cityId').val();
+            var realStateType = $('#realStateType').val();
+            var planType = $('#planType').val();
+            var roomNo = $('#roomNo').val();
+            var bathRoomNo = $('#bathRoomNo').val();
+            var priceFrom = $("#minPrice").val();
+            var priceTo = $("#maxPrice").val();
+            var model = {
+                sort: sort,
+                countryId: countryId,
+                stateId: stateId,
+                cityId: cityId,
+                realStateType: realStateType,
+                planType: planType,
+                roomNo: roomNo,
+                bathRoomNo: bathRoomNo,
+                priceFrom: priceFrom,
+                priceTo: priceTo,
+                pageNumber: pageNumber,
+                take: take,
+                sort: sort
+            }
+            $.ajax({
+                type: 'GET',
+                url: '/RealState/StateGrid',
+                data: model,
+                success: function(data) {
+                    $("#grid").html(data);
+                },
+                error: function(data) {
+                    console.log("error");
+                    console.log(data);
+                },
+                complete: function() {
+                    $("#loading").hide();
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            GetGrid(1);
+        });
+    </script>
+}

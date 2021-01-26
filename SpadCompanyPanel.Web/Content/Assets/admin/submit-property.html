@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ریول - سایت مسکن املاک | ثبت ملک</title>
+<!-- Stylesheets -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <!-- Header Span -->
+    <span class="header-span"></span>
+
+    <!-- Main Header-->
+    <header class="main-header">
+        <div class="main-box clearfix">
+        	<!-- Logo Box -->
+            <div class="logo-box">
+                <div class="logo"><a href="../index.html"><img src="images/logo-small.svg" alt="" title=""></a></div>
+            </div>
+
+            <!-- Upper Right-->
+            <div class="upper-right">
+                <ul class="clearfix">
+                    <li class="submit-property">
+                    	<a href="submit-property.html" title="Submit Property" class="theme-btn btn-style-one"><span class="btn-title"><i class="la la-cloud-upload"></i></span></a>
+                    </li>
+                    <li class="nav-toggler">
+                    	<button class="toggler-btn nav-btn"><span class="bar bar-one"></span><span class="bar bar-two"></span><span class="bar bar-three"></span></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--End Header Lower-->
+    </header>
+    <!--End Main Header -->
+    
+    <!-- Hidden Bar -->
+    <section class="hidden-bar sidebar-wrapper">
+        <div class="dashboard-inner">
+        	<div class="cross-icon"><span class="pe-7s-close-circle"></span></div>
+        	<div class="sidebar-header">
+		        <div class="user-pic">
+		          	<img class="img-responsive img-rounded" src="images/resource/user.jpg" alt="User picture">
+		        </div>
+		        <div class="user-info">
+		          	<span class="user-name">محمد
+		            	<strong>بهمنی</strong>
+		          	</span>
+		          	<span class="user-role">مدیریت</span>
+		          	<span class="user-status">
+		            	<i class="online"></i>
+		            	<span>آنلاین</span>
+		          	</span>
+		        </div>
+		    </div>
+		    <div class="sidebar-search">
+                <form method="post" action="dashboard.html">
+                    <div class="form-group">
+                        <input type="search" name="search-field" value="" placeholder="جستجو" required="">
+                        <button type="submit"><span class="icon la la-search"></span></button>
+                    </div>
+                </form>
+		    </div>
+		    <!-- sidebar-search  -->
+        	<ul class="navigation">
+	            <li><a href="dashboard.html"><i class="la la-home"></i> داشبورد <span class="badge badge-success">جدید</span></a></li>
+	            <li><a href="messages.html"><i class="la la-envelope"></i> پیام ها <span class="badge badge-danger">15</span></a></li>
+	            <li><a href="bookings.html"><i class="la la-calendar"></i>رزرو <span class="badge badge-primary">10</span></a></li>
+	            <li><a href="my-properties.html"><i class="la la-diamond"></i>ملک های من <span class="badge badge-warning">16</span></a></li>
+	            <li><a href="my-invoices.html"><i class="la la-files-o"></i>فاکتورهای من</a></li>
+	            <li><a href="favorited-properties.html"><i class="la la-thumbs-o-up"></i>ملک های پیشنهادی من</a></li>
+	            <li class="active"><a href="submit-property.html"><i class="la la-upload"></i>ثبت ملک</a></li>
+	            <li><a href="my-profile.html"><i class="la la-user"></i>پروفایل من</a></li>
+	            <li><a href="../index.html"><i class="la la-sign-out"></i>خروج</a></li>
+	        </ul>
+	    </div>
+    </section>
+    <!--End Hidden Bar -->
+
+    <div class="dashboard">
+	    <div class="container-fluid">
+	        <div class="content-area">
+	            <div class="dashboard-content">
+	                <div class="dashboard-header clearfix">
+	                    <div class="row">
+	                        <div class="col-md-6 col-sm-12"><h4>ثبت ملک</h4></div>
+	                        <div class="col-md-6 col-sm-12">
+	                            <div class="breadcrumb-nav">
+	                                <ul>
+	                                    <li><a href="../index.html">خانه</a></li>
+	                                    <li><a href="dashboard.html">داشبورد</a></li>
+	                                    <li class="active">ثبت ملک</li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="row">
+	                    <div class="column col-lg-12">
+	                    	<div class="properties-box">
+	                    		<div class="inner-container">
+	                    			<div class="property-submit-form">
+			                            <form method="post" action="../index.html">
+			                            	<div class="title"><h3>اطلاعات پایه</h3></div>
+			                                <div class="row">
+			                                	<!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>عنوان ملک</label>
+			                                        <input type="text" name="text" placeholder="عنوان ملک" required>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>نوع ملک</label>
+			                                        <select class="custom-select-box">
+		                                                <option>نوع ملک</option>
+		                                                <option>مسکونی</option>
+		                                                <option>تجاری</option>
+		                                                <option>صنعتی</option>
+		                                                <option>آپارتمان</option>
+		                                            </select>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>شهر</label>
+			                                        <select class="custom-select-box">
+			                                            <option>شهر</option>
+			                                            <option>تهران</option>
+			                                            <option>گیلان</option>
+			                                            <option>اصفهان</option>
+			                                            <option>قزوین</option>
+			                                            <option>سمنان</option>
+			                                        </select>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>وضعیت</label>
+			                                        <select class="custom-select-box">
+			                                            <option>اجاره</option>
+			                                            <option>فروش</option>
+			                                        </select>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <div class="range-slider-one clearfix">
+			                                            <label>منطقه</label>
+			                                         	<input type="text" name="text" placeholder="منطقه" required>
+			                                        </div>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <div class="range-slider-one clearfix">
+			                                            <label>آشپزخانه</label>
+			                                         	<select class="custom-select-box">
+				                                            <option>آشپزخانه</option>
+				                                            <option>01 آشپزخانه</option>
+				                                            <option>02 آشپزخانه</option>
+				                                            <option>03 آشپزخانه</option>
+				                                            <option>04 آشپزخانه</option>
+				                                            <option>05 آشپزخانه</option>
+				                                        </select>
+			                                        </div>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <div class="range-slider-one clearfix">
+			                                            <label>اتاق خواب</label>
+			                                         	<select class="custom-select-box">
+				                                            <option>اتاق خواب</option>
+				                                            <option>01 اتاق خواب</option>
+				                                            <option>02 اتاق خواب</option>
+				                                            <option>03 اتاق خواب</option>
+				                                            <option>04 اتاق خواب</option>
+				                                            <option>05 اتاق خواب</option>
+				                                        </select>
+			                                        </div>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <div class="range-slider-one clearfix">
+			                                            <label>حمام</label>
+			                                         	<select class="custom-select-box">
+				                                            <option>حمام</option>
+				                                            <option>01 حمام</option>
+				                                            <option>02 حمام</option>
+				                                            <option>03 حمام</option>
+				                                            <option>04 حمام</option>
+				                                            <option>05 حمام</option>
+				                                        </select>
+			                                        </div>
+			                                    </div>
+			                                </div>
+
+			                                <div class="title"><h3>آدرس</h3></div>
+			                                <div class="row">
+			                                	<!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>آدرس</label>
+			                                        <input type="text" name="text" placeholder="عنوان ملک" required>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>منطقه</label>
+			                                        <select class="custom-select-box">
+		                                                <option>منطقه</option>
+		                                                <option>منطقه 1</option>
+		                                                <option>منطقه 2</option>
+		                                                <option>منطقه 3</option>
+		                                                <option>منطقه 4</option>
+		                                            </select>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>کد پستی</label>
+			                                        <input type="text" name="text" placeholder="محل" required>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>وضعیت</label>
+			                                        <select class="custom-select-box">
+			                                            <option>اجاره</option>
+			                                            <option>فروش</option>
+			                                        </select>
+			                                    </div>
+			                                </div>
+
+			                                <div class="title"><h3>گالری</h3></div>
+			                                <div class="row">
+			                                	<!-- Form Group -->
+			                                    <div class="form-group col-lg-12">
+			                                        <div id="myDropZone" class="dropzone dropzone-design">
+				                                        <div class="dz-default dz-message"><span>فایل را اینجا رها کنید تا آپلود شود</span></div>
+				                                    </div>
+			                                    </div>
+			                                </div>
+
+			                                <div class="title"><h3>اطلاعات دقیق</h3></div>
+			                                <div class="row">
+			                                	<!-- Form Group -->
+			                                    <div class="form-group col-lg-12">
+			                                    	<textarea name="detail" placeholder="اطلاعات دقیق"></textarea>
+			                                    </div>
+			                                </div>
+
+			                                <div class="title"><h3>ویژگی ها (اختیاری)</h3></div>
+			                                <div class="row">
+			                                	<div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-1"> 
+					                                    <label for="service-1">تهویه هوا</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-2"> 
+					                                    <label for="service-2">سیستم هشدار دهنده</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-3"> 
+					                                    <label for="service-3">دربازکن</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-4"> 
+					                                    <label for="service-4">بخاری</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-5"> 
+					                                    <label for="service-5">باغ</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-6"> 
+					                                    <label for="service-6">سیستم گرمایش</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-7"> 
+					                                    <label for="service-7">سقف بلند</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-8"> 
+					                                    <label for="service-8">پارکینگ خودرو</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-9"> 
+					                                    <label for="service-9">استخر</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-10"> 
+					                                    <label for="service-10">اتاق رختشویی</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-11"> 
+					                                    <label for="service-11">مکان برای صندلی</label>
+					                                </div>
+					                            </div>
+
+					                            <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+					                                <div class="check-box">
+					                                    <input type="checkbox" name="shipping-option" id="service-12"> 
+					                                    <label for="service-12">پوشش پنجره</label>
+					                                </div>
+					                            </div>
+			                                </div>
+
+			                                <div class="title"><h3>اطلاعات تماس</h3></div>
+			                                <div class="row">
+			                                	<!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>نام</label>
+			                                        <input type="text" name="name" placeholder="نام" required>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>ایمیل</label>
+			                                        <input type="email" name="email" placeholder="ایمیل" required>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                        <label>تلفن</label>
+			                                        <input type="text" name="phone" placeholder="تلفن" required>
+			                                    </div>
+
+			                                    <!-- Form Group -->
+			                                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+			                                    	<button type="submit" class="theme-btn btn-style-one"><span class="btn-title">ارسال</span></button>
+			                                    </div>
+			                                </div>
+			                            </form>
+			                        </div>
+	                    		</div>
+	                    	</div>
+	                    </div>
+	                </div>
+	            </div>
+	            <p class="copyright-text">© 2019 <a href="rtl-theme.com/user-profile/davod_taheri/">Davod-Taheri</a> تمامی حقوق محفوظ است.</p>
+	        </div>
+	    </div>
+	</div>
+
+</div>
+    
+<script src="js/jquery.js"></script> 
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/dropzone.js"></script>
+<script src="js/appear.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

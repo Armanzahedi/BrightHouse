@@ -1,0 +1,37 @@
+﻿@model SpadCompanyPanel.Core.Models.ContactForm
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "text-light-black fw-600" })
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control form-control-submit", placeholder = "نام و نام خانوادگی" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "text-light-black fw-600" })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control form-control-submit", placeholder = "ایمیل" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "text-light-black fw-600" })
+                    @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control form-control-submit", placeholder = "پیام" } })
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                </div>
+                <button type="submit"
+                        class="btn-second btn-submit full-width">
+                    ارسال
+                </button>
+            </div>
+        </div>
+    </form>
+}
+<script>
+    $.validator.unobtrusive.parse("#form");
+</script>
+

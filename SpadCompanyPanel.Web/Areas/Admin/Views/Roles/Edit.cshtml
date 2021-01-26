@@ -1,0 +1,35 @@
+﻿@model SpadCompanyPanel.Core.Models.Role
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-group">
+            <label for="Name" class="control-label col-md-2">نام</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="RoleNameLocal" class="control-label col-md-2">نام محلی</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RoleNameLocal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoleNameLocal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div style="float:left">
+                <input type="submit" value="ثبت" class="btn btn-primary mr-2" />
+            </div>
+        </div>
+    </div>
+}
+<script>
+    $.validator.unobtrusive.parse("#form");
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

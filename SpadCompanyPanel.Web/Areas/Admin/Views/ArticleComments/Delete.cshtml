@@ -1,0 +1,41 @@
+﻿@model SpadCompanyPanel.Web.ViewModels.CommentWithPersianDateViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+<h4 class="card-label">
+    آیا مطمئن هستید که می خواهید این کامنت را حذف کنید؟
+</h4>
+<dl class="row" style="padding-top:10px">
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.Comment.Name)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.Comment.Name)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.Comment.Email)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.Comment.Email)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.PersianDate)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.PersianDate)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.Comment.Message)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.Comment.Message)
+    </dd>
+</dl>
+<div style="float:left">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="حذف" class="btn btn-danger mr-2" />
+    }
+</div>

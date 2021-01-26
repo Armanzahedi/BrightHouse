@@ -1,0 +1,86 @@
+﻿@using Road.Web.ViewModels
+@model LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" direction="rtl" dir="rtl" style="direction: rtl">
+<!--begin::Head-->
+<head>
+    <meta charset="utf-8" />
+    <title>RoadWay | ورود به پنل ادمین</title>
+    <meta name="description" content="Login page example" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!--begin::Page Custom Styles(used by this page)-->
+    <link href="~/Content/admin/css/pages/login/classic/login-4.css" rel="stylesheet" type="text/css" />
+    <!--end::Page Custom Styles-->
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="~/Content/admin/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/admin/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Theme Styles-->
+    <link href="~/Content/admin/myStyle.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Content/admin/media/logos/favicon.ico" />
+
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+
+    <!--begin::Main-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Login-->
+        <div class="login login-4 login-signin-on d-flex flex-row-fluid" id="kt_login">
+            <div class="d-flex flex-center flex-row-fluid bgi-size-cover bgi-position-top bgi-no-repeat" style="background-image: url('~/Content/admin/media/bg/bg-3.jpg');">
+                <div class="login-form text-center p-7 position-relative overflow-hidden">
+                    <!--begin::Login Header-->
+                    <div class="d-flex flex-center mb-15">
+                        <a href="#">
+                            <img src="~/Content/footer-logo.png" class="max-h-75px" alt="" />
+                        </a>
+                    </div>
+                    <!--end::Login Header-->
+                    <!--begin::Login Sign in form-->
+                    <div class="login-signin">
+                        <div class="mb-20">
+                            <h3>ورود به پنل ادمین</h3>
+                            <div class="text-muted font-weight-bold">برای ورود به پنل اطلاعات خود را وارد کنید</div>
+                        </div>
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group mb-5">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control h-auto form-control-solid py-4 px-8", placeholder = "ایمیل", autocomplete = "off" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group mb-5">
+                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control h-auto form-control-solid py-4 px-8", placeholder = "رمز عبور", autocomplete = "off" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group d-flex flex-wrap justify-content-between align-items-center">
+                                <div class="checkbox-inline">
+                                    <label for="RememberMe" class="checkbox m-0 text-muted">
+                                        <input type="checkbox" name="RememberMe" id="RememberMe" />
+                                        <span class="ml-2"></span>
+                                        مرا به خاطر بسپار
+                                    </label>
+                                </div>
+                                <a href="javascript:;" id="kt_login_forgot" class="text-muted text-hover-primary">رمز عبور خود را فراموش کرده اید؟</a>
+                            </div>
+                            <input class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4" type="submit" value="ورود" />
+                        }
+                    </div>
+                    <!--end::Login Sign in form-->
+                </div>
+            </div>
+        </div>
+        <!--end::Login-->
+    </div>
+</body>
+<!--end::Body-->
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

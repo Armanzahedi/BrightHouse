@@ -1,0 +1,27 @@
+﻿
+@model List<SpadCompanyPanel.Core.Models.Gallery>
+<div class="section-header-left">
+    <h3 class="text-light-black header-title title">
+        <a href="gallery.html" class="text-dark">گالری</a>
+    </h3>
+</div>
+<div class="row mb-5">
+    <div class="col-md-12 p-0">
+        <div class="gallery-box padding-10">
+            <ul class="gallery-img">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <a class="image-popup" href="/Files/GalleryImages/@item.Image"
+                           title="@item.Title">
+                            <img src="/Files/GalleryImages/@item.Image" class="img-fluid full-width"
+                                 alt="@item.Title"/>
+                        </a>
+                    </li>
+
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+

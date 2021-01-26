@@ -1,0 +1,40 @@
+﻿@using SpadCompanyPanel.Web.ViewModels
+@model LoginViewModel
+@{
+    Layout = "/Views/Shared/_LoginLayout.cshtml";
+}
+<!--begin::Login Sign in form-->
+<div class="login-signin">
+    <div class="mb-20">
+        <h3>ورود به پنل ادمین</h3>
+        <div class="text-muted font-weight-bold">برای ورود به پنل اطلاعات خود را وارد کنید</div>
+    </div>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group mb-5">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control h-auto form-control-solid py-4 px-8", placeholder = "نام کاربری", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group mb-5">
+            @Html.TextBoxFor(m => m.Password, new { @class = "form-control h-auto form-control-solid py-4 px-8", type = "Password", placeholder = "رمز عبور", autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group d-flex flex-wrap justify-content-between align-items-center">
+            <div class="checkbox-inline">
+                <label for="RememberMe" class="checkbox m-0 text-muted">
+                    @Html.CheckBoxFor(model => model.RememberMe)
+                    <span class="ml-2"></span>
+                    مرا به خاطر بسپار
+                </label>
+            </div>
+            <a href="/Account/ForgotPassword" id="kt_login_forgot" class="text-muted text-hover-primary">رمز عبور خود را فراموش کرده اید؟</a>
+        </div>
+        <input class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4" type="submit" value="ورود" />
+    }
+</div>
+<!--end::Login Sign in form-->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

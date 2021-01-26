@@ -1,0 +1,11 @@
+﻿@model List<SpadCompanyPanel.Core.Models.Gallery>
+<div class="u-line instagram-slider swiper-container">
+    <ul class="hm-list hm-instagram swiper-wrapper">
+        @foreach (var item in Model)
+        {
+            <li class="swiper-slide">
+                <img src="/Files/GalleryImages/Thumb/@item.Image" alt="@item.Title">
+            </li>
+        }
+    </ul>
+</div>

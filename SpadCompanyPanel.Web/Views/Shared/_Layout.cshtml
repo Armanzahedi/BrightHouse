@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>bright house</title>
+    <!-- Stylesheets -->
+    <link href="Content/Assets/css/bootstrap.css" rel="stylesheet">
+    <link href="Content/Assets/css/style.css" rel="stylesheet">
+    <link href="Content/Assets/css/responsive.css" rel="stylesheet">
+    <!--Color Switcher Mockup-->
+    <link href="Content/Assets/css/color-switcher-design.css" rel="stylesheet">
+    <link href="Content/Assets/css/popup.css" rel="stylesheet">
+
+    <!--Color Themes-->
+    <link id="theme-color-file" href="Content/Assets/css/color-themes/default-theme.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/Content/logo.png" type="image/x-icon">
+    <link rel="icon" href="/Content/logo.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="Content/Assets/css/font-awesome.css">
+    <!--[if lt IE 9]>
+    <script src="Content/Assets/js/respond.js"></script><![endif]-->
+    
+    @RenderSection("styles", required: false)
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        <div class="preloader"></div>
+        <!--popup-->
+        <div class='popup-onload'>
+            <div class='cnt223'>
+                <!--                <div class="container-fluid">-->
+                <div class="row ltr-row">
+                    <div class="col-6">
+                        <div class="back-img">
+
+                        </div>
+                    </div>
+                    <div class="col-6 align-self-center text-center pr-0">
+                        <p class="cntTitle">ما 24 ساعته پاسخگوی شما هستیم</p>
+                        <p class="cntDes">اجازه دهید ما با شما تماس بگیریم</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" class="popup-email-inpt" placeholder="ایمیل خود را وارد کنید">
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="theme-btn btn-style-one w-100" style="width: 80% !important; margin-top: 1rem;">
+                                    <span class="btn-title">ارسال</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--                    </div>-->
+                </div>
+                <p>
+                    <a href='' class='close'>
+                        <i class="flaticon-close close-icon"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+        <!--end popup-->
+        @Html.Action("Navbar", "Home");
+        @RenderBody()
+        @Html.Action("Footer", "Home");
+
+    </div>
+    <!-- End Page Wrapper -->
+    <!-- Color Palate / Color Switcher -->
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-double-up"></span></div>
+    <script src="Content/Assets/js/jquery.js"></script>
+    <script src="Content/Assets/js/popper.min.js"></script>
+    <script src="Content/Assets/js/bootstrap.min.js"></script>
+    <script src="Content/Assets/js/jquery-ui.js"></script>
+    <script src="Content/Assets/js/jquery.fancybox.js"></script>
+    <script src="Content/Assets/js/owl.js"></script>
+    <script src="Content/Assets/js/wow.js"></script>
+    <script src="Content/Assets/js/jquery.stellar.min.js"></script>
+    <script src="Content/Assets/js/mixitup.js"></script>
+    <script src="Content/Assets/js/appear.js"></script>
+    <script src="Content/Assets/js/tims.js"></script>
+    <script src="Content/Assets/js/script.js"></script>
+    <script src="Content/Assets/js/popup.js"></script>
+    <!-- Color Setting -->
+    <script src="Content/Assets/js/color-settings.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

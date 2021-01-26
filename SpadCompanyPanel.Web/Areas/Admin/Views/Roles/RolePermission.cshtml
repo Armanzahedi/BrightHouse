@@ -1,0 +1,31 @@
+﻿@using Kendo.Mvc.UI
+@model List<SpadCompanyPanel.Web.ViewModels.RolePermissionsViewModel>
+@{
+    ViewBag.Title = "نقش ها";
+
+    List<TreeViewItemModel> treeItems = ViewBag.TreeItems as List<TreeViewItemModel>;
+}
+<input type="hidden" id="nav_active" value="auth_control">
+<input type="hidden" id="nav_item_active" value="roles">
+<div class="col-lg-6">
+    <div class="card card-custom gutter-b example example-compact">
+        <div class="card-header">
+            <h3 class="card-title">
+                نقش : @ViewBag.RoleName
+            </h3>
+        </div>
+        @using (Html.BeginForm())
+        {
+
+            <div style="padding:20px">
+                @Html.Kendo().TreeView().Name("Permissions").BindTo(treeItems).Checkboxes(checkboxes => checkboxes.Name("selectedPermissions")).HtmlAttributes(new { style = "min-height:100px; ", @class = "checkbox" })
+            </div>
+            <br />
+            <div class="card-footer">
+                <input type="hidden" name="roleId" id="roleId" value="@ViewBag.RoleID" />
+                <a href="@Url.Action("Index")" class="btn btn-secondary">انصراف</a>
+                <input type="submit" value="ذخیره تغییرات" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+</div>

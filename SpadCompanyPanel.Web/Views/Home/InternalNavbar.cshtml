@@ -1,0 +1,146 @@
+﻿@using SpadCompanyPanel.Infrastructure.Helpers;
+@using SpadCompanyPanel.Core.Models;
+@{ 
+    var currentCurrencyId = CurrencyHelper.GetCurrencyId();
+    var currentLang = LanguageHelper.GetCulture();
+    var currencies = ViewBag.Currencies as List<Currency>;
+}
+<!-- Main Header-->
+<header class="main-header header-style-one">
+    <!--Header Top-->
+    <div class="header-top">
+        <div class="auto-container">
+            <div class="inner-container clearfix">
+                <div class="top-right">
+                    <ul class="contact-list clearfix">
+                        <li><i class="fa fa-phone-volume"></i> <a href="tel:0211234567">0211234567</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="mailto:admin@revel.com">info@gmail.com</a></li>
+                        @if (currentLang == 1)
+                        {
+                            <li><a href="javascript:void(0)" onclick="changeLanguage('fa')">EN</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="javascript:void(0)" onclick="changeLanguage('fa')">EN</a></li>
+                        }
+                        <li>
+                            <select name="currency" id="currency" class="header-option-mt" onchange="changeCurrency()">
+                                @foreach (var item in currencies)
+                                {
+                                    <option value="@item.Id" @(item.Id == currentCurrencyId ? "selected='selected'" : null)>@item.Unit</option>
+                                }
+                            </select>
+                        </li>
+                    </ul>
+                    <p class="user-login">
+                        به برایت هوس خوش آمدید
+                    </p>
+                </div>
+
+                <div class="top-left clearfix">
+
+                    <ul class="social-icon-one">
+                        <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-skype"></span></a></li>
+                        <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                    </ul>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Header Top -->
+    <!--Header Lower-->
+    <div class="header-lower">
+        <div class="auto-container">
+            <div class="main-box clearfix">
+                <div class="pull-right logo-outer">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="/Content/logo.png"
+                                 data-src="/Content/logo.png" alt="" title="">
+                        </a>
+                    </div>
+                </div>
+
+                <!--Nav Box-->
+                <div class="nav-outer clearfix">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+
+                    <!-- Main Menu -->
+                    <nav class="main-menu navbar-expand-lg navbar-light">
+                        <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                            <ul class="navigation clearfix">
+                                <li>
+                                    <a href="/">صفحه اصلی</a>
+
+                                </li>
+
+                                <li><a href="/RealState/Index">راهنمای املاک</a></li>
+                                <li><a href="/Blog/TurkeyGuide">اقامت کشور ترکیه</a></li>
+                                <li><a href="/Blog/EuropeGuide">اقامت اروپا</a></li>
+                                <li><a href="/Blog/UaeGuide">اقامت کشور امارات</a></li>
+                                <li><a href="/Blog/">مقالات</a></li>
+                                <li><a href="/News">اخبار</a></li>
+                                <li><a href="/AboutUs">درباره ما</a></li>
+                                <li><a href="/ContactUs">تماس با ما</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- Main Menu End-->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Header Lower-->
+    <!-- Sticky Header  -->
+    <div class="sticky-header">
+        <div class="auto-container clearfix">
+            <!--Logo-->
+            <div class="logo pull-right">
+                <a href="/" title="">
+                    <img src="/Content/Assets/images/icons/empty.png" data-src="/Content/logo.png"
+                         alt="" title="">
+                </a>
+            </div>
+            <!--Right Col-->
+            <div class="nav-outer pull-left">
+                <!--Mobile Navigation Toggler-->
+                <div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+
+                <!-- Main Menu -->
+                <nav class="main-menu navbar-expand-lg">
+                    <div class="navbar-collapse collapse clearfix">
+                        <ul class="navigation clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </ul>
+                    </div>
+                </nav><!-- Main Menu End-->
+            </div>
+        </div>
+    </div><!-- End Sticky Menu -->
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>
+
+        <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+        <nav class="menu-box">
+            <div class="nav-logo">
+                <a href="/">
+                    <img src="/Content/Assets/images/icons/empty.png" data-src="/Content/logo.png"
+                         alt="" title="">
+                </a>
+            </div>
+
+            <ul class="navigation clearfix"><!--Keep This Empty / Menu will come through Javascript--></ul>
+        </nav>
+    </div><!-- End Mobile Menu -->
+</header>
+<!--End Main Header -->

@@ -1,0 +1,146 @@
+/* Revel - Real Estate HTML Template */
+@media only screen and (max-width: 1400px){
+	.side-content-visible .page-wrapper{
+		padding-left: 0;
+	}
+
+	.side-content-visible .main-header .main-box{
+		margin-left: 0;
+	}
+
+	.hidden-bar{
+		overflow: auto;
+	}
+}
+
+@media only screen and (max-width: 1023px){
+	.main-header .main-box{
+		padding: 0 15px;
+	}
+
+	.dashboard-content{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.property-block .expire-date{
+		width: 100%;
+		text-align: left;
+		padding-top: 0;
+	}
+
+	.property-block .action-list{
+		width: 100%;
+	}
+
+}
+
+@media only screen and (max-width: 767px){
+
+	.dashboard-header .breadcrumb-nav{
+		float: right;
+		margin-top: 20px;
+	}
+
+	.property-block .image-box{
+		width: 100%;
+		margin-bottom: 30px;
+	}
+
+	.messages-box,
+	.comments-tab,
+	.properties-box,
+	.my-invoices{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+@media only screen and (max-width: 599px){
+
+	.main-header .upper-right .option-box{
+		display: none;
+	}
+
+
+	.message-box .thumb-box{
+		position: relative;
+	}
+
+	.message-box .content-box{
+		padding-right: 0;
+	}
+
+}
+
+
+@media only screen and (max-width: 479px){
+
+	.hidden-bar{
+		max-width: 100%;
+		right: -100%;
+		border-radius: 0;
+	}
+
+	.main-header .upper-right .submit-property{
+		display: none;
+	}
+
+	.my-invoices .order-num,
+	.message-box .booking-info li{
+		margin-bottom: 10px;
+	}
+
+	.property-block .content-box{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.my-invoices .order-num,
+	.property-block .option-box,
+	.property-block .property-info li,
+	.message-box .booking-info li strong{
+		width: 100%;
+	}
+
+	.hidden-bar .cross-icon{
+		top: 5px;
+		left: 10px;
+	}
+
+	.comments-tab .tab-buttons{
+		float: none;
+		margin-top: 20px;
+		margin-bottom: 0px;
+	}
+
+	.comments-tab .tab-buttons .tab-btn{
+		float: none;
+		display: inline-block;
+	}
+
+	.comments-tab h3{
+		padding: 0;
+	}
+
+	.table{
+		min-width: 480px;
+	}
+
+	.message-box .reply-btn{
+		position: relative;
+		left: 0;
+		bottom: 0;
+		margin-top: 20px;
+		display: inline-block;
+	}
+
+	.message-box .text{
+		font-size: 14px;
+	}
+
+	.message-box .date,
+	.message-box .name{
+		margin-bottom: 5px;
+	}
+}

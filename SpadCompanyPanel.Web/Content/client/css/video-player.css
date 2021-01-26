@@ -1,0 +1,65 @@
+/*DEMO STYlES*/
+.lightbox-toggle:not(.lightbox-close) {
+  display: inline-block;
+  background: #d62c1a;
+  height: 300px;
+  width: 100%;
+  line-height: 200px;
+  font-size: 42px;
+  text-align: center;
+  color: #ffffff;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*LIGHTBOX STYLE*/
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.lightbox .lightbox-video {
+  width: 100%;
+  padding-bottom: 56%;
+}
+.lightbox iframe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+.lightbox img {
+  display: block;
+  margin: 0 auto;
+}
+.lightbox .lightbox-close {
+  position: absolute;
+  display: block;
+  top: 6rem;
+  right: 1rem;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  z-index: 9999;
+
+}
+.lightbox .lightbox-close:hover {
+  text-decoration: none;
+}
+.lightbox .lightbox-container {
+  max-width: 1024px;
+  margin: 100px auto 25px;
+}
+.player-icon{
+  color: #ffffff;
+  font-size: 98px;
+  position: relative;
+  top: 59px;
+}

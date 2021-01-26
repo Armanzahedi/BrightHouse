@@ -1,0 +1,87 @@
+﻿@model SpadCompanyPanel.Core.Models.OurTeam
+
+@{
+    ViewBag.Title = "تیم ما";
+}
+<input type="hidden" id="nav_active" value="content_control">
+<input type="hidden" id="nav_item_active" value="ourteam">
+@{
+    if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">
+            <strong>خطا!</strong> @ViewBag.Message
+        </div>
+    }
+}
+<div class="col-lg-12">
+    <div class="card card-custom gutter-b">
+        <div class="card-header">
+            <h3 class="card-title">
+                افزودن 
+            </h3>
+        </div>
+        @using (Html.BeginForm("Create", "OurTeam", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="card-body">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, new { })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "form-text text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Role, new { })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.Role, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Role, "", new { @class = "form-text text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-label">تصویر</label>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="image-input image-input-outline" id="ourteam-image">
+                        <div class="image-input-wrapper" style="background-image: url(assets/media/users/100_1.jpg)"></div>
+
+                        <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="آپلود تصویر">
+                            <i class="fa fa-pen icon-sm text-muted"></i>
+                            <input type="file" name="OurTeamImage" accept=".png, .jpg, .jpeg" />
+                            <input type="hidden" name="ourteam_image_remove" />
+                        </label>
+
+                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="حذف تصویر">
+                            <i class="ki ki-bold-close icon-xs text-muted"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, new { })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "form-text text-danger" })
+                </div>
+            </div>
+        </div>
+            <div class="card-footer">
+                <a href="@Url.Action("Index")" class="btn btn-secondary">انصراف</a>
+                <input type="submit" value="ثبت" class="btn btn-primary mr-2" />
+            </div>
+        }
+    </div>
+</div>
+<style>
+    .image-input .image-input-wrapper {
+        width: 200px;
+
+    }
+</style>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        new KTImageInput('ourteam-image');
+    </script>
+}

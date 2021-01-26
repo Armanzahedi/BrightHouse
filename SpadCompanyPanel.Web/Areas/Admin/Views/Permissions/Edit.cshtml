@@ -1,0 +1,67 @@
+﻿@model SpadCompanyPanel.Core.Models.Permission
+
+@{
+    ViewBag.Title = "مجوز ها";
+}
+<input type="hidden" id="nav_active" value="auth_control">
+<input type="hidden" id="nav_item_active" value="permissions">
+@{
+    if (ViewBag.Message != null)
+    {
+        <div class="alert alert-warning">
+            <strong>هشدار!</strong> @ViewBag.Message
+        </div>
+    }
+}
+<div class="col-lg-6">
+    <div class="card card-custom gutter-b example example-compact">
+        <div class="card-header">
+            <h3 class="card-title">
+                ویرایش مجوز
+            </h3>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            <div class="card-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "form-text text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, new { })
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "form-text text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ParentId, new { })
+                    @Html.DropDownList("ParentId", null, "Choose Parent", htmlAttributes: new { @class = "form-control " })
+                    @Html.ValidationMessageFor(model => model.ParentId, "", new { @class = "form-text text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DisplayPriority, new { })
+                    @Html.EditorFor(model => model.DisplayPriority, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.DisplayPriority, "", new { @class = "form-text text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ControllerName, new { })
+                    @Html.EditorFor(model => model.ControllerName, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.ControllerName, "", new { @class = "form-text text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ActionName, new { })
+                    @Html.EditorFor(model => model.ActionName, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.ActionName, "", new { @class = "form-text text-danger" })
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="@Url.Action("Index")" class="btn btn-secondary">انصراف</a>
+                <input type="submit" value="ثبت" class="btn btn-primary mr-2" />
+            </div>
+        }
+    </div>
+</div>

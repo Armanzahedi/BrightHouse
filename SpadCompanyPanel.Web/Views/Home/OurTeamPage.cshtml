@@ -1,0 +1,36 @@
+﻿@model List<SpadCompanyPanel.Core.Models.OurTeam>
+@{
+    ViewBag.Title = "مدیریت";
+}
+<section class="section-padding">
+    <div class="container">
+        <div class="page-title">
+            <h2>معرفی مدیران</h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-xl-7 col-md-12 manager-second-order">
+                                    <h2>@item.Title</h2>
+                                    <h5>@item.Role</h5>
+                                    <h6>
+                                        @item.Description
+                                    </h6>
+                                </div>
+                                <div class="col-xl-5 col-md-12 manager-first-order">
+                                    <img src="/Files/OurTeamImages/@item.Image" class="manager-img" alt="@item.Title">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>

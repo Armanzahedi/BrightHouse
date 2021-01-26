@@ -1,0 +1,27 @@
+﻿@model List<SpadCompanyPanel.Web.ViewModels.TopArticlesViewModel>
+<div class="main-box padding-20 side-blog mb-xl-20">
+    <h4 class="text-light-black">محبوب ترین نوشته ها</h4>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <article class="side-post@(i < Model.Count-1 ? " mb-xl-20 u-line": "")">
+            <div class="thumb-img" style="max-width: 85px">
+                <a href="/Blog/Post/1/sd/@Model[i].Id/@Model[i].Title.Replace(" ","-")">
+                    <img src="/Files/ArticleImages/Thumb/@Model[i].Image" alt="@Model[i].Title">
+                </a>
+            </div>
+            <div class="content-wrap">
+                <div class="entry-meta-content">
+                    <h5 class="entry-title">
+                        <a href="/Blog/Post/1/sd/@Model[i].Id/@Model[i].Title.Replace(" ", "-")" class="text-light-black">
+                            @Model[i].Title
+                        </a>
+                    </h5>
+                    <div class="entry-tye">
+                        <span class="text-light-green fw-600">@Model[i].PersianDate</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+    }
+</div>
+

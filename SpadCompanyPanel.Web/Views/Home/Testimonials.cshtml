@@ -1,0 +1,37 @@
+﻿@model List<SpadCompanyPanel.Core.Models.Testimonial>
+<section class="feedback-area-two section-padding">
+    <div class="container">
+        <div class="section-header-style-2">
+            <h6 class="text-light-green sub-title">رضایت مشتری</h6>
+            <h3 class="text-custom-white header-title">مردم درباره ما چه می گویند</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="feedback-slider p-relative swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach (var item in Model)
+                        {
+                            <div class="swiper-slide">
+                                <div class="feedback-item-two">
+                                    <img src="/Files/TestimonialImages/@item.Image" alt="@item.Title">
+                                    <p class="text-custom-white fs-16">
+                                        @item.Description
+                                    </p>
+                                    <h4 class="text-custom-white fw-600 no-margin">@item.Title</h4>
+                                    <span class="text-custom-white fw-600">@item.Role</span>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+
+
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+    </div>
+</section>

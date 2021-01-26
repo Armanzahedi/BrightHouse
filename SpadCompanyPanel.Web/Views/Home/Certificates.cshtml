@@ -1,0 +1,41 @@
+﻿@model List<SpadCompanyPanel.Core.Models.Certificate>
+    @{
+        ViewBag.Title = "افتخارات و گواهینامه ها";
+    }
+    <section class="section-padding">
+        <div class="container">
+            <div class="page-title">
+                <h2>افتخارات و گواهینامه ها</h2>
+            </div>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3 p-0">
+                        <div class="gallery-box padding-10">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <ul class="gallery-img">
+
+                                                <li class="img-gallery">
+                                                    <a class="image-popup" href="/Files/CertificatesImages/@item.Image" title="@item.Title">
+                                                        <img src="/Files/CertificatesImages/@item.Image" class="img-fluid full-width" alt="@item.Title">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-12 certificate">
+                                            <h4>@item.Title</h4>
+                                            <p>@item.Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </section>

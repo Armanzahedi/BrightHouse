@@ -1,0 +1,42 @@
+﻿@model SpadCompanyPanel.Core.Models.Option
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm(null,null,FormMethod.Post,new { id = "form"}))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.InsertDate)
+    @Html.HiddenFor(model => model.InsertUser)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.EnglishTitle, htmlAttributes: new { @class = "control-label col-md-10" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EnglishTitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EnglishTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div style="float:left">
+            <input type="submit" value="ثبت" class="btn btn-primary mr-2" />
+        </div>
+    </div>
+</div>
+}
+<script>
+    $.validator.unobtrusive.parse("#form");
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,63 @@
+﻿@model SpadCompanyPanel.Web.ViewModels.GalleryPageViewModel
+@{
+    ViewBag.Title = "گالری";
+}
+<section>
+    <div class="container">
+        <div class="section-header-left mt-5">
+            <h3 class="text-light-black header-title title">
+                <span class="text-dark">گالری تصاویر</span>
+            </h3>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-12 p-0">
+                <div class="gallery-box padding-10">
+                    <ul class="gallery-img">
+                        @foreach (var item in Model.Images)
+                        {
+                            <li>
+                                <a class="image-popup" href="/Files/GalleryImages/@item.Image"
+                                   title="@item.Title">
+                                    <img src="/Files/GalleryImages/@item.Image" class="img-fluid full-width"
+                                         alt="@item.Title"/>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="section-header-left mt-5">
+            <h3 class="text-light-black header-title title">
+                <a href="gallery.html" class="text-dark">گالری ویدئو</a>
+            </h3>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Videos)
+            {
+                <div class="col-md-4 col-sm-6 col-12 mb-4">
+                    <a href="#lightbox" class="lightbox-toggle"
+                       data-lightbox-type="video"
+                       style="background-image: url(/Files/GalleryImages/@item.Image);"
+                       data-lightbox-content="/Files/GalleryVideos/@item.Video">
+
+
+                        <div class="player-icon">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-play-fill" fill="currentColor"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                            </svg>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            }
+        </div>
+    </div>
+</section>

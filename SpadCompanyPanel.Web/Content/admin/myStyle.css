@@ -1,0 +1,223 @@
+﻿@font-face {
+    font-family: 'iranYekan';
+    src: url(./IRANYekan/woff/iranyekanwebboldfanum.woff);
+}
+*{
+    font-family: 'iranYekan';
+}
+.k-grid-header th.k-header>.k-link {
+    float: right;
+}
+.k-header>.k-grid-filter, .k-header>.k-header-column-menu {
+    float: left;
+}
+.k-grid-pdf, .k-grid-excel {
+    color: #3699FF !important;
+    background-color: #E1F0FF !important;
+    border-color: transparent !important;
+    border: 1px solid transparent !important;
+    padding: 0.65rem 1rem !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    border-radius: 0.42rem !important;
+    margin: 3px 2px 0 2px !important;
+}
+    .k-grid-pdf:hover, .k-grid-excel:hover {
+        color: #FFFFFF !important;
+        background-color: #3699FF !important;
+        border-color: transparent !important;
+    }
+.k-grid-search {
+    height: calc(1.5em + 1.3rem + 2px) !important;
+    padding: 0.65rem 1rem !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: #a4a5ac !important;
+    background-color: #ffffff !important;
+    background-clip: padding-box !important;
+    border: 1px solid #E4E6EF !important;
+    border-radius: 0.42rem !important;
+}
+.k-grouping-header .k-group-indicator {
+    color: #fff;
+    background-color: #3699FF !important;
+    border-color: #3699FF !important;
+    line-height: 1.5 !important;
+    border-radius: 0.42rem !important;
+    border: 1px solid transparent !important;
+    padding: 0.65rem 1rem !important;
+    color: #3699FF !important;
+}
+    .k-grouping-header .k-group-indicator:hover {
+        color: #FFFFFF !important;
+        background-color: #187DE4 !important;
+        border-color: #187DE4 !important;
+    }
+    .k-group-indicator .k-button.k-flat {
+        color: white;
+    }
+.k-grid-header th.k-header:first-child {
+    border-left-width: 1px !important;
+    border-right-width: 0px !important;
+}
+.k-grid-header-wrap {
+    border: none;
+}
+.k-grid-toolbar {
+    border: none;
+    background-color: white;
+}
+.k-grouping-header {
+    background-color: white !important;
+    color: #3699FF !important;
+}
+.footer td, .k-grid-header, .k-grid-header .k-header {
+    background-color: #fff;
+}
+.k-gantt-toolbar .k-state-default, .k-grid .k-grouping-header, .k-grid-footer td, .k-grid-header, .k-grid-header-wrap, .k-group-footer td, .k-grouping-row td, .k-header {
+    border-color: #fff !important;
+}
+    .k-grid-header .k-header, .k-grid-header .k-header .k-link, .k-grid-header .k-link, .k-grid-header .k-link:link, .k-scheduler-agendaview .k-scheduler-datecolumn, .k-scheduler-header {
+        color: #7e7e89 !important;
+    }
+.k-block, .k-draghandle, .k-inline-block, .k-widget {
+    border:none;
+}
+.k-grid .k-header .k-grid-search {
+    margin-right:-3px;
+}
+span.k-icon.k-i-file-excel {
+    margin-left: 5px !important;
+}
+span.k-icon.k-i-file-pdf {
+    margin-left: 5px !important;
+}
+.k-active-filter, .k-state-active, .k-state-active:hover, .k-tabstrip .k-state-active {
+    background-color: #fff !important;
+}
+.k-grid-header-wrap.k-auto-scrollable {
+    margin-right: -19px;
+}
+.k-grid-header .k-i-sort-asc-sm, .k-grid-header .k-i-sort-desc-sm, .k-grid-header .k-sort-order {
+    color: #3699FF !important;
+}
+.k-autocomplete.k-state-hover, .k-dropdown-wrap.k-state-hover, .k-numeric-wrap.k-state-hover, .k-picker-wrap.k-state-hover, .k-textarea:hover, .k-textbox:hover {
+    box-shadow:none;
+}
+.k-grid tr td {
+    border: none
+}
+.k-pager-wrap .k-pager-numbers .k-state-selected, .k-pager-wrap .k-pager-numbers .k-state-selected:hover {
+    border-top-color: #3699FF;
+    color: #3699FF;
+}
+@media screen and (max-width: 750px) {
+    .k-grouping-header {
+        display:none;
+    }
+    .navbar-brand, .navbar-nav > li > a {
+        font-size: 10px;
+    }
+
+    #banner {
+        font-size: 15px;
+    }
+
+    .k-grid table {
+        border: 0;
+    }
+
+        .k-grid table thead, table colgroup {
+            display: none;
+        }
+
+    tr:nth-child(odd) {
+        background: #FFF
+    }
+
+    .k-grid table tr {
+        display: block;
+        border: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        border-radius: 20px;
+        width: 250px;
+        margin: 10px auto;
+    }
+
+        .k-grid table tr td:last-child {
+            background-color: #FFFFFF;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .k-grid table tr td:first-child {
+            background-color: #38374c;
+            color: white;
+            font-weight: bold;
+            padding-top: 1em;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+    .k-grid table td {
+        display: block;
+        font-size: 12px;
+        border-bottom: 1px dotted #ccc;
+    }
+
+    td > .btn {
+        margin: 0 2px;
+        font-size: 10px;
+    }
+
+    .k-grid table td:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    #title {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #logo {
+        display: none;
+    }
+
+    #title {
+        display: none;
+    }
+}
+/*.datatable-toggle-detail > i {
+    color: #d2d2d2 !important;
+    margin-right: 5px;
+}
+.datatable-toggle-detail > i:hover {
+        color: #3699FF !important;
+}*/
+/*.datatable-row-hover {
+    background-color: #e3e3e3 !important;
+    border-radius: 10px;
+}*/
+.datatable.datatable-default > .datatable-table > .datatable-head .datatable-row > .datatable-cell > span, .datatable.datatable-default > .datatable-table > .datatable-foot .datatable-row > .datatable-cell > span {
+    font-weight: bold;
+}
+.datatable-toggle-detail > .fa-caret-down {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.datatable-toggle-detail > .fa-caret-right {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}

@@ -1,0 +1,168 @@
+﻿@model SpadCompanyPanel.Web.ViewModels.FooterViewModel
+
+
+<!-- Main Footer -->
+<footer class="main-footer" style="background-image: url(Content/Assets/images/background/3.jpg);">
+    <div class="auto-container">
+        <div class="upper-box">
+            <div class="row">
+                <!-- Upper column -->
+                <div class="upper-column col-lg-3 col-md-12 col-sm-12">
+                    <div class="footer-logo">
+                        <figure class="image">
+                            <a href="/">
+                                <img src="Content/Assets/images/icons/empty.png"
+                                     style="height: 73px"
+                                     data-src="Content/Assets/images/footer-logo.png"
+                                     alt="">
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Upper column -->
+                <div class="upper-column col-lg-3 col-md-12 col-sm-12">
+                    <h2>عضویت در خبرنامه</h2>
+                </div>
+
+                <!-- Upper column -->
+                <div class="upper-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="subscribe-form">
+                        <form method="post" action="/blog/">
+                            <div class="form-group">
+                                <input type="email" name="email" value="" placeholder="ایمیل خود را وارد کنید"
+                                       required="">
+                                <button type="submit" class="theme-btn btn-style-two">
+                                    <span class="btn-title">ارسال</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Widgets Section-->
+        <div class="widgets-section">
+            <div class="row">
+                <!--Big Column-->
+                <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                        <!--Footer Column-->
+                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                            <div class="footer-widget contact-widget">
+                                <h2 class="widget-title">راه های تماس با ما</h2>
+                                <div class="widget-content">
+                                    <ul class="contact-list">
+                                        <li>
+                                            <span class="fa fa-map-marker-alt"></span>
+                                            تهران 
+                                        </li>
+                                        <li><span class="fa fa-phone-volume"></span>02100000000</li>
+                                        <li>
+                                            <span class="fa fa-envelope"></span><a href="mailto:info@revel.com">info@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Footer Column-->
+                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                            <div class="footer-widget cities-widget">
+                                <h2 class="widget-title">شهرها</h2>
+                                <div class="widget-content">
+                                    <ul class="list clearfix">
+                                        <li><a href="/RealState/Index">تهران</a></li>
+                                        <li><a href="/RealState/Index">اصفهان</a></li>
+                                        <li><a href="/RealState/Index"> گیلان</a></li>
+                                        <li><a href="/RealState/Index">سمنان</a></li>
+                                        <li><a href="/RealState/Index">آذربایجان شرقی</a></li>
+                                        <li><a href="/RealState/Index"> قزوین</a></li>
+                                        <li><a href="/RealState/Index">اردبیل</a></li>
+                                        <li><a href="/RealState/Index">آستارا</a></li>
+                                        <li><a href="/RealState/Index">سوادکوه</a></li>
+                                        <li><a href="/RealState/Index">ایلام</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Big Column-->
+                <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                    <div class="row clearfix">
+                        <div class="footer-column col-xl-8 col-lg-6 col-md-6 col-sm-12">
+                            <!--Footer Column-->
+                            <div class="footer-widget popular-posts">
+                                <h2 class="widget-title">ملک های ویژه</h2>
+                                <!--Footer Column-->
+                                <div class="widget-content">
+                                    <div class="post">
+                                        <div class="thumb">
+                                            <a href="/Home/blog-detail">
+                                                <img src="Content/Assets/images/icons/empty.png"
+                                                     data-src="Content/Assets/images/resource/post-thumb-1.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <h4><a href="/Home/blog-detail">ویلای ساحلی در شمال کشور</a></h4>
+                                        <span class="date">19 مرداد  1398</span>
+                                    </div>
+
+                                    <div class="post">
+                                        <div class="thumb">
+                                            <a href="/Home/blog-detail">
+                                                <img src="Content/Assets/images/icons/empty.png"
+                                                     data-src="Content/Assets/images/resource/post-thumb-2.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <h4><a href="/Home/blog-detail">آپارتمان در بهترین نقطه تهران</a></h4>
+                                        <span class="date">19 مرداد  1398</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Footer Column-->
+                        <div class="footer-column col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                            <div class="footer-widget links-widget">
+                                <h2 class="widget-title">لینک ها</h2>
+                                <div class="widget-content">
+                                    <ul class="list clearfix">
+                                        <li><a href="/Blog/investment-guide">راهنمای سرمایه گذاری</a></li>
+                                        <li><a href="/Blog/area-guide">راهنمای منطقه</a></li>
+                                        <li><a href="/Home/gallery">گالری</a></li>
+                                        <li><a href="/Home/agents">مشاوران</a></li>
+                                        <li><a href="/Home/rules">قوانین</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer Bottom-->
+    <div class="footer-bottom">
+        <div class="auto-container">
+            <div class="inner-container clearfix">
+
+                <div class="copyright-text">
+                    <p>
+                        © طراحی شده توسط <a href="https://spad.co">اسپاد</a>
+                    </p>
+                </div>
+                <div class="upper-column btn-box info-box">
+                    <img src="Content/Assets/images/24-hours.png" alt="" class="service-hours">
+
+                    <p class="text-white">24 ساعته پاسخگوی شما هستیم</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Main Footer -->

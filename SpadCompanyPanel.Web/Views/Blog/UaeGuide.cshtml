@@ -1,0 +1,77 @@
+﻿@model List<SpadCompanyPanel.Web.ViewModels.ArticleListViewModel>
+@{
+    ViewBag.Title = "بلاگ";
+}
+<!--Page Title-->
+<section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
+    <div class="auto-container">
+        <h1>اقامت امارات</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="/">خانه</a></li>
+            <li> اقامت امارات</li>
+        </ul>
+    </div>
+</section>
+<!--End Page Title-->
+<!--Login Section-->
+
+<section class="">
+
+    <div class="auto-container p-0">
+        <div class="investment">
+
+            <div class="clearfix">
+                <div class="investment-part">
+                    <div class="row">
+                        <div class="col-md-6 investment-title-img">
+                            <img src="/Files/StaticContentImages/Image/@ViewBag.ArticleImage" alt="" width="1200" height="1200">
+                        </div>
+                        <div class="col-md-6 d-block m-auto">
+                            <div class="investment-name">
+                                <img src="/Content/Assets/images/logo-4-01.png" alt="logo" class="investment-logo">
+                                <h3 class="investment-title">اقامت امارات</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="investment-paper">
+                                <h3 class="title">
+                                    @ViewBag.ArticleTitle
+                                </h3>
+                                <p>
+                                    @Html.Raw(ViewBag.ArticleContent)
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="contact-part">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <h4 class="contact-part-title">
+                اجازه بدهید ما با شما تماس بگیریم ما به شما کمک خواهیم کرد که بهترین
+                سرمایه گذاری را انتخاب کنید
+            </h4>
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <input type="text" class="contact-part-txt" placeholder="نام و نام خانوادگی">
+                <input type="text" class="contact-part-txt" placeholder="شماره تماس">
+                <input type="email" class="contact-part-txt" placeholder="آدرس ایمیل">
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <textarea placeholder="متن خود را وارد کنید" class="contact-part-txt cp-txt-area"></textarea>
+                <button type="submit" class="theme-btn btn-style-two w-100">
+                    <span class="btn-title">ارسال</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--End Login Section-->

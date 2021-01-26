@@ -1,0 +1,80 @@
+﻿@model List<SpadCompanyPanel.Web.ViewModels.LatestArticlesViewModel>
+@if (Model.Any())
+{
+    <section class="section-padding our-blog restaurent-ad">
+        <div class="container">
+            <div class="section-header-style-2">
+                <h6 class="text-light-green sub-title">بلاگ ما</h6>
+                <h3 class="text-light-black header-title">آخرین مطالب</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-box mb-xl-20">
+                        @if (0 < Model.Count)
+                        {
+
+                        }
+                        <!-- article 1 -->
+                        <article class="post">
+                            <div class="blog-img p-relative">
+                                <a href="/Blog/Post/1/sd/@Model[0].Id/@Model[0].Title.Replace(" ","-")">
+                                    <img src="/Files/ArticleImages/Image/@Model[0].Image" alt="@Model[0].Title">
+                                </a>
+                                <div class="overlay padding-20">
+                                    <div class="blog-meta">
+                                        <h4 class="text-custom-white mb-2 fw-600">
+                                            @Model[0].Title
+                                        </h4>
+                                        <a href="/Blog/Post/1/sd/@Model[0].Id/@Model[0].Title.Replace(" ","-")" class="text-custom-white fw-700 fs-18">بیشتر بخوانید</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- article 1 -->
+                        <div class="side-blog">
+                            <div class="blog-list padding-tb-10">
+                                @for (int i = 1; i < Model.Count-1; i++)
+                                {
+                                    if (i < Model.Count)
+                                    {
+                                        <article class="side-post padding-20 @(i < 3? "u-line": "")">
+                                            <div class="content-wrap">
+                                                <div class="entry-meta-content">
+                                                    <div class="entry-tye">
+                                                        <span class="text-light-green fw-600">@Model[i].PersianDate</span>
+                                                    </div>
+                                                </div>
+                                                <h6 class="entry-title no-margin">
+                                                    <a href="/Blog/Post/1/sd/@Model[i].Id/@Model[i].Title.Replace(" ","-")" class="text-light-black">@Model[i].Title</a>
+                                                </h6>
+                                            </div>
+                                            <div class="thumb-img">
+                                                <a href="/Blog/Post/1/sd/@Model[i].Id/@Model[i].Title.Replace(" ","-")">
+                                                    <img src="/Files/ArticleImages/Thumb/@Model[i].Image" alt="@Model[i].Title">
+                                                </a>
+                                            </div>
+                                        </article>
+
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    @if (4 < Model.Count)
+                    {
+                        <div class="ad-img p-relative">
+                            <img src="/Files/ArticleImages/Image/@Model[4].Image" class="img-fluid full-width" alt="@Model[4].Title">
+                            <div class="overlay">
+                                <div class="content-box transform-center">
+                                    <h3 class="text-custom-white mb-1">@Model[4].Title</h3>
+                                    <a href="/Blog/Post/1/sd/@Model[4].Id/@Model[4].Title.Replace(" ","-")" class="btn-first white-btn">بیشتر بخوانید</a>
+                                </div>
+                            </div>
+                            <div class="overlay overlay-bg"></div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}

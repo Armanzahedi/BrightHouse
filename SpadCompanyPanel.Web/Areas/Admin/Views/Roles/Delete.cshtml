@@ -1,0 +1,25 @@
+﻿@model SpadCompanyPanel.Core.Models.Role
+<h4 class="card-label">
+    آیا مطمئن هستید که می خواهید این نقش را حذف کنید؟
+</h4>
+<dl class="row" style="padding-top:10px">
+    <dt class="col-sm-2">
+        نام
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+    <dt class="col-sm-2">
+        نام محلی
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.RoleNameLocal)
+    </dd>
+</dl>
+<div style="float:left">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="حذف" class="btn btn-danger mr-2" />
+    }
+</div>

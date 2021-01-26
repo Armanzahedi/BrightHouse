@@ -1,0 +1,117 @@
+﻿@model SpadCompanyPanel.Web.ViewModels.ContactUsViewModel
+@{
+    ViewBag.Title = "ارتباط با ما";
+}
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
+    <div class="auto-container">
+        <h1>تماس با ما</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="/">خانه</a></li>
+            <li>تماس با ما</li>
+        </ul>
+    </div>
+</section>
+<!--End Page Title-->
+<!-- Contact Page Section -->
+<section class="contact-page-section">
+    <div class="auto-container">
+        <div class="outer-box">
+            <div class="row clearfix">
+                <div class="contact-column col-lg-4 col-md-12 col-sm-12">
+                    <div class="inner-column wow fadeInLeft">
+                        <h2>تماس با ما</h2>
+                        <ul class="contact-info">
+                            <li>
+                                <span class="icon fa fa-map-marker-alt"></span>
+                                <p>تهران </p>
+                            </li>
+
+                            <li>
+                                <span class="icon fa fa-phone-volume"></span>
+                                <p><a href="tel:+02100000000">02100000000</a></p>
+                            </li>
+
+                            <li>
+                                <span class="icon fa fa-envelope"></span>
+                                <p><a href="mailto:info@revel.com">info@gmail.com</a></p>
+                            </li>
+
+                            <li>
+                                <span class="icon fab fa-skype"></span>
+                                <p>test</p>
+                            </li>
+                        </ul>
+
+                        <ul class="social-icon-four">
+                            <li class="title">ما را دنبال کنید :</li>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="form-column col-lg-8 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="contact-form">
+                            <div class="title">
+                                <h2>ارسال پیام برای ما</h2>
+                                <div class="text">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</div>
+                            </div>
+                            <form method="post" action="sendemail.php" id="contact-forms">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <input type="text" name="username" class="contact-input" placeholder="نام" required="">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                        <input type="email" class="contact-input" name="email" placeholder="ایمیل" required="">
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <input type="text" class="contact-input" name="subject" placeholder="موضوع" required="">
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <textarea name="message" class="contact-input" placeholder="پیام"></textarea>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group send-btn-part">
+                                        <button class="theme-btn btn-style-two" type="submit" name="submit-form"><span class="btn-title">ارسال</span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Contact Page Section -->
+
+<!--Clients Section-->
+<section class="clients-section">
+    <div class="auto-container">
+        <div class="sponsors-outer">
+            <!--Sponsors Carousel-->
+            <ul class="sponsors-carousel owl-carousel owl-theme">
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/1.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/2.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/3.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/4.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/5.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/1.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/2.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/3.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/4.png" alt=""></a></figure></li>
+                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/5.png" alt=""></a></figure></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Clients Section-->
