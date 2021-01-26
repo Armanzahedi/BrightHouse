@@ -101,6 +101,7 @@
     <Compile Include="Models\Log.cs" />
     <Compile Include="Models\Option.cs" />
     <Compile Include="Models\OurTeam.cs" />
+    <Compile Include="Models\Partner.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\Plan.cs" />
     <Compile Include="Models\PlanOption.cs" />
