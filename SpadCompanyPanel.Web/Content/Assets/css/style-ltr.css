@@ -111,7 +111,7 @@ font-family: 'IRANSansWeb;
 body {
 
     direction: ltr;
-    text-align: justify;
+    text-align: left;
     font-size: 14px;
     color: #777777;
     line-height: 2em;
@@ -8495,9 +8495,9 @@ select.header-option-mt option {
 
 .contact-page-section .outer-box:before {
     position: absolute;
-    right: 100px;
+    left: 100px;
     top: 0;
-    left: 0;
+    right: 0;
     height: 100%;
     box-shadow: 0 0 21px rgba(0, 0, 0, 0.18);
     content: "";

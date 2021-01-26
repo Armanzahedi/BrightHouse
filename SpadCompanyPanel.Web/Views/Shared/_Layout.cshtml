@@ -48,16 +48,16 @@
                     <div class="col-6 align-self-center text-center pr-0">
                         <p class="cntTitle">ما 24 ساعته پاسخگوی شما هستیم</p>
                         <p class="cntDes">اجازه دهید ما با شما تماس بگیریم</p>
-                        <div class="row">
+                        <form method="post" id="newsLetterForm" action="/Home/SubmitNewsLetterEmail" class="row">
                             <div class="col-md-12">
-                                <input type="text" class="popup-email-inpt" placeholder="ایمیل خود را وارد کنید">
+                                <input type="text" class="popup-email-inpt" id="newsLetterEmail" name="newsLetterEmail" placeholder="ایمیل خود را وارد کنید">
                             </div>
                             <div class="col-md-12">
                                 <button type="submit" class="theme-btn btn-style-one w-100" style="width: 80% !important; margin-top: 1rem;">
                                     <span class="btn-title">ارسال</span>
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                     <!--</div>-->
                 </div>
