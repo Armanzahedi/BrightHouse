@@ -10,6 +10,7 @@ using SpadCompanyPanel.Infrastructure.Helpers;
 using SpadCompanyPanel.Infrastructure.Repositories;
 using SpadCompanyPanel.Web.ViewModels;
 using System.Data.Entity;
+using SpadCompanyPanel.Infrastructure.Services;
 
 namespace SpadCompanyPanel.Web.Controllers
 {
@@ -25,10 +26,11 @@ namespace SpadCompanyPanel.Web.Controllers
         private readonly GeoDivisionsRepository _geoRepos;
         private readonly PlansRepository _planRepos;
         private readonly CurrenciesRepository _currencyRepo;
+        private readonly StaticContentService _staticContentService;
 
         public HomeController(StaticContentDetailsRepository contentRepo, TestimonialsRepository testimonialRepo, ContactFormsRepository contactFormRepo, OurTeamRepository ourTeamRepo,
             CertificatesRepository certificatesRepo, FoodGalleriesRepository foodGalleriesRepo, RealStatesRepository stateRepos, GeoDivisionsRepository geoRepos, PlansRepository planRepos,
-            CurrenciesRepository currencyRepo)
+            CurrenciesRepository currencyRepo, StaticContentService staticContentService)
         {
             _contentRepo = contentRepo;
             _testimonialRepo = testimonialRepo;
@@ -40,6 +42,7 @@ namespace SpadCompanyPanel.Web.Controllers
             _geoRepos = geoRepos;
             _planRepos = planRepos;
             _currencyRepo = currencyRepo;
+            _staticContentService = staticContentService;
         }
         public ActionResult Index()
         {
@@ -161,7 +164,8 @@ namespace SpadCompanyPanel.Web.Controllers
         [Route("AboutUs")]
         public ActionResult About()
         {
-            return View();
+            var model = _staticContentService.GetAboutUsContext();
+            return View(model);
         }
         [Route("ContactUs")]
         public ActionResult Contact()

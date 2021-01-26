@@ -8,12 +8,15 @@ namespace SpadCompanyPanel.Core.Utility
 {
     public enum StaticContentTypes
     {
+        AboutUs = 1,
+        AboutUsEnglish = 2009,
         Slider = 1001,
         CompanyHistory = 2,
         BlogImage = 1004,
         TurkeyResidence = 1006,
         UaeResidence = 1007,
         EuropeResidence = 1008,
+        Phone = 1002,
     }
     public enum StaticContents
     {
@@ -28,6 +31,21 @@ namespace SpadCompanyPanel.Core.Utility
         Facebook = 1010,
         BlogImage = 1013,
         ContactInfo = 1014
+    }
+
+    public enum StaticContentDetails
+    {
+        AboutUs = 1012,
+        AboutUsEnglish = 3028,
+        AboutUsItem1 = 3020,
+        AboutUsItem2 = 3021,
+        AboutUsItem3 = 3022,
+        AboutUsItem4 = 3023,
+        AboutUsItemEnglish1 = 3024,
+        AboutUsItemEnglish2 = 3025,
+        AboutUsItemEnglish3 = 3026,
+        AboutUsItemEnglish4 = 3027,
+
     }
 
     public enum RealStateType
