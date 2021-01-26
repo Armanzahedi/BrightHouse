@@ -3,6 +3,7 @@ using SpadCompanyPanel.Infrastructure.Helpers;
 using SpadCompanyPanel.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -40,7 +41,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                         var newFileName = Guid.NewGuid() + Path.GetExtension(PartnerImage.FileName);
                         PartnerImage.SaveAs(Server.MapPath("/Files/PartnersImages/Temp/" + newFileName));
                         // Resize Image
-                        ImageResizer image = new ImageResizer(400, 200, true);
+                        ImageResizer image = new ImageResizer(400, 200, true,ImageFormat.Png);
                         image.Resize(Server.MapPath("/Files/PartnersImages/Temp/" + newFileName),
                             Server.MapPath("/Files/PartnersImages/" + newFileName));
 
@@ -88,7 +89,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                         var newFileName = Guid.NewGuid() + Path.GetExtension(PartnerImage.FileName);
                         PartnerImage.SaveAs(Server.MapPath("/Files/PartnersImages/Temp/" + newFileName));
                         // Resize Image
-                        ImageResizer image = new ImageResizer(400, 200, true);
+                        ImageResizer image = new ImageResizer(400, 200, true, ImageFormat.Png);
                         image.Resize(Server.MapPath("/Files/PartnersImages/Temp/" + newFileName),
                             Server.MapPath("/Files/PartnersImages/" + newFileName));
 

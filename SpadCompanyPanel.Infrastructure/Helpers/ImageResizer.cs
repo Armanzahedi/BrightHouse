@@ -51,6 +51,13 @@ namespace SpadCompanyPanel.Infrastructure.Helpers
             TrimImage = trim;
             SaveFormat = ImageFormat.Jpeg;
         }
+        public ImageResizer(int x, int y, bool trim,ImageFormat format)
+        {
+            MaxX = x;
+            MaxY = y;
+            TrimImage = trim;
+            SaveFormat = format;
+        }
         /// <summary>
         /// Resizes the image from the source file according to the
         /// current settings and saves the result to the targe file.

@@ -1,12 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@using SpadCompanyPanel.Infrastructure.Helpers;
+@{
+    var currentLang = LanguageHelper.GetCulture();
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>bright house</title>
     <!-- Stylesheets -->
     <link href="Content/Assets/css/bootstrap.css" rel="stylesheet">
-    <link href="Content/Assets/css/style.css" rel="stylesheet">
-    <link href="Content/Assets/css/responsive.css" rel="stylesheet">
+    <link href="~/Content/Assets/css/style@(currentLang != 1?"-ltr":null).css" rel="stylesheet">
+    <link href="~/Content/Assets/css/responsive@(currentLang != 1?"-ltr":null).css" rel="stylesheet">
     <!--Color Switcher Mockup-->
     <link href="Content/Assets/css/color-switcher-design.css" rel="stylesheet">
     <link href="Content/Assets/css/popup.css" rel="stylesheet">
@@ -24,7 +28,7 @@
     <link rel="stylesheet" href="Content/Assets/css/font-awesome.css">
     <!--[if lt IE 9]>
     <script src="Content/Assets/js/respond.js"></script><![endif]-->
-    
+
     @RenderSection("styles", required: false)
 </head>
 
@@ -35,11 +39,10 @@
         <!--popup-->
         <div class='popup-onload'>
             <div class='cnt223'>
-                <!--                <div class="container-fluid">-->
+                <!--<div class="container-fluid">-->
                 <div class="row ltr-row">
                     <div class="col-6">
                         <div class="back-img">
-
                         </div>
                     </div>
                     <div class="col-6 align-self-center text-center pr-0">
@@ -56,8 +59,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <!--                    </div>-->
+                    <!--</div>-->
                 </div>
                 <p>
                     <a href='' class='close'>
@@ -91,6 +93,34 @@
     <script src="Content/Assets/js/popup.js"></script>
     <!-- Color Setting -->
     <script src="Content/Assets/js/color-settings.js"></script>
+    <script>
+        function changeLanguage(lang) {
+            $("#loading").show();
+            var Language = lang;
+            $.ajax({
+                url: "/Language/ChangeLanguage",
+                type: "GET",
+                data: { Language },
+                success: function () {
+                    $("#loading").hide();
+                    location.reload()
+                }
+            });
+        }
+        function changeCurrency() {
+            $("#loading").show();
+            var currency = $('#currency').val();
+            $.ajax({
+                url: "/Currencies/ChangeCurrency",
+                type: "GET",
+                data: { currency },
+                success: function () {
+                    $("#loading").hide();
+                    location.reload();
+                }
+            });
+        }
+    </script>
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)

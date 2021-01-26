@@ -1,16 +1,16 @@
-﻿<!-- Main Header-->
+﻿@using SpadCompanyPanel.Infrastructure.Helpers;
+@using SpadCompanyPanel.Core.Models;
+@{
+    var currentCurrencyId = CurrencyHelper.GetCurrencyId();
+    var currentLang = LanguageHelper.GetCulture();
+    var currencies = ViewBag.Currencies as List<Currency>;
+}
+<!-- Main Header-->
 <header class="main-header header-style-three">
     <!--Header Top-->
     <div class="header-top">
         <div class="auto-container">
             <div class="inner-container clearfix">
-                <div class="top-left clearfix">
-
-                    <div class="text">
-                        <input type="search" class="header-search">
-                        <i class="fa fa-search header-search-icon"></i>
-                    </div>
-                </div>
                 <ul class="login-signup ">
                     <li>
 
@@ -23,16 +23,21 @@
                 <div class="top-right">
 
                     <span class="text-dark font-weight-bold">
-                        <a href="../BrightHouse-ltr/index.html" style="color: white">EN</a>
+                        @if (currentLang == 1)
+                        {
+                            <a href="javascript:void(0)" style="color: white" onclick="changeLanguage('en')">EN</a>
+                        }
+                        else
+                        {
+                            <a href="javascript:void(0)" style="color: white" onclick="changeLanguage('fa')">Fa</a>
+                        }
                     </span>
-                    <select name="cars" id="money" class="header-option">
-                        <option>تومان</option>
-                        <option>€</option>
-                        <option>$</option>
-                        <option>₺</option>
+                    <select name="currency" id="currency" class="header-option" onchange="changeCurrency()">
+                        @foreach (var item in currencies)
+                        {
+                            <option value="@item.Id" @(item.Id == currentCurrencyId ? "selected='selected'" : null)>@item.Unit</option>
+                        }
                     </select>
-
-
                 </div>
                 <div class="header-date">
                     <div id="clock"></div>

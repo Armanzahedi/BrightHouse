@@ -99,6 +99,8 @@
     <Compile Include="Models\GeoDivision.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\NewsLetterMember.cs" />
+    <Compile Include="Models\News.cs" />
     <Compile Include="Models\Option.cs" />
     <Compile Include="Models\OurTeam.cs" />
     <Compile Include="Models\Partner.cs" />

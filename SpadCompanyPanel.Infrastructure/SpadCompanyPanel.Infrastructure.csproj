@@ -146,6 +146,10 @@
     <Compile Include="Migrations\202101261119460_Added-partners.Designer.cs">
       <DependentUpon>202101261119460_Added-partners.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101261259390_added-news-and-newsletter.cs" />
+    <Compile Include="Migrations\202101261259390_added-news-and-newsletter.Designer.cs">
+      <DependentUpon>202101261259390_added-news-and-newsletter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101261119460_Added-partners.resx">
       <DependentUpon>202101261119460_Added-partners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101261259390_added-news-and-newsletter.resx">
+      <DependentUpon>202101261259390_added-news-and-newsletter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

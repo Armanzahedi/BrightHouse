@@ -27,10 +27,11 @@ namespace SpadCompanyPanel.Web.Controllers
         private readonly PlansRepository _planRepos;
         private readonly CurrenciesRepository _currencyRepo;
         private readonly StaticContentService _staticContentService;
+        private readonly PartnersRepository _partnersRepo;
 
         public HomeController(StaticContentDetailsRepository contentRepo, TestimonialsRepository testimonialRepo, ContactFormsRepository contactFormRepo, OurTeamRepository ourTeamRepo,
             CertificatesRepository certificatesRepo, FoodGalleriesRepository foodGalleriesRepo, RealStatesRepository stateRepos, GeoDivisionsRepository geoRepos, PlansRepository planRepos,
-            CurrenciesRepository currencyRepo, StaticContentService staticContentService)
+            CurrenciesRepository currencyRepo, StaticContentService staticContentService,PartnersRepository partnersRepo)
         {
             _contentRepo = contentRepo;
             _testimonialRepo = testimonialRepo;
@@ -43,6 +44,7 @@ namespace SpadCompanyPanel.Web.Controllers
             _planRepos = planRepos;
             _currencyRepo = currencyRepo;
             _staticContentService = staticContentService;
+            _partnersRepo = partnersRepo;
         }
         public ActionResult Index()
         {
@@ -80,7 +82,7 @@ namespace SpadCompanyPanel.Web.Controllers
         }
         public ActionResult Navbar()
         {
-            var a = "test4";
+            ViewBag.Currencies = _currencyRepo.GetAll();
             //ViewBag.Phone = _contentRepo.GetStaticContentDetail((int) StaticContents.Phone).ShortDescription;
             return PartialView();
         }
@@ -123,10 +125,10 @@ namespace SpadCompanyPanel.Web.Controllers
         {
             return View();
         }
-        public ActionResult OurTeamSection()
+        public ActionResult PartnersSection()
         {
-            var ourTeam = _ourTeamRepo.GetAll();
-            return PartialView(ourTeam);
+            var partners = _partnersRepo.GetAll();
+            return PartialView(partners);
         }
         [Route("OurTeam")]
         public ActionResult OurTeamPage()

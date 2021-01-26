@@ -5420,7 +5420,7 @@
     <Content Include="Views\Home\HomeSlider.cshtml" />
     <Content Include="Views\Home\Navbar.cshtml" />
     <Content Include="Views\Home\OurTeamPage.cshtml" />
-    <Content Include="Views\Home\OurTeamSection.cshtml" />
+    <Content Include="Views\Home\PartnersSection.cshtml" />
     <Content Include="Views\Home\Testimonials.cshtml" />
     <Content Include="Views\Shared\_Layout3.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />

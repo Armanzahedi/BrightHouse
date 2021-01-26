@@ -1,10 +1,10 @@
-﻿@model SpadCompanyPanel.Web.ViewModels.RealStatesViewModel
+﻿@model List<SpadCompanyPanel.Infrastructure.Dtos.RealState.RealStateInfoDto>
 @{
     ViewBag.Title = "املاک";
     Layout = null;
 }
 
-@foreach (var item in Model.RecentRealStates)
+@foreach (var item in Model)
 {
     <article class="post">
         <div class="post-thumb">

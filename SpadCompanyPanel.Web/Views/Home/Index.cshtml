@@ -394,7 +394,7 @@
                                 </figure>
                                 @*<span class="for">برای فروش</span>*@
                             </div>
-                            <div class="lower-content"  style="max-height: 200px; min-height: 200px;">
+                            <div class="lower-content" style="max-height: 200px; min-height: 200px;">
                                 <ul class="property-info clearfix">
                                     <li><span class="icon fa fa-expand"></span> مساحت @item.Area</li>
                                     <li><span class="icon fa fa-bed"></span> اتاق خواب @item.Bedroom</li>
@@ -516,95 +516,7 @@
 </section>
 <!--End News Section -->
 <!--Clients Section-->
-<section class="clients-section">
-    <div class="auto-container">
-        <div class="sponsors-outer">
-            <!--Sponsors Carousel-->
-            <ul class="sponsors-carousel owl-carousel owl-theme">
-                <li class="slide-item">
-                    <figure class="image-box">
-                        <a href="#">
-                            <img src="Content/Assets/images/icons/empty.png"
-                                 data-src="Content/Assets/images/clients/1.png" alt="">
-                        </a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box">
-                        <a href="#">
-                            <img src="Content/Assets/images/icons/empty.png"
-                                 data-src="Content/Assets/images/clients/2.png" alt="">
-                        </a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box">
-                        <a href="#">
-                            <img src="Content/Assets/images/icons/empty.png"
-                                 data-src="Content/Assets/images/clients/3.png" alt="">
-                        </a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box">
-                        <a href="#">
-                            <img src="Content/Assets/images/icons/empty.png"
-                                 data-src="Content/Assets/images/clients/4.png" alt="">
-                        </a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box">
-                        <a href="#">
-                            <img src="Content/Assets/images/icons/empty.png"
-                                 data-src="Content/Assets/images/clients/5.png" alt="">
-                        </a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box">
-                        <a href="#">
-                            <img src="Content/Assets/images/icons/empty.png"
-                                 data-src="Content/Assets/images/clients/1.png" alt="">
-                        </a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box">
-                        <a href="#">
-                            <img src="Content/Assets/images/icons/empty.png"
-                                 data-src="Content/Assets/images/clients/2.png" alt="">
-                        </a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box">
-                        <a href="#">
-                            <img src="Content/Assets/images/icons/empty.png"
-                                 data-src="Content/Assets/images/clients/3.png" alt="">
-                        </a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box">
-                        <a href="#">
-                            <img src="Content/Assets/images/icons/empty.png"
-                                 data-src="Content/Assets/images/clients/4.png" alt="">
-                        </a>
-                    </figure>
-                </li>
-                <li class="slide-item">
-                    <figure class="image-box">
-                        <a href="#">
-                            <img src="Content/Assets/images/icons/empty.png"
-                                 data-src="Content/Assets/images/clients/5.png" alt="">
-                        </a>
-                    </figure>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+@Html.Action("PartnersSection", "Home")
 <!--End Clients Section-->
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

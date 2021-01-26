@@ -45,5 +45,7 @@ namespace SpadCompanyPanel.Infrastructure
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Partner> Partners { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<NewsLetterMember> NewsLetterMembers { get; set; }
     }
 }

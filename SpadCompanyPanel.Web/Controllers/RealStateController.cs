@@ -49,16 +49,7 @@ namespace SpadCompanyPanel.Web.Controllers
             ViewBag.Countries = _geoDivisionsRepo.GetCountries();
             ViewBag.MinPrice = Convert.ToInt64(_realStateService.GetLowestPriceOfPlans());
             ViewBag.MaxPrice = Convert.ToInt64(_realStateService.GetHighestPriceOfPlans());
-            var model = new RealStatesViewModel();
-
-            var realStates = _realStateRepos.GetAll();
-
-            var recentStates = realStates.Take(4);
-
-            model.RecentRealStates = recentStates.ToList();
-
-
-            return View(model);
+            return View();
         }
         public ActionResult StateGrid(RealStateGridViewModel model)
         {
@@ -151,8 +142,15 @@ namespace SpadCompanyPanel.Web.Controllers
             ViewBag.RealStateGallery = _realStateGalleryRepos.GetRealStateGalleries(id);
             return View(model);
         }
-        public ActionResult RecentStates(RealStatesViewModel model)
+        public ActionResult RecentStates()
         {
+            var model = new List<RealStateInfoDto>();
+            var realStates = _realStateRepos.GetAll();
+            var recentStates = realStates.Take(4);
+
+            foreach (var item in recentStates)
+                model.Add(_realStateService.CreateRealStateInfo(item));
+
             return View(model);
         }
         public string GetGeoDivisionChildren(int? geoDivisionId = null)
