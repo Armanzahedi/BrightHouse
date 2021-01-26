@@ -49,10 +49,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Kendo.Mvc">
+    <Reference Include="Kendo.Mvc, Version=2020.1.114.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\Kendo.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Kendo.Mvc.Export">
+    <Reference Include="Kendo.Mvc.Export, Version=2020.1.114.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\Kendo.Mvc.Export.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
