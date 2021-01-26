@@ -208,6 +208,7 @@
     <Compile Include="Areas\Admin\Controllers\GeoDivisionsController.cs" />
     <Compile Include="Areas\Admin\Controllers\OptionsController.cs" />
     <Compile Include="Areas\Admin\Controllers\OurTeamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PartnersController.cs" />
     <Compile Include="Areas\Admin\Controllers\PermissionsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PlansController.cs" />
     <Compile Include="Areas\Admin\Controllers\RealStateCommentsController.cs" />
@@ -3233,6 +3234,10 @@
     <Content Include="Content\client\fonts\IRANSansWeb.woff2" />
     <Content Include="Content\client\fonts\IRANSansWeb_Bold.woff2" />
     <Content Include="Content\client\fonts\IRANSansWeb_Light.woff2" />
+    <Content Include="Areas\Admin\Views\Partners\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Partners\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Partners\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Partners\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -5439,6 +5444,7 @@
     <Folder Include="Files\CertificatesImages\Temp\" />
     <Folder Include="Files\FoodImages\Temp\" />
     <Folder Include="Files\GalleryImages\Temp\" />
+    <Folder Include="Files\PartnersImages\Temp\" />
     <Folder Include="Files\PlanFiles\PlanImages\" />
     <Folder Include="Files\PlanFiles\Temp\" />
     <Folder Include="Files\PlanFiles\VideoImages\" />

@@ -161,6 +161,7 @@
     <Compile Include="Repositories\LogsRepository.cs" />
     <Compile Include="Repositories\OptionsRepository.cs" />
     <Compile Include="Repositories\OurTeamRepository.cs" />
+    <Compile Include="Repositories\PartnersRepository.cs" />
     <Compile Include="Repositories\PlansRepository.cs" />
     <Compile Include="Repositories\ProjectGalleriesRepository.cs" />
     <Compile Include="Repositories\ProjectsRepository.cs" />
