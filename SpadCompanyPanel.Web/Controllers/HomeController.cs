@@ -77,6 +77,7 @@ namespace SpadCompanyPanel.Web.Controllers
         }
         public ActionResult Navbar()
         {
+            var a = "test";
             //ViewBag.Phone = _contentRepo.GetStaticContentDetail((int) StaticContents.Phone).ShortDescription;
             return PartialView();
         }
