@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
     <Compile Include="Dtos\RealState\RealStateInfoDto.cs" />
+    <Compile Include="Dtos\StaticContent\AboutUsDto.cs" />
     <Compile Include="Filters\PaginationFilter.cs" />
     <Compile Include="Helpers\AsyncHelper.cs" />
     <Compile Include="Helpers\CheckImageClass.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Seed.cs" />
     <Compile Include="Services\RealStateService.cs" />
+    <Compile Include="Services\StaticContentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpadCompanyPanel.Core\SpadCompanyPanel.Core.csproj">

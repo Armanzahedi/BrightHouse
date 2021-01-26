@@ -1,4 +1,6 @@
-﻿@{
+﻿@model SpadCompanyPanel.Infrastructure.Dtos.StaticContent.AboutUsDto
+
+@{
     ViewBag.Title = "درباره ما";
 }
 
@@ -23,15 +25,12 @@
                 <div class="inner-column">
                     <div class="sec-title">
                         <div class="devider"><span></span></div>
-                        <h2>به سایت برایت هوس خوش آمدید</h2>
-                        <div class="text">ما همیشه دارایی را به مشتری خود ارائه می دهیم</div>
+                        <h2>@Model.Title</h2>
+                        <div class="text">@Model.ShortDescription</div>
                     </div>
                     <div class="text-box">
                         <p>
-                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین
-                            راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                            ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است. کتابهای زیادی در شصت و سه درصد
-                            گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت .
+                            @Html.Raw(Model.Description)
                         </p>
                     </div>
 
@@ -40,8 +39,8 @@
                         <div class="feature-block-two col-lg-6 col-md-6 col-sm-12">
                             <div class="inner-box">
                                 <span class="icon flaticon-rent-1"></span>
-                                <h4><a href="##">از دست دادن هزینه</a></h4>
-                                <div class="text">لورم ایپسوم متن ساختگی</div>
+                                <h4><a href="##">@Model.Item1.Title</a></h4>
+                                <div class="text">@Model.Item1.ShortDescription</div>
                             </div>
                         </div>
 
@@ -49,8 +48,8 @@
                         <div class="feature-block-two col-lg-6 col-md-6 col-sm-12">
                             <div class="inner-box">
                                 <span class="icon flaticon-analytics"></span>
-                                <h4><a href="##">بازاریابی خوب</a></h4>
-                                <div class="text">لورم ایپسوم متن ساختگی</div>
+                                <h4><a href="##">@Model.Item2.Title</a></h4>
+                                <div class="text">@Model.Item2.ShortDescription</div>
                             </div>
                         </div>
 
@@ -58,8 +57,8 @@
                         <div class="feature-block-two col-lg-6 col-md-6 col-sm-12">
                             <div class="inner-box">
                                 <span class="icon flaticon-home-2"></span>
-                                <h4><a href="##">پیدا کردن راحت</a></h4>
-                                <div class="text">لورم ایپسوم متن ساختگی</div>
+                                <h4><a href="##">@Model.Item3.Title</a></h4>
+                                <div class="text">@Model.Item3.ShortDescription</div>
                             </div>
                         </div>
 
@@ -67,8 +66,8 @@
                         <div class="feature-block-two col-lg-6 col-md-6 col-sm-12">
                             <div class="inner-box">
                                 <span class="icon flaticon-protect"></span>
-                                <h4><a href="##">قابل اعتماد</a></h4>
-                                <div class="text">لورم ایپسوم متن ساختگی</div>
+                                <h4><a href="##">@Model.Item4.Title</a></h4>
+                                <div class="text">@Model.Item4.ShortDescription</div>
                             </div>
                         </div>
                     </div>
@@ -84,7 +83,7 @@
                     </figure>
                     <div class="contact-info">
                         <span class="icon fa fa-phone-volume"></span>
-                        <a href="tel:02100000000" class="number">02100000000</a>
+                        <a href="tel:@Model.Phone" class="number">@Model.Phone</a>
                     </div>
                 </div>
             </div>
@@ -92,151 +91,6 @@
     </div>
 </section>
 <!-- Why Choose Us -->
-<!-- Fun Facts Section -->
-<section class="fun-facts-section">
-    <div class="auto-container">
-        <div class="fun-facts">
-            <div class="row clearfix">
-                <!--Column-->
-                <div class="column count-box col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
-                    <div class="content">
-                        <div class="icon-box"><span class="fa fa-home"></span></div>
-                        <div class="count-outer count-box">
-                            <span class="count-text" data-speed="3000" data-stop="856">0 </span>
-                        </div>
-                        <div class="counter-title">پروژه کامل</div>
-                    </div>
-                </div>
-
-                <!--Column-->
-                <div class="column count-box col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
-                    <div class="content">
-                        <div class="icon-box"><span class="fa fa-key"></span></div>
-                        <div class="count-outer count-box">
-                            +<span class="count-text" data-speed="2000" data-stop="99">0 </span>
-                        </div>
-                        <div class="counter-title">املاک فروخته شده</div>
-                    </div>
-                </div>
-
-
-                <!--Column-->
-                <div class="column count-box col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms">
-                    <div class="content">
-                        <div class="icon-box"><span class="fa fa-smile"></span></div>
-                        <div class="count-outer count-box">
-                            <span class="count-text" data-speed="2000" data-stop="450">0 </span>
-                        </div>
-                        <div class="counter-title">مشتریان</div>
-                    </div>
-                </div>
-
-                <!--Column-->
-                <div class="column count-box col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1200ms">
-                    <div class="content">
-                        <div class="icon-box"><span class="fa fa-trophy"></span></div>
-                        <div class="count-outer count-box">
-                            <span class="count-text" data-speed="3000" data-stop="120">0 </span>
-                        </div>
-                        <div class="counter-title">جوایز برنده شد</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--End Fun Fact Section -->
-<!-- About Section -->
-<section class="about-section">
-    <div class="auto-container">
-        <div class="row">
-            <!-- Content COlumn -->
-            <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
-                <div class="inner-column">
-                    <div class="sec-title">
-                        <div class="devider"><span></span></div>
-                        <h2>درباره ما</h2>
-                        <div class="text">خوش آمدید سایت مشاور املاک و مستغلات</div>
-                    </div>
-
-                    <!-- text Box -->
-                    <div class="text-box">
-                        <p>
-                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است و با استفاده از طراحان گرافیک است.
-                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
-                        </p>
-                    </div>
-
-                    <!-- About Block -->
-                    <div class="about-block wow fadeInUp">
-                        <div class="inner">
-                            <div class="icon flaticon-layers"></div>
-                            <h4>کار ما</h4>
-                            <div class="text">
-                                برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است و با استفاده از
-                                طراحان گرافیک است.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- About Block -->
-                    <div class="about-block wow fadeInUp">
-                        <div class="inner">
-                            <div class="icon flaticon-bar-chart"></div>
-                            <h4>دیدگاه ما</h4>
-                            <div class="text">
-                                برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است و با استفاده از
-                                طراحان گرافیک است.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature Column -->
-            <div class="feature-column col-lg-6 col-md-12 col-sm-12">
-                <div class="inner-column" style="background-image: url(Content/Assets/images/resource/image-1.jpg);">
-                    <div class="row no-gutters">
-                        <!-- Title Block -->
-                        <div class="title-block col-lg-6 col-md-6 wow fadeIn">
-                            <div class="inner-box">
-                                <h3>بهترین <br>پیشنهادات املاک </h3>
-                            </div>
-                        </div>
-
-                        <!-- Feature-block -->
-                        <div class="feature-block col-lg-6 col-md-6 wow fadeIn" data-wow-delay="400ms">
-                            <div class="inner-box">
-                                <div class="icon flaticon-home-insurance"></div>
-                                <h4><a href="/RealState/property-detail">بیمه املاک</a></h4>
-                                <div class="text">مدیریت املاک</div>
-                            </div>
-                        </div>
-
-                        <!-- Feature-block -->
-                        <div class="feature-block col-lg-6 col-md-6 order-2 wow fadeIn" data-wow-delay="800ms">
-                            <div class="inner-box">
-                                <div class="icon flaticon-home-2"></div>
-                                <h4><a href="/RealState/property-detail">جستجوی املاک</a></h4>
-                                <div class="text">مدیریت املاک</div>
-                            </div>
-                        </div>
-
-                        <!-- Feature-block -->
-                        <div class="feature-block col-lg-6 col-md-6 wow fadeIn" data-wow-delay="1200ms">
-                            <div class="inner-box">
-                                <div class="icon flaticon-mortgage"></div>
-                                <h4><a href="/RealState/property-detail">تحلیل بازار</a></h4>
-                                <div class="text">مدیریت املاک</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--End About Section -->
 <!--Clients Section-->
 <section class="clients-section">
     <div class="auto-container">
