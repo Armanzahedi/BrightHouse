@@ -11,6 +11,7 @@ using SpadCompanyPanel.Infrastructure.Repositories;
 using SpadCompanyPanel.Web.ViewModels;
 using System.Data.Entity;
 using SpadCompanyPanel.Infrastructure.Services;
+using SpadCompanyPanel.Infrastructure.Dtos.News;
 
 namespace SpadCompanyPanel.Web.Controllers
 {
@@ -27,11 +28,13 @@ namespace SpadCompanyPanel.Web.Controllers
         private readonly PlansRepository _planRepos;
         private readonly CurrenciesRepository _currencyRepo;
         private readonly StaticContentService _staticContentService;
+        private readonly NewsService _newsService;
         private readonly PartnersRepository _partnersRepo;
+        private readonly NewsRepository _newsRepos;
 
         public HomeController(StaticContentDetailsRepository contentRepo, TestimonialsRepository testimonialRepo, ContactFormsRepository contactFormRepo, OurTeamRepository ourTeamRepo,
             CertificatesRepository certificatesRepo, FoodGalleriesRepository foodGalleriesRepo, RealStatesRepository stateRepos, GeoDivisionsRepository geoRepos, PlansRepository planRepos,
-            CurrenciesRepository currencyRepo, StaticContentService staticContentService,PartnersRepository partnersRepo)
+            CurrenciesRepository currencyRepo, StaticContentService staticContentService, PartnersRepository partnersRepo, NewsRepository newsRepos, NewsService newsService)
         {
             _contentRepo = contentRepo;
             _testimonialRepo = testimonialRepo;
@@ -45,6 +48,8 @@ namespace SpadCompanyPanel.Web.Controllers
             _currencyRepo = currencyRepo;
             _staticContentService = staticContentService;
             _partnersRepo = partnersRepo;
+            _newsRepos = newsRepos;
+            _newsService = newsService;
         }
         public ActionResult Index()
         {
@@ -188,12 +193,16 @@ namespace SpadCompanyPanel.Web.Controllers
         [Route("News")]
         public ActionResult News()
         {
-            return View();
+            var model = _newsService.GetNews();
+
+            return View(model);
         }
-        [Route("NewsDetail")]
-        public ActionResult NewsDetail()
+        [Route("NewsDetail/{id}")]
+        public ActionResult NewsDetail(int id)
         {
-            return View();
+            var model = _newsService.GetNewsDetail(id);
+
+            return View(model);
         }
 
         public ActionResult UploadImage(HttpPostedFileBase upload, string CKEditorFuncNum, string CKEditor, string langCode)

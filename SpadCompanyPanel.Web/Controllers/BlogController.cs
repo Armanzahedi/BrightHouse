@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using SpadCompanyPanel.Core.Models;
 using SpadCompanyPanel.Core.Utility;
+using SpadCompanyPanel.Infrastructure.Dtos.Blog;
 using SpadCompanyPanel.Infrastructure.Repositories;
+using SpadCompanyPanel.Infrastructure.Services;
 using SpadCompanyPanel.Web.ViewModels;
 
 namespace SpadCompanyPanel.Web.Controllers
@@ -14,17 +16,19 @@ namespace SpadCompanyPanel.Web.Controllers
     {
         private readonly ArticlesRepository _articlesRepo;
         private readonly StaticContentDetailsRepository _contentRepo;
+        private readonly BlogService _blogService;
 
-        public BlogController(ArticlesRepository articlesRepo, StaticContentDetailsRepository contentRepo)
+        public BlogController(ArticlesRepository articlesRepo, StaticContentDetailsRepository contentRepo, BlogService blogService)
         {
             _articlesRepo = articlesRepo;
             _contentRepo = contentRepo;
+            _blogService = blogService;
         }
 
         // GET: Blog
         [Route("Blog")]
-        [Route("Blog/{id}/{title}")]
-        public ActionResult Index(int? id = null, string searchString = null)
+        [Route("Blog/{id}")]
+        public ActionResult Index(int? id = null)
         {
             //ViewBag.BlogImage = _contentRepo.GetStaticContentDetail((int) StaticContents.BlogImage).Image;
             //var articles = new List<Article>();
@@ -50,7 +54,9 @@ namespace SpadCompanyPanel.Web.Controllers
             //    }
             //}
 
-            var articlelistVm = new List<ArticleListViewModel>();
+            var articlelistVm = _blogService.GetBlogArticle(id);
+
+
             //foreach (var item in articles)
             //{
             //    var vm = new ArticleListViewModel(item);
@@ -88,7 +94,7 @@ namespace SpadCompanyPanel.Web.Controllers
             }
             return PartialView(articleCategoriesVm);
         }
-        [Route("Blog/Post/{id}/{title}")]
+        [Route("Blog/Post/{id}")]
         public ActionResult Details(int id)
         {
             //    _articlesRepo.UpdateArticleViewCount(id);

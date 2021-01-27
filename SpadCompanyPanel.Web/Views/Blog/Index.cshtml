@@ -1,4 +1,5 @@
-﻿@model List<SpadCompanyPanel.Web.ViewModels.ArticleListViewModel>
+﻿@model SpadCompanyPanel.Infrastructure.Dtos.Blog.BlogDto
+@using SpadCompanyPanel.Web.Resources
 @{
     ViewBag.Title = "بلاگ";
 }
@@ -6,10 +7,10 @@
 <!--Page Title-->
 <section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
     <div class="auto-container">
-        <h1>مقالات</h1>
+        <h1>@Resource.Articles</h1>
         <ul class="page-breadcrumb">
-            <li><a href="/">خانه</a></li>
-            <li>مقالات</li>
+            <li><a href="/">@Resource.Home</a></li>
+            <li>@Resource.Articles</li>
         </ul>
     </div>
 </section>
@@ -26,58 +27,33 @@
                     <!--search box-->
                     <!-- Categories -->
                     <div class="sidebar-widget categories">
-                        <div class="sidebar-title"><h2>دسته بندی ها</h2></div>
+                        <div class="sidebar-title"><h2>@Resource.Category</h2></div>
                         <ul class="category-list">
-                            <li><a href="#">اپارتمان  <span>(6)</span></a></li>
-                            <li><a href="#">مشتری   <span>(1)</span></a></li>
-                            <li><a href="#">سبز   <span>(3)</span></a></li>
-                            <li><a href="#">کوهستانی <span>(1)</span></a></li>
-                            <li><a href="#">مشاورین املاک    <span>(7)</span></a></li>
-                            <li><a href="#">ویلا    <span>(7)</span></a></li>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a href="/blog/@item.Id">@item.Title</a></li>
+                            }
                         </ul>
-                    </div>
-
-                    <!-- Social Links Widget -->
-                    <div class="sidebar-widget social-links-widget">
-                        <div class="sidebar-title"><h2>شبکه های اجتماعی</h2></div>
-                        <div class="widget-content">
-                            <ul class="social-icon-three social-icon-colored">
-                                <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                <li><a href="#"><span class="fab fa-google-plus-g"></span></a></li>
-                                <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                <li><a href="#"><span class="fab fa-dribbble"></span></a></li>
-                            </ul>
-                        </div>
                     </div>
 
                     <!-- Latest News -->
                     <div class="sidebar-widget latest-news">
-                        <div class="sidebar-title"><h2>پست های اخیر</h2></div>
+                        <div class="sidebar-title"><h2>@Resource.RecentArticles</h2></div>
                         <div class="widget-content">
-                            <article class="post">
-                                <div class="post-thumb"><a href="/Blog/Post/1/sd"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/resource/post-thumb-3.jpg" alt=""></a></div>
-                                <h3><a href="/Blog/Post/1/sd">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</a></h3>
-                                <div class="post-info">03 شهریور 1398</div>
-                            </article>
-
-                            <article class="post">
-                                <div class="post-thumb"><a href="/Blog/Post/1/sd"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/resource/post-thumb-4.jpg" alt=""></a></div>
-                                <h3><a href="/Blog/Post/1/sd">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</a></h3>
-                                <div class="post-info">04 شهریور 1398</div>
-                            </article>
-
-                            <article class="post">
-                                <div class="post-thumb"><a href="/Blog/Post/1/sd"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/resource/post-thumb-5.jpg" alt=""></a></div>
-                                <h3><a href="/Blog/Post/1/sd">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</a></h3>
-                                <div class="post-info">04 شهریور 1398</div>
-                            </article>
+                            @foreach (var item in Model.Blogs.Take(3))
+                            {
+                                <article class="post">
+                                    <div class="post-thumb"><a href="/Blog/Post/@item.Id"><img src="/Files/ArticleImages/Image/@item.Image" data-src="/Files/ArticleImages/Image/@item.Image" alt=""></a></div>
+                                    <h3><a href="/Blog/Post/@item.Id">@item.Title</a></h3>
+                                    <div class="post-info">@item.PersianDate</div>
+                                </article>
+                            }
                         </div>
                     </div>
 
                     <!-- Tags -->
-                    <div class="sidebar-widget tags">
-                        <div class="sidebar-title"><h2>برچسب ها</h2></div>
+                    @*<div class="sidebar-widget tags">
+                        <div class="sidebar-title"><h2>@Resource.Tags</h2></div>
                         <ul class="tag-list clearfix">
                             <li><a href="#">اپارتمان</a></li>
                             <li><a href="#">مسکن</a></li>
@@ -88,101 +64,46 @@
                             <li><a href="#">ویلاها</a></li>
                             <li><a href="#">بازار</a></li>
                         </ul>
-                    </div>
+                    </div>*@
                 </aside>
             </div>
             <!--Content Side-->
             <div class="/Content-side col-lg-8 col-md-12 col-sm-12">
                 <div class="blog-sidebar">
-                    <!-- News BLock Two -->
-                    <div class="news-block-two wow fadeInUp">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="/Blog/Post/1/sd"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/resource/blog-1.jpg" alt=""></a></figure>
-                                <div class="overlay-box"><a href="/Blog/Post/1/sd"><span class="fa fa-plus"></span></a></div>
-                            </div>
-                            <div class="lower-content">
-                                <ul class="post-info clearfix">
-                                    <li>23 مرداد 1398</li>
-                                    <li>0 نظرات</li>
-                                    <li>توسط مجید محبی</li>
-                                </ul>
-                                <h3><a href="/Blog/Post/1/sd">آیا می دانید ارزش خانه برای این اقدام چقدر است.</a></h3>
-                                <div class="text">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- News BLock Two -->
-                    <div class="news-block-two wow fadeInUp">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="/Blog/Post/1/sd"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/resource/blog-2.jpg" alt=""></a></figure>
-                                <div class="overlay-box"><a href="/Blog/Post/1/sd"><span class="fa fa-plus"></span></a></div>
-                            </div>
-                            <div class="lower-content">
-                                <ul class="post-info clearfix">
-                                    <li>23 مرداد 1398</li>
-                                    <li>0 نظرات</li>
-                                    <li>توسط مجید محبی</li>
-                                </ul>
-                                <h3><a href="/Blog/Post/1/sd">نامه سرگشاده به موسسان فناوری املاک و مستغلات.</a></h3>
-                                <div class="text">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</div>
+                    @foreach (var item in Model.Blogs)
+                    {
+                        <!-- News BLock Two -->
+                        <div class="news-block-two wow fadeInUp">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure class="image"><a href="/Blog/Post/@item.Id"><img src="/Files/ArticleImages/Image/@item.Image" data-src="/Files/ArticleImages/Image/@item.Image" alt=""></a></figure>
+                                    <div class="overlay-box"><a href="/Blog/Post/@item.Id"><span class="fa fa-plus"></span></a></div>
+                                </div>
+                                <div class="lower-content">
+                                    <ul class="post-info clearfix">
+                                        <li>@item.PersianDate</li>
+                                        <li>@Resource.Comments @item.CommentsCount</li>
+                                        <li>@item.Author</li>
+                                    </ul>
+                                    <h3><a href="/Blog/Post/@item.Id">@item.Title</a></h3>
+                                    <div class="text">@Html.Raw(item.ShortDescription)</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- News BLock Two -->
-                    <div class="news-block-two wow fadeInUp">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="/Blog/Post/1/sd"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/resource/blog-3.jpg" alt=""></a></figure>
-                                <div class="overlay-box"><a href="/Blog/Post/1/sd"><span class="fa fa-plus"></span></a></div>
-                            </div>
-                            <div class="lower-content">
-                                <ul class="post-info clearfix">
-                                    <li>23 مرداد 1398</li>
-                                    <li>0 نظرات</li>
-                                    <li>توسط مجید محبی</li>
-                                </ul>
-                                <h3><a href="/Blog/Post/1/sd">راهنمای مسکونی گرمای هوا و تهویه مطبوع.</a></h3>
-                                <div class="text">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- News BLock Two -->
-                    <div class="news-block-two wow fadeInUp">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="/Blog/Post/1/sd"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/resource/blog-4.jpg" alt=""></a></figure>
-                                <div class="overlay-box"><a href="/Blog/Post/1/sd"><span class="fa fa-plus"></span></a></div>
-                            </div>
-                            <div class="lower-content">
-                                <ul class="post-info clearfix">
-                                    <li>23 مرداد 1398</li>
-                                    <li>0 نظرات</li>
-                                    <li>توسط مجید محبی</li>
-                                </ul>
-                                <h3><a href="/Blog/Post/1/sd">منابعی که فکر کردیم ممکن است مفید باشد.</a></h3>
-                                <div class="text">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</div>
-                            </div>
-                        </div>
-                    </div>
+                    }
 
                     <!--Post Share Options-->
-                    <div class="styled-pagination text-center">
-                        <ul class="clearfix">
-                            <li class="prev-post"><a href="#"><span class="fa fa-angle-right"></span> قبلی</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li class="active"><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li class="next-post"><a href="#"> بعد <span class="fa fa-angle-left"></span> </a></li>
-                        </ul>
-                    </div>
-
+                    @*<div class="styled-pagination text-center">
+                            <ul class="clearfix">
+                                <li class="prev-post"><a href="#"><span class="fa fa-angle-right"></span> قبلی</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li class="active"><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li class="next-post"><a href="#"> بعد <span class="fa fa-angle-left"></span> </a></li>
+                            </ul>
+                        </div>*@
                 </div>
             </div>
 

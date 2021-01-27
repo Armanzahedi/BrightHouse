@@ -47,6 +47,9 @@
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="PersianDateTime, Version=1.1.5082.36395, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PersianDateTime.1.1.5082.36395\lib\net40\PersianDateTime.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -62,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="Dtos\Blog\BlogDto.cs" />
+    <Compile Include="Dtos\News\NewsDetailDto.cs" />
+    <Compile Include="Dtos\News\NewsDto.cs" />
     <Compile Include="Dtos\RealState\RealStateInfoDto.cs" />
     <Compile Include="Dtos\StaticContent\AboutUsDto.cs" />
     <Compile Include="Filters\PaginationFilter.cs" />
@@ -183,7 +189,9 @@
     <Compile Include="Repositories\TestimonialsRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Seed.cs" />
+    <Compile Include="Services\BlogService.cs" />
     <Compile Include="Services\RealStateService.cs" />
+    <Compile Include="Services\NewsService.cs" />
     <Compile Include="Services\StaticContentService.cs" />
   </ItemGroup>
   <ItemGroup>

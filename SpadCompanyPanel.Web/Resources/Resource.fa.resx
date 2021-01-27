@@ -117,7 +117,271 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Test" xml:space="preserve">
-    <value>تست</value>
+  <data name="AboutUs" xml:space="preserve">
+    <value>درباره ما</value>
+  </data>
+  <data name="Afghanistan" xml:space="preserve">
+    <value>افغانستان</value>
+  </data>
+  <data name="Alanya" xml:space="preserve">
+    <value>آلانيا</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>همه</value>
+  </data>
+  <data name="Allaboutthelatestamazingupdates" xml:space="preserve">
+    <value>همه درباره آخرین بروزرسانی های شگفت انگیز</value>
+  </data>
+  <data name="Antalya" xml:space="preserve">
+    <value>آنتاليا</value>
+  </data>
+  <data name="Apartment" xml:space="preserve">
+    <value>آپارتمان</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>مساحت</value>
+  </data>
+  <data name="Areaguide" xml:space="preserve">
+    <value>راهنمای منطقه</value>
+  </data>
+  <data name="Armenia" xml:space="preserve">
+    <value>ارمنستان</value>
+  </data>
+  <data name="Articles" xml:space="preserve">
+    <value>مقالات</value>
+  </data>
+  <data name="Bathroom" xml:space="preserve">
+    <value>حمام</value>
+  </data>
+  <data name="Bedroom" xml:space="preserve">
+    <value>اتاق خواب</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>شهر</value>
+  </data>
+  <data name="Commercial" xml:space="preserve">
+    <value>تجاری</value>
+  </data>
+  <data name="Consultants" xml:space="preserve">
+    <value>مشاوران</value>
+  </data>
+  <data name="ContactPhones" xml:space="preserve">
+    <value>تلفن های تماس</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>تماس با ما</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>كشور</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>توضيحات</value>
+  </data>
+  <data name="DesignedbySpade" xml:space="preserve">
+    <value>طراحی شده توسط اسپاد</value>
+  </data>
+  <data name="Duplex" xml:space="preserve">
+    <value>دوبلكس</value>
+  </data>
+  <data name="Earth" xml:space="preserve">
+    <value>زمين</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>ايميل</value>
+  </data>
+  <data name="Enteryouremail" xml:space="preserve">
+    <value>ايميل خود را وارد كنيد</value>
+  </data>
+  <data name="EstateGuide" xml:space="preserve">
+    <value>راهنمای املاک</value>
+  </data>
+  <data name="EstateSearch" xml:space="preserve">
+    <value>جستجوی املاک</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>فیس بوک</value>
+  </data>
+  <data name="Findyourdreamhomeinyourcity" xml:space="preserve">
+    <value>خانه رویایی خود را در شهر خود پیدا کنید</value>
+  </data>
+  <data name="Findyourhomeinyourcitynow" xml:space="preserve">
+    <value>اکنون خانه خود را در شهر خود پیدا کنید..</value>
+  </data>
+  <data name="FiveBedrooms" xml:space="preserve">
+    <value>پنج اتاق خواب</value>
+  </data>
+  <data name="Forsale" xml:space="preserve">
+    <value>براي فروش</value>
+  </data>
+  <data name="FourBedrooms" xml:space="preserve">
+    <value>چهار اتاق خواب</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>گالری</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>صفحه اصلی</value>
+  </data>
+  <data name="Instagram" xml:space="preserve">
+    <value>اینستاگرام</value>
+  </data>
+  <data name="Introducingwiththecurrencycode" xml:space="preserve">
+    <value>معرفی املاک با امکان خرید با رمز ارزها</value>
+  </data>
+  <data name="InvestmentGuide" xml:space="preserve">
+    <value>راهنمای سرمایه گذاری</value>
+  </data>
+  <data name="Iran" xml:space="preserve">
+    <value>ايران</value>
+  </data>
+  <data name="Isfahan" xml:space="preserve">
+    <value>اصفهان</value>
+  </data>
+  <data name="Istanbul" xml:space="preserve">
+    <value>استانبول</value>
+  </data>
+  <data name="Links" xml:space="preserve">
+    <value>لينک ها</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="MalikFor" xml:space="preserve">
+    <value>ملک برای</value>
+  </data>
+  <data name="Mashhad" xml:space="preserve">
+    <value>مشهد</value>
+  </data>
+  <data name="ModernHouses" xml:space="preserve">
+    <value>خانه های مدرن</value>
+  </data>
+  <data name="NewProperties" xml:space="preserve">
+    <value>ملک های جدید</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>اخبار</value>
+  </data>
+  <data name="NewsandArticles" xml:space="preserve">
+    <value>اخبار و مقالات</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="OccasionalRealEstateAtaReasonablePrice" xml:space="preserve">
+    <value>املاک اکازوین با قیمت مناسب</value>
+  </data>
+  <data name="Official" xml:space="preserve">
+    <value>اداری</value>
+  </data>
+  <data name="OneBedroom" xml:space="preserve">
+    <value>يک اتاق خواب</value>
+  </data>
+  <data name="ourcolleagues" xml:space="preserve">
+    <value>همكاران ما</value>
+  </data>
+  <data name="Ourcolleaguesareavailable24hoursaday" xml:space="preserve">
+    <value>همکاران ما در تمام ساعات شبانه روز پاسخگوی شما هستند</value>
+  </data>
+  <data name="Parking" xml:space="preserve">
+    <value>پاركينگ</value>
+  </data>
+  <data name="Phonenumber" xml:space="preserve">
+    <value>شماره تماس</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="PropertyType" xml:space="preserve">
+    <value>نوع ملک</value>
+  </data>
+  <data name="Rent" xml:space="preserve">
+    <value>اجاره</value>
+  </data>
+  <data name="ResidenceintheUAE" xml:space="preserve">
+    <value>اقامت كشور امارات</value>
+  </data>
+  <data name="ResidenceinTurkey" xml:space="preserve">
+    <value>اقامت كشور تركيه</value>
+  </data>
+  <data name="Rules" xml:space="preserve">
+    <value>قوانين</value>
+  </data>
+  <data name="Russia" xml:space="preserve">
+    <value>روسيه</value>
+  </data>
+  <data name="Sale" xml:space="preserve">
+    <value>فروش</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="Shiraz" xml:space="preserve">
+    <value>شيراز</value>
+  </data>
+  <data name="Sortedby" xml:space="preserve">
+    <value>مرتب بر اساس</value>
+  </data>
+  <data name="Turkishcitizenshipandpassports" xml:space="preserve">
+    <value>پکیج های ویژه املاک جهت دریافت حق شهروندی و پاسپورت کشور ترکیه</value>
+  </data>
+  <data name="SpecialInvestmentProperty" xml:space="preserve">
+    <value>املاک ویژه سرمایه گذاری</value>
+  </data>
+  <data name="StayinEurope" xml:space="preserve">
+    <value>اقامت اروپا</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="SubscribetoNewsletter" xml:space="preserve">
+    <value>عضویت در خبرنامه</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>برچسب ها</value>
+  </data>
+  <data name="Tehran" xml:space="preserve">
+    <value>تهران</value>
+  </data>
+  <data name="ThreeBedrooms" xml:space="preserve">
+    <value>سه اتاق خواب</value>
+  </data>
+  <data name="Toman" xml:space="preserve">
+    <value>تومان</value>
+  </data>
+  <data name="Turkey" xml:space="preserve">
+    <value>تركيه</value>
+  </data>
+  <data name="TwoBedrooms" xml:space="preserve">
+    <value>دو اتاق خواب</value>
+  </data>
+  <data name="Villa" xml:space="preserve">
+    <value>ويلايی</value>
+  </data>
+  <data name="Waystocontactus" xml:space="preserve">
+    <value>راه های تماس با ما</value>
+  </data>
+  <data name="WC" xml:space="preserve">
+    <value>دستشويي</value>
+  </data>
+  <data name="Weareavailable24hoursaday" xml:space="preserve">
+    <value>24 ساعته پاسخگوی شما هستیم</value>
+  </data>
+  <data name="WeGiveYouTheBest" xml:space="preserve">
+    <value>ما بهترین ها را به شما می دهیم</value>
+  </data>
+  <data name="WhatDoYouWant" xml:space="preserve">
+    <value>شما چه میخواهید</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>دسته بندی</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>نظرات</value>
+  </data>
+  <data name="RecentArticles" xml:space="preserve">
+    <value>پست های اخیر</value>
   </data>
 </root>

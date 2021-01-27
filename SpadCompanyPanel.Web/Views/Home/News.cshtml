@@ -1,11 +1,11 @@
 ﻿
+@model List<SpadCompanyPanel.Infrastructure.Dtos.News.NewsDto>
 @{
     ViewBag.Title = "اخبار";
 }
 
-
 <!--Page Title-->
-<section class="page-title" style="background-image:url(/Assets/images/background/4.jpg)">
+<section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
     <div class="auto-container">
         <h1>اخبار ترکیه</h1>
         <ul class="page-breadcrumb">
@@ -21,131 +21,28 @@
     <div class="auto-container p-0">
         <div class="news">
             <div class="row clearfix">
-                
                 <div class="col-md-12">
                     <h2 class="gold mt-5 mb-2">اخبار ترکیه</h2>
                     <div class="row">
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="text-center">
-                                <a href="/NewsDetail">
 
-                                    <div class="article-news-image article-1">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-3 col-sm-6 col-12">
+                                <div class="text-center">
+                                    <a href="/NewsDetail/@item.Id">
 
-                                    </div>
-                                    <p class="article-news-title">
-                                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه
-                                        است
-                                    </p>
-                                </a>
+                                        <div class="article-news-image" style="background: url('/Files/NewsImages/Image/@item.Image'); background-size:cover; background-position:center;">
+
+                                        </div>
+                                        <p class="article-news-title">
+                                            @Html.Raw(item.Title)
+                                        </p>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="text-center">
-                                <a href="/NewsDetail">
-
-                                    <div class="article-news-image article-1">
-
-                                    </div>
-                                    <p class="article-news-title">
-                                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه
-                                        است
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="text-center">
-                                <a href="/NewsDetail">
-
-                                    <div class="article-news-image article-1">
-
-                                    </div>
-                                    <p class="article-news-title">
-                                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه
-                                        است
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="text-center">
-                                <a href="/NewsDetail">
-
-                                    <div class="article-news-image article-1">
-
-                                    </div>
-                                    <p class="article-news-title">
-                                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه
-                                        است
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="text-center">
-                                <a href="/NewsDetail">
-
-                                    <div class="article-news-image article-1">
-
-                                    </div>
-                                    <p class="article-news-title">
-                                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه
-                                        است
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="text-center">
-                                <a href="/NewsDetail">
-
-                                    <div class="article-news-image article-1">
-
-                                    </div>
-                                    <p class="article-news-title">
-                                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه
-                                        است
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="text-center">
-                                <a href="/NewsDetail">
-
-                                    <div class="article-news-image article-1">
-
-                                    </div>
-                                    <p class="article-news-title">
-                                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه
-                                        است
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-12">
-                            <div class="text-center">
-                                <a href="/NewsDetail">
-
-                                    <div class="article-news-image article-1">
-
-                                    </div>
-                                    <p class="article-news-title">
-                                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه
-                                        است
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-
+                        }
                     </div>
-                    <div class="news-pagination">
+                    @*<div class="news-pagination">
                         <nav aria-label="Page navigation example" dir="ltr">
                             <ul class="pagination">
                                 <li class="page-item">
@@ -165,7 +62,7 @@
                                 </li>
                             </ul>
                         </nav>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>

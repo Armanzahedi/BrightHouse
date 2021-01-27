@@ -5450,6 +5450,9 @@
     <Folder Include="Files\CertificatesImages\Temp\" />
     <Folder Include="Files\FoodImages\Temp\" />
     <Folder Include="Files\GalleryImages\Temp\" />
+    <Folder Include="Files\NewsImages\Image\" />
+    <Folder Include="Files\NewsImages\Temp\" />
+    <Folder Include="Files\NewsImages\Thumb\" />
     <Folder Include="Files\PartnersImages\Temp\" />
     <Folder Include="Files\PlanFiles\PlanImages\" />
     <Folder Include="Files\PlanFiles\Temp\" />
