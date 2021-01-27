@@ -20,12 +20,12 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
         private RoleManager<IdentityRole> _roleManager;
         private UserStore<User> _userStore;
         private UserManager<User> _userManager;
-        public UsersRepository(MyDbContext context)
+        public UsersRepository()
         {
-            _context = context;
-            _roleStore = new RoleStore<IdentityRole>(context);
+            _context = new MyDbContext();
+            _roleStore = new RoleStore<IdentityRole>(_context);
             _roleManager = new RoleManager<IdentityRole>(_roleStore);
-            _userStore = new UserStore<User>(context);
+            _userStore = new UserStore<User>(_context);
             _userManager = new UserManager<User>(_userStore);
         }
         public List<User> GetUsers()
@@ -33,12 +33,17 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
             var usersList = _userManager.Users.ToList();
             return usersList;
         }
+        public List<User> GetUsersTable()
+        {
+            var usersList = _context.Users.Where(u => u.IsDeleted == false).Include(u => u.UserRoles).ToList();
+            return usersList;
+        }
         public User GetUser(string id)
         {
             var user = _context.Users.Find(id);
             return user;
         }
-        public Tuple<User,bool> UpdateUser(User model, string newPassword = null)
+        public Tuple<User, bool> UpdateUser(User model, string newPassword = null)
         {
             var succeeded = true;
             var prevUser = _context.Users.Find(model.Id);
@@ -69,7 +74,7 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
         public User CreateUser(User model, string Password)
         {
             model.SecurityStamp = Guid.NewGuid().ToString();
-           _userManager.Create(model, Password);
+            _userManager.Create(model, Password);
 
             return model;
         }
@@ -79,9 +84,9 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
         }
         public bool UserHasRole(string userId, string roleId)
         {
-            return _context.UserRoles.Where(a => a.UserId == userId && a.RoleId == roleId).Any();
+            return _context.UserRoles.Any(a => a.UserId == userId && a.RoleId == roleId);
         }
-        public UserRole AddUserRole(string userId,string roleId)
+        public UserRole AddUserRole(string userId, string roleId)
         {
             UserRole uRole = new UserRole()
             {
@@ -92,19 +97,30 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
             _context.SaveChanges();
             return uRole;
         }
-        public UserRole GetUserRole(string userId,string roleId)
+        public List<UserRole> GetUserRoles(string userId)
+        {
+            return _context.UserRoles.Where(ur => ur.UserId == userId).ToList();
+        }
+        public Role GetRole(string roleId)
+        {
+            return _context.Role.FirstOrDefault(r => r.Id == roleId);
+        }
+        public UserRole GetUserRole(string userId, string roleId)
         {
             return _context.UserRoles.FirstOrDefault(ur => ur.UserId == userId && ur.RoleId == roleId);
         }
         public User DeleteUser(string userId)
         {
             var user = _context.Users.Find(userId);
-            var userRoles = _context.UserRoles.Where(ur => ur.UserId == userId);
-            foreach (var userRole in userRoles)
-            {
-                _context.UserRoles.Remove(userRole);
-            }
+            //var userRoles = _context.UserRoles.Where(ur => ur.UserId == userId);
+            //foreach (var userRole in userRoles)
+            //{
+            //    _context.UserRoles.Remove(userRole);
+            //}
+
+            user.IsDeleted = true;
             _context.Users.Remove(user);
+            _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();
             return user;
         }
@@ -114,43 +130,47 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
             _context.SaveChanges();
             return userRole;
         }
+
+        public User FindByEmail(string email)
+        {
+            return _context.Users.FirstOrDefault(u => u.Email.ToLower().Trim() == email.Trim().ToLower() && u.IsDeleted == false);
+        }
         public bool UserNameExists(string username, string id = null)
         {
             var user = _userManager.FindByName(username);
-            if (user != null)
-            {
-                if (string.IsNullOrEmpty(id))
-                {
-                    if (user != null)
-                        return true;
-                }
-                else
-                {
-                    if (user.Id != id)
-                        return true;
-                }
-            }
-            return false;
-        }
-        public bool EmailExists(string email, string id = null)
-        {
-            var user = _userManager.FindByEmail(email);
-            if (user != null)
-            {
-                if (string.IsNullOrEmpty(id))
-                {
-                    if (user != null)
-                        return true;
-                }
-                else
-                {
-                    if (user.Id != id)
-                        return true;
-                }
-            }
-            return false;
-        }
+            if (user == null || user.IsDeleted) return false;
 
+            if (string.IsNullOrEmpty(id))
+                return true;
+
+            if (user.Id != id)
+                return true;
+
+            return false;
+        }
+        public bool PhoneNumberExists(string phoneNumber, string id = null)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.PhoneNumber == phoneNumber);
+            if (user == null || user.IsDeleted) return false;
+
+            if (string.IsNullOrEmpty(id))
+                return true;
+
+            if (user.Id != id)
+                return true;
+
+            return false;
+        }
+        public Customer GetCustomerByUserId(string userId)
+        {
+            return _context.Customers.FirstOrDefault(c => c.UserId == userId);
+        }
+        public Customer AddCustomer(Customer model)
+        {
+            _context.Customers.Add(model);
+            _context.SaveChanges();
+            return model;
+        }
         public async Task<IdentityResult> ValidatePassword(string password)
         {
             return await _userManager.PasswordValidator.ValidateAsync(password);
@@ -166,6 +186,32 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
             await _userManager.RemovePasswordAsync(userId);
             var result = await _userManager.AddPasswordAsync(userId, appSettings["UserDefaultPassword"]);
             return result;
+        }
+        public bool EmailExists(string email, string id = null)
+        {
+            var user = _userManager.FindByEmail(email);
+            if (user == null || user.IsDeleted) return false;
+
+            if (string.IsNullOrEmpty(id))
+                return true;
+
+            if (user.Id != id)
+                return true;
+
+            return false;
+        }
+        protected void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+        public void Dispose()
+        {
+            _context?.Dispose();
+            _roleStore?.Dispose();
+            _roleManager?.Dispose();
+            _userStore?.Dispose();
+            _userManager?.Dispose();
         }
     }
 }

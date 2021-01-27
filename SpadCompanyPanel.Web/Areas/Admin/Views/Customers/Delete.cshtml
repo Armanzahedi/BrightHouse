@@ -1,0 +1,30 @@
+﻿@model SpadCompanyPanel.Core.Models.Customer
+
+@{
+    ViewBag.Title = "Delete";
+}
+<h4 class="card-label">
+    آیا مطمئن هستید که می خواهید این آیتم را حذف کنید؟
+</h4>
+<dl class="row" style="padding-top:10px">
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.User.FirstName)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.User.FirstName)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.User.LastName)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.User.LastName)
+    </dd>
+</dl>
+<div style="float:left">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="حذف" class="btn btn-danger mr-2" />
+    }
+</div>
+

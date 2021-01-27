@@ -34,6 +34,7 @@ namespace SpadCompanyPanel.Core.Models
         [Display(Name = "اطلاعات")]
         [DataType(DataType.MultilineText)]
         public string Information { get; set; }
+        public bool IsDeleted { get; set; }
         public ICollection<Article> Articles { get; set; }
         public ICollection<UserRole> UserRoles { get; set; }
     }

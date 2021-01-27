@@ -199,6 +199,7 @@
     <Compile Include="Areas\Admin\Controllers\ArticleCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticleCommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticleHeadLinesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Admin\Controllers\CertificatesController.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Areas\Admin\Controllers\StaticContentTypesController.cs" />
     <Compile Include="Areas\Admin\Controllers\TestimonialsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CurrenciesController.cs" />
@@ -249,6 +251,7 @@
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\CustomerViewModels.cs" />
     <Compile Include="ViewModels\NewsViewModels.cs" />
     <Compile Include="ViewModels\ArticleViewModels.cs" />
     <Compile Include="ViewModels\CommonViewModels.cs" />
@@ -3246,6 +3249,11 @@
     <Content Include="Areas\Admin\Views\News\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Customer\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Customers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -5450,6 +5458,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Customer\Controllers\" />
+    <Folder Include="Areas\Customer\Data\" />
+    <Folder Include="Areas\Customer\Views\Shared\" />
     <Folder Include="Content\Assets\css\1\" />
     <Folder Include="Content\client\css\1\" />
     <Folder Include="Files\ArticleImages\Temp\" />

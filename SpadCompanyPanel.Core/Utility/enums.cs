@@ -64,4 +64,10 @@ namespace SpadCompanyPanel.Core.Utility
         Farsi = 1,
         English = 2
     }
+    public enum GeoDivisionType
+    {
+        Country = 0,
+        State = 1,
+        City = 2,
+    }
 }

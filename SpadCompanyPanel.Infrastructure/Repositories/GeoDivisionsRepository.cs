@@ -40,8 +40,10 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
         {
             return _context.GeoDivisions.FirstOrDefault(g => g.IsDeleted == false && g.Id == child);
         }
-
-
+        public List<GeoDivision> GetGeoDivisionsByType(int type)
+        {
+            return _context.GeoDivisions.Where(g => g.IsDeleted == false && g.GeoDivisionType == type).ToList();
+        }
         public string GetFullLocation(int child)
         {
             var geoList = new List<string>();

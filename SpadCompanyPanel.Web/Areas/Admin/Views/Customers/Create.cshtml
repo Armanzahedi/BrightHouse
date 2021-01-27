@@ -1,0 +1,147 @@
+﻿@model SpadCompanyPanel.Web.ViewModels.AddCustomerViewModel
+
+@{
+    ViewBag.Title = "لیست مشتریان";
+}
+<input type="hidden" id="nav_active" value="customers">
+<input type="hidden" id="nav_item_active" value="customers">
+@{
+    if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">
+            <strong>خطا!</strong> @ViewBag.Message
+        </div>
+    }
+}
+<div class="col-lg-12">
+    <div class="card card-custom gutter-b">
+        <div class="card-header">
+            <h3 class="card-title">
+                افزودن مشتری
+            </h3>
+        </div>
+        @using (Html.BeginForm("Create", "Customers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="card-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FirstName, new { })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LastName, new { })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NationalCode, new { })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NationalCode, new { htmlAttributes = new { @class = "form-control " } })
+                                @Html.ValidationMessageFor(model => model.NationalCode, "", new { @class = "form-text text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PhoneNumber, new {})
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PhoneNumber, new {htmlAttributes = new {@class = "form-control "}})
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new {@class = "form-text text-danger"})
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GeoDivisionId, "محل سکونت", new {})
+                            <div class="col-md-10">
+                                @Html.DropDownList("GeoDivisionId", null, htmlAttributes: new {@class = "form-control"})
+                                @Html.ValidationMessageFor(model => model.GeoDivisionId, "", new {@class = "form-text text-danger"})
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PostalCode, new {})
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PostalCode, new {htmlAttributes = new {@class = "form-control "}})
+                                @Html.ValidationMessageFor(model => model.PostalCode, "", new {@class = "form-text text-danger"})
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, new {})
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.UserName, new {htmlAttributes = new {@class = "form-control "}})
+                                @Html.ValidationMessageFor(model => model.UserName, "", new {@class = "form-text text-danger"})
+                                <span style="color: gray">در صورت عدم ورود نام کاربری شماره تلفن به عنوان نام کاربری ثبت میشود.</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, new {})
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control "}})
+                                @Html.ValidationMessageFor(model => model.Email, "", new {@class = "form-text text-danger"})
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password, new {})
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Password, new {htmlAttributes = new {@class = "form-control "}})
+                                @Html.ValidationMessageFor(model => model.Password, "", new {@class = "form-text text-danger"})
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ConfirmPassword, new {})
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ConfirmPassword, new {htmlAttributes = new {@class = "form-control "}})
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new {@class = "form-text text-danger"})
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="col-label">تصویر</label>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="image-input image-input-outline" id="user-avatar">
+                                    <div class="image-input-wrapper" style="background-image: url(assets/media/users/100_1.jpg)"></div>
+
+                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="آپلود تصویر">
+                                        <i class="fa fa-pen icon-sm text-muted"></i>
+                                        <input type="file" name="UserAvatar" id ="UserAvatar" />
+                                        <input type="hidden" name="user-avatar_remove" />
+                                    </label>
+
+                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="حذف تصویر">
+                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Address, new { })
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control " } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "form-text text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="@Url.Action("Index")" class="btn btn-secondary">انصراف</a>
+                <input type="submit" value="ثبت" class="btn btn-primary mr-2" />
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        new KTImageInput('user-avatar');
+    </script>
+}
