@@ -21,6 +21,13 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
         //{
         //    return _context.ContactForms.Include(c => c.Service).FirstOrDefault(c=>c.Id == id);
         //}
+        public ContactForm AddForm(ContactForm form)
+        {
+            form.InsertDate = DateTime.Now;
+            _context.ContactForms.Add(form);
+            _context.SaveChanges();
+            return form;
+        }
         public List<Service> GetServices()
         {
             return _context.Services.Where(e=>e.IsDeleted == false).ToList();

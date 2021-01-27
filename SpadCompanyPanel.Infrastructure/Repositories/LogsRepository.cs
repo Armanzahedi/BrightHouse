@@ -23,7 +23,9 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
             log.Action = Action;
             log.TableName = TableName;
             log.EntityId = id;
-            log.UserName = user.UserName;
+            if(user != null)
+                log.UserName = user.UserName;
+
             log.ActionDate = DateTime.Now;
             _context.Logs.Add(log);
             _context.SaveChanges();

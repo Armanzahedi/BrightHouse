@@ -1,4 +1,5 @@
-﻿using SpadCompanyPanel.Core;
+﻿
+using SpadCompanyPanel.Core;
 using SpadCompanyPanel.Core.Models;
 using SpadCompanyPanel.Infrastructure.Filters;
 using SpadCompanyPanel.Infrastructure.Repositories;
@@ -36,9 +37,12 @@ namespace SpadCompanyPanel.Infrastructure
         }
         public  TEntity Add(TEntity entity)
         {
-            var user = GetCurrentUser();
             entity.InsertDate = DateTime.Now;
-            entity.InsertUser = user.UserName;
+
+            var user = GetCurrentUser();
+            if (user != null)
+                entity.InsertUser = user.UserName;
+
             var ent = entity.GetType().Name;
 
             context.Set<TEntity>().Add(entity);
@@ -85,9 +89,10 @@ namespace SpadCompanyPanel.Infrastructure
         }
         public  TEntity Update(TEntity entity)
         {
-            var user = GetCurrentUser();
             entity.UpdateDate = DateTime.Now;
-            entity.UpdateUser = user.UserName;
+            var user = GetCurrentUser();
+            if(user != null)
+                entity.UpdateUser = user.UserName;
 
             context.Entry(entity).State = EntityState.Modified;
             context.SaveChanges();

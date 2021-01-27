@@ -15,7 +15,6 @@
     </div>
 </section>
 <!--End Page Title-->
-
 <!-- Property Section Three  -->
 <section class="property-section-three alternate">
     <div class="auto-container">
@@ -51,21 +50,51 @@
                                                 <option value="">انتخاب کشور</option>
                                                 @foreach (var item in ViewBag.Countries)
                                                 {
-                                                    <option value="@item.Id">@item.Title</option>
+                                                    <option value="@item.Id" @(item.Id == ViewBag.SelectedCountry ? "selected='selected'" : null)>@item.Title</option>
                                                 }
                                             </select>
                                         </div>
-                                        <div id="state" class="form-group" style="display: none;"></div>
-                                        <div id="city" class="form-group" style="display: none;"></div>
+                                        @if (ViewBag.SelectedCountry == 0)
+                                        {
+                                            <div id="state" class="form-group" style="display: none;"></div>
+                                        }
+                                        else
+                                        {
+                                            <div id="state" class="form-group">
+                                                <select class="custom-select-box" id="stateId" onchange="GetCities()">
+                                                    <option value="">انتخاب استان</option>
+                                                    @foreach (var item in ViewBag.States)
+                                                    {
+                                                        <option value="@item.Id" @(item.Id == ViewBag.SelectedState ? "selected='selected'" : null)>@item.Title</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        }
+                                        @if (ViewBag.SelectedState == 0)
+                                        {
+                                            <div id="city" class="form-group" style="display: none;"></div>
+                                        }
+                                        else
+                                        {
+                                            <div id="city" class="form-group">
+                                                <select class="custom-select-box" id="cityId" onchange="GetGrid()">
+                                                    <option value="">انتخاب شهر</option>
+                                                    @foreach (var item in ViewBag.Cities)
+                                                    {
+                                                        <option value="@item.Id" @(item.Id == ViewBag.SelectedCity ? "selected='selected'" : null)>@item.Title</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        }
                                         <!-- Form Group -->
                                         <div class="form-group">
                                             <select class="custom-select-box" id="realStateType" name="realStateType" onchange="GetGrid()">
                                                 <option value="">نوع ملک</option>
-                                                <option value="1">آپاتمان</option>
-                                                <option value="2">ویلا</option>
-                                                <option value="3">اداری</option>
-                                                <option value="4">تجاری</option>
-                                                <option value="5">زمین</option>
+                                                <option value="1" @(ViewBag.SelectedRealStateType == 1? "selected='selected'": null)>آپاتمان</option>
+                                                <option value="2" @(ViewBag.SelectedRealStateType == 2? "selected='selected'": null)>ویلا</option>
+                                                <option value="3" @(ViewBag.SelectedRealStateType == 3? "selected='selected'": null)>اداری</option>
+                                                <option value="4" @(ViewBag.SelectedRealStateType == 4? "selected='selected'": null)>تجاری</option>
+                                                <option value="5" @(ViewBag.SelectedRealStateType == 5? "selected='selected'": null)>زمین</option>
                                             </select>
                                         </div>
 
@@ -73,9 +102,9 @@
                                         <div class="form-group">
                                             <select class="custom-select-box" id="planType" name="planType" onchange="GetGrid()">
                                                 <option value="">وضعیت ملک</option>
-                                                <option value="1">برای فروش</option>
-                                                <option value="2">پیش فروش</option>
-                                                <option value="3">برای اجاره</option>
+                                                <option value="1" @(ViewBag.SelectedPlanType == 1? "selected='selected'": null)>برای فروش</option>
+                                                <option value="2" @(ViewBag.SelectedPlanType == 2? "selected='selected'": null)>پیش فروش</option>
+                                                <option value="3" @(ViewBag.SelectedPlanType == 3? "selected='selected'": null)>برای اجاره</option>
                                             </select>
                                         </div>
 
@@ -125,7 +154,7 @@
                             <!-- End Form -->
                         </div>
                         <!-- Categories -->
-                            <!-- Recent Properties -->
+                        <!-- Recent Properties -->
                         <div class="sidebar-widget recent-properties">
                             <div class="sidebar-title grid-sidebar"><h2 class="grid-title">ملک های اخیر</h2></div>
                             <div class="widget-content">
@@ -150,7 +179,7 @@
 </section>
 <!-- End Property Section Three -->
 <!--Partners Section-->
-@Html.Action("PartnersSection","Home")
+@Html.Action("PartnersSection", "Home")
 <!--End Partners Section-->
 @section scripts
 {
@@ -193,6 +222,14 @@
             GetGrid();
         });
         $('#sort').on('selectmenuchange', function () {
+            GetGrid();
+        });
+        $("#stateId").selectmenu();
+        $('#stateId').on('selectmenuchange', function () {
+            GetCities();
+        });
+        $("#cityId").selectmenu();
+        $('#cityId').on('selectmenuchange', function () {
             GetGrid();
         });
         function GetStates() {
