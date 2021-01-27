@@ -22,6 +22,7 @@ namespace SpadCompanyPanel.Web.Controllers
         private readonly PlansRepository _planRepos;
         private readonly RealStateService _realStateService;
         private readonly CurrenciesRepository _currencyRepo;
+        private readonly GeoDivisionService _geoDivisionService;
         private readonly int _currentLang;
         private readonly int _currentCurrency;
         public RealStateController(RealStatesRepository realStateRepos, 
@@ -31,7 +32,8 @@ namespace SpadCompanyPanel.Web.Controllers
             PlansRepository planRepos,
             GeoDivisionsRepository geoRepos,
             RealStateService realStateService,
-            CurrenciesRepository currencyRepo)
+            CurrenciesRepository currencyRepo,
+            GeoDivisionService geoDivisionService)
         {
             _realStateRepos = realStateRepos;
             _optionRepos = optionRepos;
@@ -42,11 +44,12 @@ namespace SpadCompanyPanel.Web.Controllers
             _currencyRepo = currencyRepo;
             _currentLang = LanguageHelper.GetCulture();
             _currentCurrency = CurrencyHelper.GetCurrencyId();
+            _geoDivisionService = geoDivisionService;
         }
         // GET: RealState
         public ActionResult Index(int? countryId,int? stateId,int? cityId,int? planType,int? realStateType)
         {
-            ViewBag.Countries = _geoDivisionsRepo.GetCountries();
+            ViewBag.Countries = _geoDivisionService.GetCountries();
             ViewBag.MinPrice = Convert.ToInt64(_realStateService.GetLowestPriceOfPlans());
             ViewBag.MaxPrice = Convert.ToInt64(_realStateService.GetHighestPriceOfPlans());
             #region Set Filter Fields
@@ -58,12 +61,18 @@ namespace SpadCompanyPanel.Web.Controllers
             if (countryId != null)
             {
                 ViewBag.SelectedCountry = countryId;
-                ViewBag.States = _geoDivisionsRepo.GetGeoDivisionChildren(countryId.Value);
+                var states = _geoDivisionsRepo.GetGeoDivisionChildren(countryId.Value);
+                states = _geoDivisionService.GetAllBasedOnLang(states);
+
+                ViewBag.States = states;
             }
             if (stateId != null)
             {
                 ViewBag.SelectedState = stateId;
-                ViewBag.Cities = _geoDivisionsRepo.GetGeoDivisionChildren(stateId.Value);
+                var cities = _geoDivisionsRepo.GetGeoDivisionChildren(stateId.Value);
+                cities = _geoDivisionService.GetAllBasedOnLang(cities);
+
+                ViewBag.Cities = cities;
             }
             if (cityId != null)
                 ViewBag.SelectedCity = cityId;

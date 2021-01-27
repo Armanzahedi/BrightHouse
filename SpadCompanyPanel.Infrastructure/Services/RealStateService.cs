@@ -126,7 +126,28 @@ namespace SpadCompanyPanel.Infrastructure.Services
             var country = _context.GeoDivisions.FirstOrDefault(s => s.Id == state.ParentId);
             return country.Id;
         }
+        public List<RealStateInfoDto> GetByType(int realStateType, int? take)
+        {
+            var query = _context.RealStates.Where(r => r.IsDeleted == false && r.Type == realStateType);
+            if (take != null)
+                query.Take(take.Value);
 
+            var realStates = query.ToList();
+            var realStateWithInfo = new List<RealStateInfoDto>();
+            foreach (var item in realStates)
+                realStateWithInfo.Add(CreateRealStateInfo(item));
+
+            return realStateWithInfo;
+        }
+        public List<RealStateInfoDto> TakeRealStates(int take)
+        {
+            var realStates = _context.RealStates.Where(r => r.IsDeleted == false).Take(take).ToList();
+            var realStatesInfo = new List<RealStateInfoDto>();
+            foreach (var item in realStates)
+                realStatesInfo.Add(CreateRealStateInfo(item));
+
+            return realStatesInfo;
+        }
         public List<RealStateInfoDto> GetRealStateGrid(int? countryId, int? stateId, int? cityId,int? realStateType,int? planType,string roomNo = null,string bathRoomNo = null,float? fromPrice = null,float? toPrice = null)
         {
             var realStatesInfoList = new List<RealStateInfoDto>();

@@ -1,18 +1,23 @@
 $('.slider').slick({
 	slidesToShow: 1,
 	slidesToScroll: 1,
-	arrows: false,
+	arrows: true,
 	fade: false,
 	asNavFor: '.slider-nav-thumbnails',
 });
 
 $('.slider-nav-thumbnails').slick({
 	slidesToShow: 5,
-	slidesToScroll: 1,
+	slidesToScroll: 5,
 	asNavFor: '.slider',
-	dots: true,
+	dots: false,
 	focusOnSelect: true
 });
+$(".slick-next").eq(1).hide();
+$(".slick-prev").eq(1).hide();
+var heightSize = $(".slider-nav-thumbnails div img[slide=slide_1]")[0].height;
+$(".slick-next").css("height" , heightSize);
+$(".slick-prev").css("height" , heightSize);
 
 //remove active class from all thumbnail slides
 $('.slider-nav-thumbnails .slick-slide').removeClass('slick-active');

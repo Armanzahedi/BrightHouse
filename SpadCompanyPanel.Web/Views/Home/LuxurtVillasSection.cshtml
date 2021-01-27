@@ -1,0 +1,57 @@
+﻿@model List<SpadCompanyPanel.Infrastructure.Dtos.RealState.RealStateInfoDto>
+<section class="modern-properties">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <div class="devider"><span></span></div>
+            <h2>ویلا های لوکس</h2>
+            <div class="text">اکنون ویلای خود را در شهر خود پیدا کنید..</div>
+        </div>
+
+        <div class="single-item-carousel owl-carousel owl-theme">
+            @foreach (var item in Model)
+            {
+                <div class="modern-property">
+                    <div class="row">
+                        <!-- Image Column -->
+                        <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner-column">
+                                <div class="image-box">
+                                    <figure class="image">
+                                        <a href="/RealState/Details/@item.Id"
+                                           class="lightbox-image">
+                                            <img src="~/Files/RealStateImages/Big/@item.Image"
+                                                 alt="@item.Title">
+                                        </a>
+                                    </figure>
+                                    <ul class="property-options">
+                                        <li data-tooltip="توضیح"><a href="/RealState/Detaiils/@item.Id"><span class="fa fa-book"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content Column -->
+                        <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner-column">
+                                @*<div class="status">برای فروش</div>*@
+                                <h3>@item.Title</h3>
+                                <div class="location">
+                                    <span class="icon fa fa-map-marker-alt"></span>@item.Location
+                                </div>
+                                <div class="text" style="height:300px">
+                                    @item.ShortDescription
+                                </div>
+                                <ul class="property-info">
+                                    <li><span class="icon flaticon-bedroom-1"></span> اتاق خواب <br> @item.Bathrooms</li>
+                                    <li><span class="icon flaticon-bathtub"></span> حمام <br> @item.Bathrooms</li>
+                                    <li><span class="icon flaticon-grid"></span> مساحت <br> @item.Area</li>
+                                    @*<li><span class="icon flaticon-garage-1"></span> پارکینگ <br> 2</li>*@
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

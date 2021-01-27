@@ -6906,6 +6906,7 @@ select.header-option-mt option {
     padding: 0 18px;
     background: #b07908 !important;
     height: 100%;
+    color: white;
 }
 
 .slick-next{
@@ -6916,6 +6917,7 @@ select.header-option-mt option {
     padding: 0 18px;
     background: #b07908 !important;
     height: 100%;
+    color: white;
 }
 .slick-prev:hover , .slick-next:hover{
     background: #b07908;

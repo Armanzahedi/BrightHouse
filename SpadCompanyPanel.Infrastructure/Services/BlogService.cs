@@ -1,4 +1,5 @@
 ﻿using SpadCompanyPanel.Core.Models;
+using SpadCompanyPanel.Core.Utility;
 using SpadCompanyPanel.Infrastructure.Dtos.Blog;
 using SpadCompanyPanel.Infrastructure.Helpers;
 using SpadCompanyPanel.Infrastructure.Repositories;
@@ -47,6 +48,35 @@ namespace SpadCompanyPanel.Infrastructure.Services
             blogDto.Categories.AddRange(categories);
 
             return blogDto;
+        }
+        public List<ArticleInfoDto> GetLatestArticlesInfo(int? take)
+        {
+            var articlesDto = new List<ArticleInfoDto>();
+            var query = _context.Articles.Where(a => a.IsDeleted == false);
+            if (take != null)
+                query = query.Take(take.Value);
+
+            var articles = query.ToList();
+
+            foreach (var item in articles)
+            {
+                var articleInfo = new ArticleInfoDto();
+                articleInfo.Id = item.Id;
+                articleInfo.Image = item.Image;
+                if (_currentLang != (int)Language.Farsi)
+                {
+                    articleInfo.Title = item.EnglishTitle;
+                    articleInfo.Date = item.AddedDate.Value.ToString("d MMMM yyyy");
+                }
+                else
+                {
+                    articleInfo.Title = item.Title;
+                    articleInfo.Date = new PersianDateTime(item.AddedDate.Value).ToString("d MMMM yyyy");
+                }
+                articlesDto.Add(articleInfo);
+            }
+
+            return articlesDto;
         }
     }
 }

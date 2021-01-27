@@ -145,6 +145,7 @@ namespace SpadCompanyPanel.Web.Controllers
 
 
         #region Guide
+        [Route("Blog/TurkeyGuide")]
         public ActionResult TurkeyGuide()
         {
             var content = _contentRepo.GetSingleContentByTypeId((int)StaticContentTypes.TurkeyResidence);
@@ -159,6 +160,7 @@ namespace SpadCompanyPanel.Web.Controllers
 
             return View();
         }
+        [Route("Blog/UaeGuide")]
         public ActionResult UaeGuide()
         {
             var content = _contentRepo.GetSingleContentByTypeId((int)StaticContentTypes.UaeResidence);
@@ -174,6 +176,7 @@ namespace SpadCompanyPanel.Web.Controllers
             return View();
         }
 
+        [Route("Blog/EuropeGuide")]
         public ActionResult EuropeGuide()
         {
             var content = _contentRepo.GetSingleContentByTypeId((int)StaticContentTypes.EuropeResidence);

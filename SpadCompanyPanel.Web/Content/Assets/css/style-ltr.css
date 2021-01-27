@@ -4473,22 +4473,29 @@ select.header-option-mt option {
 }
 .slick-prev{
     position: absolute;
-    top: 0;
+    top: 100%;
     left: 0;
     width: 0;
+    z-index: 9999;
     padding: 0 18px;
     background: #b07908 !important;
-    height: 100%;
+    height: 60px;
+    color: white;
+}
+.slick-list .slick-prev{
+    display: none !important;
 }
 
 .slick-next{
     position: absolute;
-    top: 0;
+    top: 100%;
     right: 0;
     width: 0;
+    z-index: 9999;
     padding: 0 18px;
     background: #b07908 !important;
-    height: 100%;
+    height: 60px;
+    color: white;
 }
 .property-detail .info-table td strong {
     float: left;
