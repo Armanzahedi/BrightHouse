@@ -17,6 +17,14 @@ namespace SpadCompanyPanel.Infrastructure.Dtos.Blog
             set { _blogs = value; }
         }
 
+        private List<BlogViewModel> _recentBlogs;
+
+        public List<BlogViewModel> RecentBlogs
+        {
+            get { return _recentBlogs ?? (_recentBlogs = new List<BlogViewModel>()); }
+            set { _recentBlogs = value; }
+        }
+
         private List<BlogTagModel> _tags;
 
         public List<BlogTagModel> Tags

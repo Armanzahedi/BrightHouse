@@ -29,7 +29,7 @@ namespace SpadCompanyPanel.Infrastructure.Services
             var blogs = new List<BlogViewModel>();
             if (categoryId == null)
             {
-                blogs = repos.GetArticles().Select(s=>new BlogViewModel(s)).ToList();
+                blogs = repos.GetArticles().Select(s => new BlogViewModel(s)).ToList();
             }
             else
             {
@@ -45,6 +45,25 @@ namespace SpadCompanyPanel.Infrastructure.Services
 
             blogDto.Blogs.AddRange(blogs);
             blogDto.Categories.AddRange(categories);
+            blogDto.RecentBlogs = repos.GetArticles().Select(s => new BlogViewModel(s)).ToList();
+
+            return blogDto;
+        }
+
+
+        public BlogDetailDto GetBlogArticleDetail(int id)
+        {
+            var blogDto = new BlogDetailDto();
+            var repos = new ArticlesRepository(_context, new LogsRepository(_context));
+
+            var detail = repos.Get(id);
+
+
+
+            var categories = _context.ArticleCategories.Where(w => !w.IsDeleted).Select(s => new BlogCategoryModel { Id = s.Id, Title = s.Title }).ToList();
+
+            blogDto.Categories.AddRange(categories);
+            blogDto.RecentBlogs = repos.GetArticles().Select(s => new BlogViewModel(s)).ToList();
 
             return blogDto;
         }

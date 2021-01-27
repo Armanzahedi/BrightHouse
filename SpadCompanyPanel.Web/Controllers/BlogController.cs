@@ -106,11 +106,12 @@ namespace SpadCompanyPanel.Web.Controllers
             //foreach (var item in articleComments)
             //    articleCommentsVm.Add(new ArticleCommentViewModel(item));
 
+            var articlelistVm = _blogService.GetBlogArticle(id);
             //articleDetailsVm.ArticleComments = articleCommentsVm;
             //var articleTags = _articlesRepo.GetArticleTags(id);
             //articleDetailsVm.Tags = articleTags;
             //return View(articleDetailsVm);         
-            return View();
+            return View(articlelistVm);
         }
         [HttpPost]
         public ActionResult PostComment(CommentFormViewModel form)
