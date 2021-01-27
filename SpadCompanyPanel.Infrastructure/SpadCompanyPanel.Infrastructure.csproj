@@ -161,6 +161,10 @@
     <Compile Include="Migrations\202101270856473_added-video-to-realstate.Designer.cs">
       <DependentUpon>202101270856473_added-video-to-realstate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101270929126_changed-realState.cs" />
+    <Compile Include="Migrations\202101270929126_changed-realState.Designer.cs">
+      <DependentUpon>202101270929126_changed-realState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -271,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101270856473_added-video-to-realstate.resx">
       <DependentUpon>202101270856473_added-video-to-realstate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101270929126_changed-realState.resx">
+      <DependentUpon>202101270929126_changed-realState.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

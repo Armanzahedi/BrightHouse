@@ -29,7 +29,7 @@
                 @Html.HiddenFor(model => model.Id)
                 @Html.HiddenFor(model => model.Image)
                 @Html.HiddenFor(model => model.VideoThumbnail)
-                @Html.HiddenFor(model => model.Video)
+                @Html.HiddenFor(model => model.VideoStr)
                 @Html.HiddenFor(model => model.InsertDate)
                 @Html.HiddenFor(model => model.InsertUser)
                 @Html.HiddenFor(model => model.LastViewDate)
@@ -179,7 +179,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label class="control-label col-md-6">تصویر بند انگشتی ویدیو</label>
+                            <label class="control-label col-md-12">تصویر بند انگشتی ویدیو</label>
                             <div class="col-lg-5 col-md-12 col-sm-12">
                                 <div class="image-input image-input-outline" id="video-image">
                                     <div class="image-input-wrapper" style="background-image: url(/Files/RealStateImages/VideoImages/@Model.VideoThumbnail)"></div>
@@ -205,8 +205,8 @@
                             </div>
                         </div>
                         <div class="form-group col-md-4">
-                            <video controls>
-                                <source src="/Files/RealStateImages/Videos/@Model.Video" type="video/mp4">
+                            <video controls style="width:200px">
+                                <source src="/Files/RealStateImages/Videos/@Model.VideoStr" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -251,8 +251,8 @@
                 this.value = "";
             };
         };
-        var Video = document.getElementById("Video");
-        Video.onchange = function () {
+        var video = document.getElementById("Video");
+        video.onchange = function () {
             if (this.files[0].size > 52428800) {
                 alert("حجم ویدیو باید کمتر از 50 مگابایت باشد");
                 this.value = "";

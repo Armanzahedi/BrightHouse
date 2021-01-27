@@ -82,7 +82,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                 {
                     var newFileName = Guid.NewGuid() + Path.GetExtension(Video.FileName);
                     Video.SaveAs(Server.MapPath("/Files/RealStateImages/Videos/" + newFileName));
-                    realState.Video = newFileName;
+                    realState.VideoStr = newFileName;
                 }
                 #endregion
 
@@ -163,12 +163,12 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                 }
                 if (Video != null)
                 {
-                    if (System.IO.File.Exists(Server.MapPath("/Files/RealStateImages/Videos/" + realState.Video)))
-                        System.IO.File.Delete(Server.MapPath("/Files/RealStateImages/Videos/" + realState.Video));
+                    if (System.IO.File.Exists(Server.MapPath("/Files/RealStateImages/Videos/" + realState.VideoStr)))
+                        System.IO.File.Delete(Server.MapPath("/Files/RealStateImages/Videos/" + realState.VideoStr));
 
                     var newFileName = Guid.NewGuid() + Path.GetExtension(Video.FileName);
                     Video.SaveAs(Server.MapPath("/Files/RealStateImages/Videos/" + newFileName));
-                    realState.Video = newFileName;
+                    realState.VideoStr = newFileName;
                 }
                 #endregion
 
