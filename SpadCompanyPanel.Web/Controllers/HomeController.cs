@@ -34,12 +34,14 @@ namespace SpadCompanyPanel.Web.Controllers
         private readonly GeoDivisionsRepository _geoDivisionRepo;
         private readonly GeoDivisionService _geoDivisionService;
         private readonly NewsRepository _newsRepos;
+        private readonly RealStateService _realStateService;
+        private readonly BlogService _blogService;
 
         public HomeController(StaticContentDetailsRepository contentRepo, TestimonialsRepository testimonialRepo, ContactFormsRepository contactFormRepo, OurTeamRepository ourTeamRepo,
             CertificatesRepository certificatesRepo, FoodGalleriesRepository foodGalleriesRepo, RealStatesRepository stateRepos, GeoDivisionsRepository geoRepos, PlansRepository planRepos,
             CurrenciesRepository currencyRepo, StaticContentService staticContentService,PartnersRepository partnersRepo,
             NewsLetterMembersRepository newsLetterMember,
-            GeoDivisionsRepository geoDivisionRepo, GeoDivisionService geoDivisionService, NewsService newsService,NewsRepository newsRepos)
+            GeoDivisionsRepository geoDivisionRepo, GeoDivisionService geoDivisionService, NewsService newsService,NewsRepository newsRepos,RealStateService realStateService,BlogService blogService)
         {
             _contentRepo = contentRepo;
             _testimonialRepo = testimonialRepo;
@@ -58,45 +60,32 @@ namespace SpadCompanyPanel.Web.Controllers
             _geoDivisionService = geoDivisionService;
             _newsRepos = newsRepos;
             _newsService = newsService;
+            _realStateService = realStateService;
+            _blogService = blogService;
         }
         public ActionResult Index()
         {
-            var model = new HomeIndexViewModel();
-            var recentStates = _stateRepos.GetAll().Take(6).ToList();
-            var realStateViewModels = new List<RealStateViewModel>();
-            var language = LanguageHelper.GetCulture();
-
-            recentStates.ForEach(item =>
-            {
-                var plan = _planRepos.GetRealStatePlans(item.Id).FirstOrDefault();
-
-                if (plan != null)
-                {
-                    var realModel = new RealStateViewModel()
-                    {
-                        Id = item.Id,
-                        Area = plan.Area,
-                        Bathroom = plan.BathRooms,
-                        Bedroom = plan.Rooms,
-                        Price = plan.Price,
-                        Location = _geoRepos.GetFullLocation(item.GeoDivisionId),
-                        Title = language == (int)Language.Farsi ? item.Title : item.EnglishTitle,
-                        ShortDescription = language == (int)Language.Farsi ? item.ShortDescription : item.EnglishShortDescription,
-                        Image = item.Image
-                    };
-
-                    realStateViewModels.Add(realModel);
-                }
-            });
-
-            model.RecentRealStates = realStateViewModels;
-
-            return View(model);
+            return View();
         }
         public ActionResult RealStateGuideFilter()
         {
             ViewBag.Countries = _geoDivisionService.GetCountries();
             return PartialView();
+        }
+        public ActionResult LuxurtVillasSection()
+        {
+            var luxuryVillas = _realStateService.GetByType((int)RealStateType.Villa, 3);
+            return PartialView(luxuryVillas);
+        }
+        public ActionResult RecentRealStates()
+        {
+            var realStates = _realStateService.TakeRealStates(6);
+            return PartialView(realStates);
+        }
+        public ActionResult LatestArticles()
+        {
+            var articles = _blogService.GetLatestArticlesInfo(6);
+            return PartialView(articles);
         }
         public ActionResult Navbar()
         {

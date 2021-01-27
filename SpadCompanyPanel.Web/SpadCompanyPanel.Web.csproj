@@ -1892,6 +1892,8 @@
     <Content Include="Content\Assets\css\slick.css" />
     <Content Include="Content\Assets\css\style-ltr.css" />
     <Content Include="Content\Assets\css\style.css" />
+    <Content Include="Content\Assets\images\1-1.jpeg" />
+    <Content Include="Content\Assets\images\1-2.jpeg" />
     <Content Include="Content\Assets\images\1.mp4" />
     <Content Include="Content\Assets\images\24-hours.png" />
     <Content Include="Content\Assets\images\area-guide\2.jpg" />
@@ -5441,6 +5443,9 @@
     <Content Include="Views\Home\NewsDetail.cshtml" />
     <Content Include="Views\Shared\_InternalLayout.cshtml" />
     <Content Include="Views\Home\RealStateGuideFilter.cshtml" />
+    <Content Include="Views\Home\LuxurtVillasSection.cshtml" />
+    <Content Include="Views\Home\RecentRealStates.cshtml" />
+    <Content Include="Views\Home\LatestArticles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
@@ -5461,6 +5466,7 @@
     <Folder Include="Files\ProjectImages\Image\" />
     <Folder Include="Files\ProjectImages\ProjectGallery\" />
     <Folder Include="Files\ProjectImages\Thumb\" />
+    <Folder Include="Files\RealStateImages\Big\" />
     <Folder Include="Files\RealStateImages\Gallery\" />
     <Folder Include="Files\RealStateImages\Temp\" />
     <Folder Include="Files\RealStateImages\VideoImages\" />

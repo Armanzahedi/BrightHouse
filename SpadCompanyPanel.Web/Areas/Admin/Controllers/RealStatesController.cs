@@ -56,6 +56,10 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     var newFileName = Guid.NewGuid() + Path.GetExtension(RealStateImage.FileName);
                     RealStateImage.SaveAs(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName));
                     // Resize Image
+                    ImageResizer big = new ImageResizer(2000, 2000, true);
+                    big.Resize(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName),
+                        Server.MapPath("/Files/RealStateImages/Big/" + newFileName));
+
                     ImageResizer image = new ImageResizer(370, 270, true);
                     image.Resize(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName),
                         Server.MapPath("/Files/RealStateImages/" + newFileName));
@@ -132,12 +136,15 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     // Saving Temp Image
                     var newFileName = Guid.NewGuid() + Path.GetExtension(RealStateImage.FileName);
                     RealStateImage.SaveAs(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName));
+
                     // Resize Image
-                    ImageResizer image = new ImageResizer(820, 340, true);
+                    ImageResizer big = new ImageResizer(2000, 2000, true);
+                    big.Resize(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName),
+                        Server.MapPath("/Files/RealStateImages/Big/" + newFileName));
+
+                    ImageResizer image = new ImageResizer(370, 270, true);
                     image.Resize(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName),
                         Server.MapPath("/Files/RealStateImages/" + newFileName));
-
-
                     // Deleting Temp Image
                     System.IO.File.Delete(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName));
 

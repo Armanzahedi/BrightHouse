@@ -1,0 +1,39 @@
+﻿@model List<SpadCompanyPanel.Infrastructure.Dtos.Blog.ArticleInfoDto>
+<section class="news-section-two">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <div class="devider"><span></span></div>
+            <h2>مقالات ما</h2>
+            <div class="text">همه درباره آخرین به روزرسانی های شگفت انگیز</div>
+        </div>
+        <div class="row">
+            <!-- News BLock Two -->
+            @foreach (var item in Model)
+            {
+                <div class="news-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image">
+                                <a href="blog-detail.html">
+                                    <img src="~/Files/ArticleImages/Thumb/@item.Image"
+                                         alt="@item.Title">
+                                </a>
+                            </figure>
+                            <div class="overlay-box">
+                                <a href="blog-detail.html"><span class="fa fa-plus"></span></a>
+                            </div>
+                        </div>
+                        <div class="lower-content">
+                            <h3><a href="blog-detail.html">@item.Title</a></h3>
+                            <ul class="post-info">
+                                <li>@item.Date</li>
+                                @*<li>0 نظرات</li>*@
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

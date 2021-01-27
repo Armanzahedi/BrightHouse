@@ -83,4 +83,11 @@ namespace SpadCompanyPanel.Infrastructure.Dtos.Blog
         public string Title { get; set; }
 
     }
+    public class ArticleInfoDto
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Image { get; set; }
+        public string Date { get; set; }
+    }
 }

@@ -1,0 +1,69 @@
+﻿@model List<SpadCompanyPanel.Infrastructure.Dtos.RealState.RealStateInfoDto>
+    @{ 
+        var currentUnit = SpadCompanyPanel.Infrastructure.Helpers.CurrencyHelper.GetCurrencyUnit();
+    }
+<section class="property-section-three">
+    <div class="auto-container">
+
+        <!--MixitUp Galery-->
+        <div class="mixitup-gallery">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="sec-title">
+                        <div class="devider"><span></span></div>
+                        <h2>ملک های جدید</h2>
+                        <div class="text">خانه رویایی خود را در شهر خود پیدا کنید</div>
+                    </div>
+                </div>
+
+                <!--<div class="col-lg-6 col-md-12 col-sm-12">-->
+                    <!--Filter-->
+                    <!--<div class="filters clearfix">
+                        <ul class="filter-tabs filter-btns clearfix">
+                            <li class="active filter" data-role="button" data-filter="all">همه</li>
+                            <li class="filter" data-role="button" data-filter=".appartment">آپارتمان</li>
+                            <li class="filter" data-role="button" data-filter=".house">ویلا</li>
+                            <li class="filter" data-role="button" data-filter=".villa">اداری</li>
+                            <li class="filter" data-role="button" data-filter=".form">تجاری</li>
+                            <li class="filter" data-role="button" data-filter=".restaurent">زمین</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="filter-list row">
+                <!-- Property Block -->
+                @foreach (var item in Model)
+                {
+                    <div class="property-block-two all mix villa appartment col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image">
+                                    <a href="/RealState/Details/@item.Id">
+                                        <img src="/Files/RealStateImages/@item.Image"
+                                             alt="@item.Title">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="lower-content" style="max-height: 200px; min-height: 200px;">
+                                <ul class="property-info clearfix">
+                                    <li><span class="icon fa fa-expand"></span> مساحت @item.Area</li>
+                                    <li><span class="icon fa fa-bed"></span> اتاق خواب @item.Rooms</li>
+                                    <li><span class="icon fa fa-bath"></span> سرویس @item.Bathrooms</li>
+                                </ul>
+                                <h3><a href="/RealState/Details/@item.Id">@item.Title</a></h3>
+                                <div class="text">@item.ShortDescription</div>
+                            </div>
+                            <div class="property-price clearfix">
+                                <div class="location">
+                                    <span class="icon fa fa-map-marker-alt"></span> @item.Location
+                                </div>
+                                <div class="price"> @item.MinPrice.ToString("##,###") @currentUnit</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

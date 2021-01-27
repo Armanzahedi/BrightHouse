@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SpadCompanyPanel.Infrastructure.Services
 {
-   public class GeoDivisionService
+    public class GeoDivisionService
     {
         private readonly MyDbContext _context;
         private readonly int _currentLang;
@@ -26,6 +26,20 @@ namespace SpadCompanyPanel.Infrastructure.Services
                 if (_currentLang != 1)
                     item.Title = item.LatinTitle;
             return countries;
+        }
+        public GeoDivision GetBasedOnLang(GeoDivision geoDivision)
+        {
+            if (_currentLang != 1)
+                geoDivision.Title = geoDivision.LatinTitle;
+            return geoDivision;
+        }
+        public List<GeoDivision> GetAllBasedOnLang(List<GeoDivision> geoDivisions)
+        {
+            foreach (var item in geoDivisions)
+                if (_currentLang != 1)
+                    item.Title = item.LatinTitle;
+
+            return geoDivisions;
         }
     }
 }
