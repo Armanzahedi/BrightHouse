@@ -52,10 +52,6 @@ namespace SpadCompanyPanel.Core.Models
         public string EnglishDescription { get; set; }
         [Display(Name = "تصویر پلان")]
         public string Image { get; set; }
-        [Display(Name = "ویدئو پلان")]
-        public string Video { get; set; }
-        [Display(Name = "تصویر بند انگشتی ویدئو")]
-        public string VideoThumbnail { get; set; }
         public string InsertUser { get; set; }
         public DateTime? InsertDate { get; set; }
         public string UpdateUser { get; set; }

@@ -157,6 +157,10 @@
     <Compile Include="Migrations\202101261259390_added-news-and-newsletter.Designer.cs">
       <DependentUpon>202101261259390_added-news-and-newsletter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101270856473_added-video-to-realstate.cs" />
+    <Compile Include="Migrations\202101270856473_added-video-to-realstate.Designer.cs">
+      <DependentUpon>202101270856473_added-video-to-realstate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -264,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101261259390_added-news-and-newsletter.resx">
       <DependentUpon>202101261259390_added-news-and-newsletter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101270856473_added-video-to-realstate.resx">
+      <DependentUpon>202101270856473_added-video-to-realstate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

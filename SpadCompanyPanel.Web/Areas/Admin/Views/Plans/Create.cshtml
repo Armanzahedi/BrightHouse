@@ -129,59 +129,28 @@
                         @Html.ValidationMessageFor(model => model.Description, "", new { @class = "form-text text-danger" })
                     </div>
                 </div>
-                <div class="row" style="padding-top: 70px">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="col-label">تصویر پلان</label>
-                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                <div class="image-input image-input-outline" id="plan-image">
-                                    <div class="image-input-wrapper" style="background-image: url(assets/media/users/100_1.jpg)"></div>
-
-                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="آپلود تصویر">
-                                        <i class="fa fa-pen icon-sm text-muted"></i>
-                                        <input type="file" name="PlanImage" id="PlanImage" accept=".png, .jpg, .jpeg" />
-                                        <input type="hidden" name="plan_image_remove" />
-                                    </label>
-
-                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="حذف تصویر">
-                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EnglishDescription, new { })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EnglishDescription, new { htmlAttributes = new { @class = "form-control " } })
+                        @Html.ValidationMessageFor(model => model.EnglishDescription, "", new { @class = "form-text text-danger" })
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="control-label col-md-6">تصویر بند انگشتی ویدیو</label>
-                            <div class="col-lg-5 col-md-12 col-sm-12">
-                                <div class="image-input image-input-outline" id="video-image">
-                                    <div class="image-input-wrapper" style="background-image: url(assets/media/users/100_1.jpg)"></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-label">تصویر پلان</label>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="image-input image-input-outline" id="plan-image">
+                            <div class="image-input-wrapper" style="background-image: url(assets/media/users/100_1.jpg)"></div>
 
-                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="آپلود تصویر">
-                                        <i class="fa fa-pen icon-sm text-muted"></i>
-                                        <input type="file" name="VideoImage" id="VideoImage" accept=".png, .jpg, .jpeg" />
-                                        <input type="hidden" name="video_image_remove" />
-                                    </label>
+                            <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="آپلود تصویر">
+                                <i class="fa fa-pen icon-sm text-muted"></i>
+                                <input type="file" name="PlanImage" id="PlanImage" accept=".png, .jpg, .jpeg" />
+                                <input type="hidden" name="plan_image_remove" />
+                            </label>
 
-                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="حذف تصویر">
-                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="control-label col-md-4">آپلود ویدیو</label>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <input name="Video" id="Video" type="file" accept="video/*" />
-                            </div>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <video controls>
-                                <source src="/Files/GalleryVideos/" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="حذف تصویر">
+                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -205,9 +174,9 @@
     <script>
         $(function() {
             $('#Description').ckeditor();
+            $('#EnglishDescription').ckeditor();
         });
         new KTImageInput('plan-image');
-        new KTImageInput('video-image');
         var planImage = document.getElementById("PlanImage");
         planImage.onchange = function() {
             if (this.files[0].size > 3100000){
@@ -215,27 +184,11 @@
                 this.value = "";
             };
         };
-        var videoImage = document.getElementById("VideoImage");
-        videoImage.onchange = function() {
-            if (this.files[0].size > 3100000){
-                alert("حجم تصویر باید کمتر از 3 مگابایت باشد");
-                this.value = "";
-            };
-        };
         $("#form").submit(function (e) {
-            console.log($("#form").valid());
             if ($("#form").valid()) {
-                console.log('uploading');
                 $("#sub").val("در حال آپلود");
             }
         });
-        var uploadField = document.getElementById("Video");
-        uploadField.onchange = function() {
-            if(this.files[0].size > 52428800){
-                alert("حجم ویدیو باید کمتر از 50 مگابایت باشد");
-                this.value = "";
-            };
-        };
         function toggleRent() {
             var planType = $("#PlanType").find(":selected").val();
             if (parseInt(planType) === 3) {
