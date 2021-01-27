@@ -1,7 +1,8 @@
 ﻿@model SpadCompanyPanel.Infrastructure.Dtos.News.NewsDetailDto
+@using SpadCompanyPanel.Web.Resources
 
 @{
-    ViewBag.Title = "خبر";
+    ViewBag.Title = @Resource.News;
 }
 <div class="page-wrapper">
     <!-- Preloader -->
@@ -10,11 +11,11 @@
     <!--Page Title-->
     <section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
         <div class="auto-container">
-            <h1>جزئیات خبر</h1>
+            <h1>@Model.Title</h1>
             <ul class="page-breadcrumb">
-                <li><a href="/">خانه</a></li>
-                <li>اخبار</li>
-                <li>جزئیات خبر</li>
+                <li><a href="/">@Resource.Home</a></li>
+                <li><a href="/News">@Resource.TurkeyNews</a></li>
+                <li>@Model.Title</li>
             </ul>
         </div>
     </section>
@@ -31,7 +32,7 @@
 
 
                 <div class="col-md-12">
-                    <h2 class="gold mt-5 mb-2">آخرین خبرها</h2>
+                    <h2 class="gold mt-5 mb-2">@Resource.LatestNews</h2>
                     <div class="row">
 
                         @foreach (var item in Model.SimilarNews)

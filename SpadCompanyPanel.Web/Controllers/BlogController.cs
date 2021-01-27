@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using SpadCompanyPanel.Core.Models;
 using SpadCompanyPanel.Core.Utility;
 using SpadCompanyPanel.Infrastructure.Dtos.Blog;
+using SpadCompanyPanel.Infrastructure.Helpers;
 using SpadCompanyPanel.Infrastructure.Repositories;
 using SpadCompanyPanel.Infrastructure.Services;
 using SpadCompanyPanel.Web.ViewModels;
@@ -106,7 +107,7 @@ namespace SpadCompanyPanel.Web.Controllers
             //foreach (var item in articleComments)
             //    articleCommentsVm.Add(new ArticleCommentViewModel(item));
 
-            var articlelistVm = _blogService.GetBlogArticle(id);
+            var articlelistVm = _blogService.GetBlogArticleDetail(id);
             //articleDetailsVm.ArticleComments = articleCommentsVm;
             //var articleTags = _articlesRepo.GetArticleTags(id);
             //articleDetailsVm.Tags = articleTags;
@@ -149,7 +150,8 @@ namespace SpadCompanyPanel.Web.Controllers
         [Route("Blog/TurkeyGuide")]
         public ActionResult TurkeyGuide()
         {
-            var content = _contentRepo.GetSingleContentByTypeId((int)StaticContentTypes.TurkeyResidence);
+            var lang = LanguageHelper.GetCulture();
+            var content = _contentRepo.GetSingleContentByTypeId(lang == (int)Language.Farsi ? (int)StaticContentTypes.TurkeyResidence : (int)StaticContentTypes.TurkeyResidenceEnglish);
 
             if (content != null)
             {
@@ -164,7 +166,8 @@ namespace SpadCompanyPanel.Web.Controllers
         [Route("Blog/UaeGuide")]
         public ActionResult UaeGuide()
         {
-            var content = _contentRepo.GetSingleContentByTypeId((int)StaticContentTypes.UaeResidence);
+            var lang = LanguageHelper.GetCulture();
+            var content = _contentRepo.GetSingleContentByTypeId(lang==(int)Language.Farsi? (int)StaticContentTypes.UaeResidence : (int)StaticContentTypes.UaeResidenceEnglish);
 
             if (content != null)
             {
@@ -180,7 +183,8 @@ namespace SpadCompanyPanel.Web.Controllers
         [Route("Blog/EuropeGuide")]
         public ActionResult EuropeGuide()
         {
-            var content = _contentRepo.GetSingleContentByTypeId((int)StaticContentTypes.EuropeResidence);
+            var lang = LanguageHelper.GetCulture();
+            var content = _contentRepo.GetSingleContentByTypeId(lang == (int)Language.Farsi ? (int)StaticContentTypes.EuropeResidence : (int)StaticContentTypes.EuropeResidenceEnglish);
 
             if (content != null)
             {

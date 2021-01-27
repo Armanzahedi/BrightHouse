@@ -156,6 +156,9 @@
   <data name="Bedroom" xml:space="preserve">
     <value>Bedroom</value>
   </data>
+  <data name="BlogDetail" xml:space="preserve">
+    <value>Blog Detail</value>
+  </data>
   <data name="Category" xml:space="preserve">
     <value>Category</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="ContactUs" xml:space="preserve">
     <value>Contact Us</value>
+  </data>
+  <data name="ContactUsAbout" xml:space="preserve">
+    <value>The Easiest way for buy a house</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Country</value>
@@ -216,6 +222,9 @@
   <data name="FiveBedrooms" xml:space="preserve">
     <value>Five Bedrooms</value>
   </data>
+  <data name="FollowUs" xml:space="preserve">
+    <value>Follow Us</value>
+  </data>
   <data name="Forsale" xml:space="preserve">
     <value>For sale</value>
   </data>
@@ -249,6 +258,9 @@
   <data name="Istanbul" xml:space="preserve">
     <value>Istanbul</value>
   </data>
+  <data name="LatestNews" xml:space="preserve">
+    <value>Latest News</value>
+  </data>
   <data name="Links" xml:space="preserve">
     <value>Links</value>
   </data>
@@ -261,6 +273,9 @@
   <data name="Mashhad" xml:space="preserve">
     <value>Mashhad</value>
   </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
   <data name="ModernHouses" xml:space="preserve">
     <value>Modern Houses</value>
   </data>
@@ -272,6 +287,9 @@
   </data>
   <data name="NewsandArticles" xml:space="preserve">
     <value>News and Articles</value>
+  </data>
+  <data name="NewsDetail" xml:space="preserve">
+    <value>News Detail</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>بعدي</value>
@@ -327,6 +345,9 @@
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Send Message To Us</value>
+  </data>
   <data name="Shiraz" xml:space="preserve">
     <value>Shiraz</value>
   </data>
@@ -338,6 +359,9 @@
   </data>
   <data name="StayinEurope" xml:space="preserve">
     <value>Stay in Europe</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Subject</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Submit</value>
@@ -359,6 +383,9 @@
   </data>
   <data name="Turkey" xml:space="preserve">
     <value>Turkey</value>
+  </data>
+  <data name="TurkeyNews" xml:space="preserve">
+    <value>Turkey News</value>
   </data>
   <data name="Turkishcitizenshipandpassports" xml:space="preserve">
     <value>Special real estate packages for Turkish citizenship and passports</value>

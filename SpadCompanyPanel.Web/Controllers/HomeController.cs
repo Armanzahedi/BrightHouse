@@ -39,9 +39,9 @@ namespace SpadCompanyPanel.Web.Controllers
 
         public HomeController(StaticContentDetailsRepository contentRepo, TestimonialsRepository testimonialRepo, ContactFormsRepository contactFormRepo, OurTeamRepository ourTeamRepo,
             CertificatesRepository certificatesRepo, FoodGalleriesRepository foodGalleriesRepo, RealStatesRepository stateRepos, GeoDivisionsRepository geoRepos, PlansRepository planRepos,
-            CurrenciesRepository currencyRepo, StaticContentService staticContentService,PartnersRepository partnersRepo,
+            CurrenciesRepository currencyRepo, StaticContentService staticContentService, PartnersRepository partnersRepo,
             NewsLetterMembersRepository newsLetterMember,
-            GeoDivisionsRepository geoDivisionRepo, GeoDivisionService geoDivisionService, NewsService newsService,NewsRepository newsRepos,RealStateService realStateService,BlogService blogService)
+            GeoDivisionsRepository geoDivisionRepo, GeoDivisionService geoDivisionService, NewsService newsService, NewsRepository newsRepos, RealStateService realStateService, BlogService blogService)
         {
             _contentRepo = contentRepo;
             _testimonialRepo = testimonialRepo;
@@ -179,11 +179,12 @@ namespace SpadCompanyPanel.Web.Controllers
         [Route("ContactUs")]
         public ActionResult Contact()
         {
+            var lang = LanguageHelper.GetCulture();
             ViewBag.ContactUsPage = true;
             var contactUsContent = new ContactUsViewModel();
             contactUsContent.ContactInfo = _contentRepo.Get((int)StaticContents.ContactInfo);
             contactUsContent.Email = _contentRepo.Get((int)StaticContents.Email);
-            contactUsContent.Address = _contentRepo.Get((int)StaticContents.Address);
+            contactUsContent.Address = _contentRepo.Get(lang == (int)Language.Farsi ? (int)StaticContents.Address : (int)StaticContents.AddressEnglish);
             contactUsContent.Phone = _contentRepo.Get((int)StaticContents.Phone);
             contactUsContent.Youtube = _contentRepo.Get((int)StaticContents.Youtube);
             contactUsContent.Instagram = _contentRepo.Get((int)StaticContents.Instagram);
@@ -249,7 +250,7 @@ namespace SpadCompanyPanel.Web.Controllers
                 };
                 _newsLetterMember.Add(model);
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
         #region Index Items
 

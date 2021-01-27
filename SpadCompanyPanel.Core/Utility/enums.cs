@@ -14,14 +14,18 @@ namespace SpadCompanyPanel.Core.Utility
         CompanyHistory = 2,
         BlogImage = 1004,
         TurkeyResidence = 1006,
+        TurkeyResidenceEnglish = 3033,
         UaeResidence = 1007,
+        UaeResidenceEnglish = 3037,
         EuropeResidence = 1008,
+        EuropeResidenceEnglish = 3038,
     }
     public enum StaticContents
     {
         Phone = 1002,
         Map = 1007,
         Address = 1001,
+        AddressEnglish = 3029,
         Email = 1003,
         Youtube = 1008,
         Instagram = 1009,

@@ -59,14 +59,15 @@ namespace SpadCompanyPanel.Infrastructure.Services
 
         public BlogDetailDto GetBlogArticleDetail(int id)
         {
-            var blogDto = new BlogDetailDto();
             var repos = new ArticlesRepository(_context, new LogsRepository(_context));
 
             var detail = repos.Get(id);
 
 
+            var blogDto = new BlogDetailDto(detail, _currentLang);
 
-            var categories = _context.ArticleCategories.Where(w => !w.IsDeleted).Select(s => new BlogCategoryModel { Id = s.Id, Title = s.Title }).ToList();
+            var categories = _context.ArticleCategories.Where(w => !w.IsDeleted).Select(s =>
+            new BlogCategoryModel { Id = s.Id, Title = _currentLang == (int)Language.Farsi ? s.Title : s.EnglishTitle }).ToList();
 
             blogDto.Categories.AddRange(categories);
             blogDto.RecentBlogs = repos.GetArticles().Select(s => new BlogViewModel(s, _currentLang)).ToList();

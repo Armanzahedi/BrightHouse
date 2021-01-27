@@ -384,4 +384,31 @@
   <data name="RecentArticles" xml:space="preserve">
     <value>پست های اخیر</value>
   </data>
+  <data name="TurkeyNews" xml:space="preserve">
+    <value>اخبار ترکیه</value>
+  </data>
+  <data name="BlogDetail" xml:space="preserve">
+    <value>جزئیات مقاله</value>
+  </data>
+  <data name="ContactUsAbout" xml:space="preserve">
+    <value>لذت خانه دار شدن را با ما تجربه کنید</value>
+  </data>
+  <data name="FollowUs" xml:space="preserve">
+    <value>مارا دنبال کنید</value>
+  </data>
+  <data name="LatestNews" xml:space="preserve">
+    <value>آخرین خبرها</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>پیام</value>
+  </data>
+  <data name="NewsDetail" xml:space="preserve">
+    <value>جزئیات خبر</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>ارسال پیام برای ما</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>موضوع</value>
+  </data>
 </root>
