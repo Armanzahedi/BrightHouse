@@ -2205,7 +2205,7 @@ li.current.dropdown.index-page a{
 .page-title {
     position: relative;
     text-align: center;
-    padding: 90px 0px;
+    padding: 50px 0px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -6906,6 +6906,7 @@ select.header-option-mt option {
     padding: 0 18px;
     background: #b07908 !important;
     height: 100%;
+    color: white;
 }
 
 .slick-next{
@@ -6916,6 +6917,7 @@ select.header-option-mt option {
     padding: 0 18px;
     background: #b07908 !important;
     height: 100%;
+    color: white;
 }
 .slick-prev:hover , .slick-next:hover{
     background: #b07908;
@@ -8123,7 +8125,7 @@ select.header-option-mt option {
 }
 
 .news-block-two .lower-content h3 a {
-    color: #333333;
+    color: #b07a09;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -ms-transition: all 300ms ease;
@@ -8152,7 +8154,7 @@ select.header-option-mt option {
     margin-left: 15px;
     font-size: 16px;
     line-height: 30px;
-    color: #666666;
+    color: #b07a09;
     font-weight: 400;
     margin-bottom: 10px;
     -webkit-transition: all 300ms ease;
@@ -9827,7 +9829,8 @@ select.header-option-mt option {
 .latest-news .post-thumb img {
     position: relative;
     display: block;
-    width: 100%;
+    width: 200px;
+    height: 100px;
 }
 
 .latest-news .post h3 {

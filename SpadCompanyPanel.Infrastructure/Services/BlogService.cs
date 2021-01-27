@@ -1,4 +1,5 @@
 ﻿using SpadCompanyPanel.Core.Models;
+using SpadCompanyPanel.Core.Utility;
 using SpadCompanyPanel.Infrastructure.Dtos.Blog;
 using SpadCompanyPanel.Infrastructure.Helpers;
 using SpadCompanyPanel.Infrastructure.Repositories;
@@ -29,7 +30,7 @@ namespace SpadCompanyPanel.Infrastructure.Services
             var blogs = new List<BlogViewModel>();
             if (categoryId == null)
             {
-                blogs = repos.GetArticles().Select(s => new BlogViewModel(s)).ToList();
+                blogs = repos.GetArticles().Select(s => new BlogViewModel(s, _currentLang)).ToList();
             }
             else
             {
@@ -37,15 +38,20 @@ namespace SpadCompanyPanel.Infrastructure.Services
                 if (category != null)
                 {
                     //ViewBag.BreadCrumb = category.Title;
-                    blogs = repos.GetArticlesByCategory(categoryId.Value).Select(s => new BlogViewModel(s)).ToList();
+                    blogs = repos.GetArticlesByCategory(categoryId.Value).Select(s => new BlogViewModel(s, _currentLang)).ToList();
                 }
             }
 
-            var categories = _context.ArticleCategories.Where(w => !w.IsDeleted).Select(s => new BlogCategoryModel { Id = s.Id, Title = s.Title }).ToList();
+            var categories = _context.ArticleCategories.Where(w => !w.IsDeleted)
+                .Select(s => new BlogCategoryModel
+                {
+                    Id = s.Id,
+                    Title = _currentLang == (int)Language.Farsi ? s.Title : s.EnglishTitle
+                }).ToList();
 
             blogDto.Blogs.AddRange(blogs);
             blogDto.Categories.AddRange(categories);
-            blogDto.RecentBlogs = repos.GetArticles().Select(s => new BlogViewModel(s)).ToList();
+            blogDto.RecentBlogs = repos.GetArticles().Select(s => new BlogViewModel(s, _currentLang)).ToList();
 
             return blogDto;
         }
@@ -63,7 +69,7 @@ namespace SpadCompanyPanel.Infrastructure.Services
             var categories = _context.ArticleCategories.Where(w => !w.IsDeleted).Select(s => new BlogCategoryModel { Id = s.Id, Title = s.Title }).ToList();
 
             blogDto.Categories.AddRange(categories);
-            blogDto.RecentBlogs = repos.GetArticles().Select(s => new BlogViewModel(s)).ToList();
+            blogDto.RecentBlogs = repos.GetArticles().Select(s => new BlogViewModel(s, _currentLang)).ToList();
 
             return blogDto;
         }

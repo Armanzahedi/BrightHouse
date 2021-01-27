@@ -1,4 +1,5 @@
 ﻿using SpadCompanyPanel.Core.Models;
+using SpadCompanyPanel.Core.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace SpadCompanyPanel.Infrastructure.Dtos.Blog
 
         public List<BlogViewModel> Blogs
         {
-            get { return _blogs??(_blogs = new List<BlogViewModel>()); }
+            get { return _blogs ?? (_blogs = new List<BlogViewModel>()); }
             set { _blogs = value; }
         }
 
@@ -37,7 +38,7 @@ namespace SpadCompanyPanel.Infrastructure.Dtos.Blog
 
         public List<BlogCategoryModel> Categories
         {
-            get { return _categories??(_categories=new List<BlogCategoryModel>()); }
+            get { return _categories ?? (_categories = new List<BlogCategoryModel>()); }
             set { _categories = value; }
         }
     }
@@ -47,15 +48,16 @@ namespace SpadCompanyPanel.Infrastructure.Dtos.Blog
         {
         }
 
-        public BlogViewModel(Article article)
+        public BlogViewModel(Article article, int language)
         {
             this.Id = article.Id;
-            this.Title = article.Title;
-            this.ShortDescription = article.ShortDescription;
+            this.Title = language == (int)Language.Farsi ? article.Title : article.EnglishTitle;
+            this.ShortDescription = language == (int)Language.Farsi ? article.ShortDescription : article.EnglishShortDescription;
             this.Author = article.User != null ? $"{article.User.FirstName} {article.User.LastName}" : "-";
             this.Image = article.Image;
             this.AuthorAvatar = article.User.Avatar ?? "user-avatar.png";
-            this.PersianDate = article.AddedDate != null ? new PersianDateTime(article.AddedDate.Value).ToString("d MMMM yyyy") : "-";
+            this.PersianDate = language == (int)Language.Farsi ? article.AddedDate != null ? new PersianDateTime(article.AddedDate.Value).ToString("d MMMM yyyy") : "-" :
+                article.AddedDate.Value.ToShortDateString();
         }
         public int Id { get; set; }
         public int CommentsCount { get; set; }
