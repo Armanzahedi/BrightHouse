@@ -44,12 +44,12 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(RealState realState, HttpPostedFileBase RealStateImage)
+        public ActionResult Create(RealState realState, HttpPostedFileBase RealStateImage, HttpPostedFileBase VideoImage, HttpPostedFileBase Video)
         {
             realState.LastViewDate = DateTime.Now;
             if (ModelState.IsValid)
             {
-                #region Upload Image
+                #region Upload Files
                 if (RealStateImage != null)
                 {
                     // Saving Temp Image
@@ -63,6 +63,26 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     System.IO.File.Delete(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName));
 
                     realState.Image = newFileName;
+                }
+                if (VideoImage != null)
+                {
+                    // Saving Temp Image
+                    var newFileName = Guid.NewGuid() + Path.GetExtension(VideoImage.FileName);
+                    VideoImage.SaveAs(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName));
+                    // Resize Image
+                    ImageResizer image = new ImageResizer(870, 500, true);
+                    image.Resize(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName),
+                        Server.MapPath("/Files/RealStateImages/VideoImages/" + newFileName));
+                    // Deleting Temp Image
+                    System.IO.File.Delete(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName));
+
+                    realState.VideoThumbnail = newFileName;
+                }
+                if (Video != null)
+                {
+                    var newFileName = Guid.NewGuid() + Path.GetExtension(Video.FileName);
+                    Video.SaveAs(Server.MapPath("/Files/RealStateImages/Videos/" + newFileName));
+                    realState.Video = newFileName;
                 }
                 #endregion
 
@@ -99,11 +119,11 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(RealState realState, HttpPostedFileBase RealStateImage)
+        public ActionResult Edit(RealState realState, HttpPostedFileBase RealStateImage, HttpPostedFileBase VideoImage, HttpPostedFileBase Video)
         {
             if (ModelState.IsValid)
             {
-                #region Upload Image
+                #region Upload Files
                 if (RealStateImage != null)
                 {
                     if (System.IO.File.Exists(Server.MapPath("/Files/RealStateImages/" + realState.Image)))
@@ -122,6 +142,33 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     System.IO.File.Delete(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName));
 
                     realState.Image = newFileName;
+                }
+                if (VideoImage != null)
+                {
+                    if (System.IO.File.Exists(Server.MapPath("/Files/RealStateImages/VideoImages/" + realState.VideoThumbnail)))
+                        System.IO.File.Delete(Server.MapPath("/Files/RealStateImages/VideoImages/" + realState.VideoThumbnail));
+
+                    // Saving Temp Image
+                    var newFileName = Guid.NewGuid() + Path.GetExtension(VideoImage.FileName);
+                    VideoImage.SaveAs(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName));
+                    // Resize Image
+
+                    ImageResizer image = new ImageResizer(870, 500, true);
+                    image.Resize(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName),
+                        Server.MapPath("/Files/RealStateImages/VideoImages/" + newFileName));
+                    // Deleting Temp Image
+                    System.IO.File.Delete(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName));
+
+                    realState.VideoThumbnail = newFileName;
+                }
+                if (Video != null)
+                {
+                    if (System.IO.File.Exists(Server.MapPath("/Files/RealStateImages/Videos/" + realState.Video)))
+                        System.IO.File.Delete(Server.MapPath("/Files/RealStateImages/Videos/" + realState.Video));
+
+                    var newFileName = Guid.NewGuid() + Path.GetExtension(Video.FileName);
+                    Video.SaveAs(Server.MapPath("/Files/RealStateImages/Videos/" + newFileName));
+                    realState.Video = newFileName;
                 }
                 #endregion
 

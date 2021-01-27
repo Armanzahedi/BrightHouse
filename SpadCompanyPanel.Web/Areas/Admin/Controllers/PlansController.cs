@@ -37,7 +37,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Plan plan,List<int> Options,HttpPostedFileBase PlanImage,HttpPostedFileBase VideoImage,HttpPostedFileBase Video)
+        public ActionResult Create(Plan plan,List<int> Options,HttpPostedFileBase PlanImage)
         {
             if (plan.RentPrice == null)
                 plan.RentPrice = 0;
@@ -58,26 +58,6 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     System.IO.File.Delete(Server.MapPath("/Files/PlanFiles/Temp/" + newFileName));
 
                     plan.Image = newFileName;
-                }
-                if (VideoImage != null)
-                {
-                    // Saving Temp Image
-                    var newFileName = Guid.NewGuid() + Path.GetExtension(VideoImage.FileName);
-                    VideoImage.SaveAs(Server.MapPath("/Files/PlanFiles/Temp/" + newFileName));
-                    // Resize Image
-                    ImageResizer image = new ImageResizer(870, 500, true);
-                    image.Resize(Server.MapPath("/Files/PlanFiles/Temp/" + newFileName),
-                        Server.MapPath("/Files/PlanFiles/VideoImages/" + newFileName));
-                    // Deleting Temp Image
-                    System.IO.File.Delete(Server.MapPath("/Files/PlanFiles/Temp/" + newFileName));
-
-                    plan.VideoThumbnail = newFileName;
-                }
-                if (Video != null)
-                {
-                    var newFileName = Guid.NewGuid() + Path.GetExtension(Video.FileName);
-                    Video.SaveAs(Server.MapPath("/Files/PlanFiles/Videos/" + newFileName));
-                    plan.Video = newFileName;
                 }
                 #endregion
                 _repo.Add(plan);
@@ -109,7 +89,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Plan plan, List<int> Options, HttpPostedFileBase PlanImage, HttpPostedFileBase VideoImage, HttpPostedFileBase Video)
+        public ActionResult Edit(Plan plan, List<int> Options, HttpPostedFileBase PlanImage)
         {
             if (ModelState.IsValid)
             {
@@ -130,33 +110,6 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     System.IO.File.Delete(Server.MapPath("/Files/PlanFiles/Temp/" + newFileName));
 
                     plan.Image = newFileName;
-                }
-                if (VideoImage != null)
-                {
-                    if (System.IO.File.Exists(Server.MapPath("/Files/PlanFiles/VideoImages/" + plan.VideoThumbnail)))
-                        System.IO.File.Delete(Server.MapPath("/Files/PlanFiles/VideoImages/" + plan.VideoThumbnail));
-
-                    // Saving Temp Image
-                    var newFileName = Guid.NewGuid() + Path.GetExtension(VideoImage.FileName);
-                    VideoImage.SaveAs(Server.MapPath("/Files/PlanFiles/Temp/" + newFileName));
-                    // Resize Image
-
-                    ImageResizer image = new ImageResizer(870, 500, true);
-                    image.Resize(Server.MapPath("/Files/PlanFiles/Temp/" + newFileName),
-                        Server.MapPath("/Files/PlanFiles/VideoImages/" + newFileName));
-                    // Deleting Temp Image
-                    System.IO.File.Delete(Server.MapPath("/Files/PlanFiles/Temp/" + newFileName));
-
-                    plan.VideoThumbnail = newFileName;
-                }
-                if (Video != null)
-                {
-                    if (System.IO.File.Exists(Server.MapPath("/Files/PlanFiles/Videos/" + plan.Video)))
-                        System.IO.File.Delete(Server.MapPath("/Files/PlanFiles/Videos/" + plan.Video));
-
-                    var newFileName = Guid.NewGuid() + Path.GetExtension(Video.FileName);
-                    Video.SaveAs(Server.MapPath("/Files/PlanFiles/Videos/" + newFileName));
-                    plan.Video = newFileName;
                 }
                 #endregion
 

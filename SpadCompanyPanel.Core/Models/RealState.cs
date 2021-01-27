@@ -54,6 +54,10 @@ namespace SpadCompanyPanel.Core.Models
         [Display(Name = "لوکیشن")]
         [DataType(DataType.MultilineText)]
         public string Location { get; set; }
+        [Display(Name = "تصویر بند انگشتی ویدئو")]
+        public string VideoThumbnail { get; set; }
+        [Display(Name = "ویدئو ملک")]
+        public string Video { get; set; }
         public DateTime LastViewDate { get; set; }
         public ICollection<RealStateGallery> RealStateGalleries { get; set; }
         public ICollection<Plan> Plans { get; set; }

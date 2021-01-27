@@ -5464,6 +5464,8 @@
     <Folder Include="Files\ProjectImages\Thumb\" />
     <Folder Include="Files\RealStateImages\Gallery\" />
     <Folder Include="Files\RealStateImages\Temp\" />
+    <Folder Include="Files\RealStateImages\VideoImages\" />
+    <Folder Include="Files\RealStateImages\Videos\" />
     <Folder Include="Files\Services\File\" />
     <Folder Include="Files\Services\Image\" />
     <Folder Include="Files\Services\Thumb\" />
