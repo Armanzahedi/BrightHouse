@@ -33,12 +33,13 @@ namespace SpadCompanyPanel.Web.Controllers
         private readonly NewsLetterMembersRepository _newsLetterMember;
         private readonly GeoDivisionsRepository _geoDivisionRepo;
         private readonly GeoDivisionService _geoDivisionService;
+        private readonly NewsRepository _newsRepos;
 
         public HomeController(StaticContentDetailsRepository contentRepo, TestimonialsRepository testimonialRepo, ContactFormsRepository contactFormRepo, OurTeamRepository ourTeamRepo,
             CertificatesRepository certificatesRepo, FoodGalleriesRepository foodGalleriesRepo, RealStatesRepository stateRepos, GeoDivisionsRepository geoRepos, PlansRepository planRepos,
             CurrenciesRepository currencyRepo, StaticContentService staticContentService,PartnersRepository partnersRepo,
             NewsLetterMembersRepository newsLetterMember,
-            GeoDivisionsRepository geoDivisionRepo, GeoDivisionService geoDivisionService), NewsService newsService)
+            GeoDivisionsRepository geoDivisionRepo, GeoDivisionService geoDivisionService, NewsService newsService,NewsRepository newsRepos)
         {
             _contentRepo = contentRepo;
             _testimonialRepo = testimonialRepo;
