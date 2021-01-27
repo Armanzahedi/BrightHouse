@@ -30,11 +30,15 @@ namespace SpadCompanyPanel.Web.Controllers
         private readonly StaticContentService _staticContentService;
         private readonly NewsService _newsService;
         private readonly PartnersRepository _partnersRepo;
-        private readonly NewsRepository _newsRepos;
+        private readonly NewsLetterMembersRepository _newsLetterMember;
+        private readonly GeoDivisionsRepository _geoDivisionRepo;
+        private readonly GeoDivisionService _geoDivisionService;
 
         public HomeController(StaticContentDetailsRepository contentRepo, TestimonialsRepository testimonialRepo, ContactFormsRepository contactFormRepo, OurTeamRepository ourTeamRepo,
             CertificatesRepository certificatesRepo, FoodGalleriesRepository foodGalleriesRepo, RealStatesRepository stateRepos, GeoDivisionsRepository geoRepos, PlansRepository planRepos,
-            CurrenciesRepository currencyRepo, StaticContentService staticContentService, PartnersRepository partnersRepo, NewsRepository newsRepos, NewsService newsService)
+            CurrenciesRepository currencyRepo, StaticContentService staticContentService,PartnersRepository partnersRepo,
+            NewsLetterMembersRepository newsLetterMember,
+            GeoDivisionsRepository geoDivisionRepo, GeoDivisionService geoDivisionService), NewsService newsService)
         {
             _contentRepo = contentRepo;
             _testimonialRepo = testimonialRepo;
@@ -48,6 +52,9 @@ namespace SpadCompanyPanel.Web.Controllers
             _currencyRepo = currencyRepo;
             _staticContentService = staticContentService;
             _partnersRepo = partnersRepo;
+            _newsLetterMember = newsLetterMember;
+            _geoDivisionRepo = geoDivisionRepo;
+            _geoDivisionService = geoDivisionService;
             _newsRepos = newsRepos;
             _newsService = newsService;
         }
@@ -84,6 +91,11 @@ namespace SpadCompanyPanel.Web.Controllers
             model.RecentRealStates = realStateViewModels;
 
             return View(model);
+        }
+        public ActionResult RealStateGuideFilter()
+        {
+            ViewBag.Countries = _geoDivisionService.GetCountries();
+            return PartialView();
         }
         public ActionResult Navbar()
         {
@@ -236,7 +248,19 @@ namespace SpadCompanyPanel.Web.Controllers
             return Content(vOutput);
         }
 
-
+        [HttpPost]
+        public ActionResult SubmitNewsLetterEmail(string newsLetterEmail)
+        {
+            if (ModelState.IsValid)
+            {
+                var model = new NewsLetterMember()
+                {
+                    Email = newsLetterEmail
+                };
+                _newsLetterMember.Add(model);
+            }
+            return RedirectToAction("Index","Home");
+        }
         #region Index Items
 
         //public ActionResult Contact()

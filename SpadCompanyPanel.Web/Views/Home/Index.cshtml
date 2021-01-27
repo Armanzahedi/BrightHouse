@@ -6,83 +6,7 @@
 }
 
 <!-- Property Search Section Two -->
-<section class="property-search-section-three" style="background-image: url(Content/Assets/images/main-slider/3.jpg);">
-    <div class="auto-container">
-        <div class="content-box">
-            <div class="title-box">
-                <h2 class="mb-5">Bright House <span>انتخابی درخشان </span></h2>
-                <h2>جستجوی املاک</h2>
-            </div>
-
-            <div class="property-search-form style-three">
-                <form method="post" action="/">
-                    <div class="row no-gutters">
-                        <!-- Form Group -->
-                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
-                            <select class="custom-select-box">
-                                <option>کشور</option>
-                                <option>ایران</option>
-                                <option>ترکیه</option>
-                                <option>افغانستان</option>
-                                <option>ارمنستان</option>
-                                <option>روسیه</option>
-                            </select>
-                        </div>
-
-                        <!-- Form Group -->
-                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
-                            <select class="custom-select-box">
-                                <option>شهر</option>
-                                <option>مشهد</option>
-                                <option>تهران</option>
-                                <option>اصفهان</option>
-                                <option>شیراز</option>
-                            </select>
-                        </div>
-
-                        <!-- Form Group -->
-                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
-                            <select class="custom-select-box">
-                                <option>ملک برای</option>
-                                <option> اجاره</option>
-                                <option>فروش</option>
-                            </select>
-                        </div>
-                        <!-- Form Group -->
-                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
-                            <select class="custom-select-box">
-                                <option>نوع ملک</option>
-                                <option>ویلایی</option>
-                                <option>دوبلکس</option>
-                                <option>آپارتمان</option>
-                            </select>
-                        </div>
-
-                        <!-- Form Group -->
-                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
-                            <select class="custom-select-box">
-                                <option>اتاق خواب</option>
-                                <option>01 اتاق خواب</option>
-                                <option>02 اتاق خواب</option>
-                                <option>03 اتاق خواب</option>
-                                <option>04 اتاق خواب</option>
-                                <option>05 اتاق خواب</option>
-                            </select>
-                        </div>
-
-
-                        <!-- Form Group -->
-                        <div class="form-group col-lg-2 col-md-6 col-sm-12">
-                            <button type="submit" class="theme-btn btn-style-two">
-                                <span class="btn-title">جستجو</span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
+@Html.Action("RealStateGuideFilter","Home")
 <!--End Property Search Section Two -->
 <!-- What We Do -->
 <section class="what-we-do">
@@ -519,5 +443,74 @@
 @Html.Action("PartnersSection", "Home")
 <!--End Clients Section-->
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+<script>
+    function GetStates() {
+        $("#loading").show();
+        var geoDivisionId = $("#countryId").find(":selected").val();
+        $("#stateId").html('<option value="0">استان</option>');
+            $.ajax({
+                type: 'GET',
+                url: '/RealState/GetGeoDivisionChildren?geoDivisionId=' + geoDivisionId,
+                success: function (response) {
+                    var html = '<option value="0">استان</option>';
+                    try {
+                        var data = JSON.parse(response);
+                        if (data != null && data.length > 0) {
+                            data.map(function (item) {
+                                html += '<option value="' + item.id + '">' + item.title + '</option>';
+                            });
+                        }
+                    } catch (e) {
+                    }
+                    $("#loading").hide();
+                    $("#stateId").html(html);
+                },
+                error: function (data) {
+                    console.log("error");
+                    console.log(data);
+                },
+                comcurrentUnitlete: function () {
+                }
+            });
+    }
+
+    function GetCities() {
+        $("#loading").show();
+        var geoDivisionId = $("#stateId").find(":selected").val();
+        $("#cityId").html('<option value="0">شهر</option>');
+        $.ajax({
+            type: 'GET',
+            url: '/RealState/GetGeoDivisionChildren?geoDivisionId=' + geoDivisionId,
+            success: function (response) {
+                var html = '<option value="0">شهر</option>';
+                try {
+                    var data = JSON.parse(response);
+                    data.map(function (item) {
+                        html += '<option value="' + item.id + '">' + item.title + '</option>';
+                    });
+                } catch (e) {
+                }
+                $("#loading").hide();
+                $("#cityId").html(html);
+            },
+            error: function (data) {
+                console.log("error");
+                console.log(data);
+            },
+            complete: function () {
+            }
+        });
+    }
+</script>
+    <script>
+        function searchForRealState() {
+            var countryId = $("#countryId").val();
+            var stateId = $("#stateId").val();
+            var cityId = $("#cityId").val();
+            var planType = $("#planType").val();
+            var realStateType = $("#realStateType").val();
+            location.href = `/RealState?countryId=${countryId}&stateId=${stateId}&cityId=${cityId}&planType=${planType}&realStateType=${realStateType}`
+        }
+    </script>
 }

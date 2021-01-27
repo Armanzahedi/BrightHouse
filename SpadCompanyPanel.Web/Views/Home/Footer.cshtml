@@ -28,10 +28,10 @@
                 <!-- Upper column -->
                 <div class="upper-column col-lg-6 col-md-12 col-sm-12">
                     <div class="subscribe-form">
-                        <form method="post" action="/blog/">
+                        <form method="post" id="newsLetterFormFooter" action="/Home/SubmitNewsLetterEmail">
                             <div class="form-group">
-                                <input type="email" name="email" value="" placeholder="ایمیل خود را وارد کنید"
-                                       required="">
+                                <input type="text" class="popup-email-inpt" id="newsLetterEmailFooter" name="newsLetterEmail" placeholder="ایمیل خود را وارد کنید">
+                                <span class="col-md-12" id="newsLetterEmailValidationFooter" style="color:red;display:none"></span>
                                 <button type="submit" class="theme-btn btn-style-two">
                                     <span class="btn-title">ارسال</span>
                                 </button>

@@ -44,11 +44,36 @@ namespace SpadCompanyPanel.Web.Controllers
             _currentCurrency = CurrencyHelper.GetCurrencyId();
         }
         // GET: RealState
-        public ActionResult Index()
+        public ActionResult Index(int? countryId,int? stateId,int? cityId,int? planType,int? realStateType)
         {
             ViewBag.Countries = _geoDivisionsRepo.GetCountries();
             ViewBag.MinPrice = Convert.ToInt64(_realStateService.GetLowestPriceOfPlans());
             ViewBag.MaxPrice = Convert.ToInt64(_realStateService.GetHighestPriceOfPlans());
+            #region Set Filter Fields
+            ViewBag.SelectedCountry = 0;
+            ViewBag.SelectedState = 0;
+            ViewBag.SelectedCity = 0;
+            ViewBag.SelectedPlanType = 0;
+            ViewBag.SelectedRealStateType = 0;
+            if (countryId != null)
+            {
+                ViewBag.SelectedCountry = countryId;
+                ViewBag.States = _geoDivisionsRepo.GetGeoDivisionChildren(countryId.Value);
+            }
+            if (stateId != null)
+            {
+                ViewBag.SelectedState = stateId;
+                ViewBag.Cities = _geoDivisionsRepo.GetGeoDivisionChildren(stateId.Value);
+            }
+            if (cityId != null)
+                ViewBag.SelectedCity = cityId;
+
+            if (planType != null)
+                ViewBag.SelectedPlanType = planType;
+
+            if (realStateType != null)
+                ViewBag.SelectedRealStateType = realStateType;
+            #endregion
             return View();
         }
         public ActionResult StateGrid(RealStateGridViewModel model)

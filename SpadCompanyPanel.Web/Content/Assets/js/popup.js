@@ -1,4 +1,4 @@
-function setCookie(cname, cvalue) {
+﻿function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + ";path=/";
 }
 function getCookie(cname) {
@@ -18,7 +18,6 @@ function getCookie(cname) {
 }
 $(function () {
     var newsLetterCookie = getCookie("newLetterCookie");
-    console.log(newsLetterCookie);
     if (newsLetterCookie === null || newsLetterCookie === "") {
         var overlay = $('<div id="overlay"></div>');
         overlay.show();
@@ -42,7 +41,30 @@ $(function () {
         return false;
     });
 });
+function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+}
 $("#newsLetterForm").submit(function (event) {
-    event.preventDefault();
-    console.log("triggered");
+    var newsLetterCookie = getCookie("newLetterCookie");
+    var overlay = $('<div id="overlay"></div>');
+    var emailInput = $("#newsLetterEmail").val();
+    if (emailInput == null || emailInput == "") {
+        event.preventDefault();
+        $("#newsLetterEmailValidation").show();
+        $("#newsLetterEmailValidation").text('لطفا ایمیل خود را وارد کنید');
+        console.log('لطفا ایمیل خود را وارد کنید');
+    } else if (isEmail(emailInput) == false) {
+        event.preventDefault();
+        $("#newsLetterEmailValidation").show();
+        $("#newsLetterEmailValidation").text('ایمیل وارد شده معتبر نیست');
+        console.log('ایمیل وارد شده معتبر نیست');
+    } else {
+        $("#newsLetterEmailValidation").hide();
+        if (newsLetterCookie === null || newsLetterCookie === "") {
+            setCookie("newLetterCookie", "true")
+        }
+        $('.popup').hide();
+        overlay.appendTo(document.body).remove();
+    }
 });

@@ -162,6 +162,7 @@
     <Compile Include="Repositories\ArticleCategoriesRepository.cs" />
     <Compile Include="Repositories\ArticleCommentsRepository.cs" />
     <Compile Include="Repositories\ArticleHeadLinesRepository.cs" />
+    <Compile Include="Repositories\NewsLetterMembersRepository.cs" />
     <Compile Include="Repositories\NewsRepositoriy.cs" />
     <Compile Include="Repositories\ArticlesRepositoriy.cs" />
     <Compile Include="Repositories\AuthRepsitory.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Repositories\TestimonialsRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Seed.cs" />
+    <Compile Include="Services\GeoDivisionService.cs" />
     <Compile Include="Services\BlogService.cs" />
     <Compile Include="Services\RealStateService.cs" />
     <Compile Include="Services\NewsService.cs" />
