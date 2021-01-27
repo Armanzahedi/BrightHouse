@@ -13,7 +13,7 @@
     }
 }
 <div class="col-lg-12">
-    <div class="card card-custom gutter-b example example-compact">
+    <div class="card card-custom gutter-b">
         <div class="card-header">
             <h3 class="card-title">
                 ویرایش کاربر
@@ -27,6 +27,7 @@
             @Html.HiddenFor(model => model.UserName)
             @Html.HiddenFor(model => model.SecurityStamp)
             @Html.HiddenFor(model => model.PasswordHash)
+            @Html.HiddenFor(model => model.IsDeleted)
             <div class="card-body">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="row">

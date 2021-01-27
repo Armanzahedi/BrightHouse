@@ -15,6 +15,7 @@ using SpadCompanyPanel.Infrastructure.Repositories;
 using SpadCompanyPanel.Web.ViewModels;
 using Kendo.Mvc.UI;
 using Microsoft.AspNet.Identity;
+using SpadCompanyPanel.Core.Utility;
 
 namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
 {
@@ -30,8 +31,31 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
         // GET: Users
         public ActionResult Index()
         {
+            var users = _repo.GetUsersTable();
+            var vm = new List<UserWithRolesViewModel>();
+            foreach (var user in users)
+            {
+                var userVm = new UserWithRolesViewModel() { User = user };
+                var roleStr = "";
+                var userRoles = _repo.GetUserRoles(user.Id);
 
-            return View(_repo.GetUsers());
+                // Only adding User if its not a customer or it has a role other than customer
+                if (userRoles.Count >= 2 || userRoles.Any(ur => ur.RoleId == StaticVariables.CustomerRoleId) == false)
+                {
+                    for (var i = 0; i < userRoles.Count; i++)
+                    {
+                        var role = _repo.GetRole(userRoles[i].RoleId);
+                        roleStr += $"{role.RoleNameLocal}";
+                        if (i < userRoles.Count - 1)
+                        {
+                            roleStr += ", ";
+                        }
+                    }
+                    userVm.Roles = roleStr;
+                    vm.Add(userVm);
+                }
+            }
+            return View(vm);
         }
 
         public ActionResult Create()
@@ -42,7 +66,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AddUserViewModel form,HttpPostedFileBase UserAvatar)
+        public ActionResult Create(AddUserViewModel form, HttpPostedFileBase UserAvatar)
         {
             if (ModelState.IsValid)
             {
@@ -100,13 +124,13 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 #region Check for duplicate username or email
-                if (_repo.UserNameExists(users.UserName,users.Id))
+                if (_repo.UserNameExists(users.UserName, users.Id))
                 {
                     ViewBag.Message = "کاربر دیگری با همین نام در سیستم ثبت شده";
                     return View(users);
                 }
-                if (_repo.EmailExists(users.Email,users.Id))
-                {   
+                if (_repo.EmailExists(users.Email, users.Id))
+                {
                     ViewBag.Message = "کاربر دیگری با همین ایمیل در سیستم ثبت شده";
                     return View(users);
                 }
@@ -124,6 +148,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     users.Avatar = newFileName;
                 }
                 #endregion
+
                 _repo.UpdateUser(users);
                 return RedirectToAction("Index");
             }
@@ -180,12 +205,13 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                 }
                 #endregion
                 _repo.UpdateUser(users);
-                return RedirectToAction("Index","Dashboard");
+                return RedirectToAction("Index", "Dashboard");
             }
 
             return View(users);
 
         }
+
         public ActionResult ResetMyPassword(string id)
         {
             ViewBag.Message = null;
@@ -238,73 +264,18 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
         {
             var user = _repo.GetUser(id);
 
-            #region Delete User Avatar
-            if (user.Avatar != null)
-            {
-                if (System.IO.File.Exists(Server.MapPath("/Files/UserAvatars/" + user.Avatar)))
-                    System.IO.File.Delete(Server.MapPath("/Files/UserAvatars/" + user.Avatar));
+            //#region Delete User Avatar
+            //if (user.Avatar != null)
+            //{
+            //    if (System.IO.File.Exists(Server.MapPath("/Files/UserAvatars/" + user.Avatar)))
+            //        System.IO.File.Delete(Server.MapPath("/Files/UserAvatars/" + user.Avatar));
 
-            }
-            #endregion
+            //}
+            //#endregion
 
             _repo.DeleteUser(id);
             return RedirectToAction("Index");
         }
-
-        //public ActionResult EditMyProfile()
-        //{
-        //    var email = Session["UserEmail"];
-        //    var user = db.UsersRepository.Get().FirstOrDefault(u => u.Email.Trim().ToLower() == email.ToString().Trim().ToLower());
-        //    return View(user);
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult EditMyProfile(Users users, string confirmPassword)
-        //{
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (users.Password == confirmPassword)
-        //        {
-        //            users.Password = PasswordHelper.base64Encode(users.Password);
-        //            db.UsersRepository.Update(users);
-        //            db.UsersRepository.Save();
-        //            return RedirectToAction("Index","Home");
-
-        //        }
-        //        else
-        //        {
-        //            ViewBag.Message = "عدم تطابق رمز عبور و تکرار رمز";
-        //        }
-
-        //    }
-
-        //    return View(users);
-
-        //}
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Users users = db.UsersRepository.getById(id);
-        //    if (users == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return PartialView(users);
-        //}
-
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Users users = db.UsersRepository.getById(id);
-        //    db.UsersRepository.Delete(users);
-        //    db.UsersRepository.Save();
-        //    return RedirectToAction("Index");
-        //}
         public ActionResult UserRoles(string userId)
         {
             #region Create User Roles
@@ -315,7 +286,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                 {
                     RoleId = item.Id,
                     RoleName = item.Name,
-                    Access = _repo.UserHasRole(userId,item.Id)
+                    Access = _repo.UserHasRole(userId, item.Id)
                 };
                 userRoles.Add(role);
             }
@@ -358,7 +329,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                 #region Delete Role if is in UserRoles  and is not in selectRoles
                 if (!seletRoleIds.Contains(role.Id) && _repo.UserHasRole(userId, role.Id))
                 {
-                    UserRole uRole = _repo.GetUserRole(userId,role.Id);
+                    UserRole uRole = _repo.GetUserRole(userId, role.Id);
                     _repo.DeleteUserRole(uRole);
                 }
                 #endregion
