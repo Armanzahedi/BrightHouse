@@ -43,8 +43,12 @@
                             @foreach (var item in Model.RecentBlogs.Take(3))
                             {
                                 <article class="post">
-                                    <div class="post-thumb"><a href="/Blog/Post/@item.Id"><img src="/Files/ArticleImages/Thumb/@item.Image" 
-                                                                                               data-src="/Files/ArticleImages/Thumb/@item.Image" alt="" width="100" height="100" ></a></div>
+                                    <div class="post-thumb">
+                                        <a href="/Blog/Post/@item.Id">
+                                            <img src="/Files/ArticleImages/Thumb/@item.Image"
+                                                 data-src="/Files/ArticleImages/Thumb/@item.Image" alt="" width="100" height="100">
+                                        </a>
+                                    </div>
                                     <h3><a href="/Blog/Post/@item.Id">@item.Title</a></h3>
                                     <div class="post-info">@item.PersianDate</div>
                                 </article>
@@ -54,18 +58,18 @@
 
                     <!-- Tags -->
                     @*<div class="sidebar-widget tags">
-                        <div class="sidebar-title"><h2>@Resource.Tags</h2></div>
-                        <ul class="tag-list clearfix">
-                            <li><a href="#">اپارتمان</a></li>
-                            <li><a href="#">مسکن</a></li>
-                            <li><a href="#">خانه</a></li>
-                            <li><a href="#">مجرد</a></li>
-                            <li><a href="#">بازار</a></li>
-                            <li><a href="#">خانه</a></li>
-                            <li><a href="#">ویلاها</a></li>
-                            <li><a href="#">بازار</a></li>
-                        </ul>
-                    </div>*@
+                            <div class="sidebar-title"><h2>@Resource.Tags</h2></div>
+                            <ul class="tag-list clearfix">
+                                <li><a href="#">اپارتمان</a></li>
+                                <li><a href="#">مسکن</a></li>
+                                <li><a href="#">خانه</a></li>
+                                <li><a href="#">مجرد</a></li>
+                                <li><a href="#">بازار</a></li>
+                                <li><a href="#">خانه</a></li>
+                                <li><a href="#">ویلاها</a></li>
+                                <li><a href="#">بازار</a></li>
+                            </ul>
+                        </div>*@
                 </aside>
             </div>
             <!--Content Side-->
@@ -77,9 +81,12 @@
                         <div class="news-block-two wow fadeInUp">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <figure class="image"><a href="/Blog/Post/@item.Id">
-                                        <img src="/Files/ArticleImages/Image/@item.Image" data-src="/Files/ArticleImages/Image/@item.Image" alt="" 
-                                             style="background-size:cover; background-position:center;height:400px;width:770px;"></a></figure>
+                                    <figure class="image">
+                                        <a href="/Blog/Post/@item.Id">
+                                            <img src="/Files/ArticleImages/Image/@item.Image" data-src="/Files/ArticleImages/Image/@item.Image" alt=""
+                                                 style="background-size:cover; background-position:center;height:400px;width:770px;">
+                                        </a>
+                                    </figure>
                                     <div class="overlay-box"><a href="/Blog/Post/@item.Id"><span class="fa fa-plus"></span></a></div>
                                 </div>
                                 <div class="lower-content">
@@ -115,24 +122,7 @@
 </div>
 <!-- End Sidebar Container -->
 <!--Clients Section-->
-<section class="clients-section">
-    <div class="auto-container">
-        <div class="sponsors-outer">
-            <!--Sponsors Carousel-->
-            <ul class="sponsors-carousel owl-carousel owl-theme">
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/1.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/2.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/3.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/4.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/5.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/1.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/1.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/2.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/3.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/4.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="/Content/Assets/images/icons/empty.png" data-src="/Content/Assets/images/clients/5.png" alt=""></a></figure></li>
-            </ul>
-        </div>
-    </div>
-</section>
+
+
+@Html.Action("PartnersSection", "Home")
 <!--End Clients Section-->

@@ -216,6 +216,9 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="EmailExists" xml:space="preserve">
+    <value>This email address is already exists</value>
+  </data>
   <data name="EmailNotValidError" xml:space="preserve">
     <value>Email is not valid</value>
   </data>
@@ -231,6 +234,9 @@
   <data name="EstateGuide" xml:space="preserve">
     <value>Estate Guide</value>
   </data>
+  <data name="Estates" xml:space="preserve">
+    <value>Estates</value>
+  </data>
   <data name="EstateSearch" xml:space="preserve">
     <value>Estate Search</value>
   </data>
@@ -245,6 +251,12 @@
   </data>
   <data name="Findyourhomeinyourcitynow" xml:space="preserve">
     <value>Find your Villa now</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>Enter your first name</value>
   </data>
   <data name="FiveBedrooms" xml:space="preserve">
     <value>Five Bedrooms</value>
@@ -287,6 +299,12 @@
   </data>
   <data name="Konya" xml:space="preserve">
     <value>Konya</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="LastNameRequired" xml:space="preserve">
+    <value>Enter your last name</value>
   </data>
   <data name="LatestNews" xml:space="preserve">
     <value>Latest News</value>
@@ -348,14 +366,38 @@
   <data name="Parking" xml:space="preserve">
     <value>Parking</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordIsLessthanSix" xml:space="preserve">
+    <value>Your password is less than six characters</value>
+  </data>
+  <data name="PasswordIsNotStrong" xml:space="preserve">
+    <value>Password must include a Captal letter, a lower case letter and a symbol</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Enter your password</value>
+  </data>
   <data name="Phonenumber" xml:space="preserve">
     <value>Phone Number</value>
+  </data>
+  <data name="PhoneNumberExists" xml:space="preserve">
+    <value>This Phone number is already exists</value>
+  </data>
+  <data name="PhoneNumberNotExist" xml:space="preserve">
+    <value>Phone Number Not Exist</value>
+  </data>
+  <data name="PhoneNumberRequired" xml:space="preserve">
+    <value>Enter Phone Number</value>
   </data>
   <data name="PreSale" xml:space="preserve">
     <value>Pre Sale</value>
   </data>
   <data name="Previous" xml:space="preserve">
     <value>Previous</value>
+  </data>
+  <data name="PriceFilter" xml:space="preserve">
+    <value>Price Filter</value>
   </data>
   <data name="PropertyType" xml:space="preserve">
     <value>Estate Type</value>
@@ -365,6 +407,12 @@
   </data>
   <data name="RecentStates" xml:space="preserve">
     <value>Recent Estates</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me</value>
   </data>
   <data name="Rent" xml:space="preserve">
     <value>Rent</value>
@@ -378,6 +426,15 @@
   <data name="ResidenceinTurkey" xml:space="preserve">
     <value>Turkey</value>
   </data>
+  <data name="ReTypePassword" xml:space="preserve">
+    <value>Retype password</value>
+  </data>
+  <data name="ReTypePasswordIsNotCorrect" xml:space="preserve">
+    <value>Retype password is not correct</value>
+  </data>
+  <data name="ReTypePasswordRequired" xml:space="preserve">
+    <value>Enter retype of password</value>
+  </data>
   <data name="Rules" xml:space="preserve">
     <value>Rules</value>
   </data>
@@ -389,6 +446,9 @@
   </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="SearchFeature" xml:space="preserve">
+    <value>Search Feature</value>
   </data>
   <data name="SendMessage" xml:space="preserve">
     <value>Send Message To Us</value>

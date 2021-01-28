@@ -1,4 +1,6 @@
 ﻿@using SpadCompanyPanel.Infrastructure.Dtos.RealState
+@using SpadCompanyPanel.Web.Resources;
+
 @model List<RealStateInfoDto>
 @{
     Layout = null;
@@ -19,9 +21,9 @@
             </div>
             <div class="lower-content" style="max-height: 200px; min-height: 200px;">
                 <ul class="property-info clearfix">
-                    <li><span class="icon fa fa-expand"></span> مساحت @item.Area</li>
-                    <li><span class="icon fa fa-bed"></span> اتاق خواب @item.Rooms</li>
-                    <li><span class="icon fa fa-bath"></span> سرویس @item.Bathrooms</li>
+                    <li><span class="icon fa fa-expand"></span> @Resource.Area @item.Area</li>
+                    <li><span class="icon fa fa-bed"></span> @Resource.Bedroom @item.Rooms</li>
+                    <li><span class="icon fa fa-bath"></span> @Resource.WC @item.Bathrooms</li>
                 </ul>
                 <h3><a href="/RealState/Details/@item.Id">@item.Title</a></h3>
                 <div class="text">@item.ShortDescription</div>
@@ -40,7 +42,7 @@
         @{
             if (ViewBag.CurrentPage > 1)
             {
-                <li class="prev-post"><a href="#" onclick="GetGrid(@(ViewBag.CurrentPage - 1))"><span class="fa fa-angle-right"></span> قبلی</a></li>
+                <li class="prev-post"><a href="#" onclick="GetGrid(@(ViewBag.CurrentPage - 1))"><span class="fa fa-angle-right"></span> @Resource.Previous</a></li>
             }
             for (int i = 1; i <= ViewBag.PageCount; i++)
             {
@@ -48,7 +50,7 @@
             }
             if (ViewBag.CurrentPage < ViewBag.PageCount)
             {
-                <li class="next-post"><a href="#" onclick="GetGrid(@(ViewBag.CurrentPage+1))"> بعد <span class="fa fa-angle-left"></span> </a></li>
+                <li class="next-post"><a href="#" onclick="GetGrid(@(ViewBag.CurrentPage+1))"> @Resource.Next <span class="fa fa-angle-left"></span> </a></li>
             }
         }
     </ul>

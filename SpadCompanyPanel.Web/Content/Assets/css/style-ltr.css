@@ -1648,6 +1648,25 @@ li.current.dropdown.index-page a{
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
 }
+.qr_img{
+    width: 180px;
+    margin: auto;
+    display: block;
+}
+.price-txt{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+.radio-txt{
+    color: #807777;
+    font-size: 16px;
+    font-weight: bold;
+}
+.currency-type-title{
+    color: #b07908;
+    font-weight: bold;
+}
 
 .header-style-three .info-box li a:hover {
     color: #b07908;

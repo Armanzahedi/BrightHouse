@@ -474,4 +474,64 @@
   <data name="State" xml:space="preserve">
     <value>استان</value>
   </data>
+  <data name="Estates" xml:space="preserve">
+    <value>ملک ها</value>
+  </data>
+  <data name="PriceFilter" xml:space="preserve">
+    <value>فیلتر قیمت</value>
+  </data>
+  <data name="SearchFeature" xml:space="preserve">
+    <value>ویژگی های جستجو</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>منطقه</value>
+  </data>
+  <data name="EmailExists" xml:space="preserve">
+    <value>ایمیل وارد شده قبلا ثبت شده است</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>نام خود را وارد کنید</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="LastNameRequired" xml:space="preserve">
+    <value>نام خانوادگی خود را وارد کنید</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>رمز عبور</value>
+  </data>
+  <data name="PasswordIsLessthanSix" xml:space="preserve">
+    <value>رمز عبور کمتر از 6 کاراکتر است</value>
+  </data>
+  <data name="PasswordIsNotStrong" xml:space="preserve">
+    <value>رمز عبور وارد شده شامل یک حرف بزرگ، یک حرف کوچک و یک کاراکتر خاص باشد</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>رمز عبور خود را وارد کنید</value>
+  </data>
+  <data name="PhoneNumberExists" xml:space="preserve">
+    <value>شماره تلفن وارد شده قبلا ثبت شده است</value>
+  </data>
+  <data name="PhoneNumberNotExist" xml:space="preserve">
+    <value>کاربری با این شماره تلفن پیدا نشد</value>
+  </data>
+  <data name="PhoneNumberRequired" xml:space="preserve">
+    <value>شماره تلفن خود را وارد کنید</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>مرا به خاطر بسپار</value>
+  </data>
+  <data name="ReTypePassword" xml:space="preserve">
+    <value>تکرار رمز عبور</value>
+  </data>
+  <data name="ReTypePasswordIsNotCorrect" xml:space="preserve">
+    <value>تکرار رمز عبور صحیح نیست</value>
+  </data>
+  <data name="ReTypePasswordRequired" xml:space="preserve">
+    <value>تکرار رمز عبور را وارد کنید</value>
+  </data>
 </root>

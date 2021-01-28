@@ -358,6 +358,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This email address is already exists.
+        /// </summary>
+        public static string EmailExists {
+            get {
+                return ResourceManager.GetString("EmailExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email is not valid.
         /// </summary>
         public static string EmailNotValidError {
@@ -403,6 +412,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Estates.
+        /// </summary>
+        public static string Estates {
+            get {
+                return ResourceManager.GetString("Estates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Estate Search.
         /// </summary>
         public static string EstateSearch {
@@ -444,6 +462,24 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string Findyourhomeinyourcitynow {
             get {
                 return ResourceManager.GetString("Findyourhomeinyourcitynow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        public static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your first name.
+        /// </summary>
+        public static string FirstNameRequired {
+            get {
+                return ResourceManager.GetString("FirstNameRequired", resourceCulture);
             }
         }
         
@@ -570,6 +606,24 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string Konya {
             get {
                 return ResourceManager.GetString("Konya", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        public static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your last name.
+        /// </summary>
+        public static string LastNameRequired {
+            get {
+                return ResourceManager.GetString("LastNameRequired", resourceCulture);
             }
         }
         
@@ -754,11 +808,74 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your password is less than six characters.
+        /// </summary>
+        public static string PasswordIsLessthanSix {
+            get {
+                return ResourceManager.GetString("PasswordIsLessthanSix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password must include a Captal letter, a lower case letter and a symbol.
+        /// </summary>
+        public static string PasswordIsNotStrong {
+            get {
+                return ResourceManager.GetString("PasswordIsNotStrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your password.
+        /// </summary>
+        public static string PasswordRequired {
+            get {
+                return ResourceManager.GetString("PasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone Number.
         /// </summary>
         public static string Phonenumber {
             get {
                 return ResourceManager.GetString("Phonenumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Phone number is already exists.
+        /// </summary>
+        public static string PhoneNumberExists {
+            get {
+                return ResourceManager.GetString("PhoneNumberExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone Number Not Exist.
+        /// </summary>
+        public static string PhoneNumberNotExist {
+            get {
+                return ResourceManager.GetString("PhoneNumberNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Phone Number.
+        /// </summary>
+        public static string PhoneNumberRequired {
+            get {
+                return ResourceManager.GetString("PhoneNumberRequired", resourceCulture);
             }
         }
         
@@ -777,6 +894,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string Previous {
             get {
                 return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price Filter.
+        /// </summary>
+        public static string PriceFilter {
+            get {
+                return ResourceManager.GetString("PriceFilter", resourceCulture);
             }
         }
         
@@ -804,6 +930,24 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string RecentStates {
             get {
                 return ResourceManager.GetString("RecentStates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Region.
+        /// </summary>
+        public static string Region {
+            get {
+                return ResourceManager.GetString("Region", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember me.
+        /// </summary>
+        public static string RememberMe {
+            get {
+                return ResourceManager.GetString("RememberMe", resourceCulture);
             }
         }
         
@@ -844,6 +988,33 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Retype password.
+        /// </summary>
+        public static string ReTypePassword {
+            get {
+                return ResourceManager.GetString("ReTypePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retype password is not correct.
+        /// </summary>
+        public static string ReTypePasswordIsNotCorrect {
+            get {
+                return ResourceManager.GetString("ReTypePasswordIsNotCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter retype of password.
+        /// </summary>
+        public static string ReTypePasswordRequired {
+            get {
+                return ResourceManager.GetString("ReTypePasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rules.
         /// </summary>
         public static string Rules {
@@ -876,6 +1047,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Feature.
+        /// </summary>
+        public static string SearchFeature {
+            get {
+                return ResourceManager.GetString("SearchFeature", resourceCulture);
             }
         }
         

@@ -105,16 +105,16 @@
 <!--End Clients Section-->
 @section Scripts {
     @*@Scripts.Render("~/bundles/jqueryval")*@
-    <script>
+<script>
         function GetStates() {
             $("#loading").show();
             var geoDivisionId = $("#countryId").find(":selected").val();
-            $("#stateId").html('<option value="0">استان</option>');
+            $("#stateId").html('<option value="0">@Resource.State</option>');
             $.ajax({
                 type: 'GET',
                 url: '/RealState/GetGeoDivisionChildren?geoDivisionId=' + geoDivisionId,
                 success: function (response) {
-                    var html = '<option value="0">استان</option>';
+                    var html = '<option value="0">@Resource.State</option>';
                     try {
                         var data = JSON.parse(response);
                         if (data != null && data.length > 0) {
@@ -139,12 +139,12 @@
         function GetCities() {
             $("#loading").show();
             var geoDivisionId = $("#stateId").find(":selected").val();
-            $("#cityId").html('<option value="0">شهر</option>');
+            $("#cityId").html('<option value="0">@Resource.City</option>');
             $.ajax({
                 type: 'GET',
                 url: '/RealState/GetGeoDivisionChildren?geoDivisionId=' + geoDivisionId,
                 success: function (response) {
-                    var html = '<option value="0">شهر</option>';
+                    var html = '<option value="0">@Resource.City</option>';
                     try {
                         var data = JSON.parse(response);
                         data.map(function (item) {
@@ -163,7 +163,7 @@
                 }
             });
         }
-    </script>
+</script>
     <script>
         function searchForRealState() {
             var countryId = $("#countryId").val();

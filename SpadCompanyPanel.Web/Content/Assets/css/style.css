@@ -1598,6 +1598,25 @@ li.current.dropdown.index-page a{
     font-weight: 400;
     text-transform: capitalize;
 }
+.qr_img{
+    width: 180px;
+    margin: auto;
+    display: block;
+}
+.price-txt{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+.radio-txt{
+    color: #807777;
+    font-size: 16px;
+    font-weight: bold;
+}
+.currency-type-title{
+    color: #b07908;
+    font-weight: bold;
+}
 
 .header-style-three .info-box li strong {
     font-size: 15px;

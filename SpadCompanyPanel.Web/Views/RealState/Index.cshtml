@@ -1,16 +1,17 @@
 ﻿@model SpadCompanyPanel.Web.ViewModels.RealStatesViewModel
+@using SpadCompanyPanel.Web.Resources
 @{
     ViewBag.Title = "املاک";
     var currentUnit = SpadCompanyPanel.Infrastructure.Helpers.CurrencyHelper.GetCurrencyUnit();
 }
 
 <!--Page Title-->
-<section class="page-title" style="background-image:url(/Assets/images/background/4.jpg)">
+<section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
     <div class="auto-container">
-        <h1>ملک</h1>
+        <h1>@Resource.Estates</h1>
         <ul class="page-breadcrumb">
-            <li><a href="/">خانه</a></li>
-            <li>ملک</li>
+            <li><a href="/">@Resource.Home</a></li>
+            <li>@Resource.Estates</li>
         </ul>
     </div>
 </section>
@@ -30,16 +31,16 @@
                         <!--search box-->
                         <div class="sidebar-widget sort-by">
                             <select class="custom-select-box" id="sort" onchange="GetGrid()">
-                                <option value="">مرتب سازی</option>
-                                <option value="1">آپارتمان</option>
-                                <option value="2">ویلا</option>
-                                <option value="3">اداری</option>
-                                <option value="4">تجاری</option>
-                                <option value="5">زمین</option>
+                                <option value="">@Resource.Sortedby</option>
+                                <option value="1">@Resource.Apartment</option>
+                                <option value="2">@Resource.Villa</option>
+                                <option value="3">@Resource.Official</option>
+                                <option value="4">@Resource.Commercial</option>
+                                <option value="5">@Resource.Earth</option>
                             </select>
                         </div>
                         <div class="sidebar-widget search-properties">
-                            <div class="sidebar-title grid-sidebar"><h2 class="grid-title">ویژگی های جستجو</h2></div>
+                            <div class="sidebar-title grid-sidebar"><h2 class="grid-title">@Resource.SearchFeature</h2></div>
                             <!-- Property Search Form -->
                             <div class="property-search-form style-four">
                                 <form>
@@ -47,7 +48,7 @@
                                         <!-- Form Group -->
                                         <div class="form-group">
                                             <select class="custom-select-box" id="countryId" onChange="GetStates()">
-                                                <option value="">انتخاب کشور</option>
+                                                <option value="">@Resource.Country</option>
                                                 @foreach (var item in ViewBag.Countries)
                                                 {
                                                     <option value="@item.Id" @(item.Id == ViewBag.SelectedCountry ? "selected='selected'" : null)>@item.Title</option>
@@ -62,7 +63,7 @@
                                         {
                                             <div id="state" class="form-group">
                                                 <select class="custom-select-box" id="stateId" onchange="GetCities()">
-                                                    <option value="">انتخاب استان</option>
+                                                    <option value="">@Resource.State</option>
                                                     @foreach (var item in ViewBag.States)
                                                     {
                                                         <option value="@item.Id" @(item.Id == ViewBag.SelectedState ? "selected='selected'" : null)>@item.Title</option>
@@ -78,7 +79,7 @@
                                         {
                                             <div id="city" class="form-group">
                                                 <select class="custom-select-box" id="cityId" onchange="GetGrid()">
-                                                    <option value="">انتخاب شهر</option>
+                                                    <option value="">@Resource.City</option>
                                                     @foreach (var item in ViewBag.Cities)
                                                     {
                                                         <option value="@item.Id" @(item.Id == ViewBag.SelectedCity ? "selected='selected'" : null)>@item.Title</option>
@@ -89,22 +90,22 @@
                                         <!-- Form Group -->
                                         <div class="form-group">
                                             <select class="custom-select-box" id="realStateType" name="realStateType" onchange="GetGrid()">
-                                                <option value="">نوع ملک</option>
-                                                <option value="1" @(ViewBag.SelectedRealStateType == 1? "selected='selected'": null)>آپاتمان</option>
-                                                <option value="2" @(ViewBag.SelectedRealStateType == 2? "selected='selected'": null)>ویلا</option>
-                                                <option value="3" @(ViewBag.SelectedRealStateType == 3? "selected='selected'": null)>اداری</option>
-                                                <option value="4" @(ViewBag.SelectedRealStateType == 4? "selected='selected'": null)>تجاری</option>
-                                                <option value="5" @(ViewBag.SelectedRealStateType == 5? "selected='selected'": null)>زمین</option>
+                                                <option value="">@Resource.PropertyType</option>
+                                                <option value="1" @(ViewBag.SelectedRealStateType == 1 ? "selected='selected'" : null)>@Resource.Apartment</option>
+                                                <option value="2" @(ViewBag.SelectedRealStateType == 2 ? "selected='selected'" : null)>@Resource.Villa</option>
+                                                <option value="3" @(ViewBag.SelectedRealStateType == 3 ? "selected='selected'" : null)>@Resource.Official</option>
+                                                <option value="4" @(ViewBag.SelectedRealStateType == 4 ? "selected='selected'" : null)>@Resource.Commercial</option>
+                                                <option value="5" @(ViewBag.SelectedRealStateType == 5 ? "selected='selected'" : null)>@Resource.Earth</option>
                                             </select>
                                         </div>
 
                                         <!-- Form Group -->
                                         <div class="form-group">
                                             <select class="custom-select-box" id="planType" name="planType" onchange="GetGrid()">
-                                                <option value="">وضعیت ملک</option>
-                                                <option value="1" @(ViewBag.SelectedPlanType == 1? "selected='selected'": null)>برای فروش</option>
-                                                <option value="2" @(ViewBag.SelectedPlanType == 2? "selected='selected'": null)>پیش فروش</option>
-                                                <option value="3" @(ViewBag.SelectedPlanType == 3? "selected='selected'": null)>برای اجاره</option>
+                                                <option value="">@Resource.MalikFor</option>
+                                                <option value="1" @(ViewBag.SelectedPlanType == 1 ? "selected='selected'" : null)>@Resource.Forsale</option>
+                                                <option value="2" @(ViewBag.SelectedPlanType == 2 ? "selected='selected'" : null)>@Resource.PreSale</option>
+                                                <option value="3" @(ViewBag.SelectedPlanType == 3 ? "selected='selected'" : null)>@Resource.Rent</option>
                                             </select>
                                         </div>
 
@@ -112,31 +113,31 @@
                                         <!-- Form Group -->
                                         <div class="form-group">
                                             <select class="custom-select-box" id="roomNo" name="roomNo" onchange="GetGrid()">
-                                                <option value="">اتاق خواب</option>
-                                                <option value="1">1 اتاق خواب</option>
-                                                <option value="2">2 اتاق خواب</option>
-                                                <option value="3">3 اتاق خواب</option>
-                                                <option value="4">4 اتاق خواب</option>
-                                                <option value="5">5 اتاق خواب</option>
+                                                <option value="">@Resource.Bedroom</option>
+                                                <option value="1">1 @Resource.Bedroom</option>
+                                                <option value="2">2 @Resource.Bedroom</option>
+                                                <option value="3">3 @Resource.Bedroom</option>
+                                                <option value="4">4 @Resource.Bedroom</option>
+                                                <option value="5">5 @Resource.Bedroom</option>
                                             </select>
                                         </div>
 
                                         <!-- Form Group -->
                                         <div class="form-group">
                                             <select class="custom-select-box" id="bathRoomNo" name="bathRoomNo" onchange="GetGrid()">
-                                                <option value="">حمام</option>
-                                                <option value="1">1 حمام</option>
-                                                <option value="2">2 حمام</option>
-                                                <option value="3">3 حمام</option>
-                                                <option value="4">4 حمام</option>
-                                                <option value="5">5 حمام</option>
+                                                <option value="">@Resource.Bathroom</option>
+                                                <option value="1">1 @Resource.Bathroom</option>
+                                                <option value="2">2 @Resource.Bathroom</option>
+                                                <option value="3">3 @Resource.Bathroom</option>
+                                                <option value="4">4 @Resource.Bathroom</option>
+                                                <option value="5">5 @Resource.Bathroom</option>
                                             </select>
                                         </div>
 
                                         <!-- Form Group -->
                                         <div class="form-group">
                                             <div class="range-slider-one clearfix">
-                                                <label>فیلتر قیمت</label>
+                                                <label>@Resource.PriceFilter</label>
                                                 <div class="price-range-slider" id="price-slider"></div>
                                                 <div><input type="text" style="border:none" class="price-amount" name="field-name"></div>
                                                 @*<div class="title">قیمت را انتخاب کنید</div>*@
@@ -156,7 +157,7 @@
                         <!-- Categories -->
                         <!-- Recent Properties -->
                         <div class="sidebar-widget recent-properties">
-                            <div class="sidebar-title grid-sidebar"><h2 class="grid-title">ملک های اخیر</h2></div>
+                            <div class="sidebar-title grid-sidebar"><h2 class="grid-title">@Resource.RecentStates</h2></div>
                             <div class="widget-content">
                                 @Html.Action("RecentStates", "RealState", Model)
                             </div>
@@ -245,7 +246,7 @@
                     try {
                         var data = JSON.parse(response);
                         var html = '<select class="custom-select-box" id="stateId" onchange="GetCities()">' +
-                            '<option value="">انتخاب استان</option>';
+                            '<option value="">@Resource.State</option>';
                         data.map(function (item) {
                             html += '<option value="' + item.id + '">' + item.title + '</option>';
                         });
@@ -280,7 +281,7 @@
                     try {
                         var data = JSON.parse(response);
                         var html = '<select class="custom-select-box" id="cityId" onchange="GetGrid()">' +
-                            '<option value="">انتخاب شهر</option>';
+                            '<option value="">@Resource.City</option>';
                         data.map(function (item) {
                             html += '<option value="' + item.id + '">' + item.title + '</option>';
                         });

@@ -31,6 +31,20 @@
 		$(".ui-corner-top").click()
 
 	});
+	var qrChange = "";
+	$('input[name=qr]').change(function(){
+		qrChange = $("input.radio-bullet:checked").val();
+		if(qrChange == "Bit_coin" || qrChange == "Dogecoin"){
+			$(".qr_img").attr("src" ,"images/QR1.png")
+		}
+		if(qrChange == "Ethereum" || qrChange == "light_Coin"){
+			$(".qr_img").attr("src" ,"images/QR2.png")
+		}
+		if(qrChange == "bit_coin_cash"){
+			$(".qr_img").attr("src" ,"images/QR3.png")
+		}
+
+	});
 
 	//Submenu Dropdown Toggle
 	if($('.main-header li.dropdown ul').length){
