@@ -174,6 +174,9 @@ namespace SpadCompanyPanel.Web.Controllers
 
             //    ViewBag.PlanWithOptions = vm;
             //}
+
+            var lang = LanguageHelper.GetCulture();
+            ViewBag.Language = lang;
             var model = _realStateService.GetRealStateDetail(id);
             model.StateType = model.Type == (int)RealStateType.Apartment ? Resource.Apartment : (model.Type == (int)RealStateType.Villa ? Resource.Villa : (model.Type == (int)RealStateType.Office ? Resource.Official :
             (model.Type == (int)RealStateType.Commercial ? Resource.Commercial : Resource.Villa)));

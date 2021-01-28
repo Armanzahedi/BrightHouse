@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SpadCompanyPanel.Core.Models;
+using SpadCompanyPanel.Core.Utility;
 
 namespace SpadCompanyPanel.Infrastructure.Repositories
 {
@@ -44,7 +45,7 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
         {
             return _context.GeoDivisions.Where(g => g.IsDeleted == false && g.GeoDivisionType == type).ToList();
         }
-        public string GetFullLocation(int child)
+        public string GetFullLocation(int lang, int child)
         {
             var geoList = new List<string>();
             var geo = new GeoDivision();
@@ -53,7 +54,11 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
             do
             {
                 geo = _context.GeoDivisions.FirstOrDefault(g => g.IsDeleted == false && g.Id == id);
-                geoList.Add(geo.Title);
+                if (lang == (int)Language.Farsi)
+                    geoList.Add(geo.Title);
+                else
+                    geoList.Add(geo.LatinTitle);
+
                 id = geo.ParentId;
 
             } while (id != null);

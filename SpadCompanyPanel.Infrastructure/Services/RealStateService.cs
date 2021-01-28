@@ -220,7 +220,7 @@ namespace SpadCompanyPanel.Infrastructure.Services
                 //var options = _optionRepos.GetPlanOptions(planId);
 
                 model.Description = lang == (int)Language.Farsi ? realState.Description : realState.EnglishDescription;
-                model.Region = lang == (int)Language.Farsi ? realState.Region : realState.Region;
+                model.Region = lang == (int)Language.Farsi ? realState.Region : realState.EnglishRegion;
                 model.Type = realState.Type;
                 //model.Options = options;
                 model.City = realStateCity.Title;
@@ -230,12 +230,12 @@ namespace SpadCompanyPanel.Infrastructure.Services
                 model.Bathroom = plan.BathRooms;
                 model.Bedroom = plan.Rooms;
 
-                var price = CurrencyHelper.GetDefaultAmount(plan.Price);
+                var price = CurrencyHelper.ExchangeAmount(plan.Price, _currentCurrency);
                 var symbol = CurrencyHelper.GetCurrencyUnit();
 
                 model.Price = price;
                 model.PriceSymbol = symbol;
-                model.Address = _geoDivisionsRepo.GetFullLocation(realState.GeoDivisionId);
+                model.Address = _geoDivisionsRepo.GetFullLocation(lang,realState.GeoDivisionId);
                 model.Title = lang == (int)Language.Farsi ? realState.Title : realState.EnglishTitle;
                 model.ShortDescription = lang == (int)Language.Farsi ? realState.ShortDescription : realState.EnglishShortDescription;
                 model.Image = realState.Image;

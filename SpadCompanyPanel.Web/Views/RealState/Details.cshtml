@@ -1,11 +1,11 @@
 ﻿@model SpadCompanyPanel.Infrastructure.Dtos.RealState.RealStateDetailDto
+@using SpadCompanyPanel.Core.Utility;
 @using SpadCompanyPanel.Core.Models;
 @using SpadCompanyPanel.Web.ViewModels
 @using SpadCompanyPanel.Web.Resources
 @{
     ViewBag.Title = Resource.State;
-    var realStateGallery = ViewBag.RealStateGallery as List<RealStateGallery>;
-    var plans = ViewBag.PlanWithOptions as List<PlanWithOptionViewModel>;
+    int lang = ViewBag.Language;
 }
 
 
@@ -65,11 +65,11 @@
 
                         <!-- MAIN SLIDES -->
                         <div class="slider">
-                            @for (int i = 1; i <= realStateGallery.Count; i++)
+                            @for (int i = 1; i <= Model.RealStateGalleriesList.Count; i++)
                             {
                                 <div data-index="@i">
-                                    <a href="/Files/RealStateImages/Gallery/@realStateGallery[i-1].Image" class="lightbox-image link" data-fancybox="gallery">
-                                        <img src="/Files/RealStateImages/Gallery/@realStateGallery[i-1].Image" alt="One">
+                                    <a href="/Files/RealStateImages/Gallery/@Model.RealStateGalleriesList[i-1].Image" class="lightbox-image link" data-fancybox="gallery">
+                                        <img src="/Files/RealStateImages/Gallery/@Model.RealStateGalleriesList[i-1].Image" alt="One">
                                     </a>
                                 </div>
                             }
@@ -77,10 +77,10 @@
 
                         <!-- THUMBNAILS -->
                         <div class="slider-nav-thumbnails">
-                            @for (int i = 1; i <= realStateGallery.Count; i++)
+                            @for (int i = 1; i <= Model.RealStateGalleriesList.Count; i++)
                             {
                                 <div data-index="@i">
-                                    <img src="/Files/RealStateImages/Gallery/@realStateGallery[i-1].Image" slide="slide_@i">
+                                    <img src="/Files/RealStateImages/Gallery/@Model.RealStateGalleriesList[i-1].Image" slide="slide_@i">
                                 </div>
                             }
                         </div>
@@ -92,17 +92,25 @@
                         <div class="content-side col-lg-12">
                             <div class="property-detail">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    @for (int i = 0; i < plans.Count; i++)
+                                    @for (int i = 0; i < Model.PlanWithOptions.Count; i++)
                                     {
                                         <li class="nav-item">
-                                            <a class="nav-link @(i==0? "active" : null)" id="plan-@i-tab" data-toggle="tab" href="#plan-@i"
-                                               role="tab" aria-controls="plan-@i" aria-selected="@(i==0? "true" : "false")">@plans[i].Plan.Title</a>
+                                            @if (lang == (int)Language.Farsi)
+                                            {
+                                                <a class="nav-link @(i==0? "active" : null)" id="plan-@i-tab" data-toggle="tab" href="#plan-@i"
+                                                   role="tab" aria-controls="plan-@i" aria-selected="@(i==0? "true" : "false")">@Model.PlanWithOptions[i].Plan.Title</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="nav-link @(i==0? "active" : null)" id="plan-@i-tab" data-toggle="tab" href="#plan-@i"
+                                                   role="tab" aria-controls="plan-@i" aria-selected="@(i==0? "true" : "false")">@Model.PlanWithOptions[i].Plan.EnglishTitle</a>
+                                            }
                                         </li>
                                     }
                                 </ul>
                                 <!--Tab1-->
                                 <div class="tab-content" id="myTabContent">
-                                    @for (int i = 0; i < plans.Count; i++)
+                                    @for (int i = 0; i < Model.PlanWithOptions.Count; i++)
                                     {
                                         <div class="tab-pane fade show @(i==0? "active" : null)" id="plan-@i" role="tabpanel"
                                              aria-labelledby="plan-@i-tab" style="margin: 1rem">
@@ -124,26 +132,26 @@
                                                         <div class="property-detail">
                                                             <h4 class="mt-4">@Resource.Detail</h4>
                                                             <div class="agent-detail pt-0">
-                                                                @{ var Type = plans[i].Plan.PlanType == 1 ? Resource.Sale : (plans[i].Plan.PlanType == 2 ? Resource.PreSale : Resource.Rent);}
+                                                                @{ var Type = Model.PlanWithOptions[i].Plan.PlanType == 1 ? Resource.Sale : (Model.PlanWithOptions[i].Plan.PlanType == 2 ? Resource.PreSale : Resource.Rent);}
                                                                 <table class="info-table">
                                                                     <tr>
-                                                                        <td><strong>@Resource.Title:</strong> @plans[i].Plan.Title</td>
+                                                                        <td><strong>@Resource.Title:</strong> @Model.PlanWithOptions[i].Plan.Title</td>
                                                                         <td><strong>@Resource.MalikFor:</strong> @Type</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><strong>@Resource.Bedroom:</strong>@plans[i].Plan.Rooms</td>
-                                                                        <td><strong>@Resource.Area:</strong>@plans[i].Plan.Area </td>
+                                                                        <td><strong>@Resource.Bedroom:</strong>@Model.PlanWithOptions[i].Plan.Rooms</td>
+                                                                        <td><strong>@Resource.Area:</strong>@Model.PlanWithOptions[i].Plan.Area </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><strong>@Resource.Bathroom:</strong>@plans[i].Plan.BathRooms</td>
-                                                                        <td><strong>@Resource.Floor:</strong>@plans[i].Plan.FloorNo</td>
+                                                                        <td><strong>@Resource.Bathroom:</strong>@Model.PlanWithOptions[i].Plan.BathRooms</td>
+                                                                        <td><strong>@Resource.Floor:</strong>@Model.PlanWithOptions[i].Plan.FloorNo</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><strong>@Resource.Price:</strong>€ @plans[i].Plan.Price.ToString("##,###")</td>
+                                                                        <td><strong>@Resource.Price:</strong>€ @Model.PlanWithOptions[i].Plan.Price.ToString("##,###")</td>
                                                                         <td>
-                                                                            @if (plans[i].Plan.RentPrice != null && plans[i].Plan.RentPrice > 0)
+                                                                            @if (Model.PlanWithOptions[i].Plan.RentPrice != null && Model.PlanWithOptions[i].Plan.RentPrice > 0)
                                                                             {
-                                                                                <span><strong>@Resource.Rent:</strong>€ @plans[i].Plan.RentPrice.Value.ToString("##,###")</span>
+                                                                                <span><strong>@Resource.Rent:</strong>€ @Model.PlanWithOptions[i].Plan.RentPrice.Value.ToString("##,###")</span>
                                                                             }
                                                                         </td>
                                                                     </tr>
@@ -159,10 +167,16 @@
 
                                                             <h4 class="mt-5">@Resource.Option</h4>
                                                             <ul class="features-list clearfix">
-                                                                @foreach (var item in plans[i].Options)
+                                                                @foreach (var item in Model.PlanWithOptions[i].Options)
                                                                 {
-
-                                                                    <li>@item.Title</li>
+                                                                    if (lang == (int)Language.Farsi)
+                                                                    {
+                                                                        <li>@item.Title</li>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <li>@item.EnglishTitle</li>
+                                                                    }
                                                                 }
                                                             </ul>
                                                         </div>
@@ -176,14 +190,14 @@
                                                             <div class="floor-plans">
                                                                 <ul class="floor-info clearfix">
                                                                     <li class="title">@Resource.PlanSample</li>
-                                                                    <li>@plans[i].Plan.BathRooms @Resource.Bathroom</li>
-                                                                    <li>@plans[i].Plan.Rooms @Resource.Bedroom</li>
-                                                                    <li>@plans[i].Plan.Area @Resource.Area</li>
+                                                                    <li>@Model.PlanWithOptions[i].Plan.BathRooms @Resource.Bathroom</li>
+                                                                    <li>@Model.PlanWithOptions[i].Plan.Rooms @Resource.Bedroom</li>
+                                                                    <li>@Model.PlanWithOptions[i].Plan.Area @Resource.Area</li>
                                                                 </ul>
                                                                 <div class="floor-image">
                                                                     <figure class="image">
-                                                                        <img src="/Files/PlanFiles/PlanImages/@plans[i].Plan.Image"
-                                                                             data-src="/Files/PlanFiles/PlanImages/@plans[i].Plan.Image" alt="">
+                                                                        <img src="/Files/PlanFiles/PlanImages/@Model.PlanWithOptions[i].Plan.Image"
+                                                                             data-src="/Files/PlanFiles/PlanImages/@Model.PlanWithOptions[i].Plan.Image" alt="">
                                                                     </figure>
                                                                 </div>
                                                             </div>
@@ -201,7 +215,7 @@
                 <div class="col-lg-6 order-style-4">
                     <div class="content-side col-lg-12 mt-4">
                         <div class="property-detail">
-                            <h4>تور مجازی</h4>
+                            <h4>@Resource.Vt</h4>
                             <video controls class="video-size">
                                 <source src="/Files/RealStateImages/Videos/@Model.VideoStr" type="video/mp4">
                             </video>
@@ -228,6 +242,12 @@
                                     </div>
                                 </div>
                             }
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <a href="payment.html" class="theme-btn btn-style-one w-100 text-white text-center"><span class="btn-title">هم اکنون خریداری کنید</span></a>
+                                </div>
+                            </div>
+
                             <!--Reviews Container-->
                             <div class="reviews-container">
                                 <h3>@Resource.Comments</h3>
@@ -263,31 +283,20 @@
                         <!-- Review Comment Form -->
                         <div class="review-comment-form">
                             <h3>@Resource.SendMessage</h3>
-                            <form method="post" action="contact.html">
+                            @*<form method="post" action="contact.html">
                                 <div class="row">
                                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                        <input type="text" name="username" placeholder="نام و نام خانوادگی"
+                                        <input type="text" name="username" placeholder="@Resource.FullName"
                                                required>
                                     </div>
                                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                        <input type="text" name="number" placeholder="آدرس ایمیل" required>
+                                        <input type="text" name="number" placeholder="@Resource.Email" required>
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                        <textarea name="message" placeholder="پیام"></textarea>
+                                        <textarea name="message" placeholder="@Resource.Message"></textarea>
                                     </div>
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                                        <div class="rating-box">
-                                            <div class="text"> امتیاز شما:</div>
-                                            <div class="rating">
-                                                <a href="#"><span class="far fa-star"></span></a><a href="#"><span class="far fa-star"></span></a><a href="#">
-                                                    <span class="far fa-star"></span>
-                                                </a><a href="#">
-                                                    <span class="far fa-star"></span>
-                                                </a><a href="#">
-                                                    <span class="far fa-star"></span>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
 
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 text-right">
@@ -296,15 +305,12 @@
                                         </button>
                                     </div>
                                 </div>
-                            </form>
+                            </form>*@
+                            @Html.Action("Create", "RealStateComments")
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <a href="payment.html" class="theme-btn btn-style-one w-100 text-white text-center"><span class="btn-title">هم اکنون خریداری کنید</span></a>
-                    </div>
-                </div>
+              
                 <!--Sidebar Side-->
 
             </div>
@@ -315,313 +321,6 @@
 </div>
 
 
-
-<!-- Sidebar Page Container -->
-<div class="sidebar-page-container pb-0">
-    <div class="auto-container" style="max-width: 100%">
-        <div class="property-info-box">
-            <div class="row" style="max-width: 100%">
-
-                <div class="col-lg-6 order-style-2">
-                    <div class="row clearfix">
-                        <!--Content Side-->
-                        <div class="content-side col-lg-12">
-                            <div class="property-detail">
-                                @*<h4 class="mt-4">آدرس</h4>
-                                    <div class="agent-detail pt-0">
-                                        <table class="info-table">
-                                            <tr>
-                                                <td><strong>آدرس:</strong> سواحل های شمال کشور</td>
-                                                <td><strong>شهر:</strong> مازندران</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>منطقه:</strong> ساحلی</td>
-                                                <td><strong>کشور / استان:</strong> مازندران</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>کد پستی:</strong> 10009</td>
-                                                <td><strong>کشور:</strong> ایران</td>
-                                            </tr>
-                                        </table>
-
-                                    </div>*@
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    @for (int i = 0; i < plans.Count; i++)
-                                    {
-                                        <li class="nav-item">
-                                            <a class="nav-link @(i==0? "active" : null)" id="plan-@i-tab" data-toggle="tab" href="#plan-@i"
-                                               role="tab" aria-controls="plan-@i" aria-selected="@(i==0? "true" : "false")">@plans[i].Plan.Title</a>
-                                        </li>
-
-                                    }
-                                </ul>
-                                <!--Tab1-->
-                                <div class="tab-content" id="myTabContent">
-                                    @for (int i = 0; i < plans.Count; i++)
-                                    {
-                                        <div class="tab-pane fade show @(i==0? "active" : null)" id="plan-@i" role="tabpanel"
-                                             aria-labelledby="plan-@i-tab" style="margin: 1rem">
-
-                                            <ul class="nav nav-tabs" id="myTab@(i)" role="tablist">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" id="home-tab@(i)" data-toggle="tab" href="#home@(i)" role="tab" aria-controls="home" aria-selected="true">جزئیات</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="profile-tab@(i)" data-toggle="tab" href="#profile@(i)" role="tab" aria-controls="profile" aria-selected="false">امکانات</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="contact-tab@(i)" data-toggle="tab" href="#contact@(i)" role="tab" aria-controls="contact" aria-selected="false">پلان</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="video-tab@(i)" data-toggle="tab" href="#video_tab@(i)" role="tab" aria-controls="contact" aria-selected="false">ویدئو</a>
-                                                </li>
-                                            </ul>
-                                            <div class="tab-content" id="myTabContent@(i)">
-                                                <div class="tab-pane fade show  active" id="home@(i)" role="tabpanel" aria-labelledby="home-tab">
-                                                    <div class="content-side col-lg-12">
-                                                        <div class="property-detail">
-                                                            <h4 class="mt-4">جزئیات</h4>
-                                                            <div class="agent-detail pt-0">
-                                                                @{ var Type = plans[i].Plan.PlanType == 1 ? "فروش" : (plans[i].Plan.PlanType == 2 ? "پیش فروش" : "اجاره");}
-                                                                <table class="info-table">
-                                                                    <tr>
-                                                                        <td><strong>عنوان:</strong> @plans[i].Plan.Title</td>
-                                                                        <td><strong>نوع عرضه:</strong> @Type</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td><strong>اتاق ها:</strong>@plans[i].Plan.Rooms</td>
-                                                                        <td><strong>مساحت:</strong>@plans[i].Plan.Area </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td><strong>سرویس بهداشتی:</strong>@plans[i].Plan.BathRooms</td>
-                                                                        <td><strong>طبقه:</strong>@plans[i].Plan.FloorNo</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td><strong>قیمت:</strong>€ @plans[i].Plan.Price.ToString("##,###")</td>
-                                                                        <td>
-                                                                            @if (plans[i].Plan.RentPrice != null && plans[i].Plan.RentPrice > 0)
-                                                                            {
-                                                                                <span><strong>مبلغ اجاره:</strong>€ @plans[i].Plan.RentPrice.Value.ToString("##,###")</span>
-                                                                            }
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="profile@(i)" role="tabpanel" aria-labelledby="profile-tab">
-                                                    <div class="content-side col-lg-12">
-                                                        <div class="property-detail">
-
-
-                                                            <h4 class="mt-5">امکانات</h4>
-                                                            <ul class="features-list clearfix">
-                                                                @foreach (var item in plans[i].Options)
-                                                                {
-
-                                                                    <li>@item.Title</li>
-                                                                }
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="contact@(i)" role="tabpanel" aria-labelledby="contact-tab">
-                                                    <div class="content-side col-lg-12 mt-4">
-                                                        <div class="property-detail">
-
-                                                            <h4>برنامه های طبقه</h4>
-                                                            <div class="floor-plans">
-                                                                <ul class="floor-info clearfix">
-                                                                    <li class="title">طرح نمونه طبقه</li>
-                                                                    <li>@plans[i].Plan.BathRooms حمام</li>
-                                                                    <li>@plans[i].Plan.Rooms اتاق خواب</li>
-                                                                    <li>@plans[i].Plan.Area مساحت</li>
-                                                                </ul>
-                                                                <div class="floor-image">
-                                                                    <figure class="image">
-                                                                        <img src="/Files/PlanFiles/PlanImages/@plans[i].Plan.Image"
-                                                                             data-src="/Files/PlanFiles/PlanImages/@plans[i].Plan.Image" alt="">
-                                                                    </figure>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="video_tab@(i)" role="tabpanel" aria-labelledby="video-tab">
-                                                    <div class="content-side col-lg-12 mt-4">
-                                                        <div class="property-detail">
-                                                            <h4>تور مجازی</h4>
-                                                            @*<div class="video-box">
-                                                                    <figure class="image">
-                                                                        <img src="/Files/PlanFiles/VideoImages/@plans[i].Plan.VideoThumbnail" style="width:100%"
-                                                                             data-src="/Files/PlanFiles/VideoImages/@plans[i].Plan.VideoThumbnail" alt="">
-                                                                    </figure>
-                                                                    <div class="content-box">
-                                                                        <a href="/Files/PlanFiles/Videos/@plans[i].Plan.Video" class="play-now"
-                                                                           data-fancybox="gallery" data-caption="">
-                                                                            <i class="icon flaticon-play-button"
-                                                                               aria-hidden="true"></i><span class="ripple"></span>
-                                                                        </a>
-                                                                        <h4>ارتفاعات اتاق</h4>
-                                                                    </div>
-                                                                </div>*@
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    }
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!--<div class="row clearfix">-->
-            <!--Content Side-->
-            <!--<div class="content-side col-lg-12">
-                <div class="property-detail">-->
-            <!-- Review Box -->
-            <!--<div class="review-area">-->
-            <!--Reviews Container-->
-            <!--<div class="reviews-container">
-                <h3>نظرات مشتریان</h3>-->
-            <!--Reviews-->
-            <!--<article class="review-box">
-                <div class="thumb-box">
-                    <figure class="thumb">
-                        <img src="/Content/Assets/images/icons/empty.png"
-                             data-src="/Content/Assets/images/resource/review-thumb-1.jpg"
-                             alt="">
-                    </figure>
-                    <a href="#" class="reply-btn">اکنون پاسخ دهید</a>
-                </div>
-                <div class="content-box">
-                    <div class="name">فلورا معصومی</div>
-                    <span class="date"><i class="fa fa-calendar-alt"></i> 5 شهریور, 1398</span>
-                    <div class="rating">
-                        <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-                    </div>
-                    <div class="text">
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                    </div>
-                </div>
-            </article>-->
-            <!--Reviews-->
-            <!--<article class="review-box reply">
-                <div class="thumb-box">
-                    <figure class="thumb">
-                        <img src="/Content/Assets/images/icons/empty.png"
-                             data-src="/Content/Assets/images/resource/review-thumb-2.jpg"
-                             alt="">
-                    </figure>
-                    <a href="#" class="reply-btn theme-btn">اکنون پاسخ دهید</a>
-                </div>
-                <div class="content-box">
-                    <div class="name">فلورا معصومی</div>
-                    <span class="date"><i class="fa fa-calendar-alt"></i> 5 شهریور, 1398</span>
-                    <div class="rating">
-                        <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-                    </div>
-                    <div class="text">
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                        برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                    </div>
-                </div>
-            </article>-->
-            <!--Reviews-->
-            <!--<article class="review-box">
-                        <div class="thumb-box">
-                            <figure class="thumb">
-                                <img src="/Content/Assets/images/icons/empty.png"
-                                     data-src="/Content/Assets/images/resource/review-thumb-3.jpg"
-                                     alt="">
-                            </figure>
-                            <a href="#" class="reply-btn theme-btn">اکنون پاسخ دهید</a>
-                        </div>
-                        <div class="content-box">
-                            <div class="name">محمد بهمنی</div>
-                            <span class="date"><i class="fa fa-calendar-alt"></i> 5 شهریور, 1398</span>
-                            <div class="rating">
-                                <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-                            </div>
-                            <div class="text">
-                                برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>-->
-            <!-- Review Comment Form -->
-            <!--<div class="review-comment-form">
-                        <h3>ارسال پیام</h3>
-                        <form method="post" action="contact.html">
-                            <div class="row">
-                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                    <input type="text" name="username" placeholder="نام و نام خانوادگی"
-                                           required>
-                                </div>
-                                <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                    <input type="text" name="number" placeholder="آدرس ایمیل" required>
-                                </div>
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <textarea name="message" placeholder="پیام"></textarea>
-                                </div>
-                                <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                                    <div class="rating-box">
-                                        <div class="text"> امتیاز شما:</div>
-                                        <div class="rating">
-                                            <a href="#"><span class="far fa-star"></span></a><a href="#"><span class="far fa-star"></span></a><a href="#">
-                                                <span class="far fa-star"></span>
-                                            </a><a href="#">
-                                                <span class="far fa-star"></span>
-                                            </a><a href="#">
-                                                <span class="far fa-star"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-lg-6 col-md-6 col-sm-6 text-right">
-                                    <button class="theme-btn btn-style-one" type="submit" name="submit-form">
-                                        <span class="btn-title">ارسال</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>-->
-            <!--Sidebar Side-->
-            <!--</div>-->
-
-        </div>
-    </div>
-    <!-- End Sidebar Container -->
-    <!--Clients Section-->
-    @Html.Action("PartnersSection", "Home")
-    <!--End Clients Section-->
-</div>
 <!-- End Page Wrapper -->
 @section scripts{
     <script src='/Content/Assets/js/foundation.js'></script>
