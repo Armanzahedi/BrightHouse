@@ -1,0 +1,85 @@
+﻿@model SpadCompanyPanel.Core.Models.Invoice
+
+@{
+    ViewBag.Title = "Delete";
+}
+<h4 class="card-label">
+    @if (Model.PaymentStatus == 0)
+    {
+        <span class="label label-xs label-light-danger label-inline">پرداخت نشده</span>
+    }
+    else if (Model.PaymentStatus == 1)
+    {
+        <span class="label label-xs label-light-warning label-inline">پرداخت اعلام شده</span>
+    }
+    else if (Model.PaymentStatus == 2)
+    {
+        <span class="label label-xs label-light-success label-inline">پرداخت تائید شده</span>
+    }
+</h4>
+<dl class="row" style="padding-top:10px">
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.InvoiceNumber)
+    </dt>
+    <dd class="col-sm-8">
+        @Model.InvoiceNumber
+    </dd>
+    <dt class="col-sm-4">
+        مبلغ
+    </dt>
+    <dd class="col-sm-8">
+        @Model.TotalPrice.ToString("##,###") @Model.Currency.Unit
+    </dd>
+    <dt class="col-sm-4">
+        مشتری
+    </dt>
+    <dd class="col-sm-8">
+        @Model.Customer.User.FirstName @Model.Customer.User.LastName ( @Model.Customer.User.PhoneNumber )
+    </dd>
+    <dt class="col-sm-4">
+        ملک
+    </dt>
+    <dd class="col-sm-8">
+        @Model.Plan.RealState.Title
+    </dd>
+    <dt class="col-sm-4">
+        پلان
+    </dt>
+    <dd class="col-sm-8">
+        @Model.Plan.Title
+    </dd>
+    <dt class="col-sm-4">
+        تاریخ ثبت
+    </dt>
+    <dd class="col-sm-8">
+        @Model.RegisteredDate.ToString("F")
+    </dd>
+    @if (Model.PaymentDate != null)
+    {
+        <dt class="col-sm-4">
+            تاریخ اعلام پرداخت
+        </dt>
+        <dd class="col-sm-8">
+            @Model.PaymentDate.Value.ToString("F")
+        </dd>
+    }
+    @if (Model.PaymentConfirmDate != null)
+    {
+        <dt class="col-sm-4">
+            تاریخ تائید پرداخت
+        </dt>
+        <dd class="col-sm-8">
+            @Model.PaymentConfirmDate.Value.ToString("F")
+        </dd>
+    }
+</dl>
+<div style="float:left">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="حذف" class="btn btn-danger mr-2" />
+    }
+</div>
+
+
+
