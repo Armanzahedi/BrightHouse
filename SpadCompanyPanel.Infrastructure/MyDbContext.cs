@@ -41,9 +41,10 @@ namespace SpadCompanyPanel.Infrastructure
         public DbSet<PlanOption> PlanOptions { get; set; }
         public DbSet<Option> Options { get; set; }
         public DbSet<Currency> Currencies { get; set; }
-        public DbSet<EPayment> ePayments { get; set; }
+        //public DbSet<EPayment> ePayments { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<PaymentAccount> PaymentAccounts { get; set; }
         public DbSet<Partner> Partners { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<NewsLetterMember> NewsLetterMembers { get; set; }
