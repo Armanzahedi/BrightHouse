@@ -232,7 +232,7 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact Phones.
+        ///   Looks up a localized string similar to Phones.
         /// </summary>
         public static string ContactPhones {
             get {
@@ -309,6 +309,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write Your Message.
+        /// </summary>
+        public static string EnterContext {
+            get {
+                return ResourceManager.GetString("EnterContext", resourceCulture);
             }
         }
         
@@ -403,7 +412,7 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FullName.
+        ///   Looks up a localized string similar to Full Name.
         /// </summary>
         public static string FullName {
             get {
@@ -489,6 +498,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string LatestNews {
             get {
                 return ResourceManager.GetString("LatestNews", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let us call you, we will help you to choose the best investment.
+        /// </summary>
+        public static string LetUsCallYou {
+            get {
+                return ResourceManager.GetString("LetUsCallYou", resourceCulture);
             }
         }
         
@@ -939,6 +957,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string WeGiveYouTheBest {
             get {
                 return ResourceManager.GetString("WeGiveYouTheBest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to Bright House.
+        /// </summary>
+        public static string WelcomeToBr {
+            get {
+                return ResourceManager.GetString("WelcomeToBr", resourceCulture);
             }
         }
         

@@ -1,5 +1,7 @@
 ﻿@using SpadCompanyPanel.Infrastructure.Helpers;
 @using SpadCompanyPanel.Core.Models;
+@using SpadCompanyPanel.Web.Resources;
+
 @{ 
     var currentCurrencyId = CurrencyHelper.GetCurrencyId();
     var currentLang = LanguageHelper.GetCulture();
@@ -13,8 +15,8 @@
             <div class="inner-container clearfix">
                 <div class="top-right">
                     <ul class="contact-list clearfix">
-                        <li><i class="fa fa-phone-volume"></i> <a href="tel:0211234567">0211234567</a></li>
-                        <li><i class="fa fa-envelope"></i><a href="mailto:admin@revel.com">info@gmail.com</a></li>
+                        <li><i class="fa fa-phone-volume"></i> <a href="tel:@ViewBag.Phone">@ViewBag.Phone</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="mailto:@ViewBag.Email">@ViewBag.Email</a></li>
                         @if (currentLang == 1)
                         {
                             <li><a href="javascript:void(0)" onclick="changeLanguage('en')">EN</a></li>
@@ -33,16 +35,16 @@
                         </li>
                     </ul>
                     <p class="user-login">
-                        به برایت هوس خوش آمدید
+                        @Resource.WelcomeToBr
                     </p>
                 </div>
 
                 <div class="top-left clearfix">
 
                     <ul class="social-icon-one">
-                        <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="#"><span class="fab fa-whatsapp"></span></a></li>
+                        <li><a href="@ViewBag.Facebook"><span class="fab fa-facebook-f"></span></a></li>
+                        <li><a href="@ViewBag.Instagram"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="https://api.whatsapp.com/send?phone=@ViewBag.WhatsApp&text=I%20visited%20your%20website%20and%20I%20would%20like%20more%20inquiry%20about%20real%20estates"><span class="fab fa-whatsapp"></span></a></li>
                     </ul>
                 </div>
 
@@ -73,18 +75,16 @@
                         <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
                                 <li>
-                                    <a href="/">صفحه اصلی</a>
-
+                                    <a href="/">@Resource.Home</a>
                                 </li>
-
-                                <li><a href="/RealState/Index">راهنمای املاک</a></li>
-                                <li><a href="/Blog/TurkeyGuide">اقامت کشور ترکیه</a></li>
-                                <li><a href="/Blog/EuropeGuide">اقامت اروپا</a></li>
-                                <li><a href="/Blog/UaeGuide">اقامت کشور امارات</a></li>
-                                <li><a href="/Blog/">مقالات</a></li>
-                                <li><a href="/News">اخبار</a></li>
-                                <li><a href="/AboutUs">درباره ما</a></li>
-                                <li><a href="/ContactUs">تماس با ما</a></li>
+                                <li><a href="/RealState/Index">@Resource.EstateGuide</a></li>
+                                <li><a href="/Blog/TurkeyGuide">@Resource.ResidenceinTurkey</a></li>
+                                <li><a href="/Blog/EuropeGuide">@Resource.ResidenceinEurope</a></li>
+                                <li><a href="/Blog/UaeGuide">@Resource.ResidenceintheUAE</a></li>
+                                <li><a href="/Blog/">@Resource.Articles</a></li>
+                                <li><a href="/News">@Resource.TurkeyNews</a></li>
+                                <li><a href="/AboutUs">@Resource.AboutUs</a></li>
+                                <li><a href="/ContactUs">@Resource.ContactUs</a></li>
                             </ul>
                         </div>
                     </nav>

@@ -90,13 +90,23 @@ namespace SpadCompanyPanel.Web.Controllers
         public ActionResult Navbar()
         {
             ViewBag.Currencies = _currencyRepo.GetAll();
-            //ViewBag.Phone = _contentRepo.GetStaticContentDetail((int) StaticContents.Phone).ShortDescription;
+            ViewBag.Phone = _contentRepo.GetStaticContentDetail((int)StaticContents.Phone).ShortDescription;
+            ViewBag.Facebook = _contentRepo.GetStaticContentDetail((int)StaticContents.Facebook).ShortDescription;
+            ViewBag.Instagram = _contentRepo.GetStaticContentDetail((int)StaticContents.Instagram).ShortDescription;
+            ViewBag.WhatsApp = _contentRepo.GetStaticContentDetail((int)StaticContents.WhatsApp).ShortDescription;
+            ViewBag.Email = _contentRepo.GetStaticContentDetail((int)StaticContents.Email).ShortDescription;
+
             return PartialView();
         }
         public ActionResult InternalNavbar()
         {
             //ViewBag.Phone = _contentRepo.GetStaticContentDetail((int) StaticContents.Phone).ShortDescription;
             ViewBag.Currencies = _currencyRepo.GetAll();
+            ViewBag.Phone = _contentRepo.GetStaticContentDetail((int)StaticContents.Phone).ShortDescription;
+            ViewBag.Facebook = _contentRepo.GetStaticContentDetail((int)StaticContents.Facebook).ShortDescription;
+            ViewBag.Instagram = _contentRepo.GetStaticContentDetail((int)StaticContents.Instagram).ShortDescription;
+            ViewBag.WhatsApp = _contentRepo.GetStaticContentDetail((int)StaticContents.WhatsApp).ShortDescription;
+            ViewBag.Email = _contentRepo.GetStaticContentDetail((int)StaticContents.Email).ShortDescription;
             return PartialView();
         }
         public ActionResult HomeSlider()
@@ -188,8 +198,6 @@ namespace SpadCompanyPanel.Web.Controllers
             contactUsContent.Phone = _contentRepo.Get((int)StaticContents.Phone);
             contactUsContent.Youtube = _contentRepo.Get((int)StaticContents.Youtube);
             contactUsContent.Instagram = _contentRepo.Get((int)StaticContents.Instagram);
-            contactUsContent.Twitter = _contentRepo.Get((int)StaticContents.Twitter);
-            contactUsContent.Pinterest = _contentRepo.Get((int)StaticContents.Pinterest);
             contactUsContent.Facebook = _contentRepo.Get((int)StaticContents.Facebook);
             return View(contactUsContent);
         }

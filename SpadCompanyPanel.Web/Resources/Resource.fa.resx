@@ -414,4 +414,13 @@
   <data name="ResidenceinEurope" xml:space="preserve">
     <value>اقامت اروپا</value>
   </data>
+  <data name="EnterContext" xml:space="preserve">
+    <value>متن پیام را وارد کنید</value>
+  </data>
+  <data name="LetUsCallYou" xml:space="preserve">
+    <value>اجازه بدهید ما با شما تماس بگیریم ما به شما کمک خواهیم کرد که بهترین سرمایه گذاری را انتخاب کنید</value>
+  </data>
+  <data name="WelcomeToBr" xml:space="preserve">
+    <value>به برایت هوس خوش آمدید</value>
+  </data>
 </root>

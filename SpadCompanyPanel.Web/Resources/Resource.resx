@@ -175,7 +175,7 @@
     <value>Consultants</value>
   </data>
   <data name="ContactPhones" xml:space="preserve">
-    <value>Contact Phones</value>
+    <value>Phones</value>
   </data>
   <data name="ContactUs" xml:space="preserve">
     <value>Contact Us</value>
@@ -200,6 +200,9 @@
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="EnterContext" xml:space="preserve">
+    <value>Write Your Message</value>
   </data>
   <data name="Enteryouremail" xml:space="preserve">
     <value>Enter your email</value>
@@ -232,7 +235,7 @@
     <value>Four Bedrooms</value>
   </data>
   <data name="FullName" xml:space="preserve">
-    <value>FullName</value>
+    <value>Full Name</value>
   </data>
   <data name="Gallery" xml:space="preserve">
     <value>Gallery</value>
@@ -260,6 +263,9 @@
   </data>
   <data name="LatestNews" xml:space="preserve">
     <value>Latest News</value>
+  </data>
+  <data name="LetUsCallYou" xml:space="preserve">
+    <value>Let us call you, we will help you to choose the best investment</value>
   </data>
   <data name="Links" xml:space="preserve">
     <value>Links</value>
@@ -410,6 +416,9 @@
   </data>
   <data name="WeGiveYouTheBest" xml:space="preserve">
     <value>We give you the best</value>
+  </data>
+  <data name="WelcomeToBr" xml:space="preserve">
+    <value>Welcome to Bright House</value>
   </data>
   <data name="WhatDoYouWant" xml:space="preserve">
     <value>what do you want</value>

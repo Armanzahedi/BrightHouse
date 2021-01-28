@@ -1,5 +1,6 @@
 ﻿@using SpadCompanyPanel.Infrastructure.Helpers;
 @using SpadCompanyPanel.Core.Models;
+@using SpadCompanyPanel.Web.Resources;
 @{
     var currentCurrencyId = CurrencyHelper.GetCurrencyId();
     var currentLang = LanguageHelper.GetCulture();
@@ -70,8 +71,8 @@
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-call-1"></span></div>
                         <ul>
-                            <li><strong>تلفن های تماس</strong></li>
-                            <li><a href="tel:02100000000">02100000000</a></li>
+                            <li><strong>@Resource.ContactPhones</strong></li>
+                            <li><a href="tel:@ViewBag.Phone">@ViewBag.Phone</a></li>
                         </ul>
 
                     </div>
@@ -80,22 +81,22 @@
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-email-3"></span></div>
                         <ul>
-                            <li><strong>ایمیل</strong></li>
-                            <li><a href="mailto:support@arytheme.com">info@gmail.com</a></li>
+                            <li><strong>@Resource.Email</strong></li>
+                            <li><a href="mailto:@ViewBag.Email">@ViewBag.Email</a></li>
                         </ul>
                     </div>
                     <div class="upper-column info-box">
                         <div class="icon-box"><i class="fab fa-facebook"></i></div>
                         <ul>
-                            <li><strong>فیس بوک</strong></li>
-                            <li><a href="#">Bright House</a></li>
+                            <li><strong>@Resource.Facebook</strong></li>
+                            <li><a href="@ViewBag.Instagram">Bright House</a></li>
                         </ul>
                     </div>
                     <div class="upper-column info-box">
                         <div class="icon-box"><i class="fab fa-instagram"></i></div>
                         <ul>
-                            <li><strong>اینستاگرام</strong></li>
-                            <li><a href="#">Bright House</a></li>
+                            <li><strong>@Resource.Instagram</strong></li>
+                            <li><a href="@ViewBag.Instagram">Bright House</a></li>
                         </ul>
                     </div>
 
@@ -103,7 +104,7 @@
                         <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
                         <ul>
                             <li><strong>واتس اپ</strong></li>
-                            <li><a href="#">Bright House</a></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=@ViewBag.WhatsApp&text=I%20visited%20your%20website%20and%20I%20would%20like%20more%20inquiry%20about%20real%20estates">Bright House</a></li>
                         </ul>
                     </div>
 
@@ -130,18 +131,16 @@
                         <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
                                 <li>
-                                    <a href="/">صفحه اصلی</a>
-
+                                    <a href="/">@Resource.Home</a>
                                 </li>
-
-                                <li><a href="/RealState/Index">راهنمای املاک</a></li>
-                                <li><a href="/Blog/TurkeyGuide">اقامت کشور ترکیه</a></li>
-                                <li><a href="/Blog/EuropeGuide">اقامت اروپا</a></li>
-                                <li><a href="/Blog/UaeGuide">اقامت کشور امارات</a></li>
-                                <li><a href="/Blog/">مقالات</a></li>
-                                <li><a href="/News">اخبار</a></li>
-                                <li><a href="/AboutUs">درباره ما</a></li>
-                                <li><a href="/ContactUs">تماس با ما</a></li>
+                                <li><a href="/RealState/Index">@Resource.EstateGuide</a></li>
+                                <li><a href="/Blog/TurkeyGuide">@Resource.ResidenceinTurkey</a></li>
+                                <li><a href="/Blog/EuropeGuide">@Resource.ResidenceinEurope</a></li>
+                                <li><a href="/Blog/UaeGuide">@Resource.ResidenceintheUAE</a></li>
+                                <li><a href="/Blog/">@Resource.Articles</a></li>
+                                <li><a href="/News">@Resource.TurkeyNews</a></li>
+                                <li><a href="/AboutUs">@Resource.AboutUs</a></li>
+                                <li><a href="/ContactUs">@Resource.ContactUs</a></li>
                             </ul>
                         </div>
                     </nav>
