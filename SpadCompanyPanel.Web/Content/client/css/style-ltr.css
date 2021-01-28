@@ -111,7 +111,7 @@ font-family: 'IRANSansWeb;
 body {
 
     direction: ltr;
-    text-align: justify;
+    text-align: left;
     font-size: 14px;
     color: #777777;
     line-height: 2em;
@@ -803,7 +803,7 @@ li.current.dropdown.index-page a{
 
 .main-header .header-lower .logo {
     position: relative;
-    padding: 25px 0px;
+    padding: 3px 0px;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -ms-transition: all 300ms ease;
@@ -907,7 +907,7 @@ li.current.dropdown.index-page a{
     position: relative;
     display: block;
     font-size: 14px;
-    line-height: 30px;
+    line-height: 0;
     font-weight: 600;
     color: #252525;
     padding: 55px 0;
@@ -1878,7 +1878,7 @@ li.current.dropdown.index-page a{
 
 .sticky-header .main-menu .navigation > li {
     margin-left: 20px;
-    padding: 0 !important;
+    padding: 15px 0 !important;
     margin-right: 0;
     background-color: transparent;
 }
@@ -2216,7 +2216,7 @@ li.current.dropdown.index-page a{
 .page-title {
     position: relative;
     text-align: center;
-    padding: 90px 0px;
+    padding: 50px 0px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -4473,22 +4473,29 @@ select.header-option-mt option {
 }
 .slick-prev{
     position: absolute;
-    top: 0;
+    top: 100%;
     left: 0;
     width: 0;
+    z-index: 9999;
     padding: 0 18px;
     background: #b07908 !important;
-    height: 100%;
+    height: 60px;
+    color: white;
+}
+.slick-list .slick-prev{
+    display: none !important;
 }
 
 .slick-next{
     position: absolute;
-    top: 0;
+    top: 100%;
     right: 0;
     width: 0;
+    z-index: 9999;
     padding: 0 18px;
     background: #b07908 !important;
-    height: 100%;
+    height: 60px;
+    color: white;
 }
 .property-detail .info-table td strong {
     float: left;
@@ -8133,7 +8140,7 @@ select.header-option-mt option {
 }
 
 .news-block-two .lower-content h3 a {
-    color: #333333;
+    color: #b07a09;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -ms-transition: all 300ms ease;
@@ -8162,7 +8169,7 @@ select.header-option-mt option {
     margin-right: 15px;
     font-size: 16px;
     line-height: 30px;
-    color: #666666;
+    color: #b07a09;
     font-weight: 400;
     margin-bottom: 10px;
     -webkit-transition: all 300ms ease;
@@ -8495,9 +8502,9 @@ select.header-option-mt option {
 
 .contact-page-section .outer-box:before {
     position: absolute;
-    right: 100px;
+    left: 100px;
     top: 0;
-    left: 0;
+    right: 0;
     height: 100%;
     box-shadow: 0 0 21px rgba(0, 0, 0, 0.18);
     content: "";
@@ -9840,7 +9847,8 @@ select.header-option-mt option {
 .latest-news .post-thumb img {
     position: relative;
     display: block;
-    width: 100%;
+    width: 200px;
+    height: 100px;
 }
 
 .latest-news .post h3 {
@@ -10484,7 +10492,7 @@ select.header-option-mt option {
 
 /*investment*/
 .investment {
-    background: #b07908;
+    background: #222222;
     color: white;
     position: relative;
 }

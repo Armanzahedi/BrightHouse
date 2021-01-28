@@ -40,10 +40,11 @@
                     <div class="sidebar-widget latest-news">
                         <div class="sidebar-title"><h2>@Resource.RecentArticles</h2></div>
                         <div class="widget-content">
-                            @foreach (var item in Model.Blogs.Take(3))
+                            @foreach (var item in Model.RecentBlogs.Take(3))
                             {
                                 <article class="post">
-                                    <div class="post-thumb"><a href="/Blog/Post/@item.Id"><img src="/Files/ArticleImages/Image/@item.Image" data-src="/Files/ArticleImages/Image/@item.Image" alt=""></a></div>
+                                    <div class="post-thumb"><a href="/Blog/Post/@item.Id"><img src="/Files/ArticleImages/Thumb/@item.Image" 
+                                                                                               data-src="/Files/ArticleImages/Thumb/@item.Image" alt="" width="100" height="100" ></a></div>
                                     <h3><a href="/Blog/Post/@item.Id">@item.Title</a></h3>
                                     <div class="post-info">@item.PersianDate</div>
                                 </article>
@@ -76,14 +77,16 @@
                         <div class="news-block-two wow fadeInUp">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <figure class="image"><a href="/Blog/Post/@item.Id"><img src="/Files/ArticleImages/Image/@item.Image" data-src="/Files/ArticleImages/Image/@item.Image" alt=""></a></figure>
+                                    <figure class="image"><a href="/Blog/Post/@item.Id">
+                                        <img src="/Files/ArticleImages/Image/@item.Image" data-src="/Files/ArticleImages/Image/@item.Image" alt="" 
+                                             style="background-size:cover; background-position:center;height:400px;width:770px;"></a></figure>
                                     <div class="overlay-box"><a href="/Blog/Post/@item.Id"><span class="fa fa-plus"></span></a></div>
                                 </div>
                                 <div class="lower-content">
                                     <ul class="post-info clearfix">
                                         <li>@item.PersianDate</li>
                                         <li>@Resource.Comments @item.CommentsCount</li>
-                                        <li>@item.Author</li>
+                                        @*<li>@item.Author</li>*@
                                     </ul>
                                     <h3><a href="/Blog/Post/@item.Id">@item.Title</a></h3>
                                     <div class="text">@Html.Raw(item.ShortDescription)</div>

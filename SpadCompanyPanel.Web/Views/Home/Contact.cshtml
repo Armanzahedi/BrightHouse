@@ -1,4 +1,5 @@
 ﻿@model SpadCompanyPanel.Web.ViewModels.ContactUsViewModel
+@using SpadCompanyPanel.Web.Resources
 @{
     ViewBag.Title = "ارتباط با ما";
 }
@@ -6,10 +7,10 @@
 <!--Page Title-->
 <section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
     <div class="auto-container">
-        <h1>تماس با ما</h1>
+        <h1>@Resource.ContactUs</h1>
         <ul class="page-breadcrumb">
-            <li><a href="/">خانه</a></li>
-            <li>تماس با ما</li>
+            <li><a href="/">@Resource.Home</a></li>
+            <li>@Resource.ContactUs</li>
         </ul>
     </div>
 </section>
@@ -21,7 +22,7 @@
             <div class="row clearfix">
                 <div class="contact-column col-lg-4 col-md-12 col-sm-12">
                     <div class="inner-column wow fadeInLeft">
-                        <h2>تماس با ما</h2>
+                        <h2>@Resource.ContactUs</h2>
                         <ul class="contact-info">
                             <li>
                                 <span class="icon fa fa-map-marker-alt"></span>
@@ -39,7 +40,7 @@
                             </li>
                         </ul>
                         <ul class="social-icon-four">
-                            <li class="title">ما را دنبال کنید :</li>
+                            <li class="title">@Resource.FollowUs</li>
                             <li><a href="http://@Model.Facebook.Link"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="http://@Model.Instagram.Link"><i class="fab fa-instagram"></i></a></li>
                         </ul>
@@ -51,28 +52,28 @@
                     <div class="inner-column">
                         <div class="contact-form">
                             <div class="title">
-                                <h2>ارسال پیام برای ما</h2>
-                                <div class="text">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</div>
+                                <h2>@Resource.SendMessage</h2>
+                                <div class="text">@Resource.ContactUsAbout</div>
                             </div>
                             <form method="post" action="sendemail.php" id="contact-forms">
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="text" name="username" class="contact-input" placeholder="نام" required="">
+                                        <input type="text" name="username" class="contact-input" placeholder="@Resource.FullName" required="">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="email" class="contact-input" name="email" placeholder="ایمیل" required="">
+                                        <input type="email" class="contact-input" name="email" placeholder="@Resource.Email" required="">
                                     </div>
 
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <input type="text" class="contact-input" name="subject" placeholder="موضوع" required="">
+                                        <input type="text" class="contact-input" name="subject" placeholder="@Resource.Subject" required="">
                                     </div>
 
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <textarea name="message" class="contact-input" placeholder="پیام"></textarea>
+                                        <textarea name="message" class="contact-input" placeholder="@Resource.Message"></textarea>
                                     </div>
 
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group send-btn-part">
-                                        <button class="theme-btn btn-style-two" type="submit" name="submit-form"><span class="btn-title">ارسال</span></button>
+                                        <button class="theme-btn btn-style-two" type="submit" name="submit-form"><span class="btn-title">@Resource.Submit</span></button>
                                     </div>
                                 </div>
                             </form>

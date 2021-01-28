@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="Dtos\Blog\BlogDetailDto.cs" />
     <Compile Include="Dtos\Blog\BlogDto.cs" />
     <Compile Include="Dtos\News\NewsDetailDto.cs" />
     <Compile Include="Dtos\News\NewsDto.cs" />

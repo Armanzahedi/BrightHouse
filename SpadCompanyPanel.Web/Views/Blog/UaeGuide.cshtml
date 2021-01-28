@@ -1,14 +1,15 @@
 ﻿@model List<SpadCompanyPanel.Web.ViewModels.ArticleListViewModel>
+@using SpadCompanyPanel.Web.Resources
 @{
     ViewBag.Title = "بلاگ";
 }
 <!--Page Title-->
 <section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
     <div class="auto-container">
-        <h1>اقامت امارات</h1>
+        <h1>@Resource.ResidenceintheUAE</h1>
         <ul class="page-breadcrumb">
-            <li><a href="/">خانه</a></li>
-            <li> اقامت امارات</li>
+            <li><a href="/">@Resource.Home</a></li>
+            <li>@Resource.ResidenceintheUAE</li>
         </ul>
     </div>
 </section>
@@ -28,8 +29,8 @@
                         </div>
                         <div class="col-md-6 d-block m-auto">
                             <div class="investment-name">
-                                <img src="/Content/Assets/images/logo-4-01.png" alt="logo" class="investment-logo">
-                                <h3 class="investment-title">اقامت امارات</h3>
+                                <img src="/Content/logo.png" alt="logo" class="investment-logo">
+                                <h3 class="investment-title">@Resource.ResidenceintheUAE</h3>
                             </div>
 
                         </div>

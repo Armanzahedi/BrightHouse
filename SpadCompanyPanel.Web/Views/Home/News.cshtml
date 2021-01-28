@@ -1,4 +1,4 @@
-﻿
+﻿@using SpadCompanyPanel.Web.Resources;
 @model List<SpadCompanyPanel.Infrastructure.Dtos.News.NewsDto>
 @{
     ViewBag.Title = "اخبار";
@@ -7,10 +7,10 @@
 <!--Page Title-->
 <section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
     <div class="auto-container">
-        <h1>اخبار ترکیه</h1>
+        <h1>@Resource.TurkeyNews</h1>
         <ul class="page-breadcrumb">
-            <li><a href="/">خانه</a></li>
-            <li>اخبار ترکیه</li>
+            <li><a href="/">@Resource.Home</a></li>
+            <li>@Resource.TurkeyNews</li>
         </ul>
     </div>
 </section>
@@ -22,7 +22,7 @@
         <div class="news">
             <div class="row clearfix">
                 <div class="col-md-12">
-                    <h2 class="gold mt-5 mb-2">اخبار ترکیه</h2>
+                    <h2 class="gold mt-5 mb-2">@Resource.TurkeyNews</h2>
                     <div class="row">
 
                         @foreach (var item in Model)

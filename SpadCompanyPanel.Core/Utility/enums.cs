@@ -22,6 +22,7 @@ namespace SpadCompanyPanel.Core.Utility
         Phone = 1002,
         Map = 1007,
         Address = 1001,
+        AddressEnglish = 3029,
         Email = 1003,
         Youtube = 1008,
         Instagram = 1009,
@@ -29,7 +30,15 @@ namespace SpadCompanyPanel.Core.Utility
         Pinterest = 1012,
         Facebook = 1010,
         BlogImage = 1013,
-        ContactInfo = 1014
+        ContactInfo = 1014,
+
+        TurkeyResidence = 2016,
+        EuropeResidence = 2024,
+        UaeResidence = 2021,
+
+        TurkeyResidenceEnglish = 3033,
+        EuropeResidenceEnglish = 3038,
+        UaeResidenceEnglish = 3037,
     }
 
     public enum StaticContentDetails

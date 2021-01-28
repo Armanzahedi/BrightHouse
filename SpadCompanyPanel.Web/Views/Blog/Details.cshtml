@@ -1,16 +1,17 @@
-﻿@model SpadCompanyPanel.Web.ViewModels.ArticleDetailsViewModel
+﻿@model SpadCompanyPanel.Infrastructure.Dtos.Blog.BlogDetailDto
+@using SpadCompanyPanel.Web.Resources
+
 @{
     //ViewBag.Title = Model.Title;
 }
 
-
 <!--Page Title-->
 <section class="page-title" style="background-image:url(/Assets/images/background/4.jpg)">
     <div class="auto-container">
-        <h1>جزئیات اخبار</h1>
+        <h1>@Model.Title</h1>
         <ul class="page-breadcrumb">
-            <li><a href="/">خانه</a></li>
-            <li>جزئیات اخبار</li>
+            <li><a href="/">@Resource.Home</a></li>
+            <li>@Model.Title</li>
         </ul>
     </div>
 </section>
@@ -25,69 +26,33 @@
 
                     <!-- Categories -->
                     <div class="sidebar-widget categories">
-                        <div class="sidebar-title"><h2>دسته بندی ها</h2></div>
+                        <div class="sidebar-title"><h2>@Resource.Category</h2></div>
                         <ul class="category-list">
-                            <li><a href="#">اپارتمان  <span>(6)</span></a></li>
-                            <li><a href="#">مشتری   <span>(1)</span></a></li>
-                            <li><a href="#">سبز   <span>(3)</span></a></li>
-                            <li><a href="#">کوهستانی <span>(1)</span></a></li>
-                            <li><a href="#">مشاورین املاک    <span>(7)</span></a></li>
-                            <li><a href="#">ویلا    <span>(7)</span></a></li>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a href="/blog/@item.Id">@item.Title</a></li>
+                            }
                         </ul>
-                    </div>
-
-                    <!-- Social Links Widget -->
-                    <div class="sidebar-widget social-links-widget">
-                        <div class="sidebar-title"><h2>شبکه های اجتماعی</h2></div>
-                        <div class="widget-content">
-                            <ul class="social-icon-three social-icon-colored">
-                                <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                <li><a href="#"><span class="fab fa-google-plus-g"></span></a></li>
-                                <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                <li><a href="#"><span class="fab fa-dribbble"></span></a></li>
-                            </ul>
-                        </div>
                     </div>
 
                     <!-- Latest News -->
                     <div class="sidebar-widget latest-news">
-                        <div class="sidebar-title"><h2>پست های اخیر</h2></div>
+                        <div class="sidebar-title"><h2>@Resource.RecentArticles</h2></div>
                         <div class="widget-content">
-                            <article class="post">
-                                <div class="post-thumb"><a href="/Blog/Post/1/sd"><img src="/Assets/images/icons/empty.png" data-src="/Assets/images/resource/post-thumb-3.jpg" alt=""></a></div>
-                                <h3><a href="/Blog/Post/1/sd">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</a></h3>
-                                <div class="post-info">03 شهریور 1398</div>
-                            </article>
-
-                            <article class="post">
-                                <div class="post-thumb"><a href="/Blog/Post/1/sd"><img src="/Assets/images/icons/empty.png" data-src="/Assets/images/resource/post-thumb-4.jpg" alt=""></a></div>
-                                <h3><a href="/Blog/Post/1/sd">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</a></h3>
-                                <div class="post-info">04 شهریور 1398</div>
-                            </article>
-
-                            <article class="post">
-                                <div class="post-thumb"><a href="/Blog/Post/1/sd"><img src="/Assets/images/icons/empty.png" data-src="/Assets/images/resource/post-thumb-5.jpg" alt=""></a></div>
-                                <h3><a href="/Blog/Post/1/sd">برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است</a></h3>
-                                <div class="post-info">04 شهریور 1398</div>
-                            </article>
+                            @foreach (var item in Model.RecentBlogs.Take(3))
+                            {
+                                <article class="post">
+                                    <div class="post-thumb">
+                                        <a href="/Blog/Post/@item.Id">
+                                            <img src="/Files/ArticleImages/Thumb/@item.Image"
+                                                 data-src="/Files/ArticleImages/Thumb/@item.Image" alt="" width="100" height="100">
+                                        </a>
+                                    </div>
+                                    <h3><a href="/Blog/Post/@item.Id">@item.Title</a></h3>
+                                    <div class="post-info">@item.PersianDate</div>
+                                </article>
+                            }
                         </div>
-                    </div>
-
-
-                    <!-- Tags -->
-                    <div class="sidebar-widget tags">
-                        <div class="sidebar-title"><h2>برچسب ها</h2></div>
-                        <ul class="tag-list clearfix">
-                            <li><a href="#">اپارتمان</a></li>
-                            <li><a href="#">مسکن</a></li>
-                            <li><a href="#">خانه</a></li>
-                            <li><a href="#">مجرد</a></li>
-                            <li><a href="#">بازار</a></li>
-                            <li><a href="#">خانه</a></li>
-                            <li><a href="#">ویلاها</a></li>
-                            <li><a href="#">بازار</a></li>
-                        </ul>
                     </div>
 
                 </aside>
@@ -99,71 +64,14 @@
                     <div class="news-block-two">
                         <div class="inner-box">
                             <div class="image-box">
-                                <figure class="image wow fadeIn"><img src="/Assets/images/icons/empty.png" data-src="/Assets/images/resource/blog-1.jpg" alt=""></figure>
+                                <figure class="image wow fadeIn"><img src="/Files/ArticleImages/Image/@Model.Image" data-src="/Files/ArticleImages/Image/@Model.Image" alt=""></figure>
                             </div>
                             <div class="lower-content">
                                 <ul class="post-info clearfix">
-                                    <li>23 مرداد 1398</li>
-                                    <li>0 نظرات</li>
-                                    <li>توسط مجید محبی</li>
+                                    <li>@Model.PersianDate</li>
                                 </ul>
-                                <h3>آیا می دانید ارزش خانه برای این اقدام چقدر است.</h3>
-                                <p>برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ،</p>
-                                <h4>چرا مهم است؟</h4>
-                                <p>برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ،</p>
-                                <p> برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ،</p>
-                                <blockquote>برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ،</blockquote>
-                                <div class="two-column">
-                                    <div class="row">
-                                        <div class="image-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                                            <figure class="image"><img src="/Assets/images/icons/empty.png" data-src="/Assets/images/resource/post-image-1.jpg" alt=""></figure>
-                                        </div>
-
-                                        <div class="text-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                                            <p>برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ،</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p>برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ، برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است  ،</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Post Share Option -->
-                    <div class="post-share-options clearfix">
-                        <div class="pull-right clearfix">
-                            <span class="icon fa fa-tags"></span>
-                            <ul class="tags">
-                                <li><a href="#">اپارتمان</a>,</li>
-                                <li><a href="#">خان</a>,</li>
-                                <li><a href="#">چند خانواده,</a></li>
-                                <li><a href="#">ویلا</a></li>
-                            </ul>
-                        </div>
-                        <div class="pull-left clearfix">
-                            <ul class="social-icon social-icon-colored clearfix">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Blog Post Controls-->
-                    <div class="blog-post-controls">
-                        <div class="inner clearfix">
-                            <div class="prev-post">
-                                <div class="thumb"><img src="/Assets/images/icons/empty.png" data-src="/Assets/images/resource/prev-post.jpg" alt=""></div>
-                                <h5><a href="/Blog/Post/1/sd">چگونه محوطه سازی می تواند مهار کند.</a></h5>
-                                <span class="title">بعد</span>
-                            </div>
-
-                            <div class="next-post">
-                                <div class="thumb"><img src="/Assets/images/icons/empty.png" data-src="/Assets/images/resource/next-post.jpg" alt=""></div>
-                                <h5><a href="/Blog/Post/1/sd">علائم مشکلات زهکشی حیاط</a></h5>
-                                <span class="title">قبلی</span>
+                                <h3>@Model.ShortDescription</h3>
+                                @Html.Raw(Model.Description)
                             </div>
                         </div>
                     </div>
@@ -252,8 +160,6 @@
                     <!--End Comment Form -->
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>

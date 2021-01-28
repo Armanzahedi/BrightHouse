@@ -1,4 +1,5 @@
 ﻿@model SpadCompanyPanel.Infrastructure.Dtos.StaticContent.AboutUsDto
+@using SpadCompanyPanel.Web.Resources;
 
 @{
     ViewBag.Title = "درباره ما";
@@ -8,10 +9,10 @@
 <!--Page Title-->
 <section class="page-title" style="background-image:url(Content/Assets/images/background/4.jpg)">
     <div class="auto-container">
-        <h1>درباره ما</h1>
+        <h1>@Resource.AboutUs</h1>
         <ul class="page-breadcrumb">
-            <li><a href="/">خانه</a></li>
-            <li>درباره ما</li>
+            <li><a href="/">@Resource.Home</a></li>
+            <li>@Resource.AboutUs</li>
         </ul>
     </div>
 </section>

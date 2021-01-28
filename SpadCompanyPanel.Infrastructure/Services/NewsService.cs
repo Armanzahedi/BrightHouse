@@ -35,7 +35,7 @@ namespace SpadCompanyPanel.Infrastructure.Services
                 {
                     Id = item.Id,
                     Image = item.Image,
-                    Title = item.Title
+                    Title = _currentLang == (int)Language.Farsi ? item.Title : item.EnglishTitle
                 };
 
                 newsList.Add(newsItem);
@@ -51,16 +51,16 @@ namespace SpadCompanyPanel.Infrastructure.Services
             {
                 Id = s.Id,
                 Image = s.Image,
-                Title = s.Title,
+                Title = _currentLang == (int)Language.Farsi ? s.Title : s.EnglishTitle,
             }).ToList();
 
             var newsItem = new NewsDetailDto
             {
                 Id = news.Id,
                 Image = news.Image,
-                Title = news.Title,
-                ShortDescription = news.ShortDescription,
-                Description = news.Description,
+                Title = _currentLang == (int)Language.Farsi ? news.Title : news.EnglishTitle,
+                ShortDescription = _currentLang == (int)Language.Farsi ? news.ShortDescription : news.EnglishShortDescription,
+                Description = _currentLang == (int)Language.Farsi ? news.Description : news.EnglishDescription,
                 SimilarNews = similar
             };
 
