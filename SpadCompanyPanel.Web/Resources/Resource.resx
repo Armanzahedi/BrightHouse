@@ -384,7 +384,7 @@
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
-  <data name="PasswordIsLessthanSix" xml:space="preserve">
+  <data name="PasswordIsLessThanSix" xml:space="preserve">
     <value>Your password is less than six characters</value>
   </data>
   <data name="PasswordIsNotStrong" xml:space="preserve">
@@ -450,11 +450,11 @@
   <data name="ResidenceinTurkey" xml:space="preserve">
     <value>Turkey</value>
   </data>
+  <data name="ReTypedPasswordIsNotCorrect" xml:space="preserve">
+    <value>Retype password is not correct</value>
+  </data>
   <data name="ReTypePassword" xml:space="preserve">
     <value>Retype password</value>
-  </data>
-  <data name="ReTypePasswordIsNotCorrect" xml:space="preserve">
-    <value>Retype password is not correct</value>
   </data>
   <data name="ReTypePasswordRequired" xml:space="preserve">
     <value>Enter retype of password</value>

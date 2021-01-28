@@ -504,7 +504,7 @@
   <data name="Password" xml:space="preserve">
     <value>رمز عبور</value>
   </data>
-  <data name="PasswordIsLessthanSix" xml:space="preserve">
+  <data name="PasswordIsLessThanSix" xml:space="preserve">
     <value>رمز عبور کمتر از 6 کاراکتر است</value>
   </data>
   <data name="PasswordIsNotStrong" xml:space="preserve">
@@ -528,7 +528,7 @@
   <data name="ReTypePassword" xml:space="preserve">
     <value>تکرار رمز عبور</value>
   </data>
-  <data name="ReTypePasswordIsNotCorrect" xml:space="preserve">
+  <data name="ReTypedPasswordIsNotCorrect" xml:space="preserve">
     <value>تکرار رمز عبور صحیح نیست</value>
   </data>
   <data name="ReTypePasswordRequired" xml:space="preserve">

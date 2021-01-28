@@ -59,8 +59,8 @@ namespace SpadCompanyPanel.Web.ViewModels
         [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PhoneNumberRequired")]
         public string PhoneNumber { get; set; }
         [Display(Name = "Email", ResourceType = typeof(Resource))]
-        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
-        [EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailInvalid")]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EnterEmailError")]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailNotValidError")]
         public string Email { get; set; }
         [Display(Name = "Password", ResourceType = typeof(Resource))]
         [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordRequired")]

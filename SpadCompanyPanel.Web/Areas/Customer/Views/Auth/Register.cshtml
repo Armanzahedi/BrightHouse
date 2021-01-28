@@ -1,0 +1,79 @@
+﻿@using SpadCompanyPanel.Web.ViewModels
+@model RegisterCustomerViewModel
+@{
+    ViewBag.Title = "ثبت نام";
+    Layout = "~/Views/Shared/_InternalLayout.cshtml";
+}
+<!--Page Title-->
+<section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
+    <div class="auto-container">
+        <h1>ورود</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="/">خانه</a></li>
+            <li>ثبت نام</li>
+        </ul>
+    </div>
+</section>
+<!--End Page Title-->
+<!--Login Section-->
+<section class="login-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="column col-lg-9 col-md-12 m-auto col-sm-12 wow fadeInRight">
+                <!-- Login Form -->
+                <div class="login-form register-card ">
+                    <h2>ورود</h2>
+                    <!--Login Form-->
+                    @using (Html.BeginForm("Register", "Auth", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "form" }))
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.FirstName)
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "text-dark" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.LastName)
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "text-dark" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.PhoneNumber)
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "text-dark" } })
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email)
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "text-dark" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text-dark" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword)
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "text-dark" } })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <button class="theme-btn btn-style-three" type="submit" name="submit-form"><span class="btn-title">ورود</span></button>
+                        </div>
+                    }
+                </div>
+                <!--End Login Form -->
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Area End -->
+<!-- login area start -->
+<style>
+    .field-validation-error span {
+        color: darkred;
+    }
+</style>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

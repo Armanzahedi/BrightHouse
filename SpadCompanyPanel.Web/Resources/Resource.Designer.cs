@@ -864,9 +864,9 @@ namespace SpadCompanyPanel.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Your password is less than six characters.
         /// </summary>
-        public static string PasswordIsLessthanSix {
+        public static string PasswordIsLessThanSix {
             get {
-                return ResourceManager.GetString("PasswordIsLessthanSix", resourceCulture);
+                return ResourceManager.GetString("PasswordIsLessThanSix", resourceCulture);
             }
         }
         
@@ -1060,20 +1060,20 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Retype password is not correct.
+        /// </summary>
+        public static string ReTypedPasswordIsNotCorrect {
+            get {
+                return ResourceManager.GetString("ReTypedPasswordIsNotCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Retype password.
         /// </summary>
         public static string ReTypePassword {
             get {
                 return ResourceManager.GetString("ReTypePassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Retype password is not correct.
-        /// </summary>
-        public static string ReTypePasswordIsNotCorrect {
-            get {
-                return ResourceManager.GetString("ReTypePasswordIsNotCorrect", resourceCulture);
             }
         }
         
