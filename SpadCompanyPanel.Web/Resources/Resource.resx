@@ -378,7 +378,7 @@
   <data name="PasswordRequired" xml:space="preserve">
     <value>Enter your password</value>
   </data>
-  <data name="Phonenumber" xml:space="preserve">
+  <data name="PhoneNumber" xml:space="preserve">
     <value>Phone Number</value>
   </data>
   <data name="PhoneNumberExists" xml:space="preserve">

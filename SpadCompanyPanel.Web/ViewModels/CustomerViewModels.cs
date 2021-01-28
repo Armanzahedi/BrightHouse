@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using SpadCompanyPanel.Core.Models;
+using SpadCompanyPanel.Web.Resources;
 
 namespace SpadCompanyPanel.Web.ViewModels
 {
@@ -32,33 +33,47 @@ namespace SpadCompanyPanel.Web.ViewModels
         public string Price { get; set; }
         public bool IsPayed { get; set; }
     }
+    public class LoginCustomerViewModel
+    {
+        [Display(Name = "PhoneNumber", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PhoneNumberRequired")]
+        public string PhoneNumber { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Password", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordRequired")]
+        public string Password { get; set; }
+
+        [Display(Name = "RememberMe", ResourceType = typeof(Resource))]
+        public bool RememberMe { get; set; }
+    }
     public class RegisterCustomerViewModel
     {
-        [Display(Name = "نام")]
-        [Required(ErrorMessage = "{0} را وارد کنید")]
+        [Display(Name = "FirstName", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "FirstNameRequired")]
         public string FirstName { get; set; }
-        [Display(Name = "نام خانوادگی")]
-        [Required(ErrorMessage = "{0} را وارد کنید")]
+        [Display(Name = "LastName", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "LastNameRequired")]
         public string LastName { get; set; }
-        [Display(Name = "نام کاربری")]
-        [Required(ErrorMessage = "{0} را وارد کنید")]
-        public string UserName { get; set; }
-        [Display(Name = "ایمیل")]
-        [Required(ErrorMessage = "{0} را وارد کنید")]
-        [EmailAddress(ErrorMessage = "ایمیل وارد شده معتبر نیست")]
+        [Display(Name = "PhoneNumber", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PhoneNumberRequired")]
+        public string PhoneNumber { get; set; }
+        [Display(Name = "Email", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailRequired")]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailInvalid")]
         public string Email { get; set; }
-        [Display(Name = "رمز عبور")]
-        [Required(ErrorMessage = "{0} را وارد کنید")]
-        [StringLength(100, ErrorMessage = "{0} باید حداقل 6 کارکتر باشد", MinimumLength = 6)]
+        [Display(Name = "Password", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordRequired")]
+        [StringLength(100, ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordIsLessThanSix", MinimumLength = 6)]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$",
-            ErrorMessage = "پسورد باید حداقل 6 کارکتر و شامل یک حرف بزرگ یک حرف کوچک یک عدد و یک کارکتر خاص باشد.")]
+            ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordIsNotStrong")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "{0} را وارد کنید")]
         [DataType(DataType.Password)]
-        [Display(Name = "تکرار رمز عبور")]
-        [Compare("Password", ErrorMessage = "عدم تطابق رمز عبور جدید و تکرار رمز عبور جدید")]
+        [Display(Name = "ReTypePassword", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ReTypePasswordRequired")]
+        [Compare("Password", ErrorMessage = "RetypedPasswordIsNotCorrect")]
         public string ConfirmPassword { get; set; }
     }
 }

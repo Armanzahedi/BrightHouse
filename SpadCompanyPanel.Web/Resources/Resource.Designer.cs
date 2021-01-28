@@ -846,9 +846,9 @@ namespace SpadCompanyPanel.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Phone Number.
         /// </summary>
-        public static string Phonenumber {
+        public static string PhoneNumber {
             get {
-                return ResourceManager.GetString("Phonenumber", resourceCulture);
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
             }
         }
         

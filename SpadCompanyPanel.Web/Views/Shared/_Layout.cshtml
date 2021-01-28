@@ -74,9 +74,9 @@
             </div>
         </div>
         <!--end popup-->
-        @Html.Action("Navbar", "Home");
+        @Html.Action("Navbar", "Home",new { area="" });
         @RenderBody()
-        @Html.Action("Footer", "Home");
+        @Html.Action("Footer", "Home", new { area = "" });
 
     </div>
     <div id="loading" class="loading" style="display:none"></div>
@@ -280,8 +280,8 @@
             }
         });
     </script>
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @*@Scripts.Render("~/bundles/jqueryval")*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

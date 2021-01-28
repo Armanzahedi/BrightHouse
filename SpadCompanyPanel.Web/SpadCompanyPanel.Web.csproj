@@ -212,6 +212,7 @@
     <Compile Include="Areas\Admin\Controllers\OptionsController.cs" />
     <Compile Include="Areas\Admin\Controllers\OurTeamController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartnersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PaymentAccountsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PermissionsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PlansController.cs" />
     <Compile Include="Areas\Admin\Controllers\RealStateCommentsController.cs" />
@@ -224,6 +225,7 @@
     <Compile Include="Areas\Admin\Controllers\StaticContentTypesController.cs" />
     <Compile Include="Areas\Admin\Controllers\TestimonialsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Customer\Controllers\AuthController.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -3258,6 +3260,13 @@
     <Content Include="Areas\Admin\Views\Invoices\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Invoices\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Invoices\ViewDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\PaymentAccounts\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PaymentAccounts\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PaymentAccounts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PaymentAccounts\Index.cshtml" />
+    <Content Include="Areas\Customer\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Customer\Views\Auth\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -5462,9 +5471,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Customer\Controllers\" />
-    <Folder Include="Areas\Customer\Data\" />
-    <Folder Include="Areas\Customer\Views\Shared\" />
     <Folder Include="Content\Assets\css\1\" />
     <Folder Include="Content\client\css\1\" />
     <Folder Include="Files\ArticleImages\Temp\" />
@@ -5475,6 +5481,7 @@
     <Folder Include="Files\NewsImages\Temp\" />
     <Folder Include="Files\NewsImages\Thumb\" />
     <Folder Include="Files\PartnersImages\Temp\" />
+    <Folder Include="Files\PaymentAccountsQrCode\" />
     <Folder Include="Files\PlanFiles\PlanImages\" />
     <Folder Include="Files\PlanFiles\Temp\" />
     <Folder Include="Files\PlanFiles\VideoImages\" />

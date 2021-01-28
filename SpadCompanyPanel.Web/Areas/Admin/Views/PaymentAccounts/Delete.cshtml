@@ -1,0 +1,31 @@
+﻿@model SpadCompanyPanel.Core.Models.PaymentAccount
+<h4 class="card-label">
+    آیا مطمئن هستید که می خواهید این پیشنهاد را حذف کنید؟
+</h4>
+<dl class="row" style="padding-top:10px">
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.Title)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.Title)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.Address)
+    </dt>
+    <dd class="col-sm-8">
+        @Html.DisplayFor(model => model.Address)
+    </dd>
+    <dt class="col-sm-4">
+        @Html.DisplayNameFor(model => model.QrCode)
+    </dt>
+    <dd class="col-sm-8">
+        <img src="~/Files/PaymentAccountsQrCode/@Model.Logo" style="height: 50px" alt="@Model.Title" />
+    </dd>
+</dl>
+<div style="float:left">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="submit" value="حذف" class="btn btn-danger mr-2" />
+    }
+</div>

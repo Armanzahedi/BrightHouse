@@ -130,7 +130,10 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
             _context.SaveChanges();
             return userRole;
         }
-
+        public User FindByPhone(string phone)
+        {
+            return _context.Users.FirstOrDefault(u => u.PhoneNumber.ToLower().Trim() == phone.Trim().ToLower() && u.IsDeleted == false);
+        }
         public User FindByEmail(string email)
         {
             return _context.Users.FirstOrDefault(u => u.Email.ToLower().Trim() == email.Trim().ToLower() && u.IsDeleted == false);

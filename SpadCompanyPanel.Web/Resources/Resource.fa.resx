@@ -288,7 +288,7 @@
   <data name="Parking" xml:space="preserve">
     <value>پاركينگ</value>
   </data>
-  <data name="Phonenumber" xml:space="preserve">
+  <data name="PhoneNumber" xml:space="preserve">
     <value>شماره تماس</value>
   </data>
   <data name="Previous" xml:space="preserve">

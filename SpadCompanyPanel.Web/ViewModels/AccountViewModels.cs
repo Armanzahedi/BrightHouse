@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SpadCompanyPanel.Web.Resources;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SpadCompanyPanel.Web.ViewModels
