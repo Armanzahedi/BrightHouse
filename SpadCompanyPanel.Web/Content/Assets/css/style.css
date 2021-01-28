@@ -4506,8 +4506,8 @@ select.header-option-mt option {
 .property-detail .features-list {
     position: relative;
     margin-bottom: 50px;
-    border-top: 1px solid #eeeeee;
-    border-left: 1px solid #eeeeee;
+    border: 1px solid #eeeeee;
+    /*border-left: 1px solid #eeeeee;*/
 }
 
 .property-detail .features-list li {
@@ -4520,8 +4520,8 @@ select.header-option-mt option {
     font-weight: 400;
     padding: 10px 20px;
     padding-right: 45px;
-    border-right: 1px solid #eeeeee;
-    border-bottom: 1px solid #eeeeee;
+    border: 1px solid #eeeeee;
+    /*border-bottom: 1px solid #eeeeee;*/
     cursor: default;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;

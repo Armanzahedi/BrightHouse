@@ -322,6 +322,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string Detail {
+            get {
+                return ResourceManager.GetString("Detail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dubai.
         /// </summary>
         public static string Dubai {
@@ -372,6 +381,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string EmailNotValidError {
             get {
                 return ResourceManager.GetString("EmailNotValidError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Your Email Address.
+        /// </summary>
+        public static string EmailRequired {
+            get {
+                return ResourceManager.GetString("EmailRequired", resourceCulture);
             }
         }
         
@@ -489,6 +507,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string FiveBedrooms {
             get {
                 return ResourceManager.GetString("FiveBedrooms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Floor.
+        /// </summary>
+        public static string Floor {
+            get {
+                return ResourceManager.GetString("Floor", resourceCulture);
             }
         }
         
@@ -655,6 +682,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string Location {
+            get {
+                return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {
@@ -781,6 +817,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Options.
+        /// </summary>
+        public static string Option {
+            get {
+                return ResourceManager.GetString("Option", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to our colleagues.
         /// </summary>
         public static string ourcolleagues {
@@ -880,6 +925,24 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Plan.
+        /// </summary>
+        public static string Plan {
+            get {
+                return ResourceManager.GetString("Plan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan Sample.
+        /// </summary>
+        public static string PlanSample {
+            get {
+                return ResourceManager.GetString("PlanSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pre Sale.
         /// </summary>
         public static string PreSale {
@@ -894,6 +957,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string Previous {
             get {
                 return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
             }
         }
         
@@ -1186,6 +1258,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Toman.
         /// </summary>
         public static string Toman {
@@ -1245,6 +1326,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string Villa {
             get {
                 return ResourceManager.GetString("Villa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Virtual Tour.
+        /// </summary>
+        public static string Vt {
+            get {
+                return ResourceManager.GetString("Vt", resourceCulture);
             }
         }
         

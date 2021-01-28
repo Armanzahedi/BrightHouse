@@ -153,12 +153,13 @@ namespace SpadCompanyPanel.Web.Controllers
                 model.Bathroom = plan.BathRooms;
                 model.Bedroom = plan.Rooms;
                 model.Price = plan.Price;
-                model.Location = _geoDivisionsRepo.GetFullLocation(realState.GeoDivisionId);
+                model.Address = _geoDivisionsRepo.GetFullLocation(realState.GeoDivisionId);
                 model.Title = language == (int)Language.Farsi ? realState.Title : realState.EnglishTitle;
                 model.ShortDescription = language == (int)Language.Farsi ? realState.ShortDescription : realState.EnglishShortDescription;
                 model.Image = realState.Image;
-
+                model.VideoStr = realState.VideoStr;
                 model.Plans = realState.Plans;
+                model.Location = realState.Location;
                 var vm = new List<PlanWithOptionViewModel>();
                 foreach (var item in realState.Plans)
                 {

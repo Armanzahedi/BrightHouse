@@ -44,7 +44,7 @@
                 </div>
                 <div class="price-column col-lg-4 col-md-12 col-sm-12">
                     <div class="price"> @Model.Price.ToString("##,###")€ </div>
-                    <div class="location"><i class="icon fa fa-map-marker-alt"></i> @Model.Location</div>
+                    <div class="location"><i class="icon fa fa-map-marker-alt"></i> @Model.Address</div>
                 </div>
 
                 <div class="col-lg-6 order-style-2 des-part">
@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-style-1 slider-part">
-                    <div class="large-12 columns mb-5" dir="ltr" >
+                    <div class="large-12 columns mb-5" dir="ltr">
 
                         <!-- MAIN SLIDES -->
                         <div class="slider">
@@ -90,7 +90,7 @@
                     <div class="row clearfix">
                         <!--Content Side-->
                         <div class="content-side col-lg-12">
-                            <div class="property-detail">                                
+                            <div class="property-detail">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     @for (int i = 0; i < plans.Count; i++)
                                     {
@@ -102,566 +102,97 @@
                                 </ul>
                                 <!--Tab1-->
                                 <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                         aria-labelledby="home-tab" style="margin: 1rem">
+                                    @for (int i = 0; i < plans.Count; i++)
+                                    {
+                                        <div class="tab-pane fade show @(i==0? "active" : null)" id="plan-@i" role="tabpanel"
+                                             aria-labelledby="plan-@i-tab" style="margin: 1rem">
 
-                                        <ul class="nav nav-tabs" id="myTab1" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" id="address-tab1" data-toggle="tab" href="#address1" role="tab" aria-controls="home" aria-selected="true">آدرس</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="home-tab1" data-toggle="tab" href="#home1" role="tab" aria-controls="home" aria-selected="true">جزئیات</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="profile-tab1" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">امکانات</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="contact-tab1" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact" aria-selected="false">پلان</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="video-tab1" data-toggle="tab" href="#video_tab1" role="tab" aria-controls="contact" aria-selected="false">ویدئو</a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content" id="myTabContent1">
-                                            <div class="tab-pane fade show active" id="address1" role="tabpanel" aria-labelledby="home-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
-                                                        <h4 class="mt-4">آدرس</h4>
-                                                        <div class="agent-detail pt-0">
-                                                            <table class="info-table">
-                                                                <tr>
-                                                                    <td><strong>آدرس:</strong> سواحل های شمال کشور</td>
-                                                                    <td><strong>شهر:</strong> مازندران</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>منطقه:</strong> ساحلی</td>
-                                                                    <td><strong>کشور / استان:</strong> مازندران</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>کد پستی:</strong> 10009</td>
-                                                                    <td><strong>کشور:</strong> ایران</td>
-                                                                </tr>
-                                                            </table>
-
+                                            <ul class="nav nav-tabs" id="myTab@(i)" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="home-tab@(i)" data-toggle="tab" href="#home@(i)" role="tab" aria-controls="home" aria-selected="true">@Resource.Detail</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="profile-tab@(i)" data-toggle="tab" href="#profile@(i)" role="tab" aria-controls="profile" aria-selected="false">@Resource.Option</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="contact-tab@(i)" data-toggle="tab" href="#contact@(i)" role="tab" aria-controls="contact" aria-selected="false">@Resource.Plan</a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content" id="myTabContent@(i)">
+                                                <div class="tab-pane fade show  active" id="home@(i)" role="tabpanel" aria-labelledby="home-tab">
+                                                    <div class="content-side col-lg-12">
+                                                        <div class="property-detail">
+                                                            <h4 class="mt-4">@Resource.Detail</h4>
+                                                            <div class="agent-detail pt-0">
+                                                                @{ var Type = plans[i].Plan.PlanType == 1 ? Resource.Sale : (plans[i].Plan.PlanType == 2 ? Resource.PreSale : Resource.Rent);}
+                                                                <table class="info-table">
+                                                                    <tr>
+                                                                        <td><strong>@Resource.Title:</strong> @plans[i].Plan.Title</td>
+                                                                        <td><strong>@Resource.MalikFor:</strong> @Type</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>@Resource.Bedroom:</strong>@plans[i].Plan.Rooms</td>
+                                                                        <td><strong>@Resource.Area:</strong>@plans[i].Plan.Area </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>@Resource.Bathroom:</strong>@plans[i].Plan.BathRooms</td>
+                                                                        <td><strong>@Resource.Floor:</strong>@plans[i].Plan.FloorNo</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>@Resource.Price:</strong>€ @plans[i].Plan.Price.ToString("##,###")</td>
+                                                                        <td>
+                                                                            @if (plans[i].Plan.RentPrice != null && plans[i].Plan.RentPrice > 0)
+                                                                            {
+                                                                                <span><strong>@Resource.Rent:</strong>€ @plans[i].Plan.RentPrice.Value.ToString("##,###")</span>
+                                                                            }
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane fade show" id="home1" role="tabpanel" aria-labelledby="home-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
-                                                        <h4 class="mt-4">جزئیات</h4>
-                                                        <div class="agent-detail pt-0">
-                                                            <table class="info-table">
-                                                                <tr>
-                                                                    <td><strong>شناسه املاک:</strong> 145</td>
-                                                                    <td><strong>قیمت:</strong> 200,000 / ماهانه</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>اتاق ها:</strong> 5</td>
-                                                                    <td><strong>مساحت:</strong> 3000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>اندازه ملک:</strong> 3000</td>
-                                                                    <td><strong>تست:</strong> 02</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>حمام:</strong> 2</td>
-                                                                    <td><strong>نوع ساختار:</strong> آجر</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>طبقه:</strong> 01</td>
-                                                                    <td><strong>اتاق ها:</strong> 5</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
+                                                <div class="tab-pane fade" id="profile@(i)" role="tabpanel" aria-labelledby="profile-tab">
+                                                    <div class="content-side col-lg-12">
+                                                        <div class="property-detail">
 
 
-                                                        <h4 class="mt-5">امکانات</h4>
-                                                        <ul class="features-list clearfix">
-                                                            <li>اتاق زیر شیروانی</li>
-                                                            <li>بخاری گازی</li>
-                                                            <li>نمای اقیانوس</li>
-                                                            <li>انبار</li>
-                                                            <li>زمین بسکتبال</li>
-                                                            <li>سالن ورزش</li>
-                                                            <li>بخاری</li>
-                                                            <li>بخاری</li>
-                                                            <li>نمای دریاچه</li>
-                                                            <li>استخر</li>
-                                                            <li>حیاط</li>
-                                                            <li>حیاط جلویی</li>
-                                                            <li>حصارکشی حیاط</li>
-                                                            <li>آبپاش ها</li>
-                                                            <li>واشر و خشک کن</li>
-                                                            <li>عرشه</li>
-                                                            <li>خشکشویی</li>
-                                                            <li>فضای خصوصی</li>
-                                                            <li>عرشه سقف</li>
-                                                            <li>سالن ورزش</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="contact1" role="tabpanel" aria-labelledby="contact-tab">
-                                                <div class="content-side col-lg-12 mt-4">
-                                                    <div class="property-detail">
+                                                            <h4 class="mt-5">@Resource.Option</h4>
+                                                            <ul class="features-list clearfix">
+                                                                @foreach (var item in plans[i].Options)
+                                                                {
 
-                                                        <h4>برنامه های طبقه</h4>
-                                                        <div class="floor-plans">
-                                                            <ul class="floor-info clearfix">
-                                                                <li class="title">طرح نمونه طبقه</li>
-                                                                <li>2 حمام</li>
-                                                                <li>3 اتاق خواب</li>
-                                                                <li>12,000 مساحت</li>
+                                                                    <li>@item.Title</li>
+                                                                }
                                                             </ul>
-                                                            <div class="text">
-                                                                <p>
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="contact@(i)" role="tabpanel" aria-labelledby="contact-tab">
+                                                    <div class="content-side col-lg-12 mt-4">
+                                                        <div class="property-detail">
 
-                                                                </p>
-                                                            </div>
-                                                            <div class="floor-image">
-                                                                <figure class="image">
-                                                                    <img src="images/icons/empty.png"
-                                                                         data-src="images/resource/floor-img.png"
-                                                                         alt="">
-                                                                </figure>
+                                                            <h4>@Resource.Plan</h4>
+                                                            <div class="floor-plans">
+                                                                <ul class="floor-info clearfix">
+                                                                    <li class="title">@Resource.PlanSample</li>
+                                                                    <li>@plans[i].Plan.BathRooms @Resource.Bathroom</li>
+                                                                    <li>@plans[i].Plan.Rooms @Resource.Bedroom</li>
+                                                                    <li>@plans[i].Plan.Area @Resource.Area</li>
+                                                                </ul>
+                                                                <div class="floor-image">
+                                                                    <figure class="image">
+                                                                        <img src="/Files/PlanFiles/PlanImages/@plans[i].Plan.Image"
+                                                                             data-src="/Files/PlanFiles/PlanImages/@plans[i].Plan.Image" alt="">
+                                                                    </figure>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="video_tab1" role="tabpanel" aria-labelledby="video-tab">
-                                                <div class="content-side col-lg-12 mt-4">
-                                                    <div class="property-detail">
-
-
-                                                        <h4>تور</h4>
-                                                        <video controls class="video-size">
-                                                            <source src="images/1.mp4" type="video/mp4">
-                                                            Your browser does not support HTML video.
-                                                        </video>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <!--Tab2-->
-                                    <div class="tab-pane fade show" id="profile" role="tabpanel"
-                                         aria-labelledby="home-tab" style="margin: 1rem">
-
-
-                                        <ul class="nav nav-tabs" id="myTab2" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" id="address-tab2" data-toggle="tab" href="#address2" role="tab" aria-controls="home" aria-selected="true">آدرس</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="home-tab2" data-toggle="tab" href="#home2" role="tab" aria-controls="home" aria-selected="true">جزئیات</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile" aria-selected="false">امکانات</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="contact-tab2" data-toggle="tab" href="#contact2" role="tab" aria-controls="contact" aria-selected="false">پلان</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="video-tab2" data-toggle="tab" href="#video_tab2" role="tab" aria-controls="contact" aria-selected="false">ویدئو</a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content" id="myTabContent2">
-                                            <div class="tab-pane fade show active" id="address2" role="tabpanel" aria-labelledby="home-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
-                                                        <h4 class="mt-4">آدرس</h4>
-                                                        <div class="agent-detail pt-0">
-                                                            <table class="info-table">
-                                                                <tr>
-                                                                    <td><strong>آدرس:</strong> سواحل های شمال کشور</td>
-                                                                    <td><strong>شهر:</strong> مازندران</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>منطقه:</strong> ساحلی</td>
-                                                                    <td><strong>کشور / استان:</strong> مازندران</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>کد پستی:</strong> 10009</td>
-                                                                    <td><strong>کشور:</strong> ایران</td>
-                                                                </tr>
-                                                            </table>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade show active" id="home2" role="tabpanel" aria-labelledby="home-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
-                                                        <h4 class="mt-4">جزئیات</h4>
-                                                        <div class="agent-detail pt-0">
-                                                            <table class="info-table">
-                                                                <tr>
-                                                                    <td><strong>شناسه املاک:</strong> 145</td>
-                                                                    <td><strong>قیمت:</strong> 200,000 / ماهانه</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>اتاق ها:</strong> 5</td>
-                                                                    <td><strong>مساحت:</strong> 3000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>اندازه ملک:</strong> 3000</td>
-                                                                    <td><strong>تست:</strong> 02</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>حمام:</strong> 2</td>
-                                                                    <td><strong>نوع ساختار:</strong> آجر</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>طبقه:</strong> 01</td>
-                                                                    <td><strong>اتاق ها:</strong> 5</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="profile2" role="tabpanel" aria-labelledby="profile-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
-
-
-                                                        <h4 class="mt-5">امکانات</h4>
-                                                        <ul class="features-list clearfix">
-                                                            <li>اتاق زیر شیروانی</li>
-                                                            <li>بخاری گازی</li>
-                                                            <li>نمای اقیانوس</li>
-                                                            <li>انبار</li>
-                                                            <li>زمین بسکتبال</li>
-                                                            <li>سالن ورزش</li>
-                                                            <li>بخاری</li>
-                                                            <li>بخاری</li>
-                                                            <li>نمای دریاچه</li>
-                                                            <li>استخر</li>
-                                                            <li>حیاط</li>
-                                                            <li>حیاط جلویی</li>
-                                                            <li>حصارکشی حیاط</li>
-                                                            <li>آبپاش ها</li>
-                                                            <li>واشر و خشک کن</li>
-                                                            <li>عرشه</li>
-                                                            <li>خشکشویی</li>
-                                                            <li>فضای خصوصی</li>
-                                                            <li>عرشه سقف</li>
-                                                            <li>سالن ورزش</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="contact2" role="tabpanel" aria-labelledby="contact-tab">
-                                                <div class="content-side col-lg-12 mt-4">
-                                                    <div class="property-detail">
-
-                                                        <h4>برنامه های طبقه</h4>
-                                                        <div class="floor-plans">
-                                                            <ul class="floor-info clearfix">
-                                                                <li class="title">طرح نمونه طبقه</li>
-                                                                <li>2 حمام</li>
-                                                                <li>3 اتاق خواب</li>
-                                                                <li>12,000 مساحت</li>
-                                                            </ul>
-                                                            <div class="text">
-                                                                <p>
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-
-                                                                </p>
-                                                            </div>
-                                                            <div class="floor-image">
-                                                                <figure class="image">
-                                                                    <img src="images/icons/empty.png"
-                                                                         data-src="images/resource/floor-img.png"
-                                                                         alt="">
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="video_tab2" role="tabpanel" aria-labelledby="video-tab">
-                                                <div class="content-side col-lg-12 mt-4">
-                                                    <div class="property-detail">
-
-
-                                                        <h4>تور مجازی</h4>
-                                                        <video controls class="video-size">
-                                                            <source src="images/1.mp4" type="video/mp4">
-                                                            Your browser does not support HTML video.
-                                                        </video>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    </div>
-                                    <!--Tab3-->
-                                    <div class="tab-pane fade show" id="contact" role="tabpanel"
-                                         aria-labelledby="home-tab" style="margin: 1rem">
-
-
-                                        <ul class="nav nav-tabs" id="myTab3" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" id="address-tab3" data-toggle="tab" href="#address3" role="tab" aria-controls="home" aria-selected="true">آدرس</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="home-tab3" data-toggle="tab" href="#home3" role="tab" aria-controls="home" aria-selected="true">جزئیات</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="profile-tab3" data-toggle="tab" href="#profile3" role="tab" aria-controls="profile" aria-selected="false">امکانات</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="contact-tab3" data-toggle="tab" href="#contact3" role="tab" aria-controls="contact" aria-selected="false">پلان</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="video-tab3" data-toggle="tab" href="#video_tab3" role="tab" aria-controls="contact" aria-selected="false">ویدئو</a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content" id="myTabContent3">
-                                            <div class="tab-pane fade show active" id="address3" role="tabpanel" aria-labelledby="home-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
-                                                        <h4 class="mt-4">آدرس</h4>
-                                                        <div class="agent-detail pt-0">
-                                                            <table class="info-table">
-                                                                <tr>
-                                                                    <td><strong>آدرس:</strong> سواحل های شمال کشور</td>
-                                                                    <td><strong>شهر:</strong> مازندران</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>منطقه:</strong> ساحلی</td>
-                                                                    <td><strong>کشور / استان:</strong> مازندران</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>کد پستی:</strong> 10009</td>
-                                                                    <td><strong>کشور:</strong> ایران</td>
-                                                                </tr>
-                                                            </table>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade show" id="home3" role="tabpanel" aria-labelledby="home-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
-                                                        <h4 class="mt-4">جزئیات</h4>
-                                                        <div class="agent-detail pt-0">
-                                                            <table class="info-table">
-                                                                <tr>
-                                                                    <td><strong>شناسه املاک:</strong> 145</td>
-                                                                    <td><strong>قیمت:</strong> 200,000 / ماهانه</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>اتاق ها:</strong> 5</td>
-                                                                    <td><strong>مساحت:</strong> 3000</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>اندازه ملک:</strong> 3000</td>
-                                                                    <td><strong>تست:</strong> 02</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>حمام:</strong> 2</td>
-                                                                    <td><strong>نوع ساختار:</strong> آجر</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>طبقه:</strong> 01</td>
-                                                                    <td><strong>اتاق ها:</strong> 5</td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="profile3" role="tabpanel" aria-labelledby="profile-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
-
-
-                                                        <h4 class="mt-5">امکانات</h4>
-                                                        <ul class="features-list clearfix">
-                                                            <li>اتاق زیر شیروانی</li>
-                                                            <li>بخاری گازی</li>
-                                                            <li>نمای اقیانوس</li>
-                                                            <li>انبار</li>
-                                                            <li>زمین بسکتبال</li>
-                                                            <li>سالن ورزش</li>
-                                                            <li>بخاری</li>
-                                                            <li>بخاری</li>
-                                                            <li>نمای دریاچه</li>
-                                                            <li>استخر</li>
-                                                            <li>حیاط</li>
-                                                            <li>حیاط جلویی</li>
-                                                            <li>حصارکشی حیاط</li>
-                                                            <li>آبپاش ها</li>
-                                                            <li>واشر و خشک کن</li>
-                                                            <li>عرشه</li>
-                                                            <li>خشکشویی</li>
-                                                            <li>فضای خصوصی</li>
-                                                            <li>عرشه سقف</li>
-                                                            <li>سالن ورزش</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="contact3" role="tabpanel" aria-labelledby="contact-tab">
-                                                <div class="content-side col-lg-12 mt-4">
-                                                    <div class="property-detail">
-
-                                                        <h4>برنامه های طبقه</h4>
-                                                        <div class="floor-plans">
-                                                            <ul class="floor-info clearfix">
-                                                                <li class="title">طرح نمونه طبقه</li>
-                                                                <li>2 حمام</li>
-                                                                <li>3 اتاق خواب</li>
-                                                                <li>12,000 مساحت</li>
-                                                            </ul>
-                                                            <div class="text">
-                                                                <p>
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-                                                                    برایت هوس یکی از بهترین راهنمایان و فروشندگان
-                                                                    خانه
-                                                                    است
-
-                                                                </p>
-                                                            </div>
-                                                            <div class="floor-image">
-                                                                <figure class="image">
-                                                                    <img src="images/icons/empty.png"
-                                                                         data-src="images/resource/floor-img.png"
-                                                                         alt="">
-                                                                </figure>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="video_tab3" role="tabpanel" aria-labelledby="video-tab">
-                                                <div class="content-side col-lg-12 mt-4">
-                                                    <div class="property-detail">
-
-
-                                                        <h4>تور مجازی</h4>
-                                                        <video controls class="video-size">
-                                                            <source src="images/1.mp4" type="video/mp4">
-                                                            Your browser does not support HTML video.
-                                                        </video>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    </div>
-
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -670,58 +201,44 @@
                 <div class="col-lg-6 order-style-4">
                     <div class="content-side col-lg-12 mt-4">
                         <div class="property-detail">
-
-
-                            <h4>Bright House</h4>
+                            <h4>تور مجازی</h4>
                             <video controls class="video-size">
-                                <source src="images/1.mp4" type="video/mp4">
-                                Your browser does not support HTML video.
+                                <source src="/Files/RealStateImages/Videos/@Model.VideoStr" type="video/mp4">
                             </video>
                         </div>
                     </div>
                 </div>
             </div>
 
-
             <div class="row clearfix">
 
                 <!--Content Side-->
                 <div class="content-side col-lg-12">
                     <div class="property-detail">
-
-
                         <!-- Review Box -->
                         <div class="review-area">
-                            <div class="content-side col-lg-12">
-                                <div class="property-detail">
-                                    <h4>موقعیت مکانی با نقشه</h4>
-                                    <div class="map-outer">
-                                        <!--Map Canvas-->
-                                        <div class="map-canvas"
-                                             data-zoom="12"
-                                             data-lat="-37.817085"
-                                             data-lng="144.955631"
-                                             data-type="roadmap"
-                                             data-hue="#ffc400"
-                                             data-title="Envato"
-                                             data-icon-path="images/icons/map-marker-2.png"
-                                             data-content="Melbourne VIC 3000, Australia<br><a href='mailto:info@youremail.com'>info@youremail.com</a>">
+                            @if (!string.IsNullOrEmpty(Model.Location))
+                            {
+                                <div class="content-side col-lg-12">
+                                    <div class="property-detail">
+                                        <h4>@Resource.Location</h4>
+                                        <div class="map-outer">
+                                            @Html.Raw(Model.Location)
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            }
                             <!--Reviews Container-->
                             <div class="reviews-container">
-                                <h3>نظرات مشتریان</h3>
+                                <h3>@Resource.Comments</h3>
                                 <!--Reviews-->
                                 <article class="review-box">
                                     <div class="thumb-box">
                                         <figure class="thumb">
-                                            <img src="images/icons/empty.png"
-                                                 data-src="images/resource/review-thumb-1.jpg"
+                                            <img src="/Files/UserAvatars/user-avatar.png"
+                                                 data-src="/Files/UserAvatars/user-avatar.png"
                                                  alt="">
                                         </figure>
-                                        <a href="#" class="reply-btn">اکنون پاسخ دهید</a>
                                     </div>
                                     <div class="content-box">
                                         <div class="name">فلورا معصومی</div>
@@ -737,59 +254,6 @@
                                             برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
                                             برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
                                             برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!--Reviews-->
-                                <article class="review-box reply">
-                                    <div class="thumb-box">
-                                        <figure class="thumb">
-                                            <img src="images/icons/empty.png"
-                                                 data-src="images/resource/review-thumb-2.jpg"
-                                                 alt="">
-                                        </figure>
-                                        <a href="#" class="reply-btn theme-btn">اکنون پاسخ دهید</a>
-                                    </div>
-                                    <div class="content-box">
-                                        <div class="name">فلورا معصومی</div>
-                                        <span class="date"><i class="fa fa-calendar-alt"></i> 5 شهریور, 1398</span>
-                                        <div class="rating">
-                                            <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-                                        </div>
-                                        <div class="text">
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!--Reviews-->
-                                <article class="review-box">
-                                    <div class="thumb-box">
-                                        <figure class="thumb">
-                                            <img src="images/icons/empty.png"
-                                                 data-src="images/resource/review-thumb-3.jpg"
-                                                 alt="">
-                                        </figure>
-                                        <a href="#" class="reply-btn theme-btn">اکنون پاسخ دهید</a>
-                                    </div>
-                                    <div class="content-box">
-                                        <div class="name">محمد بهمنی</div>
-                                        <span class="date"><i class="fa fa-calendar-alt"></i> 5 شهریور, 1398</span>
-                                        <div class="rating">
-                                            <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-                                        </div>
-                                        <div class="text">
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-
                                         </div>
                                     </div>
                                 </article>
@@ -798,7 +262,7 @@
 
                         <!-- Review Comment Form -->
                         <div class="review-comment-form">
-                            <h3>ارسال پیام</h3>
+                            <h3>@Resource.SendMessage</h3>
                             <form method="post" action="contact.html">
                                 <div class="row">
                                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
@@ -828,7 +292,7 @@
 
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 text-right">
                                         <button class="theme-btn btn-style-one" type="submit" name="submit-form">
-                                            <span class="btn-title">ارسال</span>
+                                            <span class="btn-title">@Resource.Subject</span>
                                         </button>
                                     </div>
                                 </div>

@@ -204,6 +204,9 @@
   <data name="Designedby" xml:space="preserve">
     <value>Designed by </value>
   </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Details</value>
+  </data>
   <data name="Dubai" xml:space="preserve">
     <value>Dubai</value>
   </data>
@@ -221,6 +224,9 @@
   </data>
   <data name="EmailNotValidError" xml:space="preserve">
     <value>Email is not valid</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Enter Your Email Address</value>
   </data>
   <data name="EnterContext" xml:space="preserve">
     <value>Write Your Message</value>
@@ -260,6 +266,9 @@
   </data>
   <data name="FiveBedrooms" xml:space="preserve">
     <value>Five Bedrooms</value>
+  </data>
+  <data name="Floor" xml:space="preserve">
+    <value>Floor</value>
   </data>
   <data name="FollowUs" xml:space="preserve">
     <value>Follow Us</value>
@@ -315,6 +324,9 @@
   <data name="Links" xml:space="preserve">
     <value>Links</value>
   </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -357,6 +369,9 @@
   <data name="OneBedroom" xml:space="preserve">
     <value>One Bedroom</value>
   </data>
+  <data name="Option" xml:space="preserve">
+    <value>Options</value>
+  </data>
   <data name="ourcolleagues" xml:space="preserve">
     <value>our colleagues</value>
   </data>
@@ -390,11 +405,20 @@
   <data name="PhoneNumberRequired" xml:space="preserve">
     <value>Enter Phone Number</value>
   </data>
+  <data name="Plan" xml:space="preserve">
+    <value>Plan</value>
+  </data>
+  <data name="PlanSample" xml:space="preserve">
+    <value>Plan Sample</value>
+  </data>
   <data name="PreSale" xml:space="preserve">
     <value>Pre Sale</value>
   </data>
   <data name="Previous" xml:space="preserve">
     <value>Previous</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
   </data>
   <data name="PriceFilter" xml:space="preserve">
     <value>Price Filter</value>
@@ -492,6 +516,9 @@
   <data name="ThreeBedrooms" xml:space="preserve">
     <value>Three Bedrooms</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
   <data name="Toman" xml:space="preserve">
     <value>Toman</value>
   </data>
@@ -512,6 +539,9 @@
   </data>
   <data name="Villa" xml:space="preserve">
     <value>Villa</value>
+  </data>
+  <data name="Vt" xml:space="preserve">
+    <value>Virtual Tour</value>
   </data>
   <data name="Waystocontactus" xml:space="preserve">
     <value>Ways to contactus</value>
