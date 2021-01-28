@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using Newtonsoft.Json;
 using SpadCompanyPanel.Infrastructure.Dtos.RealState;
 using SpadCompanyPanel.Infrastructure.Services;
+using SpadCompanyPanel.Web.Resources;
 
 namespace SpadCompanyPanel.Web.Controllers
 {
@@ -122,59 +123,61 @@ namespace SpadCompanyPanel.Web.Controllers
         [Route("RealState/Details/{id}")]
         public ActionResult Details(int id)
         {
-            var realState = _realStateRepos.GetRealStateWithNavigations(id);
-            var realStateCity = _geoDivisionsRepo.Get(realState.GeoDivisionId);
-            var realStateState = _geoDivisionsRepo.Get(realStateCity.ParentId.Value);
-            var realStateCountry = _geoDivisionsRepo.GetGeoDivisionParent(realStateState.ParentId.Value);
-            var planId = 0;
+            //var realState = _realStateRepos.GetRealStateWithNavigations(id);
+            //var realStateCity = _geoDivisionsRepo.Get(realState.GeoDivisionId);
+            //var realStateState = _geoDivisionsRepo.Get(realStateCity.ParentId.Value);
+            //var realStateCountry = _geoDivisionsRepo.GetGeoDivisionParent(realStateState.ParentId.Value);
+            //var planId = 0;
 
-            var model = new RealStateViewModel();
+            //var model = new RealStateViewModel();
 
-            if (realState.Plans != null)
-            {
-                var language = LanguageHelper.GetCulture();
-                planId = realState.Plans.FirstOrDefault().Id;
+            //if (realState.Plans != null)
+            //{
+            //    var language = LanguageHelper.GetCulture();
+            //    planId = realState.Plans.FirstOrDefault().Id;
 
-                var plans = _planRepos.GetRealStatePlans(realState.Id);
-                var plan = plans.FirstOrDefault();
+            //    var plans = _planRepos.GetRealStatePlans(realState.Id);
+            //    var plan = plans.FirstOrDefault();
 
-                var options = _optionRepos.GetPlanOptions(planId);
+            //    var options = _optionRepos.GetPlanOptions(planId);
 
-                model.Description = realState.Description;
-                model.Region = realState.Region;
-                model.Title = realState.Title;
-                model.StateType = realState.Type == (int)RealStateType.Apartment ? "آپارتمان" : (realState.Type == (int)RealStateType.Villa ? "ویلا" : (realState.Type == (int)RealStateType.Office ? "اداری" :
-                (realState.Type == (int)RealStateType.Commercial ? "تجاری" : "ویلا")));
-                model.Options = options;
-                model.City = realStateCity.Title;
-                model.Country = realStateCountry.Title;
-                model.Id = realState.Id;
-                model.Area = plan.Area;
-                model.Bathroom = plan.BathRooms;
-                model.Bedroom = plan.Rooms;
-                model.Price = plan.Price;
-                model.Address = _geoDivisionsRepo.GetFullLocation(realState.GeoDivisionId);
-                model.Title = language == (int)Language.Farsi ? realState.Title : realState.EnglishTitle;
-                model.ShortDescription = language == (int)Language.Farsi ? realState.ShortDescription : realState.EnglishShortDescription;
-                model.Image = realState.Image;
-                model.VideoStr = realState.VideoStr;
-                model.Plans = realState.Plans;
-                model.Location = realState.Location;
-                var vm = new List<PlanWithOptionViewModel>();
-                foreach (var item in realState.Plans)
-                {
-                    var OPT = _optionRepos.GetPlanOptions(item.Id);
-                    vm.Add(new PlanWithOptionViewModel()
-                    {
-                        Plan = item,
-                        Options = OPT
-                    });
-                }
+            //    model.Description = realState.Description;
+            //    model.Region = realState.Region;
+            //    model.Title = realState.Title;
+            //    model.StateType = realState.Type == (int)RealStateType.Apartment ? "آپارتمان" : (realState.Type == (int)RealStateType.Villa ? "ویلا" : (realState.Type == (int)RealStateType.Office ? "اداری" :
+            //    (realState.Type == (int)RealStateType.Commercial ? "تجاری" : "ویلا")));
+            //    model.Options = options;
+            //    model.City = realStateCity.Title;
+            //    model.Country = realStateCountry.Title;
+            //    model.Id = realState.Id;
+            //    model.Area = plan.Area;
+            //    model.Bathroom = plan.BathRooms;
+            //    model.Bedroom = plan.Rooms;
+            //    model.Price = plan.Price;
+            //    model.Address = _geoDivisionsRepo.GetFullLocation(realState.GeoDivisionId);
+            //    model.Title = language == (int)Language.Farsi ? realState.Title : realState.EnglishTitle;
+            //    model.ShortDescription = language == (int)Language.Farsi ? realState.ShortDescription : realState.EnglishShortDescription;
+            //    model.Image = realState.Image;
+            //    model.VideoStr = realState.VideoStr;
+            //    model.Plans = realState.Plans;
+            //    model.Location = realState.Location;
+            //    var vm = new List<PlanWithOptionViewModel>();
+            //    foreach (var item in realState.Plans)
+            //    {
+            //        var OPT = _optionRepos.GetPlanOptions(item.Id);
+            //        vm.Add(new PlanWithOptionViewModel()
+            //        {
+            //            Plan = item,
+            //            Options = OPT
+            //        });
+            //    }
 
-                ViewBag.PlanWithOptions = vm;
-            }
-
-            ViewBag.RealStateGallery = _realStateGalleryRepos.GetRealStateGalleries(id);
+            //    ViewBag.PlanWithOptions = vm;
+            //}
+            var model = _realStateService.GetRealStateDetail(id);
+            model.StateType = model.Type == (int)RealStateType.Apartment ? Resource.Apartment : (model.Type == (int)RealStateType.Villa ? Resource.Villa : (model.Type == (int)RealStateType.Office ? Resource.Official :
+            (model.Type == (int)RealStateType.Commercial ? Resource.Commercial : Resource.Villa)));
+            //ViewBag.RealStateGallery = _realStateGalleryRepos.GetRealStateGalleries(id);
             return View(model);
         }
         public ActionResult RecentStates()

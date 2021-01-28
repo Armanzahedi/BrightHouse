@@ -31,7 +31,6 @@ namespace SpadCompanyPanel.Web.ViewModels
         public string Bedroom { get; set; }
         public string StateType { get; set; }
         public float Price { get; set; }
-        public string Location { get; set; }
 
         private List<Option> _options;
 
