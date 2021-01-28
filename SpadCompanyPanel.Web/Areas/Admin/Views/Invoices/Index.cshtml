@@ -45,12 +45,21 @@ columns.Bound(item => @item.Invoice.PaymentStatus).IncludeInMenu(false).Title("�
 
         columns.Bound(item => @item.Invoice.Id).IncludeInMenu(false).Sortable(false).Title("دستورات").Filterable(false).Groupable(false).Template(
         @<text>
-            @*<a class='btn btn-sm btn-clean btn-icon mr-2' href="/Admin/Invoices/Edit/@item.Invoice.Id"><i class='far fa-edit text-primary'></i></a>*@
-            <a class='btn btn-sm btn-clean btn-icon mr-2' data-toggle="tooltip" title="تائید پرداخت" onclick="@(CheckPermission.Check("invoicesconfirmpayment") ? $"btnConfirmPayment({item.Invoice.Id})" : "accessDenied()")">
-        <i class='fas fa-check text-primary'></i></a>
+
+        @if(item.Invoice.PaymentStatus != 2)
+        {
+                        <a class='btn btn-sm btn-clean btn-icon mr-2' data-toggle="tooltip" title="تائید پرداخت" onclick="@(CheckPermission.Check("invoicesconfirmpayment") ? $"btnConfirmPayment({item.Invoice.Id})" : "accessDenied()")">
+                         <i class='fas fa-check text-success'></i></a>
+        }
+        else
+        {
+                        <a class='btn btn-sm btn-clean btn-icon mr-2' data-toggle="tooltip" title="عدم تائید پرداخت" onclick="@(CheckPermission.Check("invoicesrejectpayment") ? $"btnRejectPayment({item.Invoice.Id})" : "accessDenied()")">
+                         <i class='fas fa-times text-danger'></i></a>
+        }
+                    <a class='btn btn-sm btn-clean btn-icon mr-2' onclick="@(CheckPermission.Check("invoicesviewdetails") ? $"btnViewDetails({item.Invoice.Id})" : "accessDenied()")"><i class='far fa-eye text-primary'></i></a>
             <a class='btn btn-sm btn-clean btn-icon' onclick="@(CheckPermission.Check("invoicesdelete") ? $"btnDelete({item.Invoice.Id})" : "accessDenied()")"><i class='far fa-trash-alt text-danger'></i></a>
         </text>
-        ).Width(125);
+        ).Width(180);
 })
     .Sortable()
     .Scrollable()
@@ -81,6 +90,11 @@ columns.Bound(item => @item.Invoice.PaymentStatus).IncludeInMenu(false).Title("�
         )
         <!--end: Datatable-->
     </div>
+</div>
+
+</div>
+
+</div>
 </div>
 
 <!-- Modal -->
@@ -116,10 +130,25 @@ columns.Bound(item => @item.Invoice.PaymentStatus).IncludeInMenu(false).Title("�
                 });
             }
         }
+        function btnRejectPayment(id) {
+            if (confirm('آیا اطمینان دارید؟')) {
+                $.get("/Admin/Invoices/RejectPayment/" + id, function (result) {
+                    location.reload();
+                });
+            }
+        }
         function btnDelete(id) {
             $.get("/Admin/Invoices/Delete/" + id, function (result) {
                 $("#myModal").modal();
                 $("#myModalLabel").html("حذف سفارش");
+                $("#myModalHeader");
+                $("#myModalBody").html(result);
+            });
+        }
+        function btnViewDetails(id) {
+            $.get("/Admin/Invoices/ViewDetails/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("مشاهده سفارش");
                 $("#myModalHeader");
                 $("#myModalBody").html(result);
             });

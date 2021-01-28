@@ -38,6 +38,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
             {
                 var invoice = _repo.Get(id);
                 invoice.PaymentStatus = (int)PaymentStatus.Confirmed;
+                invoice.PaymentConfirmDate = DateTime.Now;
                 _repo.Update(invoice);
                 return true;
             }
@@ -45,6 +46,24 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
             {
                 return false;
             }
+        }
+        public bool RejectPayment(int id)
+        {
+            try
+            {
+                var invoice = _repo.Get(id);
+                invoice.PaymentStatus = (int)PaymentStatus.Registered;
+                _repo.Update(invoice);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public ActionResult ViewDetails(int id)
+        {
+            return PartialView(_repo.GetInvoice(id));
         }
         public ActionResult Delete(int? id)
         {

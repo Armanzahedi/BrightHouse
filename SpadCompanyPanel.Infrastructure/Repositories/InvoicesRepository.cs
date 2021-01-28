@@ -23,7 +23,7 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
         }
         public Invoice GetInvoice(int invoiceId)
         {
-            return _context.Invoices.Include(i => i.Customer.User).FirstOrDefault(i => i.Id == invoiceId);
+            return _context.Invoices.Include(i => i.Customer.User).Include(i => i.Plan.RealState).Include(i=>i.Currency).FirstOrDefault(i => i.Id == invoiceId);
         }
         public List<Invoice> GetCustomerInvoices(int customerId)
         {
