@@ -34,7 +34,6 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.Message = null;
-            ViewBag.GeoDivisionId = new SelectList(_geoDivisonsRepo.GetGeoDivisionsByType((int)GeoDivisionType.State), "Id", "Title");
             return View();
         }
 
@@ -51,7 +50,6 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     if (_usersRepo.UserNameExists(form.UserName))
                     {
                         ViewBag.Message = "کاربر دیگری با همین نام کاربری در سیستم ثبت شده";
-                        ViewBag.GeoDivisionId = new SelectList(_geoDivisonsRepo.GetGeoDivisionsByType((int)GeoDivisionType.State), "Id", "Title", form.GeoDivisionId);
 
                         return View(form);
                     }
@@ -59,14 +57,12 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                 if (_usersRepo.PhoneNumberExists(form.PhoneNumber))
                 {
                     ViewBag.Message = "کاربر دیگری با همین شماره تلفن در سیستم ثبت شده";
-                    ViewBag.GeoDivisionId = new SelectList(_geoDivisonsRepo.GetGeoDivisionsByType((int)GeoDivisionType.State), "Id", "Title",form.GeoDivisionId);
 
                     return View(form);
                 }
                 if (_usersRepo.EmailExists(form.Email))
                 {
                     ViewBag.Message = "کاربر دیگری با همین ایمیل در سیستم ثبت شده";
-                    ViewBag.GeoDivisionId = new SelectList(_geoDivisonsRepo.GetGeoDivisionsByType((int)GeoDivisionType.State), "Id", "Title", form.GeoDivisionId);
 
                     return View(form);
                 }
@@ -102,14 +98,12 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     NationalCode = form.NationalCode,
                     Address = form.Address,
                     PostalCode = form.PostalCode,
-                    GeoDivisionId = form.GeoDivisionId
                 };
                 _repo.Add(customer);
 
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GeoDivisionId = new SelectList(_geoDivisonsRepo.GetGeoDivisionsByType((int)GeoDivisionType.State), "Id", "Title", form.GeoDivisionId);
             return View(form);
         }
 
@@ -133,9 +127,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                 NationalCode = customer.NationalCode,
                 Address = customer.Address,
                 PostalCode = customer.PostalCode,
-                GeoDivisionId = customer.GeoDivisionId
             };
-            ViewBag.GeoDivisionId = new SelectList(_geoDivisonsRepo.GetGeoDivisionsByType((int)GeoDivisionType.State), "Id", "Title", form.GeoDivisionId);
             return View(form);
         }
 
@@ -154,7 +146,6 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     if (_usersRepo.UserNameExists(form.UserName, form.UserId))
                     {
                         ViewBag.Message = "کاربر دیگری با همین نام کاربری در سیستم ثبت شده";
-                        ViewBag.GeoDivisionId = new SelectList(_geoDivisonsRepo.GetGeoDivisionsByType((int)GeoDivisionType.State), "Id", "Title", form.GeoDivisionId);
 
                         return View(form);
                     }
@@ -162,13 +153,11 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                 if (_usersRepo.PhoneNumberExists(form.PhoneNumber, form.UserId))
                 {
                     ViewBag.Message = "کاربر دیگری با همین شماره تلفن در سیستم ثبت شده";
-                    ViewBag.GeoDivisionId = new SelectList(_geoDivisonsRepo.GetGeoDivisionsByType((int)GeoDivisionType.State), "Id", "Title", form.GeoDivisionId);
                     return View(form);
                 }
                 if (_usersRepo.EmailExists(form.Email, form.UserId))
                 {
                     ViewBag.Message = "کاربر دیگری با همین ایمیل در سیستم ثبت شده";
-                    ViewBag.GeoDivisionId = new SelectList(_geoDivisonsRepo.GetGeoDivisionsByType((int)GeoDivisionType.State), "Id", "Title", form.GeoDivisionId);
                     return View(form);
                 }
                 #endregion
@@ -201,12 +190,10 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                 customer.NationalCode = form.NationalCode;
                 customer.Address = form.Address;
                 customer.PostalCode = form.PostalCode;
-                customer.GeoDivisionId = form.GeoDivisionId;
                 _repo.Update(customer);
 
                 return RedirectToAction("Index");
             }
-            ViewBag.GeoDivisionId = new SelectList(_geoDivisonsRepo.GetGeoDivisionsByType((int)GeoDivisionType.State), "Id", "Title", form.GeoDivisionId);
             return View(form);
 
         }

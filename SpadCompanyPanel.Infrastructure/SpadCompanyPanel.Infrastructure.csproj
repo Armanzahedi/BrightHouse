@@ -173,6 +173,10 @@
     <Compile Include="Migrations\202101281012081_updated-invoices.Designer.cs">
       <DependentUpon>202101281012081_updated-invoices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101282156319_removed-geo-from-customer.cs" />
+    <Compile Include="Migrations\202101282156319_removed-geo-from-customer.Designer.cs">
+      <DependentUpon>202101282156319_removed-geo-from-customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -295,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101281012081_updated-invoices.resx">
       <DependentUpon>202101281012081_updated-invoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101282156319_removed-geo-from-customer.resx">
+      <DependentUpon>202101282156319_removed-geo-from-customer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

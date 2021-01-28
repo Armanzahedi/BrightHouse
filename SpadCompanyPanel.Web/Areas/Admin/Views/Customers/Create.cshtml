@@ -57,13 +57,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.GeoDivisionId, "محل سکونت", new {})
-                            <div class="col-md-10">
-                                @Html.DropDownList("GeoDivisionId", null, htmlAttributes: new {@class = "form-control"})
-                                @Html.ValidationMessageFor(model => model.GeoDivisionId, "", new {@class = "form-text text-danger"})
-                            </div>
-                        </div>
-                        <div class="form-group">
                             @Html.LabelFor(model => model.PostalCode, new {})
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.PostalCode, new {htmlAttributes = new {@class = "form-control "}})

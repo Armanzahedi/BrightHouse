@@ -1,0 +1,157 @@
+﻿@using Microsoft.AspNet.Identity
+@using SpadCompanyPanel.Web.Resources
+@model SpadCompanyPanel.Web.ViewModels.CustomerDashboardViewModel
+@{
+    ViewBag.Title = "داشبورد کاربر";
+}
+<input type="hidden" id="nav_active" value="dashboard">
+<input type="hidden" id="nav_item_active" value="dashboard">
+<div class="card card-custom gutter-b">
+    <div class="card-body">
+        <!--begin::Details-->
+        <div class="d-flex mb-9">
+            <!--begin: Pic-->
+            <div class="flex-shrink-0 mr-7 mt-lg-0 mt-3">
+                <div class="symbol symbol-50 symbol-lg-120">
+                    <img src="/Files/UserAvatars/@(Model.Customer.User.Avatar ?? "user-avatar.png")" alt="User Avatar">
+                </div>
+                <div class="symbol symbol-50 symbol-lg-120 symbol-primary d-none">
+                    <span class="font-size-h3 symbol-label font-weight-boldest">@User.Identity.GetUserName()[0]</span>
+                </div>
+            </div>
+            <!--end::Pic-->
+            <!--begin::Info-->
+            <div class="flex-grow-1">
+                <!--begin::Title-->
+                <div class="d-flex justify-content-between flex-wrap mt-1">
+                    <div class="d-flex mr-3">
+                        <a href="#" class="text-dark-75 text-hover-primary font-size-h5 font-weight-bold mr-3">@($"{Model.Customer.User.FirstName} {Model.Customer.User.LastName}")</a>
+                    </div>
+
+                    <div class="my-lg-0 my-3">
+                        <a href="/Customer/Dashboard/EditMyProfile" class="btn btn-sm btn-light-success font-weight-bolder text-uppercase mr-3">@Resource.Edit</a>
+                    </div>
+                </div>
+                <!--end::Title-->
+                <!--begin::Content-->
+                <div class="d-flex flex-wrap justify-content-between mt-1">
+                    <div class="d-flex flex-column flex-grow-1 pr-8">
+                        <div class="d-flex flex-wrap mb-4">
+                            <a href="#" class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
+                                <i class="flaticon2-new-email mr-2 font-size-lg"></i>
+                                @if (Model.Customer.User.Email != null)
+                                {
+                                    @Model.Customer.User.Email
+                                }
+                            </a>
+                            <a href="#" class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
+                                @if (Model.Customer.User.PhoneNumber != null)
+                                {
+                                    @Model.Customer.User.PhoneNumber
+                                    <i class="flaticon2-phone mr-2 font-size-lg"></i>
+                                }
+                            </a>
+                            <a href="#" class="text-dark-50 text-hover-primary font-weight-bold">
+                                @if (Model.Customer.NationalCode != null)
+                                {
+                                    <i class="flaticon2-browser mr-2 font-size-lg"></i>
+                                    @Model.Customer.NationalCode
+                                }
+                            </a>
+                        </div>
+                        <span style="padding-bottom: 10px" class="font-weight-bold text-dark-50">
+                            <span class="font-weight-bold text-dark">
+                                @Resource.Address:
+                            </span>
+                            @if (Model.Customer.Address != null)
+                            {
+                                @Model.Customer.Address
+                            }
+                            else
+                            {
+                                <a href="/Customer/Dashboard/EditMyProfile">@Resource.Edit</a>
+                            }
+                        </span>
+                        <span class="font-weight-bold text-dark-50">
+                            <span class="font-weight-bold text-dark">
+                                @Resource.PostalCode:
+                            </span>
+                            @if (Model.Customer.PostalCode != null)
+                            {
+                                @Model.Customer.PostalCode
+                            }
+                            else
+                            {
+                                <a href="/Customer/Dashboard/EditMyProfile">ویرایش</a>
+                            }
+                        </span>
+                    </div>
+                </div>
+                <!--end::Content-->
+            </div>
+            <!--end::Info-->
+        </div>
+        <!--end::Details-->
+    </div>
+</div>
+<div class="card card-custom">
+    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+        <div class="card-title">
+            <h3 class="card-label">
+                @Resource.Invoices
+                <span class="d-block text-muted pt-2 font-size-sm">@Resource.YouCanSeeYourInvoicesHere</span>
+            </h3>
+        </div>
+        <div class="card-toolbar">
+        </div>
+    </div>
+    <div class="card-body">
+        <!--begin: Datatable-->
+        <table class="datatable datatable-bordered" id="kt_datatable">
+            <thead>
+                <tr>
+                    <th title="Field #1">@Resource.InvoiceNumber</th>
+                    <th title="Field #2">@Resource.RegisterDate</th>
+                    <th title="Field #3">@Resource.Price</th>
+                    <th title="Field #4">@Resource.RealState</th>
+                    <th title="Field #5">@Resource.Plan</th>
+                    <th title="Field #6">@Resource.PaymentStatus</th>
+                    <th title="Field #9"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Invoices)
+                {
+                <tr>
+                    <td>@item.InvoiceNumber</td>
+                    <td>@item.RegisteredDate</td>
+                    <td>@item.TotalPrice.ToString("##,###") @item.Currency.Unit</td>
+                    <td><a href="/RealState/Details/@item.Plan.RealStateId">@item.Plan.RealState.Title</a></td>
+                    <td>@item.Plan.Title</td>
+                    @if (item.PaymentStatus == 0)
+                    {
+                        <td>
+                            <span class="text-danger">@Resource.NotPayed <a href="/RealState/Payment/@item.PlanId">( @Resource.Pay )</a></span>
+                        </td>
+                    }
+                    else if (item.PaymentStatus == 1)
+                    {
+                        <td>
+                            <span class="text-warning">پرداخت اعلام شده</span>
+                        </td>
+                    }
+                    else if (item.PaymentStatus == 2)
+                    {
+                        <td>
+                            <span class="text-success">پرداخت تائید شده</span>
+
+                        </td>
+                    }
+                    <td></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <!--end: Datatable-->
+    </div>
+</div>

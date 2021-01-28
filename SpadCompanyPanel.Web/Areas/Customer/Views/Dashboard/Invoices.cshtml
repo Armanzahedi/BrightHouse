@@ -1,0 +1,67 @@
+﻿@model List<SpadCompanyPanel.Core.Models.Invoice>
+@{
+    ViewBag.Title = "سفارشات";
+}
+<input type="hidden" id="nav_active" value="invoices">
+<input type="hidden" id="nav_item_active" value="invoices">
+<div class="card card-custom">
+    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+        <div class="card-title">
+            <h3 class="card-label">
+                شفارشات
+                <span class="d-block text-muted pt-2 font-size-sm">شما میتوانید در این قست تاریخچه ی تمامی سفارشات خود را مشاهده کنید</span>
+            </h3>
+        </div>
+        <div class="card-toolbar">
+        </div>
+    </div>
+    <div class="card-body">
+        <!--begin: Datatable-->
+        <table class="datatable datatable-bordered" id="kt_datatable">
+            <thead>
+                <tr>
+                    <th title="Field #1">شماره سفارش</th>
+                    <th title="Field #2">تاریخ ثبت</th>
+                    <th title="Field #3">قیمت کل</th>
+                    <th title="Field #4">ملک</th>
+                    <th title="Field #5">پلان</th>
+                    <th title="Field #6">وضعیت پرداخت</th>
+                    <th title="Field #9"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.InvoiceNumber</td>
+                        <td>@item.RegisteredDate</td>
+                        <td>@item.TotalPrice.ToString("##,###") @item.Currency.Unit</td>
+                        <td><a href="/RealState/Details/@item.Plan.RealStateId">@item.Plan.RealState.Title</a></td>
+                        <td>@item.Plan.Title</td>
+                        @if (item.PaymentStatus == 0)
+                        {
+                            <td>
+                                <span class="text-danger">پرداخت نشده <a href="/RealState/Payment/@item.PlanId">( پرداخت )</a></span>
+                            </td>
+                        }
+                        else if (item.PaymentStatus == 1)
+                        {
+                            <td>
+                                <span class="text-warning">پرداخت اعلام شده</span>
+                            </td>
+                        }
+                        else if (item.PaymentStatus == 2)
+                        {
+                            <td>
+                                <span class="text-success">پرداخت تائید شده</span>
+
+                            </td>
+                        }
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!--end: Datatable-->
+    </div>
+</div>

@@ -21,8 +21,6 @@ namespace SpadCompanyPanel.Core.Models
         public string PostalCode { get; set; }
         public string UserId { get; set; }
         public User User { get; set; }
-        public int? GeoDivisionId { get; set; }
-        public GeoDivision GeoDivision { get; set; }
         public ICollection<Invoice> Invoices { get; set; }
         public string InsertUser { get; set; }
         public DateTime? InsertDate { get; set; }

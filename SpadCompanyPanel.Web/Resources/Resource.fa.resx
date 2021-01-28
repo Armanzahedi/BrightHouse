@@ -564,4 +564,88 @@
   <data name="Vt" xml:space="preserve">
     <value>تور مجازی</value>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+  <data name="AnnouncedPayment" xml:space="preserve">
+    <value>پرداخت اعلام شده</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="ConfirmedPayment" xml:space="preserve">
+    <value>پرداخت تائید شده</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>داشبورد</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="EditInformation" xml:space="preserve">
+    <value>ویرایش اطلاعات</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="Grouping" xml:space="preserve">
+    <value>دسته بندی</value>
+  </data>
+  <data name="Hi" xml:space="preserve">
+    <value>سلام</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>تصویر</value>
+  </data>
+  <data name="IncorrectPassword" xml:space="preserve">
+    <value>رمز عبور وارد شده صحیح نیست</value>
+  </data>
+  <data name="InvoiceNumber" xml:space="preserve">
+    <value>شماره سفارش</value>
+  </data>
+  <data name="Invoices" xml:space="preserve">
+    <value>سفارشات</value>
+  </data>
+  <data name="NationalCode" xml:space="preserve">
+    <value>کد ملی</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>پسوور جدید</value>
+  </data>
+  <data name="NotPayed" xml:space="preserve">
+    <value>پرداخت نشده</value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>پرداخت</value>
+  </data>
+  <data name="PaymentStatus" xml:space="preserve">
+    <value>وضعیت پرداخت</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>کد پستی</value>
+  </data>
+  <data name="RealState" xml:space="preserve">
+    <value>ملک</value>
+  </data>
+  <data name="RegisterDate" xml:space="preserve">
+    <value>تاریخ ثبت</value>
+  </data>
+  <data name="RemoveImage" xml:space="preserve">
+    <value>حذف تصویر</value>
+  </data>
+  <data name="UpdatePassword" xml:space="preserve">
+    <value>بروز رسانی رمز عبور</value>
+  </data>
+  <data name="UploadImage" xml:space="preserve">
+    <value>آپلود تصویر</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="UserNameExits" xml:space="preserve">
+    <value>کاربر دیگری با همین نام کاربری در سیستم ثبت شده</value>
+  </data>
+  <data name="YouCanSeeYourInvoicesHere" xml:space="preserve">
+    <value>شما میتوانید در این قست تاریخچه ی تمامی سفارشات خود را مشاهده کنید</value>
+  </data>
 </root>

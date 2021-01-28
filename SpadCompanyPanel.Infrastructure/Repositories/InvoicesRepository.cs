@@ -27,7 +27,7 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
         }
         public List<Invoice> GetCustomerInvoices(int customerId)
         {
-            return _context.Invoices.Where(i => i.IsDeleted == false && i.CustomerId == customerId).ToList();
+            return _context.Invoices.Where(i => i.IsDeleted == false && i.CustomerId == customerId).Include(i=>i.Currency).Include(i=>i.Plan.RealState).ToList();
         }
     }
 }

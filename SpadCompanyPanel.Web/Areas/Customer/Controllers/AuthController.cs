@@ -82,7 +82,6 @@ namespace SpadCompanyPanel.Web.Areas.Customer.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(ViewModels.LoginCustomerViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)

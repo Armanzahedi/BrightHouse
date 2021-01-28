@@ -11,7 +11,7 @@ namespace SpadCompanyPanel.Web.ViewModels
     public class CustomerDashboardViewModel
     {
         public Customer Customer { get; set; }
-        public List<CustomerInvoiceViewModel> Invoices { get; set; }
+        public List<Invoice> Invoices { get; set; }
     }
     public class CustomerInvoiceViewModel
     {
@@ -63,6 +63,31 @@ namespace SpadCompanyPanel.Web.ViewModels
         [EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailNotValidError")]
         public string Email { get; set; }
         [Display(Name = "Password", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordRequired")]
+        [StringLength(100, ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordIsLessThanSix", MinimumLength = 6)]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$",
+            ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordIsNotStrong")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "ReTypePassword", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "ReTypePasswordRequired")]
+        [Compare("Password", ErrorMessage = "RetypedPasswordIsNotCorrect")]
+        public string ConfirmPassword { get; set; }
+    }
+    public class ResetCustomerPasswordViewModel
+    {
+        public string UserId { get; set; }
+
+        [Display(Name = "Password", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordRequired")]
+        [StringLength(100, ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordIsLessThanSix", MinimumLength = 6)]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$",
+            ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordIsNotStrong")]
+        [DataType(DataType.Password)]
+        public string OldPassword { get; set; }
+        [Display(Name = "NewPassword", ResourceType = typeof(Resource))]
         [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordRequired")]
         [StringLength(100, ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PasswordIsLessThanSix", MinimumLength = 6)]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$",

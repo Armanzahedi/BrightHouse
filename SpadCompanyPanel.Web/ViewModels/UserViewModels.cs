@@ -1,4 +1,5 @@
 ﻿using SpadCompanyPanel.Core.Models;
+using SpadCompanyPanel.Web.Resources;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -78,8 +79,6 @@ namespace SpadCompanyPanel.Web.ViewModels
         public string NationalCode { get; set; }
         [Display(Name = "کد پستی")]
         public string PostalCode { get; set; }
-        [Display(Name = "محل سکونت")]
-        public int? GeoDivisionId { get; set; }
         [Required(ErrorMessage = "{0} را وارد کنید")]
         [StringLength(100, ErrorMessage = "{0} باید حداقل 6 کارکتر باشد", MinimumLength = 6)]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$",
@@ -100,30 +99,28 @@ namespace SpadCompanyPanel.Web.ViewModels
         public string UserId { get; set; }
         public int? CustomerId { get; set; }
 
-        [Display(Name = "نام کاربری")]
+        [Display(Name = "UserName", ResourceType = typeof(Resource))]
         public string UserName { get; set; }
-        [Display(Name = "نام")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [Display(Name = "FirstName", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "FirstNameRequired")]
         public string FirstName { get; set; }
-        [Display(Name = "نام خانوادگی")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [Display(Name = "LastName", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "LastNameRequired")]
         public string LastName { get; set; }
-        [Display(Name = "شماره تلفن")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [Display(Name = "PhoneNumber", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "PhoneNumberRequired")]
         public string PhoneNumber { get; set; }
-        [Display(Name = "ایمیل")]
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        [EmailAddress(ErrorMessage = "{0} وارد شده معتبر نیست")]
+        [Display(Name = "Email", ResourceType = typeof(Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EnterEmailError")]
+        [EmailAddress(ErrorMessageResourceType = typeof(Resource), ErrorMessageResourceName = "EmailNotValidError")]
         public string Email { get; set; }
-        [Display(Name = "آدرس")]
+        [Display(Name = "Address", ResourceType = typeof(Resource))]
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
-        [Display(Name = "کد ملی")]
+        [Display(Name = "NationalCode", ResourceType = typeof(Resource))]
         public string NationalCode { get; set; }
-        [Display(Name = "کد پستی")]
+        [Display(Name = "PostalCode", ResourceType = typeof(Resource))]
         public string PostalCode { get; set; }
-        [Display(Name = "محل سکونت")]
-        public int? GeoDivisionId { get; set; }
         public string Avatar { get; set; }
     }
     public class UserWithRolesViewModel

@@ -27,7 +27,7 @@
                     @using (Html.BeginForm("Login", "Auth", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "form" }))
                     {
                         <div class="form-group">
-                            @Html.LabelFor(m => m.PhoneNumber)
+                            @Html.LabelFor(m => m.PhoneNumber) @(SpadCompanyPanel.Web.Resources.Resource.UserName)
                             @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "text-dark" } })
                             @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                         </div>

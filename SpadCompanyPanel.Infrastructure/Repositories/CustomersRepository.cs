@@ -31,7 +31,7 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
         public Customer GetCurrentCustomer()
         {
             var currentUserId = CheckPermission.GetCurrentUserId();
-            return _context.Customers.Include(c => c.User).Include(c=>c.GeoDivision).FirstOrDefault(c => c.UserId == currentUserId);
+            return _context.Customers.Include(c => c.User).FirstOrDefault(c => c.UserId == currentUserId);
         }
     }
 }

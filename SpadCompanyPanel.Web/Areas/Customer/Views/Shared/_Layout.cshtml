@@ -1,40 +1,442 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@using Microsoft.AspNet.Identity
+@using SpadCompanyPanel.Infrastructure.Helpers
+@using SpadCompanyPanel.Web.Resources
+@{ 
+    var currentLang = LanguageHelper.GetCulture();
+}
+<!DOCTYPE html>
+<html lang="en" direction="@(currentLang == 1? "rtl":"ltr")" dir="@(currentLang == 1? "rtl":"ltr")" style="direction: @(currentLang == 1? "rtl":"ltr")">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" href="/Content/logo.png">
+    <title>@ViewBag.Title - Brighthouse</title>
+    <!--begin::Page Vendors Styles(used by this page)-->
+    <link href="~/Content/admin/plugins/custom/fullcalendar/fullcalendar.bundle@(currentLang == 1?".rtl":null).css"
+          rel="stylesheet"
+          type="text/css" />
+    <!--end::Page Vendors Styles-->
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="~/Content/admin/plugins/global/plugins.bundle@(currentLang == 1?".rtl":null).css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="~/Content/admin/plugins/custom/prismjs/prismjs.bundle@(currentLang == 1?".rtl":null).css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="~/Content/admin/css/style.bundle@(currentLang == 1?".rtl":null).css"
+          rel="stylesheet"
+          type="text/css" />
+    <!--end::Global Theme Styles-->
+    <!--begin::Layout Themes(used by all pages)-->
+
+    <link href="~/Content/admin/css/themes/layout/header/base/light@(currentLang == 1?".rtl":null).css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="~/Content/admin/css/themes/layout/header/menu/light@(currentLang == 1?".rtl":null).css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="~/Content/admin/css/themes/layout/brand/dark@(currentLang == 1?".rtl":null).css"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="~/Content/admin/css/themes/layout/aside/dark@(currentLang == 1?".rtl":null).css"
+          rel="stylesheet"
+          type="text/css" />
+    <!--end::Layout Themes-->
+    <script src="~/Content/admin/plugins/global/plugins.bundle.js"></script>
+    <script src="~/Content/admin/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="~/Content/admin/js/scripts.bundle.js"></script>
+    <script src="~/Content/admin/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <script src="~/Content/admin/js/pages/widgets.js"></script>
+    <!-- My css -->
+    @if (currentLang == 1)
+    {
+        <link href="~/Content/admin/myStyle.css" rel="stylesheet" />
+    }
+
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+<body id="kt_body"
+      class="header-fixed header-mobile-fixed aside-enabled aside-fixed aside-minimize-hoverable">
+    @if (currentLang != 1)
+    {
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+        </style>
+    }
+    <!--begin::Main-->
+    <!--begin::Header Mobile-->
+    <div id="kt_header_mobile"
+         class="header-mobile align-items-center header-mobile-fixed">
+        <!--begin::Logo-->
+        <a href="/">
+            <img alt="Logo" src="~/Content/logo.png" width="65" />
+        </a>
+        <!--end::Logo-->
+        <!--begin::Toolbar-->
+        <div class="d-flex align-items-center">
+            <!--begin::Aside Mobile Toggle-->
+            <button class="btn p-0 burger-icon burger-icon-left"
+                    id="kt_aside_mobile_toggle">
+                <span></span>
+            </button>
+            <!--end::Aside Mobile Toggle-->
+            <!--begin::Topbar Mobile Toggle-->
+            <button class="btn btn-hover-text-primary p-0 ml-2"
+                    id="kt_header_mobile_topbar_toggle">
+                <span class="svg-icon svg-icon-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                         width="24px"
+                         height="24px"
+                         viewBox="0 0 24 24"
+                         version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <polygon points="0 0 24 0 24 24 0 24" />
+                            <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                                  fill="#000000"
+                                  fill-rule="nonzero"
+                                  opacity="0.3" />
+                            <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                                  fill="#000000"
+                                  fill-rule="nonzero" />
+                        </g>
+                    </svg><!--end::Svg Icon-->
+                </span>
+            </button>
+            <!--end::Topbar Mobile Toggle-->
         </div>
+        <!--end::Toolbar-->
     </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    <!--end::Header Mobile-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="d-flex flex-row flex-column-fluid page">
+            <!--begin::Aside-->
+            <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto"
+                 id="kt_aside">
+                <!--begin::Brand-->
+                <div class="brand flex-column-auto" id="kt_brand">
+                    <!--begin::Logo-->
+                    <a href="/" class="brand-logo" style="align-items:center">
+                        <img alt="Logo" src="~/Content/logo.png" width="80" />
+                    </a>
+                    <!--end::Logo-->
+                    <!--begin::Toggle-->
+                    <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
+                        <span class="svg-icon svg-icon svg-icon-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="24px"
+                                 height="24px"
+                                 viewBox="0 0 24 24"
+                                 version="1.1">
+                                <g stroke="none"
+                                   stroke-width="1"
+                                   fill="none"
+                                   fill-rule="evenodd">
+                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                    <path d="M5.29288961,6.70710318 C4.90236532,6.31657888 4.90236532,5.68341391 5.29288961,5.29288961 C5.68341391,4.90236532 6.31657888,4.90236532 6.70710318,5.29288961 L12.7071032,11.2928896 C13.0856821,11.6714686 13.0989277,12.281055 12.7371505,12.675721 L7.23715054,18.675721 C6.86395813,19.08284 6.23139076,19.1103429 5.82427177,18.7371505 C5.41715278,18.3639581 5.38964985,17.7313908 5.76284226,17.3242718 L10.6158586,12.0300721 L5.29288961,6.70710318 Z"
+                                          fill="#000000"
+                                          fill-rule="nonzero"
+                                          transform="translate(8.999997, 11.999999) scale(-1, 1) translate(-8.999997, -11.999999) " />
+                                    <path d="M10.7071009,15.7071068 C10.3165766,16.0976311 9.68341162,16.0976311 9.29288733,15.7071068 C8.90236304,15.3165825 8.90236304,14.6834175 9.29288733,14.2928932 L15.2928873,8.29289322 C15.6714663,7.91431428 16.2810527,7.90106866 16.6757187,8.26284586 L22.6757187,13.7628459 C23.0828377,14.1360383 23.1103407,14.7686056 22.7371482,15.1757246 C22.3639558,15.5828436 21.7313885,15.6103465 21.3242695,15.2371541 L16.0300699,10.3841378 L10.7071009,15.7071068 Z"
+                                          fill="#000000"
+                                          fill-rule="nonzero"
+                                          opacity="0.3"
+                                          transform="translate(15.999997, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-15.999997, -11.999999) " />
+                                </g>
+                            </svg><!--end::Svg Icon-->
+                        </span>
+                    </button>
+                    <!--end::Toolbar-->
+                </div>
+                <!--end::Brand-->
+                <!--begin::Aside Menu-->
+                <div class="aside-menu-wrapper flex-column-fluid"
+                     id="kt_aside_menu_wrapper">
+                    <!--begin::Menu Container-->
+                    <div id="kt_aside_menu"
+                         class="aside-menu my-4"
+                         data-menu-vertical="1"
+                         data-menu-scroll="1"
+                         data-menu-dropdown-timeout="500">
+                        <!--begin::Menu Nav-->
+                        <ul class="menu-nav">
+                            <li class="menu-item" id="nav_dashboard" aria-haspopup="true">
+                                <a href="/Customer/Dashboard" class="menu-link">
+                                    <span class="svg-icon menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             width="24px"
+                                             height="24px"
+                                             viewBox="0 0 24 24"
+                                             version="1.1">
+                                            <g stroke="none"
+                                               stroke-width="1"
+                                               fill="none"
+                                               fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24" />
+                                                <path d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z"
+                                                      fill="#000000"
+                                                      fill-rule="nonzero" />
+                                                <path d="M11.0563554,18.6706981 L5.33593024,14.122919 C4.94553994,13.8125559 4.37746707,13.8774308 4.06710397,14.2678211 C4.06471678,14.2708238 4.06234874,14.2738418 4.06,14.2768747 L4.06,14.2768747 C3.75257288,14.6738539 3.82516916,15.244888 4.22214834,15.5523151 C4.22358765,15.5534297 4.2250303,15.55454 4.22647627,15.555646 L11.0872776,20.8031356 C11.6250734,21.2144692 12.371757,21.2145375 12.909628,20.8033023 L19.7677785,15.559828 C20.1693192,15.2528257 20.2459576,14.6784381 19.9389553,14.2768974 C19.9376429,14.2751809 19.9363245,14.2734691 19.935,14.2717619 L19.935,14.2717619 C19.6266937,13.8743807 19.0546209,13.8021712 18.6572397,14.1104775 C18.654352,14.112718 18.6514778,14.1149757 18.6486172,14.1172508 L12.9235044,18.6705218 C12.377022,19.1051477 11.6029199,19.1052208 11.0563554,18.6706981 Z"
+                                                      fill="#000000"
+                                                      opacity="0.3" />
+                                            </g>
+                                        </svg><!--end::Svg Icon-->
+                                    </span><span class="menu-text">@Resource.Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="menu-section">
+                                <h4 class="menu-text">@Resource.Grouping</h4>
+                                <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+                            </li>
+                            <li class="menu-item menu-item-submenu"
+                                id="nav_editprofile"
+                                aria-haspopup="true"
+                                data-menu-toggle="hover">
+                                <a href="/Customer/Dashboard/EditMyProfile" class="menu-link menu-toggle">
+                                    <span class="svg-icon menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24" />
+                                                <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                                <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero" />
+                                            </g>
+                                        </svg>
+                                    </span><span class="menu-text">@Resource.EditInformation</span>
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-submenu"
+                                id="nav_invoices"
+                                aria-haspopup="true"
+                                data-menu-toggle="hover">
+                                <a href="/Customer/Dashboard/Invoices" class="menu-link menu-toggle">
+                                    <span class="svg-icon menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24" />
+                                                <path d="M4.85714286,1 L11.7364114,1 C12.0910962,1 12.4343066,1.12568431 12.7051108,1.35473959 L17.4686994,5.3839416 C17.8056532,5.66894833 18,6.08787823 18,6.52920201 L18,19.0833333 C18,20.8738751 17.9795521,21 16.1428571,21 L4.85714286,21 C3.02044787,21 3,20.8738751 3,19.0833333 L3,2.91666667 C3,1.12612489 3.02044787,1 4.85714286,1 Z M8,12 C7.44771525,12 7,12.4477153 7,13 C7,13.5522847 7.44771525,14 8,14 L15,14 C15.5522847,14 16,13.5522847 16,13 C16,12.4477153 15.5522847,12 15,12 L8,12 Z M8,16 C7.44771525,16 7,16.4477153 7,17 C7,17.5522847 7.44771525,18 8,18 L11,18 C11.5522847,18 12,17.5522847 12,17 C12,16.4477153 11.5522847,16 11,16 L8,16 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                                <path d="M6.85714286,3 L14.7364114,3 C15.0910962,3 15.4343066,3.12568431 15.7051108,3.35473959 L20.4686994,7.3839416 C20.8056532,7.66894833 21,8.08787823 21,8.52920201 L21,21.0833333 C21,22.8738751 20.9795521,23 19.1428571,23 L6.85714286,23 C5.02044787,23 5,22.8738751 5,21.0833333 L5,4.91666667 C5,3.12612489 5.02044787,3 6.85714286,3 Z M8,12 C7.44771525,12 7,12.4477153 7,13 C7,13.5522847 7.44771525,14 8,14 L15,14 C15.5522847,14 16,13.5522847 16,13 C16,12.4477153 15.5522847,12 15,12 L8,12 Z M8,16 C7.44771525,16 7,16.4477153 7,17 C7,17.5522847 7.44771525,18 8,18 L11,18 C11.5522847,18 12,17.5522847 12,17 C12,16.4477153 11.5522847,16 11,16 L8,16 Z" fill="#000000" fill-rule="nonzero" />
+                                            </g>
+                                        </svg>
+                                    </span><span class="menu-text">@Resource.Invoices</span>
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item-submenu"
+                                id="nav_customers"
+                                aria-haspopup="true"
+                                data-menu-toggle="hover">
+                                <form id="logoutForm" action="/Customer/Auth/LogOff" method="post">
+                                </form>
+                                <a href="javascript:document.getElementById('logoutForm').submit()" class="menu-link menu-toggle">
+                                    <span class="svg-icon menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path d="M21.4451171,17.7910156 C21.4451171,16.9707031 21.6208984,13.7333984 19.0671874,11.1650391 C17.3484374,9.43652344 14.7761718,9.13671875 11.6999999,9 L11.6999999,4.69307548 C11.6999999,4.27886191 11.3642135,3.94307548 10.9499999,3.94307548 C10.7636897,3.94307548 10.584049,4.01242035 10.4460626,4.13760526 L3.30599678,10.6152626 C2.99921905,10.8935795 2.976147,11.3678924 3.2544639,11.6746702 C3.26907199,11.6907721 3.28437331,11.7062312 3.30032452,11.7210037 L10.4403903,18.333467 C10.7442966,18.6149166 11.2188212,18.596712 11.5002708,18.2928057 C11.628669,18.1541628 11.6999999,17.9721616 11.6999999,17.7831961 L11.6999999,13.5 C13.6531249,13.5537109 15.0443703,13.6779456 16.3083984,14.0800781 C18.1284272,14.6590944 19.5349747,16.3018455 20.5280411,19.0083314 L20.5280247,19.0083374 C20.6363903,19.3036749 20.9175496,19.5 21.2321404,19.5 L21.4499999,19.5 C21.4499999,19.0068359 21.4451171,18.2255859 21.4451171,17.7910156 Z" fill="#000000" fill-rule="nonzero" />
+                                            </g>
+                                        </svg>
+                                    </span><span class="menu-text">@Resource.Exit</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--end::Menu Nav-->
+                    </div>
+                    <!--end::Menu Container-->
+                </div>
+                <!--end::Aside Menu-->
+            </div>
+            <!--end::Aside-->
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                <!--begin::Header-->
+                <div id="kt_header" class="header header-fixed">
+                    <!--begin::Container-->
+                    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+                        <!--begin::Topbar-->
+                        <div class="topbar">
+                            <!--begin::User-->
+                            <div class="topbar-item">
+                                <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2"
+                                     id="kt_quick_user_toggle">
+                                    <span class="symbol symbol-lg-35 symbol-25 symbol-light-success mr-2">
+                                        <span class="symbol-label font-size-h5 font-weight-bold">@User.Identity.GetUserName()[0]</span>
+                                    </span>
+                                    <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1"> @Resource.Hi, </span>
+                                    <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">@User.Identity.GetUserName()</span>
+                                </div>
+                            </div>
+                            <!--end::User-->
+                        </div>
+                        <!--end::Topbar-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Header-->
+                <!--begin::Content-->
+                <div class="content d-flex flex-column flex-column-fluid"
+                     id="kt_content">
+                    <!--begin::Entry-->
+                    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                        <div class="px-5">
+                            @RenderBody()
+                        </div>
+                    </div>
+                    <!--end::Entry-->
+                </div>
+                <!--end::Content-->
+                <!--begin::Footer-->
+                <div class="footer bg-white py-4 d-flex flex-lg-column"
+                     id="kt_footer">
+                    <!--begin::Container-->
+                    <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <!--begin::Copyright-->
+                        <div class="text-dark order-2 order-md-1">
+                            <span class="text-muted font-weight-bold mr-2">2020&copy;</span>
+                            <a href="https://www.spad.co/"
+                               target="_blank"
+                               class="text-dark-75 text-hover-primary">Created by Spad</a>
+                        </div>
+                        <!--end::Copyright-->
+                        <!--begin::Nav-->
+                        <div class="nav nav-dark">
+                            <a href="https://www.spad.co/"
+                               target="_blank"
+                               class="nav-link pl-0 pr-0">Contact</a>
+                        </div>
+                        <!--end::Nav-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Footer-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
     </div>
+    <!--end::Main-->
+    <!-- begin::User Panel-->
+    @*@Html.Action("UserPartial", "Dashboard")*@
+    <!-- end::User Panel-->
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop">
+        <span class="svg-icon">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 width="24px"
+                 height="24px"
+                 viewBox="0 0 24 24"
+                 version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24" />
+                    <rect fill="#000000"
+                          opacity="0.3"
+                          x="11"
+                          y="10"
+                          width="2"
+                          height="10"
+                          rx="1" />
+                    <path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z"
+                          fill="#000000"
+                          fill-rule="nonzero" />
+                </g>
+            </svg>
+        </span>
+    </div>
+    <!--end::Scrolltop-->
+    <!--begin::Global Config(global config for global JS scripts)-->
+    <script>
+        var KTAppSettings = {
+            breakpoints: {
+                sm: 576,
+                md: 768,
+                lg: 992,
+                xl: 1200,
+                xxl: 1400,
+            },
+            colors: {
+                theme: {
+                    base: {
+                        white: "#ffffff",
+                        primary: "#3699FF",
+                        secondary: "#E5EAEE",
+                        success: "#1BC5BD",
+                        info: "#8950FC",
+                        warning: "#FFA800",
+                        danger: "#F64E60",
+                        light: "#E4E6EF",
+                        dark: "#181C32",
+                    },
+                    light: {
+                        white: "#ffffff",
+                        primary: "#E1F0FF",
+                        secondary: "#EBEDF3",
+                        success: "#C9F7F5",
+                        info: "#EEE5FF",
+                        warning: "#FFF4DE",
+                        danger: "#FFE2E5",
+                        light: "#F3F6F9",
+                        dark: "#D6D6E0",
+                    },
+                    inverse: {
+                        white: "#ffffff",
+                        primary: "#ffffff",
+                        secondary: "#3F4254",
+                        success: "#ffffff",
+                        info: "#ffffff",
+                        warning: "#ffffff",
+                        danger: "#ffffff",
+                        light: "#464E5F",
+                        dark: "#ffffff",
+                    },
+                },
+                gray: {
+                    "gray-100": "#F3F6F9",
+                    "gray-200": "#EBEDF3",
+                    "gray-300": "#E4E6EF",
+                    "gray-400": "#D1D3E0",
+                    "gray-500": "#B5B5C3",
+                    "gray-600": "#7E8299",
+                    "gray-700": "#5E6278",
+                    "gray-800": "#3F4254",
+                    "gray-900": "#181C32",
+                },
+            },
+            "font-family": "Poppins",
+        };
+    </script>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <!--end::Global Config-->
+    <script>
+        $('#kt_datatable').KTDatatable({
+            data: {
+                saveState: { cookie: false },
+            },
+            pagination: false,
+            layout: {
+                spinner: { opacity: 0, message: '' },
+            },
+        });
+        var navActive = $('#nav_active').val();
+        var navItemActive = $('#nav_item_active').val();
+        if (navActive != null && navActive != "") {
+            $('#nav_' + navActive + '').addClass("menu-item-open");
+            if ($('#subnav_' + navActive + '').length) {
+                $('#subnav_' + navActive + '').css("display", "");
+                $('#subnav_' + navActive + '').css("overflow", "");
+            }
+        }
+        if (navItemActive != null && navItemActive != "") {
+            $('#nav_item_' + navItemActive + '').addClass("menu-item-active");
+        }
+    </script>
+    <script>
+        function accessDenied() {
+            Swal.fire("Error!", "شما دسترسی لازم برای ورود به این بخش را ندارید", "error");
+        }
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

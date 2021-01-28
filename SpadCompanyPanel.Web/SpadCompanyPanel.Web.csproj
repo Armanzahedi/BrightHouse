@@ -226,6 +226,7 @@
     <Compile Include="Areas\Admin\Controllers\TestimonialsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Customer\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Customer\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Customer\CustomerAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -3268,6 +3269,10 @@
     <Content Include="Areas\Customer\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Customer\Views\Auth\Login.cshtml" />
     <Content Include="Areas\Customer\Views\Auth\Register.cshtml" />
+    <Content Include="Areas\Customer\Views\Dashboard\EditMyProfile.cshtml" />
+    <Content Include="Areas\Customer\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Customer\Views\Dashboard\Invoices.cshtml" />
+    <Content Include="Areas\Customer\Views\Dashboard\ResetMyPassword.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
