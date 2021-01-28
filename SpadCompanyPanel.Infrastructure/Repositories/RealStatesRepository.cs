@@ -24,5 +24,9 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
             return _context.RealStates.Include(p => p.Plans).Where(w => w.Id == id).FirstOrDefault();
         }
 
+        public List<RealState> GetRecentEStates(int count)
+        {
+            return _context.Set<RealState>().Where(e => e.IsDeleted == false).OrderByDescending(e => e.Id).Take(count).ToList();
+        }
     }
 }

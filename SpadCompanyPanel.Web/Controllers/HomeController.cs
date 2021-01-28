@@ -166,6 +166,23 @@ namespace SpadCompanyPanel.Web.Controllers
             //footerContent.Pinterest = _contentRepo.Get((int) StaticContents.Pinterest);
             //footerContent.Facebook = _contentRepo.Get((int) StaticContents.Facebook);
 
+            var lang = LanguageHelper.GetCulture();
+
+            ViewBag.Phone = _contentRepo.GetStaticContentDetail((int)StaticContents.Phone).ShortDescription;
+            ViewBag.Address = _contentRepo.Get(lang == (int)Language.Farsi ? (int)StaticContents.Address : (int)StaticContents.AddressEnglish).ShortDescription;
+            ViewBag.Email = _contentRepo.GetStaticContentDetail((int)StaticContents.Email).ShortDescription;
+
+            var RecentEstates = _stateRepos.GetRecentEStates(2);
+            RecentEstates.ForEach(item =>
+            {
+                item.Id = item.Id;
+                item.Title = (lang == (int)Language.Farsi ? item.Title : item.EnglishTitle);
+                item.ShortDescription = (lang == (int)Language.Farsi ? item.ShortDescription : item.EnglishShortDescription);
+                item.Image = item.Image;
+            });
+
+            ViewBag.RecentEstates = RecentEstates;
+
             return PartialView();
         }
         [Route("Certificates")]

@@ -70,6 +70,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Abu Dhabi.
+        /// </summary>
+        public static string AbuDhabi {
+            get {
+                return ResourceManager.GetString("AbuDhabi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Afghanistan.
         /// </summary>
         public static string Afghanistan {
@@ -102,6 +111,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string Allaboutthelatestamazingupdates {
             get {
                 return ResourceManager.GetString("Allaboutthelatestamazingupdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ankara.
+        /// </summary>
+        public static string Ankara {
+            get {
+                return ResourceManager.GetString("Ankara", resourceCulture);
             }
         }
         
@@ -196,6 +214,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cities.
+        /// </summary>
+        public static string Cities {
+            get {
+                return ResourceManager.GetString("Cities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to City.
         /// </summary>
         public static string City {
@@ -277,11 +304,20 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Designed by Spade.
+        ///   Looks up a localized string similar to Designed by .
         /// </summary>
-        public static string DesignedbySpade {
+        public static string Designedby {
             get {
-                return ResourceManager.GetString("DesignedbySpade", resourceCulture);
+                return ResourceManager.GetString("Designedby", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dubai.
+        /// </summary>
+        public static string Dubai {
+            get {
+                return ResourceManager.GetString("Dubai", resourceCulture);
             }
         }
         
@@ -493,6 +529,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Konya.
+        /// </summary>
+        public static string Konya {
+            get {
+                return ResourceManager.GetString("Konya", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Latest News.
         /// </summary>
         public static string LatestNews {
@@ -700,6 +745,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recent Estates.
+        /// </summary>
+        public static string RecentStates {
+            get {
+                return ResourceManager.GetString("RecentStates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rent.
         /// </summary>
         public static string Rent {
@@ -709,7 +763,7 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Residence in Europe.
+        ///   Looks up a localized string similar to Europe.
         /// </summary>
         public static string ResidenceinEurope {
             get {
@@ -718,7 +772,7 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Residence in the UAE.
+        ///   Looks up a localized string similar to UAE.
         /// </summary>
         public static string ResidenceintheUAE {
             get {
@@ -727,7 +781,7 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Residence in Turkey.
+        ///   Looks up a localized string similar to Turkey.
         /// </summary>
         public static string ResidenceinTurkey {
             get {
@@ -799,6 +853,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Spad.
+        /// </summary>
+        public static string Spad {
+            get {
+                return ResourceManager.GetString("Spad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Special investment property.
         /// </summary>
         public static string SpecialInvestmentProperty {
@@ -862,6 +925,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Contact Ways.
+        /// </summary>
+        public static string TheWayForContact {
+            get {
+                return ResourceManager.GetString("TheWayForContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Three Bedrooms.
         /// </summary>
         public static string ThreeBedrooms {
@@ -912,6 +984,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string TwoBedrooms {
             get {
                 return ResourceManager.GetString("TwoBedrooms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Van.
+        /// </summary>
+        public static string Van {
+            get {
+                return ResourceManager.GetString("Van", resourceCulture);
             }
         }
         
@@ -975,6 +1056,15 @@ namespace SpadCompanyPanel.Web.Resources {
         public static string WhatDoYouWant {
             get {
                 return ResourceManager.GetString("WhatDoYouWant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WhatsApp.
+        /// </summary>
+        public static string WhatsApp {
+            get {
+                return ResourceManager.GetString("WhatsApp", resourceCulture);
             }
         }
     }

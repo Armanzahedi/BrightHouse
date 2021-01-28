@@ -120,6 +120,9 @@
   <data name="AboutUs" xml:space="preserve">
     <value>About Us</value>
   </data>
+  <data name="AbuDhabi" xml:space="preserve">
+    <value>Abu Dhabi</value>
+  </data>
   <data name="Afghanistan" xml:space="preserve">
     <value>Afghanistan</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="Allaboutthelatestamazingupdates" xml:space="preserve">
     <value>All about the latest amazing updates</value>
+  </data>
+  <data name="Ankara" xml:space="preserve">
+    <value>Ankara</value>
   </data>
   <data name="Antalya" xml:space="preserve">
     <value>Antalya</value>
@@ -162,6 +168,9 @@
   <data name="Category" xml:space="preserve">
     <value>Category</value>
   </data>
+  <data name="Cities" xml:space="preserve">
+    <value>Cities</value>
+  </data>
   <data name="City" xml:space="preserve">
     <value>City</value>
   </data>
@@ -189,8 +198,11 @@
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="DesignedbySpade" xml:space="preserve">
-    <value>Designed by Spade</value>
+  <data name="Designedby" xml:space="preserve">
+    <value>Designed by </value>
+  </data>
+  <data name="Dubai" xml:space="preserve">
+    <value>Dubai</value>
   </data>
   <data name="Duplex" xml:space="preserve">
     <value>Duplex</value>
@@ -261,6 +273,9 @@
   <data name="Istanbul" xml:space="preserve">
     <value>Istanbul</value>
   </data>
+  <data name="Konya" xml:space="preserve">
+    <value>Konya</value>
+  </data>
   <data name="LatestNews" xml:space="preserve">
     <value>Latest News</value>
   </data>
@@ -330,17 +345,20 @@
   <data name="RecentArticles" xml:space="preserve">
     <value>Recent Articles</value>
   </data>
+  <data name="RecentStates" xml:space="preserve">
+    <value>Recent Estates</value>
+  </data>
   <data name="Rent" xml:space="preserve">
     <value>Rent</value>
   </data>
   <data name="ResidenceinEurope" xml:space="preserve">
-    <value>Residence in Europe</value>
+    <value>Europe</value>
   </data>
   <data name="ResidenceintheUAE" xml:space="preserve">
-    <value>Residence in the UAE</value>
+    <value>UAE</value>
   </data>
   <data name="ResidenceinTurkey" xml:space="preserve">
-    <value>Residence in Turkey</value>
+    <value>Turkey</value>
   </data>
   <data name="Rules" xml:space="preserve">
     <value>Rules</value>
@@ -363,6 +381,9 @@
   <data name="Sortedby" xml:space="preserve">
     <value>Sorted by</value>
   </data>
+  <data name="Spad" xml:space="preserve">
+    <value>Spad</value>
+  </data>
   <data name="SpecialInvestmentProperty" xml:space="preserve">
     <value>Special investment property</value>
   </data>
@@ -384,6 +405,9 @@
   <data name="Tehran" xml:space="preserve">
     <value>Tehran</value>
   </data>
+  <data name="TheWayForContact" xml:space="preserve">
+    <value>The Contact Ways</value>
+  </data>
   <data name="ThreeBedrooms" xml:space="preserve">
     <value>Three Bedrooms</value>
   </data>
@@ -401,6 +425,9 @@
   </data>
   <data name="TwoBedrooms" xml:space="preserve">
     <value>Two Bedrooms</value>
+  </data>
+  <data name="Van" xml:space="preserve">
+    <value>Van</value>
   </data>
   <data name="Villa" xml:space="preserve">
     <value>Villa</value>
@@ -422,5 +449,8 @@
   </data>
   <data name="WhatDoYouWant" xml:space="preserve">
     <value>what do you want</value>
+  </data>
+  <data name="WhatsApp" xml:space="preserve">
+    <value>WhatsApp</value>
   </data>
 </root>

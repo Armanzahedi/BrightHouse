@@ -177,8 +177,8 @@
   <data name="Description" xml:space="preserve">
     <value>توضيحات</value>
   </data>
-  <data name="DesignedbySpade" xml:space="preserve">
-    <value>طراحی شده توسط اسپاد</value>
+  <data name="Designedby" xml:space="preserve">
+    <value>طراحی شده توسط </value>
   </data>
   <data name="Duplex" xml:space="preserve">
     <value>دوبلكس</value>
@@ -422,5 +422,35 @@
   </data>
   <data name="WelcomeToBr" xml:space="preserve">
     <value>به برایت هوس خوش آمدید</value>
+  </data>
+  <data name="AbuDhabi" xml:space="preserve">
+    <value>ابوظبی</value>
+  </data>
+  <data name="Cities" xml:space="preserve">
+    <value>شهر ها</value>
+  </data>
+  <data name="Dubai" xml:space="preserve">
+    <value>دوبی</value>
+  </data>
+  <data name="WhatsApp" xml:space="preserve">
+    <value>واتس اپ</value>
+  </data>
+  <data name="Ankara" xml:space="preserve">
+    <value>آنکارا</value>
+  </data>
+  <data name="Konya" xml:space="preserve">
+    <value>قونیه</value>
+  </data>
+  <data name="RecentStates" xml:space="preserve">
+    <value>ملک های اخیر</value>
+  </data>
+  <data name="Spad" xml:space="preserve">
+    <value>اسپاد</value>
+  </data>
+  <data name="TheWayForContact" xml:space="preserve">
+    <value>راه های تماس</value>
+  </data>
+  <data name="Van" xml:space="preserve">
+    <value>وان</value>
   </data>
 </root>

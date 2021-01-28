@@ -35,7 +35,7 @@ namespace SpadCompanyPanel.Infrastructure
             this.context = context;
             this.logger = logger;
         }
-        public  TEntity Add(TEntity entity)
+        public TEntity Add(TEntity entity)
         {
             entity.InsertDate = DateTime.Now;
 
@@ -46,14 +46,14 @@ namespace SpadCompanyPanel.Infrastructure
             var ent = entity.GetType().Name;
 
             context.Set<TEntity>().Add(entity);
-             context.SaveChanges();
-            logger.LogEvent(entity.GetType().Name, entity.Id,"Add");
+            context.SaveChanges();
+            logger.LogEvent(entity.GetType().Name, entity.Id, "Add");
             return entity;
         }
 
-        public  TEntity Delete(int id)
+        public TEntity Delete(int id)
         {
-            var entity =  context.Set<TEntity>().Find(id);
+            var entity = context.Set<TEntity>().Find(id);
             if (entity == null)
             {
                 return entity;
@@ -65,33 +65,34 @@ namespace SpadCompanyPanel.Infrastructure
             return entity;
         }
 
-        public  TEntity Get(int id)
+        public TEntity Get(int id)
         {
-            return  context.Set<TEntity>().Find(id);
+            return context.Set<TEntity>().Find(id);
         }
 
         public List<TEntity> GetAll()
         {
-            return  context.Set<TEntity>().Where(e=>e.IsDeleted == false).OrderByDescending(e=>e.InsertDate).ToList();
-        }     
+            return context.Set<TEntity>().Where(e => e.IsDeleted == false).OrderByDescending(e => e.InsertDate).ToList();
+        }
+
         public List<TEntity> GetSome(PaginationFilter pagination)
         {
-            var entity =  context.Set<TEntity>().Skip((pagination.PageNumber - 1) * pagination.PageSize)
+            var entity = context.Set<TEntity>().Skip((pagination.PageNumber - 1) * pagination.PageSize)
                .Take(pagination.PageSize).ToList();
 
             return entity;
         }
         public int GetCount()
         {
-            var entity =  context.Set<TEntity>().Count();
+            var entity = context.Set<TEntity>().Count();
 
             return entity;
         }
-        public  TEntity Update(TEntity entity)
+        public TEntity Update(TEntity entity)
         {
             entity.UpdateDate = DateTime.Now;
             var user = GetCurrentUser();
-            if(user != null)
+            if (user != null)
                 entity.UpdateUser = user.UserName;
 
             context.Entry(entity).State = EntityState.Modified;

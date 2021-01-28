@@ -1,4 +1,5 @@
 ﻿@using SpadCompanyPanel.Infrastructure.Helpers;
+@using SpadCompanyPanel.Web.Resources;
 @{
     var currentLang = LanguageHelper.GetCulture();
 }
@@ -46,16 +47,16 @@
                         </div>
                     </div>
                     <div class="col-6 align-self-center text-center pr-0">
-                        <p class="cntTitle">ما 24 ساعته پاسخگوی شما هستیم</p>
-                        <p class="cntDes">اجازه دهید ما با شما تماس بگیریم</p>
+                        <p class="cntTitle">@Resource.Weareavailable24hoursaday</p>
+                        <p class="cntDes">@Resource.LetUsCallYou</p>
                         <form method="post" id="newsLetterForm" action="/Home/SubmitNewsLetterEmail" class="row">
                             <div class="col-md-12">
-                                <input type="text" class="popup-email-inpt" id="newsLetterEmail" name="newsLetterEmail" placeholder="ایمیل خود را وارد کنید">
+                                <input type="text" class="popup-email-inpt" id="newsLetterEmail" name="newsLetterEmail" placeholder="@Resource.Enteryouremail">
                             </div>
                             <div class="col-md-12" id="newsLetterEmailValidation" style="color:red;display:none"></div>
                             <div class="col-md-12">
                                 <button type="submit" class="theme-btn btn-style-one w-100" style="width: 80% !important; margin-top: 1rem;">
-                                    <span class="btn-title">ارسال</span>
+                                    <span class="btn-title">@Resource.Submit</span>
                                 </button>
                             </div>
                         </form>
@@ -250,6 +251,7 @@
             });
         }
         $("#newsLetterFormFooter").submit(function (event) {
+            debugger;
             var newsLetterCookie = getCookie("newLetterCookie");
             var overlay = $('<div id="overlay"></div>');
             var emailInput = $("#newsLetterEmailFooter").val();
