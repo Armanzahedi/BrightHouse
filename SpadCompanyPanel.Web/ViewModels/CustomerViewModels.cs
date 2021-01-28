@@ -23,8 +23,8 @@ namespace SpadCompanyPanel.Web.ViewModels
         {
             this.Id = invoice.Id;
             this.InvoiceNumber = invoice.InvoiceNumber;
-            this.IsPayed = invoice.IsPayed;
-            this.RegisteredDate = new PersianDateTime(invoice.AddedDate).ToString("dddd d MMMM yyyy");
+            //this.IsPayed = invoice.IsPayed;
+            //this.RegisteredDate = new PersianDateTime(invoice.AddedDate).ToString("dddd d MMMM yyyy");
         }
         public int Id { get; set; }
         public string InvoiceNumber { get; set; }

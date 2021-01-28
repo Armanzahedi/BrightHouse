@@ -78,4 +78,10 @@ namespace SpadCompanyPanel.Core.Utility
         State = 1,
         City = 2,
     }
+    public enum PaymentStatus
+    {
+        Registered = 0,
+        Payed = 1,
+        Confirmed = 2,
+    }
 }
