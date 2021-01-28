@@ -200,6 +200,7 @@
     <Compile Include="Areas\Admin\Controllers\ArticleCommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticleHeadLinesController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InvoicesController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Admin\Controllers\CertificatesController.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\CustomerViewModels.cs" />
+    <Compile Include="ViewModels\InvoiceViewModels.cs" />
     <Compile Include="ViewModels\NewsViewModels.cs" />
     <Compile Include="ViewModels\ArticleViewModels.cs" />
     <Compile Include="ViewModels\CommonViewModels.cs" />
@@ -3253,6 +3255,8 @@
     <Content Include="Areas\Admin\Views\Customers\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Customers\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoices\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoices\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

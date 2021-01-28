@@ -1,0 +1,128 @@
+﻿@model List<SpadCompanyPanel.Web.ViewModels.InvoiceTableViewModel>
+@using Kendo.Mvc.UI
+@using SpadCompanyPanel.Infrastructure.Helpers;
+@{
+    ViewBag.Title = "سفارشات";
+}
+<input type="hidden" id="nav_active" value="invoices">
+<input type="hidden" id="nav_item_active" value="invoices">
+<div class="card card-custom">
+    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+        <div class="card-title">
+            <h3 class="card-label">
+                @ViewBag.Title
+                <span class="d-block text-muted pt-2 font-size-sm">ویرایش سفارشات</span>
+            </h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <!--begin: Datatable-->
+        @(Html.Kendo().Grid(Model)
+.Name("Grid")
+.HtmlAttributes(new { style = "height:450px" })
+.Columns(columns =>
+{
+columns.Bound(model => model.Invoice.InvoiceNumber).Title("شماره سفارش");
+columns.Bound(model => model.CustomerName).Title("مشتری");
+columns.Bound(model => model.Invoice.Plan.RealState.Title).Title("ملک");
+columns.Bound(model => model.Invoice.Plan.Title).Title("پلان");
+columns.Bound(item => @item.Invoice.RegisteredDate).IncludeInMenu(false).Title("تاریخ ثبت");
+columns.Bound(item => @item.Invoice.PaymentStatus).IncludeInMenu(false).Title("وضعیت پرداخت").Template(
+    @<text>
+        @if (item.Invoice.PaymentStatus == 0)
+        {
+            <span class="label label-xs label-light-danger label-inline">پرداخت نشده</span>
+        }
+        else if(item.Invoice.PaymentStatus == 1)
+        {
+            <span class="label label-xs label-light-warning label-inline">پرداخت اعلام شده</span>
+        }
+        else if(item.Invoice.PaymentStatus == 2)
+        {
+            <span class="label label-xs label-light-success label-inline">پرداخت تائید شده</span>
+        }
+     </text>);
+
+        columns.Bound(item => @item.Invoice.Id).IncludeInMenu(false).Sortable(false).Title("دستورات").Filterable(false).Groupable(false).Template(
+        @<text>
+            @*<a class='btn btn-sm btn-clean btn-icon mr-2' href="/Admin/Invoices/Edit/@item.Invoice.Id"><i class='far fa-edit text-primary'></i></a>*@
+            <a class='btn btn-sm btn-clean btn-icon mr-2' data-toggle="tooltip" title="تائید پرداخت" onclick="@(CheckPermission.Check("invoicesconfirmpayment") ? $"btnConfirmPayment({item.Invoice.Id})" : "accessDenied()")">
+        <i class='fas fa-check text-primary'></i></a>
+            <a class='btn btn-sm btn-clean btn-icon' onclick="@(CheckPermission.Check("invoicesdelete") ? $"btnDelete({item.Invoice.Id})" : "accessDenied()")"><i class='far fa-trash-alt text-danger'></i></a>
+        </text>
+        ).Width(125);
+})
+    .Sortable()
+    .Scrollable()
+    .Pageable(pager => pager.PageSizes(new int[] { 10, 30, 50, 70, 100 }).Messages(m => m.ItemsPerPage("آیتم در هر صفحه").Display("")))
+        .DataSource(dataSource => dataSource
+        .Server()
+
+        .Model(model => model.Id(item => item.Invoice.Id))
+    )
+    .Filterable(filterable => filterable
+        .Messages(m => m
+            .Filter("فیلتر")
+            .Clear("حذف")
+            .Info("آن هایی را نشان بده که:")
+            .And("و")
+            .Or("یا")
+            )
+        .Operators(operators => operators
+            .ForString(str => str.Clear()
+                .IsEqualTo("برابر است با")
+                .IsNotEqualTo("برابر نیست با")
+                .Contains("شامل میشود")
+                .DoesNotContain("شامل نمیشود")
+                .StartsWith("شروع میشود با")
+                .IsNullOrEmpty("خالی است")
+                .IsNotNullOrEmpty("خالی نیست")
+            )))
+        )
+        <!--end: Datatable-->
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" id="myModalHeader">
+                <h5 class="modal-title" id="myModalLabel">Modal Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="myModalBody">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        $(document).ready(function () {
+            $('.k-i-filter').removeClass("k-i-filter").addClass("k-icon k-i-more-vertical");
+        });
+    </script>
+    <script>
+        function btnConfirmPayment(id) {
+            if (confirm('آیا اطمینان دارید؟')) {
+                $.get("/Admin/Invoices/ConfirmPayment/" + id, function (result) {
+                    location.reload();
+                });
+            }
+        }
+        function btnDelete(id) {
+            $.get("/Admin/Invoices/Delete/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("حذف سفارش");
+                $("#myModalHeader");
+                $("#myModalBody").html(result);
+            });
+        }
+    </script>
+}
