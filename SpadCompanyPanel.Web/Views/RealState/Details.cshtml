@@ -283,7 +283,7 @@
                         <!-- Review Comment Form -->
                         <div class="review-comment-form">
                             <h3>@Resource.SendMessage</h3>
-                            @*<form method="post" action="contact.html">
+                            <form method="post" action="contact.html">
                                 <div class="row">
                                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
                                         <input type="text" name="username" placeholder="@Resource.FullName"
@@ -305,8 +305,8 @@
                                         </button>
                                     </div>
                                 </div>
-                            </form>*@
-                            @Html.Action("Create", "RealStateComments")
+                            </form>
+                            @*@Html.Action("Create", "RealStateComments", new { realStateId = Model.Id }))*@
                         </div>
                     </div>
                 </div>
