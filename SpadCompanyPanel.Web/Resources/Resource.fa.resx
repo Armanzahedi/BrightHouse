@@ -411,4 +411,7 @@
   <data name="Subject" xml:space="preserve">
     <value>موضوع</value>
   </data>
+  <data name="ResidenceinEurope" xml:space="preserve">
+    <value>اقامت اروپا</value>
+  </data>
 </root>

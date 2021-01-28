@@ -691,6 +691,15 @@ namespace SpadCompanyPanel.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Residence in Europe.
+        /// </summary>
+        public static string ResidenceinEurope {
+            get {
+                return ResourceManager.GetString("ResidenceinEurope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Residence in the UAE.
         /// </summary>
         public static string ResidenceintheUAE {

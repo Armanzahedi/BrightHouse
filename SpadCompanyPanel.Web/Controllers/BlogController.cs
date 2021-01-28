@@ -151,7 +151,7 @@ namespace SpadCompanyPanel.Web.Controllers
         public ActionResult TurkeyGuide()
         {
             var lang = LanguageHelper.GetCulture();
-            var content = _contentRepo.GetSingleContentByTypeId(lang == (int)Language.Farsi ? (int)StaticContentTypes.TurkeyResidence : (int)StaticContentTypes.TurkeyResidenceEnglish);
+            var content = _contentRepo.GetStaticContentDetail(lang == (int)Language.Farsi ? (int)StaticContents.TurkeyResidence : (int)StaticContents.TurkeyResidenceEnglish);
 
             if (content != null)
             {
@@ -167,7 +167,7 @@ namespace SpadCompanyPanel.Web.Controllers
         public ActionResult UaeGuide()
         {
             var lang = LanguageHelper.GetCulture();
-            var content = _contentRepo.GetSingleContentByTypeId(lang==(int)Language.Farsi? (int)StaticContentTypes.UaeResidence : (int)StaticContentTypes.UaeResidenceEnglish);
+            var content = _contentRepo.GetStaticContentDetail(lang==(int)Language.Farsi? (int)StaticContents.UaeResidence : (int)StaticContents.UaeResidenceEnglish);
 
             if (content != null)
             {
@@ -184,7 +184,7 @@ namespace SpadCompanyPanel.Web.Controllers
         public ActionResult EuropeGuide()
         {
             var lang = LanguageHelper.GetCulture();
-            var content = _contentRepo.GetSingleContentByTypeId(lang == (int)Language.Farsi ? (int)StaticContentTypes.EuropeResidence : (int)StaticContentTypes.EuropeResidenceEnglish);
+            var content = _contentRepo.GetStaticContentDetail(lang == (int)Language.Farsi ? (int)StaticContents.EuropeResidence : (int)StaticContents.EuropeResidenceEnglish);
 
             if (content != null)
             {

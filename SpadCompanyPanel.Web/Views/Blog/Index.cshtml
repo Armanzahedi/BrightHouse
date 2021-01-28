@@ -43,8 +43,8 @@
                             @foreach (var item in Model.RecentBlogs.Take(3))
                             {
                                 <article class="post">
-                                    <div class="post-thumb"><a href="/Blog/Post/@item.Id"><img src="/Files/ArticleImages/Image/@item.Image" 
-                                                                                               data-src="/Files/ArticleImages/Image/@item.Image" alt="" width="100" height="100" ></a></div>
+                                    <div class="post-thumb"><a href="/Blog/Post/@item.Id"><img src="/Files/ArticleImages/Thumb/@item.Image" 
+                                                                                               data-src="/Files/ArticleImages/Thumb/@item.Image" alt="" width="100" height="100" ></a></div>
                                     <h3><a href="/Blog/Post/@item.Id">@item.Title</a></h3>
                                     <div class="post-info">@item.PersianDate</div>
                                 </article>

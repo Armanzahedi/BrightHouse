@@ -14,11 +14,8 @@ namespace SpadCompanyPanel.Core.Utility
         CompanyHistory = 2,
         BlogImage = 1004,
         TurkeyResidence = 1006,
-        TurkeyResidenceEnglish = 3033,
         UaeResidence = 1007,
-        UaeResidenceEnglish = 3037,
         EuropeResidence = 1008,
-        EuropeResidenceEnglish = 3038,
     }
     public enum StaticContents
     {
@@ -33,7 +30,15 @@ namespace SpadCompanyPanel.Core.Utility
         Pinterest = 1012,
         Facebook = 1010,
         BlogImage = 1013,
-        ContactInfo = 1014
+        ContactInfo = 1014,
+
+        TurkeyResidence = 2016,
+        EuropeResidence = 2024,
+        UaeResidence = 2021,
+
+        TurkeyResidenceEnglish = 3033,
+        EuropeResidenceEnglish = 3038,
+        UaeResidenceEnglish = 3037,
     }
 
     public enum StaticContentDetails

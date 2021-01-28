@@ -327,6 +327,9 @@
   <data name="Rent" xml:space="preserve">
     <value>Rent</value>
   </data>
+  <data name="ResidenceinEurope" xml:space="preserve">
+    <value>Residence in Europe</value>
+  </data>
   <data name="ResidenceintheUAE" xml:space="preserve">
     <value>Residence in the UAE</value>
   </data>

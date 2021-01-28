@@ -4476,7 +4476,7 @@ select.header-option-mt option {
     top: 100%;
     left: 0;
     width: 0;
-    z-index: 9999;
+    z-index: 2;
     padding: 0 18px;
     background: #b07908 !important;
     height: 60px;
@@ -4491,7 +4491,7 @@ select.header-option-mt option {
     top: 100%;
     right: 0;
     width: 0;
-    z-index: 9999;
+    z-index: 2;
     padding: 0 18px;
     background: #b07908 !important;
     height: 60px;
@@ -10492,7 +10492,7 @@ select.header-option-mt option {
 
 /*investment*/
 .investment {
-    background: #b07908;
+    background: #333333;
     color: white;
     position: relative;
 }
