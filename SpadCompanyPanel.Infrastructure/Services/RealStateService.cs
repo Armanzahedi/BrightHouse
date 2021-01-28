@@ -98,7 +98,7 @@ namespace SpadCompanyPanel.Infrastructure.Services
                 Area = plan.Area,
                 Rooms = plan.Rooms,
                 Bathrooms = plan.BathRooms,
-                MinPrice = CurrencyHelper.ExchangeAmount(plan.Price,_currentCurrency),
+                MinPrice = CurrencyHelper.ExchangeAmount(plan.Price, _currentCurrency),
                 Location = GetLocationStr(realState.GeoDivisionId),
                 RealStateType = realState.Type,
                 Image = realState.Image
@@ -148,7 +148,7 @@ namespace SpadCompanyPanel.Infrastructure.Services
 
             return realStatesInfo;
         }
-        public List<RealStateInfoDto> GetRealStateGrid(int? countryId, int? stateId, int? cityId,int? realStateType,int? planType,string roomNo = null,string bathRoomNo = null,float? fromPrice = null,float? toPrice = null)
+        public List<RealStateInfoDto> GetRealStateGrid(int? countryId, int? stateId, int? cityId, int? realStateType, int? planType, string roomNo = null, string bathRoomNo = null, float? fromPrice = null, float? toPrice = null)
         {
             var realStatesInfoList = new List<RealStateInfoDto>();
             var realStateQuery = _context.RealStates.Where(p => p.IsDeleted == false);
@@ -173,7 +173,7 @@ namespace SpadCompanyPanel.Infrastructure.Services
             if (bathRoomNo != null)
                 realStateQuery = realStateQuery.Where(r => r.Plans.Any(p => p.BathRooms == bathRoomNo));
 
-            if(fromPrice != null)
+            if (fromPrice != null)
             {
                 var fromPriceEuro = CurrencyHelper.GetDefaultAmount(fromPrice.Value);
                 realStateQuery = realStateQuery.Where(r => r.Plans.Any(p => p.Price >= fromPriceEuro));
@@ -190,6 +190,76 @@ namespace SpadCompanyPanel.Infrastructure.Services
                 realStatesInfoList.Add(CreateRealStateInfo(realState));
 
             return realStatesInfoList;
+        }
+
+        public RealStateDetailDto GetRealStateDetail(int id)
+        {
+            var model = new RealStateDetailDto();
+
+            var lang = LanguageHelper.GetCulture();
+
+            var _realStateRepos = new RealStatesRepository(_context, new LogsRepository(_context));
+            var _geoDivisionsRepo = new GeoDivisionsRepository(_context, new LogsRepository(_context));
+            var _planRepos = new PlansRepository(_context, new LogsRepository(_context));
+            var _optionRepos = new OptionsRepository(_context, new LogsRepository(_context));
+            var _realStateGalleryRepos = new RealStateGalleriesRepository(_context, new LogsRepository(_context));
+
+            var realState = _realStateRepos.GetRealStateWithNavigations(id);
+            var realStateCity = _geoDivisionsRepo.Get(realState.GeoDivisionId);
+            var realStateState = _geoDivisionsRepo.Get(realStateCity.ParentId.Value);
+            var realStateCountry = _geoDivisionsRepo.GetGeoDivisionParent(realStateState.ParentId.Value);
+            //var planId = 0;
+
+            if (realState.Plans != null)
+            {
+                //planId = realState.Plans.FirstOrDefault().Id;
+
+                var plans = _planRepos.GetRealStatePlans(realState.Id);
+                var plan = plans.FirstOrDefault();
+
+                //var options = _optionRepos.GetPlanOptions(planId);
+
+                model.Description = lang == (int)Language.Farsi ? realState.Description : realState.EnglishDescription;
+                model.Region = lang == (int)Language.Farsi ? realState.Region : realState.Region;
+                model.Type = realState.Type;
+                //model.Options = options;
+                model.City = realStateCity.Title;
+                model.Country = realStateCountry.Title;
+                model.Id = realState.Id;
+                model.Area = plan.Area;
+                model.Bathroom = plan.BathRooms;
+                model.Bedroom = plan.Rooms;
+
+                var price = CurrencyHelper.GetDefaultAmount(plan.Price);
+                var symbol = CurrencyHelper.GetCurrencyUnit();
+
+                model.Price = price;
+                model.PriceSymbol = symbol;
+                model.Address = _geoDivisionsRepo.GetFullLocation(realState.GeoDivisionId);
+                model.Title = lang == (int)Language.Farsi ? realState.Title : realState.EnglishTitle;
+                model.ShortDescription = lang == (int)Language.Farsi ? realState.ShortDescription : realState.EnglishShortDescription;
+                model.Image = realState.Image;
+                model.VideoStr = realState.VideoStr;
+                model.Plans = realState.Plans;
+                model.Location = realState.Location;
+                var vm = new List<PlanWithOptionDto>();
+
+                foreach (var item in realState.Plans)
+                {
+                    var OPT = _optionRepos.GetPlanOptions(item.Id);
+                    vm.Add(new PlanWithOptionDto()
+                    {
+                        Plan = item,
+                        Options = OPT
+                    });
+                }
+
+                model.PlanWithOptions = vm;
+            }
+
+            model.RealStateGalleriesList = _realStateGalleryRepos.GetRealStateGalleries(id);
+
+            return model;
         }
     }
 }

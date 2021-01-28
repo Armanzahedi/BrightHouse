@@ -1,4 +1,4 @@
-﻿@model SpadCompanyPanel.Web.ViewModels.RealStateViewModel
+﻿@model SpadCompanyPanel.Infrastructure.Dtos.RealState.RealStateDetailDto
 @using SpadCompanyPanel.Core.Models;
 @using SpadCompanyPanel.Web.ViewModels
 @using SpadCompanyPanel.Web.Resources
@@ -43,7 +43,7 @@
                     </ul>
                 </div>
                 <div class="price-column col-lg-4 col-md-12 col-sm-12">
-                    <div class="price"> @Model.Price.ToString("##,###")€ </div>
+                    <div class="price"> @Model.Price.ToString("##,###")@Model.PriceSymbol </div>
                     <div class="location"><i class="icon fa fa-map-marker-alt"></i> @Model.Address</div>
                 </div>
 
