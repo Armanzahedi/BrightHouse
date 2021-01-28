@@ -1,5 +1,6 @@
 ﻿@using SpadCompanyPanel.Infrastructure.Helpers;
 @using Kendo.Mvc.UI
+@using SpadCompanyPanel.Core.Utility
 @model IEnumerable<SpadCompanyPanel.Core.Models.Role>
 
 @{
@@ -44,7 +45,10 @@
         columns.Bound(item => @item.Id).Title("دستورات").Filterable(false).Groupable(false)
                       .Template(@<text>
                     <a class='btn btn-sm btn-clean btn-icon mr-2' onclick="@(CheckPermission.Check("rolesedit") ? $"btnEdit('{item.Id}')" : "accessDenied()")"><i class='far fa-edit text-primary'></i></a>
+                                    @if (item.Id != StaticVariables.AdminRoleId && item.Id != StaticVariables.CustomerRoleId)
+                                    {
                     <a class='btn btn-sm btn-clean btn-icon' onclick="@(CheckPermission.Check("rolesdelete") ? $"btnDelete('{item.Id}')" : "accessDenied()")"><i class='far fa-trash-alt text-danger'></i></a>
+                                    }
                 @Html.ActionLink("مجوز ها", "RolePermission", new { roleId = @item.Id }, new { @class = "btn btn-primary btn-sm ml-2" })
          </text>).Width(245);
 })
