@@ -1,10 +1,12 @@
 ﻿@model List<SpadCompanyPanel.Infrastructure.Dtos.RealState.RealStateInfoDto>
+@using SpadCompanyPanel.Web.Resources
+
 <section class="modern-properties">
     <div class="auto-container">
         <div class="sec-title text-center">
             <div class="devider"><span></span></div>
-            <h2>ویلا های لوکس</h2>
-            <div class="text">اکنون ویلای خود را در شهر خود پیدا کنید..</div>
+            <h2>@Resource.LuxVilla</h2>
+            <div class="text">@Resource.Findyourhomeinyourcitynow</div>
         </div>
 
         <div class="single-item-carousel owl-carousel owl-theme">
@@ -24,12 +26,11 @@
                                         </a>
                                     </figure>
                                     <ul class="property-options">
-                                        <li data-tooltip="توضیح"><a href="/RealState/Detaiils/@item.Id"><span class="fa fa-book"></span></a></li>
+                                        <li data-tooltip="@Resource.Description"><a href="/RealState/Detaiils/@item.Id"><span class="fa fa-book"></span></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-
                         <!-- Content Column -->
                         <div class="content-column col-lg-6 col-md-12 col-sm-12">
                             <div class="inner-column">
@@ -42,9 +43,9 @@
                                     @item.ShortDescription
                                 </div>
                                 <ul class="property-info">
-                                    <li><span class="icon flaticon-bedroom-1"></span> اتاق خواب <br> @item.Bathrooms</li>
-                                    <li><span class="icon flaticon-bathtub"></span> حمام <br> @item.Bathrooms</li>
-                                    <li><span class="icon flaticon-grid"></span> مساحت <br> @item.Area</li>
+                                    <li><span class="icon flaticon-bedroom-1"></span>@Resource.Bedroom <br> @item.Bathrooms</li>
+                                    <li><span class="icon flaticon-bathtub"></span> @Resource.Bathroom <br> @item.Bathrooms</li>
+                                    <li><span class="icon flaticon-grid"></span> @Resource.Area <br> @item.Area</li>
                                     @*<li><span class="icon flaticon-garage-1"></span> پارکینگ <br> 2</li>*@
                                 </ul>
                             </div>

@@ -133,7 +133,7 @@
     <value>All</value>
   </data>
   <data name="Allaboutthelatestamazingupdates" xml:space="preserve">
-    <value>All about the latest amazing updates</value>
+    <value>All About Estate and investments</value>
   </data>
   <data name="Ankara" xml:space="preserve">
     <value>Ankara</value>
@@ -161,6 +161,9 @@
   </data>
   <data name="Bedroom" xml:space="preserve">
     <value>Bedroom</value>
+  </data>
+  <data name="BestSuggestion" xml:space="preserve">
+    <value>Best Suggestion</value>
   </data>
   <data name="BlogDetail" xml:space="preserve">
     <value>Blog Detail</value>
@@ -208,13 +211,19 @@
     <value>Duplex</value>
   </data>
   <data name="Earth" xml:space="preserve">
-    <value>Earth</value>
+    <value>Land</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="EmailNotValidError" xml:space="preserve">
+    <value>Email is not valid</value>
+  </data>
   <data name="EnterContext" xml:space="preserve">
     <value>Write Your Message</value>
+  </data>
+  <data name="EnterEmailError" xml:space="preserve">
+    <value>Please enter your email</value>
   </data>
   <data name="Enteryouremail" xml:space="preserve">
     <value>Enter your email</value>
@@ -225,6 +234,9 @@
   <data name="EstateSearch" xml:space="preserve">
     <value>Estate Search</value>
   </data>
+  <data name="ExpertsSuggestion" xml:space="preserve">
+    <value>Experts Suggestion</value>
+  </data>
   <data name="Facebook" xml:space="preserve">
     <value>Facebook</value>
   </data>
@@ -232,7 +244,7 @@
     <value>Find your dream home in your city</value>
   </data>
   <data name="Findyourhomeinyourcitynow" xml:space="preserve">
-    <value>Find your home in your city now</value>
+    <value>Find your Villa now</value>
   </data>
   <data name="FiveBedrooms" xml:space="preserve">
     <value>Five Bedrooms</value>
@@ -288,8 +300,11 @@
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="LuxVilla" xml:space="preserve">
+    <value>Luxurious villa</value>
+  </data>
   <data name="MalikFor" xml:space="preserve">
-    <value>Malik For</value>
+    <value>Real State For</value>
   </data>
   <data name="Mashhad" xml:space="preserve">
     <value>Mashhad</value>
@@ -336,11 +351,14 @@
   <data name="Phonenumber" xml:space="preserve">
     <value>Phone Number</value>
   </data>
+  <data name="PreSale" xml:space="preserve">
+    <value>Pre Sale</value>
+  </data>
   <data name="Previous" xml:space="preserve">
     <value>Previous</value>
   </data>
   <data name="PropertyType" xml:space="preserve">
-    <value>Property Type</value>
+    <value>Estate Type</value>
   </data>
   <data name="RecentArticles" xml:space="preserve">
     <value>Recent Articles</value>
@@ -385,7 +403,10 @@
     <value>Spad</value>
   </data>
   <data name="SpecialInvestmentProperty" xml:space="preserve">
-    <value>Special investment property</value>
+    <value>Special investment Estate</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State</value>
   </data>
   <data name="StayinEurope" xml:space="preserve">
     <value>Stay in Europe</value>

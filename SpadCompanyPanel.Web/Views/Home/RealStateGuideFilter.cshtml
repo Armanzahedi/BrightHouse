@@ -1,18 +1,20 @@
-﻿<section class="property-search-section-three" style="background-image: url(Content/Assets/images/main-slider/3.jpg);">
+﻿@using SpadCompanyPanel.Web.Resources
+
+<section class="property-search-section-three" style="background-image: url(Content/Assets/images/main-slider/3.jpg);">
     <div class="auto-container">
         <div class="content-box">
             <div class="title-box">
-                <h2 class="mb-5">Bright House <span>انتخابی درخشان </span></h2>
-                <h2>جستجوی املاک</h2>
+                <h2 class="mb-5">Bright House <span>@Resource.BestSuggestion </span></h2>
             </div>
 
+            <h2 style="font-size:xx-large">@Resource.EstateSearch</h2>
             <div class="property-search-form style-three">
                 <form method="post" action="/">
                     <div class="row no-gutters">
                         <!-- Form Group -->
                         <div class="form-group col-lg-2 col-md-6 col-sm-12">
                             <select id="countryId" onChange="GetStates()">
-                                <option value="0">کشور</option>
+                                <option value="0">@Resource.Country</option>
                                 @foreach (var item in ViewBag.Countries)
                                 {
                                     <option value="@item.Id">@item.Title</option>
@@ -21,41 +23,41 @@
                         </div>
                         <div class="form-group col-lg-2 col-md-6 col-sm-12">
                             <select id="stateId" onchange="GetCities()">
-                                <option  value="0">استان</option>
+                                <option value="0">@Resource.State</option>
                             </select>
                         </div>
 
                         <!-- Form Group -->
                         <div class="form-group col-lg-2 col-md-6 col-sm-12">
                             <select id="cityId">
-                                <option  value="0">شهر</option>
+                                <option value="0">@Resource.City</option>
                             </select>
                         </div>
 
                         <!-- Form Group -->
                         <div class="form-group col-lg-2 col-md-6 col-sm-12">
-                            <select  id="planType">
-                                <option value="0">ملک برای</option>
-                                <option value="1">برای فروش</option>
-                                <option value="2">پیش فروش</option>
-                                <option value="3">برای اجاره</option>
+                            <select id="planType">
+                                <option value="0">@Resource.MalikFor</option>
+                                <option value="1">@Resource.Forsale</option>
+                                <option value="2">@Resource.PreSale</option>
+                                <option value="3">@Resource.Rent</option>
                             </select>
                         </div>
                         <!-- Form Group -->
                         <div class="form-group col-lg-2 col-md-6 col-sm-12">
                             <select id="realStateType">
-                                <option value="0">نوع ملک</option>
-                                <option value="1">آپاتمان</option>
-                                <option value="2">ویلا</option>
-                                <option value="3">اداری</option>
-                                <option value="4">تجاری</option>
-                                <option value="5">زمین</option>
+                                <option value="0">@Resource.PropertyType</option>
+                                <option value="1">@Resource.Apartment</option>
+                                <option value="2">@Resource.Villa</option>
+                                <option value="3">@Resource.Official</option>
+                                <option value="4">@Resource.Commercial</option>
+                                <option value="5">@Resource.Earth</option> <!--earth namousan? :))-->
                             </select>
                         </div>
                         <!-- Form Group -->
                         <div class="form-group col-lg-2 col-md-6 col-sm-12">
                             <button type="button" onclick="searchForRealState()" class="theme-btn btn-style-two">
-                                <span class="btn-title">جستجو</span>
+                                <span class="btn-title">@Resource.Search</span>
                             </button>
                         </div>
                     </div>

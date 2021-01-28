@@ -130,7 +130,7 @@
     <value>همه</value>
   </data>
   <data name="Allaboutthelatestamazingupdates" xml:space="preserve">
-    <value>همه درباره آخرین بروزرسانی های شگفت انگیز</value>
+    <value>همه چیز در مورد ملک و سرمایه گذاری</value>
   </data>
   <data name="Antalya" xml:space="preserve">
     <value>آنتاليا</value>
@@ -205,7 +205,7 @@
     <value>خانه رویایی خود را در شهر خود پیدا کنید</value>
   </data>
   <data name="Findyourhomeinyourcitynow" xml:space="preserve">
-    <value>اکنون خانه خود را در شهر خود پیدا کنید..</value>
+    <value>اکنون ویلا خود را  پیدا کنید...</value>
   </data>
   <data name="FiveBedrooms" xml:space="preserve">
     <value>پنج اتاق خواب</value>
@@ -229,7 +229,7 @@
     <value>اینستاگرام</value>
   </data>
   <data name="Introducingwiththecurrencycode" xml:space="preserve">
-    <value>معرفی املاک با امکان خرید با رمز ارزها</value>
+    <value>معرفی املاک با امکان خرید با ارز دیجیتال</value>
   </data>
   <data name="InvestmentGuide" xml:space="preserve">
     <value>راهنمای سرمایه گذاری</value>
@@ -364,7 +364,7 @@
     <value>راه های تماس با ما</value>
   </data>
   <data name="WC" xml:space="preserve">
-    <value>دستشويي</value>
+    <value>سرویس</value>
   </data>
   <data name="Weareavailable24hoursaday" xml:space="preserve">
     <value>24 ساعته پاسخگوی شما هستیم</value>
@@ -452,5 +452,26 @@
   </data>
   <data name="Van" xml:space="preserve">
     <value>وان</value>
+  </data>
+  <data name="EmailNotValidError" xml:space="preserve">
+    <value>ایمیل وارد شده معتبر نیست</value>
+  </data>
+  <data name="EnterEmailError" xml:space="preserve">
+    <value>لطفا ایمیل خود را وارد کنید</value>
+  </data>
+  <data name="BestSuggestion" xml:space="preserve">
+    <value>بهترین پیشنهاد</value>
+  </data>
+  <data name="ExpertsSuggestion" xml:space="preserve">
+    <value>پیشنهاد کارشناسان</value>
+  </data>
+  <data name="LuxVilla" xml:space="preserve">
+    <value>ویلاهای لوکس</value>
+  </data>
+  <data name="PreSale" xml:space="preserve">
+    <value>پیش فروش</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>استان</value>
   </data>
 </root>

@@ -29,6 +29,7 @@ $(function () {
             setCookie("newLetterCookie", "true")
         }
         $('.popup-onload').hide();
+        $("#newsLetterEmailValidation").hide();
         overlay.appendTo(document.body).remove();
         return false;
     });
@@ -37,6 +38,7 @@ $(function () {
             setCookie("newLetterCookie", "true")
         }
         $('.popup').hide();
+        $("#newsLetterEmailValidation").hide();
         overlay.appendTo(document.body).remove();
         return false;
     });
@@ -46,19 +48,22 @@ function isEmail(email) {
     return regex.test(email);
 }
 $("#newsLetterForm").submit(function (event) {
+    var emailerror1 = document.getElementById('NewsLetterError1').value;
+    var emailerror2 = document.getElementById('NewsLetterError2').value;
+
     var newsLetterCookie = getCookie("newLetterCookie");
     var overlay = $('<div id="overlay"></div>');
     var emailInput = $("#newsLetterEmail").val();
     if (emailInput == null || emailInput == "") {
         event.preventDefault();
         $("#newsLetterEmailValidation").show();
-        $("#newsLetterEmailValidation").text('لطفا ایمیل خود را وارد کنید');
-        console.log('لطفا ایمیل خود را وارد کنید');
+        $("#newsLetterEmailValidation").text(emailerror1);
+        console.log(emailerror1);
     } else if (isEmail(emailInput) == false) {
         event.preventDefault();
         $("#newsLetterEmailValidation").show();
-        $("#newsLetterEmailValidation").text('ایمیل وارد شده معتبر نیست');
-        console.log('ایمیل وارد شده معتبر نیست');
+        $("#newsLetterEmailValidation").text(emailerror2);
+        console.log(emailerror2);
     } else {
         $("#newsLetterEmailValidation").hide();
         if (newsLetterCookie === null || newsLetterCookie === "") {

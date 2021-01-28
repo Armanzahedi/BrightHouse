@@ -1,4 +1,5 @@
 ﻿@model SpadCompanyPanel.Web.ViewModels.HomeIndexViewModel
+    @using SpadCompanyPanel.Web.Resources
 
 @{
     ViewBag.Title = "خانه";
@@ -13,8 +14,8 @@
     <div class="auto-container">
         <div class="sec-title">
             <div class="devider"><span></span></div>
-            <h2>شما چه میخواهید</h2>
-            <div class="text">ما بهترین ها را به شما می دهیم</div>
+            <h2>@Resource.WhatDoYouWant</h2>
+            <div class="text">@Resource.WeGiveYouTheBest</div>
         </div>
 
         <div class="row">
@@ -25,7 +26,7 @@
                     <div class="feature-block-three col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
                         <div class="inner-box">
                             <span class="icon flaticon-house"></span>
-                            <h3>املاک ویژه سرمایه گذاری</h3>
+                            <h3>@Resource.SpecialInvestmentProperty</h3>
                         </div>
                     </div>
 
@@ -33,7 +34,7 @@
                     <div class="feature-block-three col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
                         <div class="inner-box">
                             <span class="icon flaticon-money-bag"></span>
-                            <h3>املاک اکازوین با قیمت مناسب</h3>
+                            <h3>@Resource.OccasionalRealEstateAtaReasonablePrice</h3>
                         </div>
                     </div>
 
@@ -41,7 +42,7 @@
                     <div class="feature-block-three col-lg-6 col-md-6 col-sm-12 wow fadeInUp">
                         <div class="inner-box">
                             <span class="icon flaticon-money-bag"></span>
-                            <h3>پکیج های ویژه املاک جهت دریافت حق شهروندی و پاسپورت کشور ترکیه</h3>
+                            <h3>@Resource.Turkishcitizenshipandpassports</h3>
                         </div>
                     </div>
 
@@ -50,7 +51,7 @@
                          data-wow-delay="400ms">
                         <div class="inner-box">
                             <span class="icon flaticon-money-bag"></span>
-                            <h3>معرفی املاک با امکان خرید با رمز ارزها</h3>
+                            <h3>@Resource.Introducingwiththecurrencycode</h3>
                         </div>
                     </div>
                 </div>
@@ -70,7 +71,7 @@
                     <figure class="image image-3 wow zoomIn" data-wow-delay="800ms">
                         <img src="Content/Assets/images/icons/empty.png" data-src="Content/Assets/images/resource/what-we-do-3.jpg" alt="">
                         <figcaption>
-                            <span class="icon far fa-lightbulb"></span> <h4>پیشنهاد کارشناسان</h4>
+                            <span class="icon far fa-lightbulb"></span> <h4>@Resource.ExpertsSuggestion</h4>
                         </figcaption>
                     </figure>
                 </div>
@@ -90,8 +91,8 @@
     <div class="auto-container">
         <div class="sec-title text-center">
             <div class="devider"><span></span></div>
-            <h2>همکاران ما</h2>
-            <div class="text">همکاران ما در تمام ساعات شبانه روز پاسخگوی شما هستند</div>
+            <h2>@Resource.ourcolleagues</h2>
+            <div class="text">@Resource.Ourcolleaguesareavailable24hoursaday</div>
         </div>
     </div>
 </section>

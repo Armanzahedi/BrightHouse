@@ -34,6 +34,9 @@
 </head>
 
 <body>
+    <input type="hidden" id="NewsLetterError1" value="@Resource.EnterEmailError" />
+    <input type="hidden" id="NewsLetterError2" value="@Resource.EmailNotValidError" />
+
     <div class="page-wrapper">
         <!-- Preloader -->
         <div class="preloader"></div>
@@ -251,20 +254,22 @@
             });
         }
         $("#newsLetterFormFooter").submit(function (event) {
-            debugger;
+            var emailerror1 = document.getElementById('NewsLetterError1').value;
+            var emailerror2 = document.getElementById('NewsLetterError2').value;
+
             var newsLetterCookie = getCookie("newLetterCookie");
             var overlay = $('<div id="overlay"></div>');
             var emailInput = $("#newsLetterEmailFooter").val();
             if (emailInput == null || emailInput == "") {
                 event.preventDefault();
                 $("#newsLetterEmailValidationFooter").show();
-                $("#newsLetterEmailValidationFooter").text('لطفا ایمیل خود را وارد کنید');
-                console.log('لطفا ایمیل خود را وارد کنید');
+                $("#newsLetterEmailValidationFooter").text(emailerror1);
+                console.log(emailerror1);
             } else if (isEmail(emailInput) == false) {
                 event.preventDefault();
                 $("#newsLetterEmailValidationFooter").show();
-                $("#newsLetterEmailValidationFooter").text('ایمیل وارد شده معتبر نیست');
-                console.log('ایمیل وارد شده معتبر نیست');
+                $("#newsLetterEmailValidationFooter").text(emailerror2);
+                console.log(emailerror2);
             } else {
                 $("#newsLetterEmailValidationFooter").hide();
                 if (newsLetterCookie === null || newsLetterCookie === "") {
