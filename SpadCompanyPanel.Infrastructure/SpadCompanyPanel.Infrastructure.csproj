@@ -180,6 +180,7 @@
     <Compile Include="Repositories\ArticleCommentsRepository.cs" />
     <Compile Include="Repositories\ArticleHeadLinesRepository.cs" />
     <Compile Include="Repositories\CustomersRepository.cs" />
+    <Compile Include="Repositories\InvoicesRepository.cs" />
     <Compile Include="Repositories\NewsLetterMembersRepository.cs" />
     <Compile Include="Repositories\NewsRepositoriy.cs" />
     <Compile Include="Repositories\ArticlesRepositoriy.cs" />
