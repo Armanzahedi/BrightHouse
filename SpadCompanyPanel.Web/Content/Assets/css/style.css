@@ -1570,17 +1570,17 @@ li.current.dropdown.index-page a{
 .header-style-three .info-box {
     position: relative;
     float: right;
-    padding-right: 47px;
-    margin-left: 41px;
+    padding-right: 44px;
+    margin-left: -2px;
     min-height: 50px;
 }
 
 .header-style-three .info-box .icon-box {
     position: absolute;
-    right: 0px;
+    right: 5px;
     top: 0px;
     text-align: center;
-    font-size: 38px;
+    font-size: 34px;
     color: #b07908;
     line-height: 40px;
     -webkit-transition: all 300ms ease;
@@ -1600,7 +1600,7 @@ li.current.dropdown.index-page a{
 }
 
 .header-style-three .info-box li strong {
-    font-size: 18px;
+    font-size: 15px;
     color: #ffffff;
     font-weight: 500;
     font-family: "IRANSansWeb", sans-serif;
@@ -6921,6 +6921,12 @@ select.header-option-mt option {
     height: 60px;
     color: white;
 }
+.auto-container-custome{
+    position: static;
+    max-width: 1200px;
+    padding: 0px 100px;
+    margin: 0 auto;
+}
 .slick-prev:hover , .slick-next:hover{
     background: #b07908;
 }
@@ -10322,6 +10328,20 @@ select.header-option-mt option {
     }
     .order-style-4{
         order: 4 !important;
+    }
+    .auto-container-custome{
+        position: static;
+        max-width: 1200px;
+        padding: 0px 10px 0 33px;
+        margin: 0 auto;
+    }
+    .social-fixed-icon {
+        display: block;
+        font-size: 15px;
+        width: auto;
+        height: auto;
+        color: white;
+        margin: 0.5rem;
     }
 
 }
