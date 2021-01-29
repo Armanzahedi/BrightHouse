@@ -44,7 +44,7 @@ namespace SpadCompanyPanel.Web.Areas.Admin.Controllers
                     var newFileName = Guid.NewGuid() + Path.GetExtension(Image.FileName);
                     Image.SaveAs(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName));
                     // Resize Image
-                    ImageResizer image = new ImageResizer(1170, 620, true);
+                    ImageResizer image = new ImageResizer(721, 382, false);
                     image.Resize(Server.MapPath("/Files/RealStateImages/Temp/" + newFileName),
                         Server.MapPath("/Files/RealStateImages/Gallery/" + newFileName));
 
