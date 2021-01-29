@@ -1,5 +1,6 @@
 ﻿@using SpadCompanyPanel.Core.Models
 @using SpadCompanyPanel.Infrastructure.Helpers 
+@using SpadCompanyPanel.Web.Resources;
 @{
     ViewBag.Title = "Payment";
     var plan = ViewBag.Plan as Plan;
@@ -9,10 +10,10 @@
 <!--Page Title-->
 <section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
     <div class="auto-container">
-        <h1>پرداخت</h1>
+        <h1>@Resource.Pay</h1>
         <ul class="page-breadcrumb">
-            <li><a href="/">خانه</a></li>
-            <li>پرداخت</li>
+            <li><a href="/">@Resource.Home</a></li>
+            <li>@Resource.Pay</li>
         </ul>
     </div>
 </section>
@@ -23,7 +24,7 @@
         <div class="row clearfix">
             <div class="col-md-5">
                 <div>
-                    <h5 class="currency-type-title">واحد پولی مورد نظر را انتخاب کنید</h5>
+                    <h5 class="currency-type-title">@Resource.ChooseCurrency</h5>
                     @{int i = 0;}
                     @foreach (var item in paymentAccounts)
                     {
@@ -42,7 +43,7 @@
                     <a href="#" class="d-block text-center">@item.Address</a>
                     <div class="">
                         <h5 class="price-txt">
-                            <span>مبلغ :</span>
+                            <span>@Resource.Price :</span>
                             <span>@ViewBag.Price @currentUnit</span>
                         </h5>
                     </div>
@@ -51,12 +52,12 @@
             }
         <div class="col-md-12 mt-5">
 
-            <h4 class="text-center text-danger">پس از پرداخت حتما تایید را بزنید در غیر اینصورت پرداخت شما نهایی نخواهد نشد</h4>
+            <h4 class="text-center text-danger">@Resource.ConfirmPayment</h4>
             <form id="form-payment" action="/RealState/ConfirmPayment" method="post">
                 <input type="hidden" id="paymentAccount" name="paymentAccount" value="@paymentAccounts[0].Id" />
                 <input type="hidden" id="invoiceId" name="invoiceId" value="@ViewBag.InvoiceId" />
                 <button type="submit" id="submitBtn" class="theme-btn btn-style-one w-100 text-white text-center mt-3">
-                    <span class="btn-title">تایید</span>
+                    <span class="btn-title">@Resource.Confirm</span>
                 </button>
             </form>
         </div>

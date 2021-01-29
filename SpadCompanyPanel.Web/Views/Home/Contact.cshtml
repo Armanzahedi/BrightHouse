@@ -55,28 +55,7 @@
                                 <h2>@Resource.SendMessage</h2>
                                 <div class="text">@Resource.ContactUsAbout</div>
                             </div>
-                            <form method="post" action="sendemail.php" id="contact-forms">
-                                <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="text" name="username" class="contact-input" placeholder="@Resource.FullName" required="">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                        <input type="email" class="contact-input" name="email" placeholder="@Resource.Email" required="">
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <input type="text" class="contact-input" name="subject" placeholder="@Resource.Subject" required="">
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <textarea name="message" class="contact-input" placeholder="@Resource.Message"></textarea>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group send-btn-part">
-                                        <button class="theme-btn btn-style-two" type="submit" name="submit-form"><span class="btn-title">@Resource.Submit</span></button>
-                                    </div>
-                                </div>
-                            </form>
+                            @Html.Action("ContactUsForm", "Home")
                         </div>
                     </div>
                 </div>

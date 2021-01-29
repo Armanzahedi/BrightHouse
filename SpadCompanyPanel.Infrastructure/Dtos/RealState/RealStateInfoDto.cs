@@ -56,6 +56,13 @@ namespace SpadCompanyPanel.Infrastructure.Dtos.RealState
             get { return _realStateGalleries ?? (_realStateGalleries = new List<RealStateGallery>()); }
             set { _realStateGalleries = value; }
         }
+
+        private List<RealStateComment> _realStateCommentList;
+        public List<RealStateComment> RealStateCommentList
+        {
+            get { return _realStateCommentList ?? (_realStateCommentList = new List<RealStateComment>()); }
+            set { _realStateCommentList = value; }
+        }
     }
 
     public class PlanWithOptionDto

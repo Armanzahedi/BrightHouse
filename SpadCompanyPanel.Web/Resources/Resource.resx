@@ -180,6 +180,9 @@
   <data name="Category" xml:space="preserve">
     <value>Category</value>
   </data>
+  <data name="ChooseCurrency" xml:space="preserve">
+    <value>Choose Currency</value>
+  </data>
   <data name="Cities" xml:space="preserve">
     <value>Cities</value>
   </data>
@@ -192,8 +195,14 @@
   <data name="Commercial" xml:space="preserve">
     <value>Commercial</value>
   </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
   <data name="ConfirmedPayment" xml:space="preserve">
     <value>Confirmed payment</value>
+  </data>
+  <data name="ConfirmPayment" xml:space="preserve">
+    <value>Please Confirm your payment, if you dont confirm, your payment will remain on pending status</value>
   </data>
   <data name="Consultants" xml:space="preserve">
     <value>Consultants</value>
@@ -221,6 +230,9 @@
   </data>
   <data name="Detail" xml:space="preserve">
     <value>Details</value>
+  </data>
+  <data name="DontAccount" xml:space="preserve">
+    <value>Dont have Account?</value>
   </data>
   <data name="Dubai" xml:space="preserve">
     <value>Dubai</value>
@@ -445,7 +457,7 @@
     <value>Enter your password</value>
   </data>
   <data name="Pay" xml:space="preserve">
-    <value>Pay</value>
+    <value>Payment</value>
   </data>
   <data name="PaymentStatus" xml:space="preserve">
     <value>Payment Status</value>
@@ -486,6 +498,9 @@
   <data name="PropertyType" xml:space="preserve">
     <value>Estate Type</value>
   </data>
+  <data name="PurchaseNow" xml:space="preserve">
+    <value>Purchase Now</value>
+  </data>
   <data name="RealState" xml:space="preserve">
     <value>RealState</value>
   </data>
@@ -497,6 +512,9 @@
   </data>
   <data name="Region" xml:space="preserve">
     <value>Region</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
   </data>
   <data name="RegisterDate" xml:space="preserve">
     <value>Register Date</value>
@@ -518,6 +536,9 @@
   </data>
   <data name="ResidenceinTurkey" xml:space="preserve">
     <value>Turkey</value>
+  </data>
+  <data name="ReturnHome" xml:space="preserve">
+    <value>Return to home page</value>
   </data>
   <data name="ReTypedPasswordIsNotCorrect" xml:space="preserve">
     <value>Retype password is not correct</value>
@@ -549,6 +570,9 @@
   <data name="Shiraz" xml:space="preserve">
     <value>Shiraz</value>
   </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Sign Up</value>
+  </data>
   <data name="Sortedby" xml:space="preserve">
     <value>Sorted by</value>
   </data>
@@ -573,11 +597,17 @@
   <data name="SubscribetoNewsletter" xml:space="preserve">
     <value>Subscribe to Newsletter</value>
   </data>
+  <data name="SuccessMessage" xml:space="preserve">
+    <value>Your message sent successfully</value>
+  </data>
   <data name="Tags" xml:space="preserve">
     <value>Tags</value>
   </data>
   <data name="Tehran" xml:space="preserve">
     <value>Tehran</value>
+  </data>
+  <data name="ThanksForPay" xml:space="preserve">
+    <value>Thanks For Your Payment</value>
   </data>
   <data name="TheWayForContact" xml:space="preserve">
     <value>The Contact Ways</value>

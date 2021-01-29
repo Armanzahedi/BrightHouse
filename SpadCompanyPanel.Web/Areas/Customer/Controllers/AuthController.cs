@@ -134,7 +134,7 @@ namespace SpadCompanyPanel.Web.Areas.Customer.Controllers
         // POST: /Auth/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterCustomerViewModel model)
         {
             if (ModelState.IsValid)

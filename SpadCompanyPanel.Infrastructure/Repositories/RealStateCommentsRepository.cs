@@ -41,5 +41,10 @@ namespace SpadCompanyPanel.Infrastructure.Repositories
             _logger.LogEvent(comment.GetType().Name, comment.Id, "Delete");
             return comment;
         }
+        public void AddComment(RealStateComment comment)
+        {
+            _context.RealStateComments.Add(comment);
+            _context.SaveChanges();
+        }
     }
 }

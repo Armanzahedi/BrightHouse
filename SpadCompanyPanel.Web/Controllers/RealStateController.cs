@@ -28,6 +28,7 @@ namespace SpadCompanyPanel.Web.Controllers
         private readonly PaymentAccountsRepository _pmRepo;
         private readonly CustomersRepository _customerRepo;
         private readonly InvoicesRepository _invoiceRepo;
+        private readonly RealStateCommentsRepository _commentRepos;
         private readonly int _currentLang;
         private readonly int _currentCurrency;
         public RealStateController(RealStatesRepository realStateRepos,
@@ -41,10 +42,12 @@ namespace SpadCompanyPanel.Web.Controllers
             GeoDivisionService geoDivisionService,
             PaymentAccountsRepository pmRepo,
             InvoicesRepository invoiceRepo,
+            RealStateCommentsRepository commentRepos,
             CustomersRepository customerRepo)
         {
             _realStateRepos = realStateRepos;
             _optionRepos = optionRepos;
+            _commentRepos = commentRepos;
             _realStateGalleryRepos = realStateGalleryRepos;
             _geoDivisionsRepo = geoDivisionsRepo;
             _planRepos = planRepos;
@@ -270,7 +273,7 @@ namespace SpadCompanyPanel.Web.Controllers
                 invoice.TotalPrice = (long)CurrencyHelper.ExchangeAmount(defaultPrice, _currentCurrency);
                 _invoiceRepo.Update(invoice);
 
-                return RedirectToAction("ContactUsSummary", "Home", new { message = "از خرید شما سپاس گذاریم" });
+                return RedirectToAction("ContactUsSummary", "Home", new { message = Resource.ThanksForPay });
             }
             catch (Exception)
             {
@@ -287,6 +290,26 @@ namespace SpadCompanyPanel.Web.Controllers
             }
 
             return code;
+        }
+
+        [HttpPost]
+        public ActionResult PostComment(CommentFormViewModel form)
+        {
+            if (ModelState.IsValid)
+            {
+                var comment = new RealStateComment()
+                {
+                    RealStateId = form.ArticleId,
+                    ParentId = form.ParentId,
+                    Name = form.Name,
+                    Email = form.Email,
+                    Message = form.Message,
+                    AddedDate = DateTime.Now,
+                };
+                _commentRepos.Add(comment);
+                //return RedirectToAction("ContactUsSummary", "Home");
+            }
+            return RedirectToAction("Details", new { id = form.ArticleId });
         }
     }
 }

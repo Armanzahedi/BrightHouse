@@ -112,105 +112,105 @@
                                 <div class="tab-content" id="myTabContent">
                                     @for (int i = 0; i < Model.PlanWithOptions.Count; i++)
                                     {
-                                    <div class="tab-pane fade show @(i==0? "active" : null)" id="plan-@i" role="tabpanel"
-                                         aria-labelledby="plan-@i-tab" style="margin: 1rem">
+                                        <div class="tab-pane fade show @(i==0? "active" : null)" id="plan-@i" role="tabpanel"
+                                             aria-labelledby="plan-@i-tab" style="margin: 1rem">
 
-                                        <ul class="nav nav-tabs" id="myTab@(i)" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" id="home-tab@(i)" data-toggle="tab" href="#home@(i)" role="tab" aria-controls="home" aria-selected="true">@Resource.Detail</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="profile-tab@(i)" data-toggle="tab" href="#profile@(i)" role="tab" aria-controls="profile" aria-selected="false">@Resource.Option</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="contact-tab@(i)" data-toggle="tab" href="#contact@(i)" role="tab" aria-controls="contact" aria-selected="false">@Resource.Plan</a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content" id="myTabContent@(i)">
-                                            <div class="tab-pane fade show  active" id="home@(i)" role="tabpanel" aria-labelledby="home-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
-                                                        <h4 class="mt-4">@Resource.Detail</h4>
-                                                        <div class="agent-detail pt-0">
-                                                            @{ var Type = Model.PlanWithOptions[i].Plan.PlanType == 1 ? Resource.Sale : (Model.PlanWithOptions[i].Plan.PlanType == 2 ? Resource.PreSale : Resource.Rent);}
-                                                            <table class="info-table">
-                                                                <tr>
-                                                                    <td><strong>@Resource.Title:</strong> @Model.PlanWithOptions[i].Plan.Title</td>
-                                                                    <td><strong>@Resource.MalikFor:</strong> @Type</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>@Resource.Bedroom:</strong>@Model.PlanWithOptions[i].Plan.Rooms</td>
-                                                                    <td><strong>@Resource.Area:</strong>@Model.PlanWithOptions[i].Plan.Area </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>@Resource.Bathroom:</strong>@Model.PlanWithOptions[i].Plan.BathRooms</td>
-                                                                    <td><strong>@Resource.Floor:</strong>@Model.PlanWithOptions[i].Plan.FloorNo</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><strong>@Resource.Price:</strong>€ @Model.PlanWithOptions[i].Plan.Price.ToString("##,###")</td>
-                                                                    <td>
-                                                                        @if (Model.PlanWithOptions[i].Plan.RentPrice != null && Model.PlanWithOptions[i].Plan.RentPrice > 0)
-                                                                        {
-                                                                            <span><strong>@Resource.Rent:</strong>€ @Model.PlanWithOptions[i].Plan.RentPrice.Value.ToString("##,###")</span>
-                                                                        }
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
+                                            <ul class="nav nav-tabs" id="myTab@(i)" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="home-tab@(i)" data-toggle="tab" href="#home@(i)" role="tab" aria-controls="home" aria-selected="true">@Resource.Detail</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="profile-tab@(i)" data-toggle="tab" href="#profile@(i)" role="tab" aria-controls="profile" aria-selected="false">@Resource.Option</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="contact-tab@(i)" data-toggle="tab" href="#contact@(i)" role="tab" aria-controls="contact" aria-selected="false">@Resource.Plan</a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content" id="myTabContent@(i)">
+                                                <div class="tab-pane fade show  active" id="home@(i)" role="tabpanel" aria-labelledby="home-tab">
+                                                    <div class="content-side col-lg-12">
+                                                        <div class="property-detail">
+                                                            <h4 class="mt-4">@Resource.Detail</h4>
+                                                            <div class="agent-detail pt-0">
+                                                                @{ var Type = Model.PlanWithOptions[i].Plan.PlanType == 1 ? Resource.Sale : (Model.PlanWithOptions[i].Plan.PlanType == 2 ? Resource.PreSale : Resource.Rent);}
+                                                                <table class="info-table">
+                                                                    <tr>
+                                                                        <td><strong>@Resource.Title:</strong> @Model.PlanWithOptions[i].Plan.Title</td>
+                                                                        <td><strong>@Resource.MalikFor:</strong> @Type</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>@Resource.Bedroom:</strong>@Model.PlanWithOptions[i].Plan.Rooms</td>
+                                                                        <td><strong>@Resource.Area:</strong>@Model.PlanWithOptions[i].Plan.Area </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>@Resource.Bathroom:</strong>@Model.PlanWithOptions[i].Plan.BathRooms</td>
+                                                                        <td><strong>@Resource.Floor:</strong>@Model.PlanWithOptions[i].Plan.FloorNo</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><strong>@Resource.Price:</strong>€ @Model.PlanWithOptions[i].Plan.Price.ToString("##,###")</td>
+                                                                        <td>
+                                                                            @if (Model.PlanWithOptions[i].Plan.RentPrice != null && Model.PlanWithOptions[i].Plan.RentPrice > 0)
+                                                                            {
+                                                                                <span><strong>@Resource.Rent:</strong>€ @Model.PlanWithOptions[i].Plan.RentPrice.Value.ToString("##,###")</span>
+                                                                            }
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="profile@(i)" role="tabpanel" aria-labelledby="profile-tab">
-                                                <div class="content-side col-lg-12">
-                                                    <div class="property-detail">
+                                                <div class="tab-pane fade" id="profile@(i)" role="tabpanel" aria-labelledby="profile-tab">
+                                                    <div class="content-side col-lg-12">
+                                                        <div class="property-detail">
 
 
-                                                        <h4 class="mt-5">@Resource.Option</h4>
-                                                        <ul class="features-list clearfix">
-                                                            @foreach (var item in Model.PlanWithOptions[i].Options)
-                                                            {
-                                                                if (lang == (int)Language.Farsi)
+                                                            <h4 class="mt-5">@Resource.Option</h4>
+                                                            <ul class="features-list clearfix">
+                                                                @foreach (var item in Model.PlanWithOptions[i].Options)
                                                                 {
-                                                                    <li>@item.Title</li>
+                                                                    if (lang == (int)Language.Farsi)
+                                                                    {
+                                                                        <li>@item.Title</li>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <li>@item.EnglishTitle</li>
+                                                                    }
                                                                 }
-                                                                else
-                                                                {
-                                                                    <li>@item.EnglishTitle</li>
-                                                                }
-                                                            }
-                                                        </ul>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="contact@(i)" role="tabpanel" aria-labelledby="contact-tab">
-                                                <div class="content-side col-lg-12 mt-4">
-                                                    <div class="property-detail">
+                                                <div class="tab-pane fade" id="contact@(i)" role="tabpanel" aria-labelledby="contact-tab">
+                                                    <div class="content-side col-lg-12 mt-4">
+                                                        <div class="property-detail">
 
-                                                        <h4>@Resource.Plan</h4>
-                                                        <div class="floor-plans">
-                                                            <ul class="floor-info clearfix">
-                                                                <li class="title">@Resource.PlanSample</li>
-                                                                <li>@Model.PlanWithOptions[i].Plan.BathRooms @Resource.Bathroom</li>
-                                                                <li>@Model.PlanWithOptions[i].Plan.Rooms @Resource.Bedroom</li>
-                                                                <li>@Model.PlanWithOptions[i].Plan.Area @Resource.Area</li>
-                                                            </ul>
-                                                            <div class="floor-image">
-                                                                <figure class="image">
-                                                                    <img src="/Files/PlanFiles/PlanImages/@Model.PlanWithOptions[i].Plan.Image"
-                                                                         data-src="/Files/PlanFiles/PlanImages/@Model.PlanWithOptions[i].Plan.Image" alt="">
-                                                                </figure>
+                                                            <h4>@Resource.Plan</h4>
+                                                            <div class="floor-plans">
+                                                                <ul class="floor-info clearfix">
+                                                                    <li class="title">@Resource.PlanSample</li>
+                                                                    <li>@Model.PlanWithOptions[i].Plan.BathRooms @Resource.Bathroom</li>
+                                                                    <li>@Model.PlanWithOptions[i].Plan.Rooms @Resource.Bedroom</li>
+                                                                    <li>@Model.PlanWithOptions[i].Plan.Area @Resource.Area</li>
+                                                                </ul>
+                                                                <div class="floor-image">
+                                                                    <figure class="image">
+                                                                        <img src="/Files/PlanFiles/PlanImages/@Model.PlanWithOptions[i].Plan.Image"
+                                                                             data-src="/Files/PlanFiles/PlanImages/@Model.PlanWithOptions[i].Plan.Image" alt="">
+                                                                    </figure>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <a href="/RealState/GoToPayment?planId=@Model.PlanWithOptions[i].Plan.Id" class="theme-btn btn-style-one w-100 text-white text-center"><span class="btn-title">هم اکنون خریداری کنید</span></a>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <a href="/RealState/GoToPayment?planId=@Model.PlanWithOptions[i].Plan.Id" class="theme-btn btn-style-one w-100 text-white text-center"><span class="btn-title">@Resource.PurchaseNow</span></a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     }
                                 </div>
                             </div>
@@ -247,55 +247,89 @@
                                     </div>
                                 </div>
                             }
+
                             <!--Reviews Container-->
                             <div class="reviews-container">
                                 <h3>@Resource.Comments</h3>
                                 <!--Reviews-->
-                                <article class="review-box">
-                                    <div class="thumb-box">
-                                        <figure class="thumb">
-                                            <img src="/Files/UserAvatars/user-avatar.png"
-                                                 data-src="/Files/UserAvatars/user-avatar.png"
-                                                 alt="">
-                                        </figure>
-                                    </div>
-                                    <div class="content-box">
-                                        <div class="name">فلورا معصومی</div>
-                                        <span class="date"><i class="fa fa-calendar-alt"></i> 5 شهریور, 1398</span>
-                                        <div class="rating">
-                                            <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-                                        </div>
-                                        <div class="text">
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                            برایت هوس یکی از بهترین راهنمایان و فروشندگان خانه است
-                                        </div>
-                                    </div>
-                                </article>
+                                @if (Model.RealStateCommentList.Any())
+                                {
+                                    foreach (var item in Model.RealStateCommentList)
+                                    {
+                                        <article class="review-box">
+                                            <div class="thumb-box">
+                                                <figure class="thumb">
+                                                    <img src="/Files/UserAvatars/user-avatar.png"
+                                                         data-src="/Files/UserAvatars/user-avatar.png"
+                                                         alt="">
+                                                </figure>
+                                            </div>
+                                            <div class="content-box">
+                                                <div class="name">@item.Name</div>
+                                                <span class="date"><i class="fa fa-calendar-alt"></i> @item.AddedDate.Value.ToString()</span>
+                                                <div class="rating">
+                                                    <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                                                </div>
+                                                <div class="text">
+                                                    @Html.Raw(item.Message)
+                                                </div>
+                                            </div>
+                                        </article>
+                                    }
+                                }
+                                else
+                                {
+                                    <h5>
+                                        برای این ملک دیدگاهی ثبت نشده است.
+                                    </h5>
+                                }
                             </div>
                         </div>
 
                         <!-- Review Comment Form -->
                         <div class="review-comment-form">
                             <h3>@Resource.SendMessage</h3>
-                            <form method="post" action="contact.html">
+                            @*<form method="post" action="contact.html">
+            <div class="row">
+                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <input type="text" name="username" placeholder="@Resource.FullName"
+                           required>
+                </div>
+                <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <input type="text" name="number" placeholder="@Resource.Email" required>
+                </div>
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <textarea name="message" placeholder="@Resource.Message"></textarea>
+                </div>
+                <div class="form-group col-lg-6 col-md-6 col-sm-6">
+
+                </div>
+
+                <div class="form-group col-lg-6 col-md-6 col-sm-6 text-right">
+                    <button class="theme-btn btn-style-one" type="submit" name="submit-form">
+                        <span class="btn-title">@Resource.Subject</span>
+                    </button>
+                </div>
+            </div>
+        </form>*@
+
+                            @using (Html.BeginForm("PostComment", "RealState", FormMethod.Post, new { id = "commentform" }))
+                            {
+                                <input type="hidden" id="ArticleId" name="ArticleId" value="@Model.Id">
+                                <input type="hidden" id="ParentId" name="ParentId" value="">
                                 <div class="row">
                                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                        <input type="text" name="username" placeholder="@Resource.FullName"
+                                        <input type="text" name="Name" placeholder="@Resource.FullName"
                                                required>
                                     </div>
                                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                        <input type="text" name="number" placeholder="@Resource.Email" required>
+                                        <input type="text" name="Email" placeholder="@Resource.Email" required>
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                                         <textarea name="message" placeholder="@Resource.Message"></textarea>
                                     </div>
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6">
-                                        
+
                                     </div>
 
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 text-right">
@@ -304,12 +338,11 @@
                                         </button>
                                     </div>
                                 </div>
-                            </form>
-                            @*@Html.Action("Create", "RealStateComments", new { realStateId = Model.Id }))*@
+                            }
                         </div>
                     </div>
                 </div>
-              
+
                 <!--Sidebar Side-->
 
             </div>

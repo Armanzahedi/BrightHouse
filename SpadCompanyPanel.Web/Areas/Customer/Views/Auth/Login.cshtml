@@ -1,16 +1,17 @@
 ﻿@using SpadCompanyPanel.Web.ViewModels
+@using SpadCompanyPanel.Web.Resources
 @model LoginCustomerViewModel
 @{
-    ViewBag.Title = "ورود به پنل کاربری";
+    ViewBag.Title = Resource.Login;
     Layout = "~/Views/Shared/_InternalLayout.cshtml";
 }
 <!--Page Title-->
 <section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
     <div class="auto-container">
-        <h1>ورود</h1>
+        <h1>@Resource.Login</h1>
         <ul class="page-breadcrumb">
-            <li><a href="/">خانه</a></li>
-            <li>ورود </li>
+            <li><a href="/">@Resource.Home</a></li>
+            <li>@Resource.Login</li>
         </ul>
     </div>
 </section>
@@ -22,18 +23,19 @@
             <div class="column col-lg-9 col-md-12 m-auto col-sm-12 wow fadeInRight">
                 <!-- Login Form -->
                 <div class="login-form register-card ">
-                    <h2>ورود</h2>
+                    <h2>@Resource.Login</h2>
                     <!--Login Form-->
                     @using (Html.BeginForm("Login", "Auth", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "form" }))
                     {
                         <div class="form-group">
-                            @Html.LabelFor(m => m.PhoneNumber) @(SpadCompanyPanel.Web.Resources.Resource.UserName)
+                            @Html.LabelFor(m => m.PhoneNumber, SpadCompanyPanel.Web.Resources.Resource.UserName)
+
                             @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "text-dark" } })
                             @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(m => m.Password)
+                            @Html.LabelFor(m => m.Password, SpadCompanyPanel.Web.Resources.Resource.Password)
                             @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text-dark" } })
                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         </div>
@@ -43,12 +45,16 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="theme-btn btn-style-three" type="submit" name="submit-form"><span class="btn-title">ورود</span></button>
+                            <a href="/Customer/Auth/Register"><label style="cursor:pointer">@Resource.DontAccount</label></a>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="theme-btn btn-style-three" type="submit" name="submit-form"><span class="btn-title">@Resource.Login</span></button>
                         </div>
 
                         @*<div class="form-group pass">
-                            <a href="#" class="psw">رمزعبور خود را فراموش کردم</a>
-                        </div>*@
+                <a href="#" class="psw">رمزعبور خود را فراموش کردم</a>
+            </div>*@
                     }
                 </div>
                 <!--End Login Form -->

@@ -203,6 +203,7 @@ namespace SpadCompanyPanel.Infrastructure.Services
             var _planRepos = new PlansRepository(_context, new LogsRepository(_context));
             var _optionRepos = new OptionsRepository(_context, new LogsRepository(_context));
             var _realStateGalleryRepos = new RealStateGalleriesRepository(_context, new LogsRepository(_context));
+            var _commentRepos = new RealStateCommentsRepository(_context, new LogsRepository(_context));
 
             var realState = _realStateRepos.GetRealStateWithNavigations(id);
             var realStateCity = _geoDivisionsRepo.Get(realState.GeoDivisionId);
@@ -258,6 +259,9 @@ namespace SpadCompanyPanel.Infrastructure.Services
             }
 
             model.RealStateGalleriesList = _realStateGalleryRepos.GetRealStateGalleries(id);
+
+            var comments = _commentRepos.GetRealStateComments(id);
+            model.RealStateCommentList.AddRange(comments);
 
             return model;
         }

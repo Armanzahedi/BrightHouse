@@ -648,4 +648,34 @@
   <data name="YouCanSeeYourInvoicesHere" xml:space="preserve">
     <value>شما میتوانید در این قست تاریخچه ی تمامی سفارشات خود را مشاهده کنید</value>
   </data>
+  <data name="PurchaseNow" xml:space="preserve">
+    <value>هم اکنون خریداری کنید</value>
+  </data>
+  <data name="ChooseCurrency" xml:space="preserve">
+    <value>واحد پولی مورد نظر را انتخاب کنید</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="ConfirmPayment" xml:space="preserve">
+    <value>پس از پرداخت حتما تایید را بزنید در غیر اینصورت پرداخت شما نهایی نخواهد نشد</value>
+  </data>
+  <data name="DontAccount" xml:space="preserve">
+    <value>حساب کاربری ندارید؟</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>ثبت نام</value>
+  </data>
+  <data name="ReturnHome" xml:space="preserve">
+    <value>بازگشت به صفحه اصلی</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>ثبت نام کنید</value>
+  </data>
+  <data name="SuccessMessage" xml:space="preserve">
+    <value>پیام شما با موفقیت ثبت شد</value>
+  </data>
+  <data name="ThanksForPay" xml:space="preserve">
+    <value>از خرید شما سپاس گذاریم</value>
+  </data>
 </root>
