@@ -1,4 +1,5 @@
 ﻿@model List<SpadCompanyPanel.Core.Models.Invoice>
+@using SpadCompanyPanel.Web.Resources
 @{
     ViewBag.Title = "سفارشات";
 }
@@ -20,12 +21,12 @@
         <table class="datatable datatable-bordered" id="kt_datatable">
             <thead>
                 <tr>
-                    <th title="Field #1">شماره سفارش</th>
-                    <th title="Field #2">تاریخ ثبت</th>
-                    <th title="Field #3">قیمت کل</th>
-                    <th title="Field #4">ملک</th>
-                    <th title="Field #5">پلان</th>
-                    <th title="Field #6">وضعیت پرداخت</th>
+                    <th title="Field #1">@Resource.InvoiceNumber</th>
+                    <th title="Field #2">@Resource.RegisterDate</th>
+                    <th title="Field #3">@Resource.Price</th>
+                    <th title="Field #4">@Resource.RealState</th>
+                    <th title="Field #5">@Resource.Plan</th>
+                    <th title="Field #6">@Resource.PaymentStatus</th>
                     <th title="Field #9"></th>
                 </tr>
             </thead>
@@ -41,7 +42,7 @@
                         @if (item.PaymentStatus == 0)
                         {
                             <td>
-                                <span class="text-danger">پرداخت نشده <a href="/RealState/Payment/@item.PlanId">( پرداخت )</a></span>
+                                <span class="text-danger">@Resource.NotPayed <a href="/RealState/Payment?invoiceId=@item.Id" target="_blank">( @Resource.Pay )</a></span>
                             </td>
                         }
                         else if (item.PaymentStatus == 1)

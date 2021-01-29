@@ -5474,6 +5474,7 @@
     <Content Include="Views\Home\LuxurtVillasSection.cshtml" />
     <Content Include="Views\Home\RecentRealStates.cshtml" />
     <Content Include="Views\Home\LatestArticles.cshtml" />
+    <Content Include="Views\RealState\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />

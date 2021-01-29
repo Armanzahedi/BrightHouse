@@ -82,7 +82,7 @@
                             }
                             else
                             {
-                                <a href="/Customer/Dashboard/EditMyProfile">ویرایش</a>
+                                <a href="/Customer/Dashboard/EditMyProfile">@Resource.Edit</a>
                             }
                         </span>
                     </div>
@@ -131,7 +131,7 @@
                     @if (item.PaymentStatus == 0)
                     {
                         <td>
-                            <span class="text-danger">@Resource.NotPayed <a href="/RealState/Payment/@item.PlanId">( @Resource.Pay )</a></span>
+                            <span class="text-danger">@Resource.NotPayed <a href="/RealState/Payment?invoiceId=@item.Id" target="_blank">( @Resource.Pay )</a></span>
                         </td>
                     }
                     else if (item.PaymentStatus == 1)

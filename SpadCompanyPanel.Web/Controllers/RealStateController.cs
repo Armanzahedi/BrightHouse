@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using SpadCompanyPanel.Infrastructure.Dtos.RealState;
 using SpadCompanyPanel.Infrastructure.Services;
 using SpadCompanyPanel.Web.Resources;
+using SpadCompanyPanel.Core.Models;
 
 namespace SpadCompanyPanel.Web.Controllers
 {
@@ -24,9 +25,12 @@ namespace SpadCompanyPanel.Web.Controllers
         private readonly RealStateService _realStateService;
         private readonly CurrenciesRepository _currencyRepo;
         private readonly GeoDivisionService _geoDivisionService;
+        private readonly PaymentAccountsRepository _pmRepo;
+        private readonly CustomersRepository _customerRepo;
+        private readonly InvoicesRepository _invoiceRepo;
         private readonly int _currentLang;
         private readonly int _currentCurrency;
-        public RealStateController(RealStatesRepository realStateRepos, 
+        public RealStateController(RealStatesRepository realStateRepos,
             OptionsRepository optionRepos,
             RealStateGalleriesRepository realStateGalleryRepos,
             GeoDivisionsRepository geoDivisionsRepo,
@@ -34,7 +38,10 @@ namespace SpadCompanyPanel.Web.Controllers
             GeoDivisionsRepository geoRepos,
             RealStateService realStateService,
             CurrenciesRepository currencyRepo,
-            GeoDivisionService geoDivisionService)
+            GeoDivisionService geoDivisionService,
+            PaymentAccountsRepository pmRepo,
+            InvoicesRepository invoiceRepo,
+            CustomersRepository customerRepo)
         {
             _realStateRepos = realStateRepos;
             _optionRepos = optionRepos;
@@ -46,9 +53,12 @@ namespace SpadCompanyPanel.Web.Controllers
             _currentLang = LanguageHelper.GetCulture();
             _currentCurrency = CurrencyHelper.GetCurrencyId();
             _geoDivisionService = geoDivisionService;
+            _pmRepo = pmRepo;
+            _customerRepo = customerRepo;
+            _invoiceRepo = invoiceRepo;
         }
         // GET: RealState
-        public ActionResult Index(int? countryId,int? stateId,int? cityId,int? planType,int? realStateType)
+        public ActionResult Index(int? countryId, int? stateId, int? cityId, int? planType, int? realStateType)
         {
             ViewBag.Countries = _geoDivisionService.GetCountries();
             ViewBag.MinPrice = Convert.ToInt64(_realStateService.GetLowestPriceOfPlans());
@@ -89,7 +99,7 @@ namespace SpadCompanyPanel.Web.Controllers
         public ActionResult StateGrid(RealStateGridViewModel model)
         {
             var realStates = new List<RealStateInfoDto>();
-            realStates = _realStateService.GetRealStateGrid(model.countryId,model.stateId,model.cityId,model.realStateType,model.planType,model.roomNo,model.bathRoomNo,model.priceFrom,model.priceTo);
+            realStates = _realStateService.GetRealStateGrid(model.countryId, model.stateId, model.cityId, model.realStateType, model.planType, model.roomNo, model.bathRoomNo, model.priceFrom, model.priceTo);
             if (string.IsNullOrEmpty(model.sort) == false)
             {
                 switch (model.sort)
@@ -203,6 +213,80 @@ namespace SpadCompanyPanel.Web.Controllers
                 return JsonConvert.SerializeObject(obj);
             }
             return "";
+        }
+        public ActionResult GoToPayment(int planId)
+        {
+            try
+            {
+                if (User.Identity.IsAuthenticated == false)
+                    return Redirect("/Customer/Auth/Login");
+
+                var plan = _planRepos.Get(planId);
+                var currencyid = _currentCurrency;
+                var price = CurrencyHelper.ExchangeAmount(plan.Price, _currentCurrency);
+                var customer = _customerRepo.GetCurrentCustomer();
+                var invoice = new Invoice()
+                {
+                    RegisteredDate = DateTime.Now,
+                    PlanId = planId,
+                    CustomerId = customer.Id,
+                    InvoiceNumber = GenerateInvoiceNumber(),
+                    TotalPrice = (long)price,
+                    CurrencyId = currencyid
+                };
+                _invoiceRepo.Add(invoice);
+                return RedirectToAction("Payment", new { invoiceId = invoice.Id });
+            }
+            catch (Exception)
+            {
+                return Redirect("/Customer/Auth/Login");
+            }
+        }
+        public ActionResult Payment(int invoiceId)
+        {
+            if (User.Identity.IsAuthenticated == false)
+                return Redirect("/Customer/Auth/Login");
+
+            ViewBag.InvoiceId = invoiceId;
+            var invoice = _invoiceRepo.Get(invoiceId);
+            var plan = _planRepos.Get(invoice.PlanId.Value);
+            var paymentAccounts = _pmRepo.GetAll();
+            paymentAccounts = paymentAccounts.OrderByDescending(p => p.Id).ToList();
+            ViewBag.Plan = plan;
+            ViewBag.PaymentAccounts = paymentAccounts;
+            ViewBag.Price = CurrencyHelper.ExchangeAmount(plan.Price, _currentCurrency).ToString("##,###");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ConfirmPayment(int invoiceId, int paymentAccount)
+        {
+            try
+            {
+                var invoice = _invoiceRepo.Get(invoiceId);
+                invoice.PaymentAccountId = paymentAccount;
+                invoice.PaymentDate = DateTime.Now;
+                invoice.PaymentStatus = 1;
+                var defaultPrice = CurrencyHelper.GetDefaultAmount(invoice.TotalPrice);
+                invoice.TotalPrice = (long)CurrencyHelper.ExchangeAmount(defaultPrice, _currentCurrency);
+                _invoiceRepo.Update(invoice);
+
+                return RedirectToAction("ContactUsSummary", "Home", new { message = "از خرید شما سپاس گذاریم" });
+            }
+            catch (Exception)
+            {
+                return Redirect("/Customer/Auth/Login");
+            }
+        }
+        public string GenerateInvoiceNumber()
+        {
+            var bytes = Guid.NewGuid().ToByteArray();
+            var code = "";
+            for (int i = 0; code.Length <= 16 && i < bytes.Length; i++)
+            {
+                code += (bytes[i] % 10).ToString();
+            }
+
+            return code;
         }
     }
 }

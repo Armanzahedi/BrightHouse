@@ -138,8 +138,12 @@ namespace SpadCompanyPanel.Web.Controllers
             }
             return View(contactForm);
         }
-        public ActionResult ContactUsSummary()
+        public ActionResult ContactUsSummary(string message = null)
         {
+            if(message != null)
+            {
+                ViewBag.Message = message;
+            }
             return View();
         }
         public ActionResult PartnersSection()

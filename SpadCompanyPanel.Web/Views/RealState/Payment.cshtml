@@ -1,0 +1,88 @@
+﻿@using SpadCompanyPanel.Core.Models
+@using SpadCompanyPanel.Infrastructure.Helpers 
+@{
+    ViewBag.Title = "Payment";
+    var plan = ViewBag.Plan as Plan;
+    var paymentAccounts = ViewBag.PaymentAccounts as List<PaymentAccount>;
+    var currentUnit = CurrencyHelper.GetCurrencyUnit();
+}
+<!--Page Title-->
+<section class="page-title" style="background-image:url(/Content/Assets/images/background/4.jpg)">
+    <div class="auto-container">
+        <h1>پرداخت</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="/">خانه</a></li>
+            <li>پرداخت</li>
+        </ul>
+    </div>
+</section>
+<!--End Page Title-->
+<!--Login Section-->
+<section class="login-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="col-md-5">
+                <div>
+                    <h5 class="currency-type-title">واحد پولی مورد نظر را انتخاب کنید</h5>
+                    @{int i = 0;}
+                    @foreach (var item in paymentAccounts)
+                    {
+                        <input type="radio" class="radio-bullet mt-4" id="pa_@item.Id" @(i == 0 ? "checked='checked'" : null) name="paymentAccount" value="@item.Id">
+                        <label for="pa_@item.Id" class="radio-txt">@item.Title</label><br>
+                        i++;
+                    }
+                </div>
+            </div>
+            @{int j = 0;}
+            @foreach (var item in paymentAccounts)
+            {
+                <div class="col-md-7" id="pa_container_@item.Id" style="display:@(j==0?"block":"none")">
+                    <img src="~/Files/PaymentAccountsQrCode/@item.QrCode" alt="@item.Title" class="qr_img">
+                    <br>
+                    <a href="#" class="d-block text-center">@item.Address</a>
+                    <div class="">
+                        <h5 class="price-txt">
+                            <span>مبلغ :</span>
+                            <span>@ViewBag.Price @currentUnit</span>
+                        </h5>
+                    </div>
+                </div>
+                j++;
+            }
+        <div class="col-md-12 mt-5">
+
+            <h4 class="text-center text-danger">پس از پرداخت حتما تایید را بزنید در غیر اینصورت پرداخت شما نهایی نخواهد نشد</h4>
+            <form id="form-payment" action="/RealState/ConfirmPayment" method="post">
+                <input type="hidden" id="paymentAccount" name="paymentAccount" value="@paymentAccounts[0].Id" />
+                <input type="hidden" id="invoiceId" name="invoiceId" value="@ViewBag.InvoiceId" />
+                <button type="submit" id="submitBtn" class="theme-btn btn-style-one w-100 text-white text-center mt-3">
+                    <span class="btn-title">تایید</span>
+                </button>
+            </form>
+        </div>
+
+        </div>
+    </div>
+</section>
+<!--End Login Section-->
+@section scripts{
+    <script>
+        $('input[name=paymentAccount]').change(function () {
+            qrChange = $("input.radio-bullet:checked").val();
+            $('input[name=paymentAccount]').each(function () {
+                var id = $(this).attr('id').slice(3);
+                if (this.checked) {
+                    $("#paymentAccount").val($(this).val());
+                    $("#pa_container_" + id).show();
+                    //console.log($("#paymentAccount").val());
+                } else {
+                    $("#pa_container_" + id).hide();
+                }
+            });
+        });
+        //$("#submitBtn").click(function () {
+        //    console.log("sadsada")
+        //    $("#form-payment").submit();
+        //});
+    </script>
+}
